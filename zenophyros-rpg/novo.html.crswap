@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Zenophyros</title>
+    <link rel="stylesheet" href="./css/main.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jersey+25&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <main class="container">
+      <div class="frame">
+        <!-- TOPO -->
+        <div class="topo">
+          <div class="info">
+            <label>
+              Nome
+              <input type="text" name="nome" />
+            </label>
+
+            <label>
+              Espécie
+              <select name="especie">
+                <option>Humano</option>
+                <option>Elfo</option>
+                <option>Anão</option>
+                <option>Orc</option>
+                <option>Centauro</option>
+                <option>Draconato</option>
+                <option>Ullum</option>
+                <option>Abauzonte</option>
+              </select>
+            </label>
+
+            <label class="classe-group">
+              Classe
+              <div class="classe-wrapper">
+                <select name="classe">
+                  <option>Guerreiro</option>
+                  <option>Tanque</option>
+                  <option>Arqueiro</option>
+                  <option>Ladino</option>
+                  <option>Suporte</option>
+                  <option>Conjurador</option>
+                  <option>Invocador</option>
+                </select>
+                <img
+                  src="https://picsum.photos/64/64?random=1"
+                  alt="Ícone da classe"
+                  class="classe-icon"
+                />
+              </div>
+            </label>
+          </div>
+
+          <div class="retrato">
+            <img
+              src="https://picsum.photos/64/64?random=2"
+              alt="Imagem da espécie"
+            />
+          </div>
+        </div>
+
+        <!-- ATRIBUTOS -->
+        <div class="atributos">
+          <label>PV <input type="number" min="0" max="999" /></label>
+          <label>FOR <input type="number" min="0" max="999" /></label>
+          <label>DES <input type="number" min="0" max="999" /></label>
+
+          <label>AGI <input type="number" min="0" max="999" /></label>
+          <label>VIT <input type="number" min="0" max="999" /></label>
+          <label>INT <input type="number" min="0" max="999" /></label>
+
+          <label>SIN <input type="number" min="0" max="999" /></label>
+          <label>SAN <input type="number" min="0" max="999" /></label>
+          <label>AUR <input type="number" min="0" max="999" /></label>
+        </div>
+
+        <!-- SEÇÕES -->
+        <div class="secao">
+          <h3>Habilidades</h3>
+          <textarea></textarea>
+        </div>
+
+        <div class="secao">
+          <h3>Traços de Espécie</h3>
+          <textarea></textarea>
+        </div>
+      </div>
+    </main>
+    <footer id="site-footer"><!-- Filled by footer.js--></footer>
+    <script src="./js/footer.js"></script>
+  </body>
+</html>

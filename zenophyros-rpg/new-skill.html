@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Nova Habilidade - Zenophyros</title>
+
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/new-skill.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jersey+25&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <main class="container">
+      <section class="frame new-skill-page">
+        <h1>Nova Habilidade</h1>
+
+        <form id="skill-form">
+          <div class="form-grid">
+            <label>
+              ID
+              <input type="text" id="id" placeholder="explosao_menor" />
+            </label>
+
+            <label>
+              Nome
+              <input type="text" id="nome" />
+            </label>
+
+            <label>
+              Nível
+              <input type="number" id="nivel" min="0" value="0" />
+            </label>
+
+            <label>
+              Tipo
+              <select id="tipo"></select>
+            </label>
+
+            <label>
+              Origem
+              <select id="origem"></select>
+            </label>
+
+            <label>
+              Escola
+              <input type="text" id="escola" placeholder="PIROMANCIA" />
+            </label>
+          </div>
+
+          <div class="secao">
+            <h3>Descrição</h3>
+
+            <textarea id="descricao"></textarea>
+          </div>
+
+          <div class="secao">
+            <h3>Pré-Requisitos</h3>
+
+            <div class="form-grid">
+              <label>
+                FOR
+                <input type="number" id="req-for" value="0" />
+              </label>
+
+              <label>
+                DES
+                <input type="number" id="req-des" value="0" />
+              </label>
+
+              <label>
+                AGI
+                <input type="number" id="req-agi" value="0" />
+              </label>
+
+              <label>
+                VIT
+                <input type="number" id="req-vit" value="0" />
+              </label>
+
+              <label>
+                RAC
+                <input type="number" id="req-rac" value="0" />
+              </label>
+
+              <label>
+                INS
+                <input type="number" id="req-ins" value="0" />
+              </label>
+
+              <label>
+                SAN
+                <input type="number" id="req-san" value="0" />
+              </label>
+
+              <label>
+                AUR
+                <input type="number" id="req-aur" value="0" />
+              </label>
+
+              <label>
+                Nível do Personagem
+                <input type="number" id="req-personagem" value="0" />
+              </label>
+
+              <label>
+                Espécie
+                <input type="text" id="req-especie" placeholder="humano,elfo" />
+              </label>
+            </div>
+          </div>
+
+          <div class="secao">
+            <h3>Efeito</h3>
+
+            <textarea id="efeito-texto"></textarea>
+
+            <div class="form-grid">
+              <label>
+                Fórmula
+                <input type="text" id="formula" placeholder="1d6 + int" />
+              </label>
+
+              <label>
+                Tipo de Rolagem
+                <input type="text" id="rolagem-tipo" placeholder="DANO" />
+              </label>
+            </div>
+          </div>
+
+          <div class="secao">
+            <h3>Alcance</h3>
+
+            <div class="form-grid">
+              <label>
+                Tipo
+                <select id="alcance-tipo">
+                  <option value="NENHUM">Nenhum</option>
+                  <option value="SELF">Si Mesmo</option>
+                  <option value="CONTATO">Contato</option>
+                  <option value="LINHA">Linha</option>
+                  <option value="GLOBAL">Global</option>
+                </select>
+              </label>
+
+              <label>
+                Distância
+                <input type="number" id="alcance-distancia" value="0" />
+              </label>
+            </div>
+          </div>
+
+          <div class="secao">
+            <h3>Área</h3>
+
+            <div class="form-grid">
+              <label>
+                Tipo
+                <select id="area-tipo">
+                  <option value="NENHUMA">Nenhuma</option>
+                  <option value="ALVO_UNICO">Alvo Único</option>
+                  <option value="QUADRADO">Quadrado</option>
+                  <option value="RETANGULO">Retângulo</option>
+                  <option value="CONE">Cone</option>
+                </select>
+              </label>
+
+              <label>
+                Largura
+                <input type="number" id="area-largura" value="0" />
+              </label>
+
+              <label>
+                Altura
+                <input type="number" id="area-altura" value="0" />
+              </label>
+
+              <label>
+                Comprimento Cone
+                <input type="number" id="area-cone" value="0" />
+              </label>
+            </div>
+          </div>
+
+          <div class="secao">
+            <h3>Custo</h3>
+
+            <div class="form-grid">
+              <label>
+                Mana
+                <input type="number" id="mana" value="" />
+              </label>
+
+              <label>
+                Vida
+                <input type="number" id="vida" value="" />
+              </label>
+
+              <label>
+                Energia
+                <input type="number" id="energia" value="" />
+              </label>
+            </div>
+          </div>
+
+          <div class="secao">
+            <h3>Tags</h3>
+
+            <input type="text" id="tags" placeholder="fogo,dano,magia" />
+          </div>
+
+          <div class="acoes">
+            <button type="button" class="botao-link" id="generate-button">
+              Gerar JSON
+            </button>
+
+            <button type="button" class="botao-link" id="copy-button">
+              Copiar JSON
+            </button>
+          </div>
+
+          <div class="secao">
+            <h3>Resultado</h3>
+
+            <textarea id="output" readonly></textarea>
+          </div>
+        </form>
+      </section>
+    </main>
+    <footer id="site-footer"><!-- Filled by footer.js--></footer>
+
+    <script src="./js/utils.js"></script>
+    <script src="./js/footer.js"></script>
+    <script src="./js/new-skill.js"></script>
+  </body>
+</html>

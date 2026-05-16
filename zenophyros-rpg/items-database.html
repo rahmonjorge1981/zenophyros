@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Itens</title>
+
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/items-database.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jersey+25&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <main class="container">
+      <section class="frame items-page">
+        <header class="items-header">
+          <h1>Itens</h1>
+
+          <span id="items-count" class="items-count">
+            Itens: 0
+          </span>
+
+          <div class="items-toolbar">
+            <input
+              type="text"
+              id="search-input"
+              placeholder="Pesquisar item..."
+            />
+
+            <select id="filter-tipo">
+              <option value="">Todos os Tipos</option>
+            </select>
+
+            <select id="filter-raridade">
+              <option value="">Todas as Raridades</option>
+            </select>
+
+            <select id="sort-select">
+              <option value="nome">Nome</option>
+            </select>
+          </div>
+        </header>
+
+        <section id="items-list" class="items-list">
+          <!-- JS -->
+        </section>
+
+        <div id="item-modal" class="item-modal hidden">
+          <div class="item-modal-content">
+            <button id="close-modal" class="modal-close">X</button>
+
+            <div id="modal-body">
+              <!-- JS -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <a href="index.html" class="botao-link">
+        <img src="./assets/icons/home-solid.svg" class="icon" alt="" />
+        Menu
+      </a>
+    </main>
+
+    <footer id="site-footer"><!-- Filled by footer.js --></footer>
+
+    <script src="./js/utils.js"></script>
+    <script src="./js/footer.js"></script>
+
+    <script src="./js/items/render-items.js"></script>
+    <script src="./js/items/item-system.js"></script>
+    <script src="./js/items.js"></script>
+  </body>
+</html>

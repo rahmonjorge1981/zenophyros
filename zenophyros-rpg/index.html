@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zenophyros</title>
+
+    <link rel="stylesheet" href="./css/main.css" />
+
+    <link rel="icon" type="image/png" href="./assets/newicon-192.png" />
+
+    <!-- PWA -->
+    <link rel="manifest" href="./manifest.json" />
+    <meta name="theme-color" content="#000080" />
+
+    <!-- Open Graph (WhatsApp / redes sociais) -->
+    <meta property="og:title" content="Zenophyros RPG" />
+    <meta property="og:description" content="Crie sua ficha de personagem." />
+    <meta
+      property="og:image"
+      content="https://zenophyros.netlify.app/assets/preview.png"
+    />
+    <meta property="og:url" content="https://zenophyros.netlify.app" />
+    <meta property="og:type" content="website" />
+
+    <!-- (Opcional, mas recomendado para compatibilidade maior) -->
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Fonte -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jersey+25&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <main class="container">
+      <img src="./assets/title.png" id="title-img" />
+
+      <div class="menu-button">
+        <a href="criar-personagem.html" class="botao-link">
+          <span>Abrir Ficha</span>
+        </a>
+      </div>
+
+      <div class="menu-button">
+        <a href="skills-database.html" class="botao-link">
+          <span>Habilidades</span>
+        </a>
+      </div>
+
+      <div class="menu-button">
+        <a href="items-database.html" class="botao-link">
+          <span>Itens</span>
+        </a>
+      </div>
+
+      <div class="menu-button">
+        <a href="lore.html" class="botao-link">
+          <span>Universo</span>
+        </a>
+      </div>
+
+      <div class="menu-button">
+        <a href="about.html" class="botao-link">
+          <span>Sobre</span>
+        </a>
+      </div>
+
+      <div class="menu-button">
+        <a href="credits.html" class="botao-link">
+          <span>Créditos</span>
+        </a>
+      </div>
+    </main>
+    <footer id="site-footer"><!-- Filled by footer.js--></footer>
+    <script src="./js/footer.js"></script>
+    <!-- Registro do Service Worker -->
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker
+          .register("/sw.js")
+          .then(() => console.log("Service Worker registrado"))
+          .catch((err) => console.error("Erro ao registrar SW:", err));
+      }
+    </script>
+  </body>
+  <style>
+    #title-img {
+      max-width: 600px;
+      width: 100%;
+      height: auto;
+      max-height: 80vh;
+    }
+  </style>
+</html>

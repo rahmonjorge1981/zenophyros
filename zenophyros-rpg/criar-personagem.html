@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Criar Personagem - Zenophyros</title>
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/skills-database.css" />
+
+    <link rel="icon" type="image/png" href="./assets/newicon-192.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jersey+25&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <main class="container">
+      <form id="ficha-form">
+        <div class="frame">
+          <!-- TOPO -->
+          <div class="topo">
+            <div class="left-column">
+              <label>
+                Nome
+                <input
+                  type="text"
+                  name="nome"
+                  placeholder="Nome do personagem"
+                />
+              </label>
+
+              <label>
+                Espécie
+                <select name="especie" id="select-especie">
+                  <option>Humano</option>
+                  <option>Elfo</option>
+                  <option>Celenita</option>
+                  <option>Ullum</option>
+                  <option>Abazon</option>
+                </select>
+              </label>
+
+              <div class="classe-wrapper">
+                <img
+                  id="icone-classe"
+                  src=".\assets\newicon-192.png"
+                  alt="Ícone da classe"
+                />
+                <div class="class-group">
+                  <label for="select-class">Classe</label>
+                  <select name="classe" id="select-classe">
+                    <option>Guerreiro</option>
+                    <option>Tanque</option>
+                    <option>Atirador</option>
+                    <option>Ladino</option>
+                    <option>Mago</option>
+                    <option>Suporte</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="status-wrapper">
+                <div class="status-group">
+                  <label for="vida-atual">Vida</label>
+                  <div class="status-inputs">
+                    <input
+                      type="number"
+                      id="vida-atual"
+                      name="vidaAtual"
+                      placeholder="Atual"
+                    />
+                    <span>/</span>
+                    <input
+                      type="number"
+                      id="vida-max"
+                      name="vidaMax"
+                      placeholder="Máx"
+                    />
+                  </div>
+                </div>
+
+                <div class="status-group">
+                  <label for="mana-atual">Mana</label>
+                  <div class="status-inputs">
+                    <input
+                      type="number"
+                      id="mana-atual"
+                      name="manaAtual"
+                      placeholder="Atual"
+                    />
+                    <span>/</span>
+                    <input
+                      type="number"
+                      id="mana-max"
+                      name="manaMax"
+                      placeholder="Máx"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="right-column">
+              <div class="retrato">
+                <img
+                  id="img-especie"
+                  src="https://picsum.photos/64/64?random=2"
+                  alt="Imagem da espécie"
+                />
+              </div>
+              <label>
+                Nível
+                <select name="nivel" id="select-level">
+                  <option value="1">Lv.1</option>
+                  <option value="2">Lv.2</option>
+                  <option value="3">Lv.3</option>
+                  <option value="4">Lv.4</option>
+                  <option value="5">Lv.5</option>
+                  <option value="6">Lv.6</option>
+                  <option value="7">Lv.7</option>
+                  <option value="8">Lv.8</option>
+                  <option value="9">Lv.9</option>
+                  <option value="10">Lv.10</option>
+                </select>
+              </label>
+            </div>
+          </div>
+
+          <!-- ATRIBUTOS -->
+          <div class="atributos">
+            <label>
+              FOR <span class="mod-atr">(+0)</span>
+              <input type="number" name="for" min="0" max="99" value="10" />
+            </label>
+
+            <label>
+              DES <span class="mod-atr">(+0)</span>
+              <input type="number" name="des" min="0" max="99" value="10" />
+            </label>
+
+            <label>
+              AGI <span class="mod-atr">(+0)</span>
+              <input type="number" name="agi" min="0" max="99" value="10" />
+            </label>
+
+            <label>
+              VIT <span class="mod-atr">(+0)</span>
+              <input type="number" name="vit" min="0" max="99" value="10" />
+            </label>
+
+            <label>
+              RAC <span class="mod-atr">(+0)</span>
+              <input type="number" name="rac" min="0" max="99" value="10" />
+            </label>
+
+            <label>
+              INS <span class="mod-atr">(+0)</span>
+              <input type="number" name="ins" min="0" max="99" value="10" />
+            </label>
+
+            <label>
+              SAN <span class="mod-atr">(+0)</span>
+              <input type="number" name="san" min="0" max="99" value="10" />
+            </label>
+
+            <label>
+              AUR <span class="mod-atr">(+0)</span>
+              <input type="number" name="aur" min="0" max="99" value="10" />
+            </label>
+          </div>
+
+          <!-- SEÇÕES -->
+
+          <div class="secao">
+            <h3>Habilidades</h3>
+
+            <div class="grade-habilidades">
+              <button type="button" class="botao-habilidade">
+                (vazio)
+              </button>
+
+              <button type="button" class="botao-habilidade">
+                (vazio)
+              </button>
+
+              <button type="button" class="botao-habilidade">
+                (vazio)
+              </button>
+
+              <button type="button" class="botao-habilidade">
+                (vazio)
+              </button>
+
+              <button type="button" class="botao-habilidade">
+                (vazio)
+              </button>
+
+              <button type="button" class="botao-habilidade">
+                (vazio)
+              </button>
+
+              <button type="button" class="botao-habilidade">
+                (vazio)
+              </button>
+
+              <button type="button" class="botao-habilidade">
+                (vazio)
+              </button>
+            </div>
+          </div>
+
+          <div class="secao">
+            <h3>Antecedentes</h3>
+            <textarea name="antecedentes"></textarea>
+          </div>
+        </div>
+        <!-- end of frame -->
+
+        <div class="acoes">
+          <button type="button" class="botao-link" id="btn-salvar">
+            <img src="./assets/icons/download-solid.svg" class="icon" alt="" />
+            Baixar
+          </button>
+
+          <button type="button" class="botao-link" id="btn-carregar">
+            <img
+              src="./assets/icons/folder-open-solid.svg"
+              class="icon"
+              alt=""
+            />
+            Carregar
+          </button>
+
+          <button type="button" class="botao-link" id="btn-limpar">
+            <img src="./assets/icons/trash-alt-solid.svg" class="icon" alt="" />
+            Limpar
+          </button>
+
+          <a href="index.html" class="botao-link">
+            <img src="./assets/icons/home-solid.svg" class="icon" alt="" />
+            Menu
+          </a>
+        </div>
+      </form>
+    </main>
+    <footer id="site-footer"><!-- Filled by footer.js--></footer>
+    <input
+      type="file"
+      id="input-carregar"
+      accept=".json"
+      style="display: none"
+    />
+
+    <!-- MODAL DE HABILIDADE -->
+    <div id="skill-modal" class="skill-modal hidden">
+      <div class="skill-modal-content">
+        
+        <button id="close-modal" class="modal-button modal-close" type="button">X</button>
+
+        <div id="modal-body">
+          <!-- JS -->
+        </div>
+        <button id="btn-remover-skill" class="modal-button" type="button">Remover</button>
+      </div>
+    </div>
+    <!--Componente para upload de arquivos-->
+    <script src="./js/utils.js"></script>
+    <script src="./js/footer.js"></script>
+    <script src="./js/skills/render-skills.js"></script>
+    <script src="./js/skills/skill-system.js"></script>
+    <script src="./js/criar-personagem.js"></script>
+  </body>
+</html>

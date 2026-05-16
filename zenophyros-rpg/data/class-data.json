@@ -1,0 +1,25 @@
+{
+  "Guerreiro": {
+    "icone": "./assets/classes/warrior.png"
+  },
+
+  "Tanque": {
+    "icone": "./assets/classes/tank.png"
+  },
+
+  "Atirador": {
+    "icone": "./assets/classes/archer.png"
+  },
+
+  "Ladino": {
+    "icone": "./assets/classes/rogue.png"
+  },
+
+  "Mago": {
+    "icone": "./assets/classes/wizard.png"
+  },
+
+  "Suporte": {
+    "icone": "./assets/classes/support.png"
+  }
+}

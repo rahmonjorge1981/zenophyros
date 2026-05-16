@@ -1,0 +1,67 @@
+{
+  "Humano": {
+    "imagem": "./assets/species/human.png",
+    "tracos": [
+      {
+        "nome": "Adaptação",
+        "descricao": "Bônus de +1 em todos os atributos."
+      }
+    ]
+  },
+
+  "Elfo": {
+    "imagem": "./assets/species/elf.png",
+    "tracos": [
+      {
+        "nome": "Olhos de Elfo",
+        "descricao": "Bônus de +2 em SIN."
+      },
+      {
+        "nome": "Passos Suaves",
+        "descricao": "Recebe +1 em testes de Furtividade."
+      }
+    ]
+  },
+
+  "Celenita": {
+    "imagem": "./assets/species/celenite.png",
+    "tracos": [
+      {
+        "nome": "Venenoso",
+        "descricao": "Concede resistência a venenos e inflige Envenenamento ao toque."
+      },
+      {
+        "nome": "Acrobático",
+        "descricao": "Bônus de +2 em AGI."
+      }
+    ]
+  },
+
+  "Ullum": {
+    "imagem": "./assets/species/ullum.png",
+    "tracos": [
+      {
+        "nome": "Aracnídeo",
+        "descricao": "Pode escalar paredes com facilidade."
+      },
+      {
+        "nome": "Exoesqueleto",
+        "descricao": "Bônus de +3 em VIT."
+      }
+    ]
+  },
+
+  "Abazon": {
+    "imagem": "./assets/species/abazon.png",
+    "tracos": [
+      {
+        "nome": "Guerreiro Alado",
+        "descricao": "Possui Vantagem em testes de Acerto enquanto estiver voando."
+      },
+      {
+        "nome": "Lendário",
+        "descricao": "Bônus de +5 em AUR."
+      }
+    ]
+  }
+}

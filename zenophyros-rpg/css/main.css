@@ -1,0 +1,361 @@
+:root {
+  --ui-bg: rgb(191, 191, 191);
+  --ui-bg-transparent: rgba(191, 191, 191, 0.9);
+  --ui-border: #000;
+  --ui-shadow-light: #fff;
+  --ui-shadow-dark: #888888;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  background-image: url(https://zenophyros.netlify.app/assets/background.jpg);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+
+  font-family: "Jersey 25", sans-serif;
+  font-size: 16px;
+  overflow-x: hidden;
+}
+
+/* Isto é um componente que organiza a posição dos elementos na pagina. */
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* centraliza verticalmente */
+  align-items: center; /* centraliza horizontalmente */
+  flex: 1; /* cresce de tamanho e ocupa todo o espaço disponível */
+  gap: 15px;
+}
+
+/* Isto aqui é layout que controla aparência. Não misturar responsabilidade com componente */
+.frame {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  background: rgba(191, 191, 191, 0.9);
+  border: 4px solid var(--ui-shadow-light);
+
+  box-shadow:
+    2px 2px 0 var(--ui-shadow-dark),
+    -2px -2px 0 var(--ui-shadow-light) inset;
+
+  padding: 18px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.topo {
+  display: flex;
+  /* separa horizontalmente os 2 filhos, um colado no canto esquerdo e o outro no direito */
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.left-column {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 8px;
+}
+
+.right-column {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+}
+
+/* CLASSE + ÍCONE */
+.classe-wrapper {
+  display: flex;
+  align-items: end; /* alinhar com o select */
+  gap: 6px;
+}
+
+.class-group {
+  display: flex;
+  flex-direction: column;
+  flex: 1; /* faz cada grupo ocupar o máximo possível */
+}
+
+.class-group select {
+  width: 100%; /* faz o select ocupar todo o grupo */
+  box-sizing: border-box; /* evita overflow com padding */
+}
+
+/* ----------------------------------- STATUS --------------------------------- */
+.status-wrapper {
+  display: flex;
+  gap: 10px;
+  align-items: flex-end;
+}
+
+.status-wrapper input {
+  text-align: center;
+}
+
+.status-group {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Vida e Mana recebem mais espaço */
+.status-group:nth-child(1),
+.status-group:nth-child(2) {
+  flex: 2;
+}
+
+/* Armadura e Esquiva recebem menos */
+.status-group:nth-child(3),
+.status-group:nth-child(4) {
+  flex: 1;
+  max-width: 70px;
+}
+
+.status-inputs {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.status-inputs input {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.status-inputs span {
+  flex-shrink: 0;
+}
+
+/* --------------------------------- END OF STATUS --------------------------------------- */
+
+.retrato img {
+  width: 100px;
+  height: 100px;
+  image-rendering: pixelated;
+  border: 2px solid #ffc400;
+}
+
+.secao {
+  margin-top: 12px;
+}
+
+.secao h3 {
+  font-size: 1rem;
+  font-weight: 100;
+  margin-bottom: 4px;
+}
+
+.secao textarea {
+  width: 100%;
+  height: 80px;
+  resize: none;
+}
+
+#site-footer {
+  padding: 16px;
+  text-align: center;
+  font-size: 16px;
+  color: white;
+}
+
+.acoes {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 colunas iguais */
+  gap: 8px;
+  width: 100%;
+  max-width: 500px;
+}
+
+.icon {
+  width: 20px; /* escala do SVG */
+  height: 20px;
+  flex-shrink: 0; /* impede deformação */
+  image-rendering: pixelated;
+  position: relative;
+  top: 2px; /* move pra baixo */
+}
+
+/* -------------------- GRADE DE HABILIDADES -------------------- */
+
+.grade-habilidades {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.botao-habilidade {
+  height: 56px;
+  padding: 6px;
+
+  font-family: inherit;
+  font-size: 1rem;
+  text-align: center;
+  color: #000;
+
+  background-color: var(--ui-bg);
+  border: 1px solid var(--ui-border);
+
+  box-shadow:
+    1px 1px 0 var(--ui-shadow-light) inset,
+    -2px -2px 0 var(--ui-shadow-dark) inset;
+
+  cursor: pointer;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.botao-habilidade:hover {
+  filter: brightness(1.1);
+}
+
+.botao-habilidade:active {
+  transform: translate(2px, 2px);
+
+  box-shadow:
+    -1px -1px 0 var(--ui-shadow-light) inset,
+    2px 2px 0 var(--ui-shadow-dark) inset;
+}
+
+/* -------------------- SEÇÃO DE ATRIBUTOS -------------------- */
+
+.atributos {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.atributos label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.atributos input {
+  width: 60px;
+  text-align: center;
+}
+
+/* -------------------- INPUT CONFIG -------------------- */
+
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 4px;
+  border: 1px solid #000;
+  background: #fff;
+}
+
+input[type="number"]::-webkit-inner-spin-button {
+  display: none;
+}
+
+input[readonly] {
+  background-color: var(--ui-shadow-dark);
+  cursor: not-allowed;
+}
+
+#select-level {
+  background-color: var(--ui-bg);
+  border: 1px solid var(--ui-border);
+  border-radius: 0;
+  box-shadow:
+    1px 1px 0 var(--ui-shadow-light) inset,
+    -2px -2px 0 var(--ui-shadow-dark) inset;
+
+  outline: 0;
+}
+
+#icone-classe {
+  width: 32px;
+  height: 32px;
+}
+
+/* -------------------- BUTTON CONFIG -------------------- */
+
+.botao-link {
+  display: inline-block;
+  align-items: center;
+  width: 100%; /* ocupa toda a célula da grid */
+  min-width: 0;
+  padding: 8px 16px;
+  gap: 8px;
+
+  font-family: inherit;
+  font-size: 1.5rem;
+  text-align: center;
+  text-decoration: none;
+  color: #000;
+
+  background-color: var(--ui-bg);
+  border: 1px solid var(--ui-border);
+  border-radius: 0;
+  box-shadow:
+    1px 1px 0 var(--ui-shadow-light) inset,
+    -2px -2px 0 var(--ui-shadow-dark) inset;
+
+  outline: 0;
+
+  cursor: pointer;
+}
+
+.botao-link:hover {
+  filter: brightness(1.2);
+}
+
+.botao-link:active {
+  transform: translate(2px, 2px);
+
+  box-shadow:
+    -1px -1px 0 var(--ui-shadow-light) inset,
+    2px 2px 0 var(--ui-shadow-dark) inset;
+}
+
+.botao-link:focus {
+  outline: 1px solid #fff;
+}
+
+.menu-button a {
+  min-width: 250px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+strong,
+b,
+th {
+  font-weight: normal;
+}
+
+#ficha-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}

@@ -1,0 +1,20 @@
+{
+  "name": "Zenophyros",
+  "short_name": "Zeno",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#5500AA",
+  "icons": [
+    {
+      "src": "./assets/newicon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "./assets/newicon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

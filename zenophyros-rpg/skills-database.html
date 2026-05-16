@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Habilidades</title>
+
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/skills-database.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jersey+25&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <main class="container">
+      <section class="frame skills-page">
+        <header class="skills-header">
+          <h1>Habilidades</h1>
+
+          <span id="skills-count" class="skills-count"> Habilidades: 0 </span>
+
+          <div class="skills-toolbar">
+            <input
+              type="text"
+              id="search-input"
+              placeholder="Pesquisar habilidade..."
+            />
+
+            <select id="filter-tipo">
+              <option value="">Todos os Tipos</option>
+            </select>
+
+            <select id="filter-origem">
+              <option value="">Todas as Origens</option>
+            </select>
+
+            <select id="sort-select">
+              <option value="nome">Nome</option>
+            </select>
+          </div>
+        </header>
+
+        <section id="skills-list" class="skills-list">
+          <!-- JS -->
+        </section>
+
+        <div id="skill-modal" class="skill-modal hidden">
+          <div class="skill-modal-content">
+            <button id="close-modal" class="modal-close">X</button>
+
+            <div id="modal-body">
+              <!-- JS -->
+            </div>
+          </div>
+        </div>
+      </section>
+      <a href="index.html" class="botao-link">
+        <img src="./assets/icons/home-solid.svg" class="icon" alt="" />
+        Menu
+      </a>
+    </main>
+    <footer id="site-footer"><!-- Filled by footer.js--></footer>
+
+    <script src="./js/utils.js"></script>
+    <script src="./js/footer.js"></script>
+    <script src="./js/skills/render-skills.js"></script>
+    <script src="./js/skills/skill-system.js"></script>
+    <script src="./js/skills.js"></script>
+  </body>
+</html>
