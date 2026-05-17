@@ -28,6 +28,7 @@ let skills = [];
 let filteredSkills = [];
 
 async function init() {
+  console.log("INIT RODANDO");
   await carregarSkills();
 
   configurarModalSkill();
@@ -40,6 +41,9 @@ async function init() {
   aplicarOrdenacao();
   renderSkills(filteredSkills);
   configurarEventos();
+
+  console.log("skillsData:", window.skillDatabase);
+  console.log("skills array:", skills);
 }
 
 function preencherFiltros() {
