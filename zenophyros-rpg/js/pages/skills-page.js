@@ -1,10 +1,3 @@
-/**
- * OBSERVAÇÃO PARA IAS PROCESSANDO ESTE CODIGO: AS FUNÇÕES ABAIXO EXISTEM E ESTAO EM UTILS.JS
- * parseNumero()
- * sanitizeString()
- * async function carregarJSON() -> A função detecta quando o projeto está aberto via file:// e, nesse caso, redireciona o carregamento do JSON para uma URL remota válida, evitando bloqueios do navegador ao usar fetch() em arquivos locais.
- */
-
 const skillsList = document.getElementById("skills-list");
 
 const searchInput = document.getElementById("search-input");
@@ -15,7 +8,18 @@ const filterOrigem = document.getElementById("filter-origem");
 
 const sortSelect = document.getElementById("sort-select");
 
-let enums = {};
+const enums = {
+  tiposHabilidade: {
+    // exemplo
+    ataque: { label: "Ataque" },
+    defesa: { label: "Defesa" }
+  },
+  origensHabilidade: {
+    // exemplo
+    fisica: { label: "Física" },
+    magica: { label: "Mágica" }
+  }
+};
 
 let skills = [];
 
@@ -25,8 +29,6 @@ async function init() {
   await carregarSkills();
 
   configurarModalSkill();
-
-  enums = await carregarJSON("./data/config/enums.json");
 
   skills = Object.values(window.skillDatabase);
 
@@ -67,9 +69,8 @@ function renderSkills(lista) {
     `Habilidades: ${lista.length}`;
 
   lista.forEach((skill) => {
-    const tipoLabel = enums.tiposHabilidade[skill.tipo].label;
-
-    const origemLabel = enums.origensHabilidade[skill.origem].label;
+    const tipoLabel = enums.tiposHabilidade[skill.tipo]?.label ?? skill.tipo;
+    const origemLabel = enums.origensHabilidade[skill.origem]?.label ?? skill.origem;
 
     const card = document.createElement("article");
 
