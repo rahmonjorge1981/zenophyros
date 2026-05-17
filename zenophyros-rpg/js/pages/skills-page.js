@@ -637,3 +637,5 @@ function formatarPreRequisitos(preReq) {
 
   return linhas.join(", ");
 }
+
+init();
