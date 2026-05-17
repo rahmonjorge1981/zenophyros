@@ -2,6 +2,8 @@
  * Sistema reutilizável de habilidades.
  */
 
+const DATABASE_PATH = "./data/skills-database.json"
+
 window.skillDatabase = {};
 window.enumsDatabase = {};
 
@@ -15,7 +17,7 @@ async function carregarSkills() {
     await carregarJSON("./data/config/enums.json");
 
   const skillsData =
-    await carregarJSON("./data/skills.json");
+    await carregarJSON(DATABASE_PATH);
 
   window.skillDatabase = skillsData.habilidades;
 }
