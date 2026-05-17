@@ -5,7 +5,6 @@
 const DATABASE_PATH = "./data/skills-database.json"
 
 window.skillDatabase = {};
-window.enumsDatabase = {};
 
 let botaoSkillAtual = null;
 
@@ -13,12 +12,7 @@ let botaoSkillAtual = null;
  * Carrega banco de habilidades.
  */
 async function carregarSkills() {
-  window.enumsDatabase =
-    await carregarJSON("./data/config/enums.json");
-
-  const skillsData =
-    await carregarJSON(DATABASE_PATH);
-
+  const skillsData = await carregarJSON(DATABASE_PATH);
   window.skillDatabase = skillsData.habilidades;
 }
 
