@@ -27,6 +27,32 @@ let skills = [];
 
 let filteredSkills = [];
 
+const DATABASE_PATH = "./data/skills-database.json";
+
+let botaoSkillAtual = null;
+
+/**
+ * Carrega banco de habilidades.
+ */
+async function carregarSkills() {
+  const skillsData = await carregarJSON(DATABASE_PATH);
+  window.skillDatabase = skillsData.habilidades;
+}
+
+/**
+ * Busca habilidade pelo ID.
+ */
+function buscarSkillPorId(skillId) {
+  if (!skillId) {
+    return null;
+  }
+
+  return window.skillDatabase[skillId] || null;
+}
+
+/**
+ * INIT
+ */
 async function init() {
   console.log("INIT RODANDO");
   await carregarSkills();
@@ -46,6 +72,9 @@ async function init() {
   console.log("skills array:", skills);
 }
 
+/**
+ * FILTROS
+ */
 function preencherFiltros() {
   Object.entries(enums.tiposHabilidade).forEach(([id, tipo]) => {
     const option = document.createElement("option");
@@ -68,6 +97,45 @@ function preencherFiltros() {
   });
 }
 
+function aplicarFiltros() {
+  const termo = searchInput.value.toLowerCase().trim();
+
+  const tipo = filterTipo.value;
+
+  const origem = filterOrigem.value;
+
+  filteredSkills = skills.filter((skill) => {
+    const matchNome = skill.nome.toLowerCase().includes(termo);
+
+    const matchDescricao = skill.descricao.toLowerCase().includes(termo);
+
+    const matchTags = skill.tags.some((tag) =>
+      tag.toLowerCase().includes(termo),
+    );
+
+    const matchBusca = !termo || matchNome || matchDescricao || matchTags;
+
+    const matchTipo = !tipo || skill.tipo === tipo;
+
+    const matchOrigem = !origem || skill.origem === origem;
+
+    return matchBusca && matchTipo && matchOrigem;
+  });
+
+  aplicarOrdenacao();
+
+  renderSkills(filteredSkills);
+}
+
+function aplicarOrdenacao() {
+  filteredSkills.sort((a, b) => {
+    return a.nome.localeCompare(b.nome);
+  });
+}
+
+/**
+ * RENDER LISTA
+ */
 function renderSkills(lista) {
   skillsList.innerHTML = "";
 
@@ -127,42 +195,9 @@ function renderSkills(lista) {
   });
 }
 
-function aplicarFiltros() {
-  const termo = searchInput.value.toLowerCase().trim();
-
-  const tipo = filterTipo.value;
-
-  const origem = filterOrigem.value;
-
-  filteredSkills = skills.filter((skill) => {
-    const matchNome = skill.nome.toLowerCase().includes(termo);
-
-    const matchDescricao = skill.descricao.toLowerCase().includes(termo);
-
-    const matchTags = skill.tags.some((tag) =>
-      tag.toLowerCase().includes(termo),
-    );
-
-    const matchBusca = !termo || matchNome || matchDescricao || matchTags;
-
-    const matchTipo = !tipo || skill.tipo === tipo;
-
-    const matchOrigem = !origem || skill.origem === origem;
-
-    return matchBusca && matchTipo && matchOrigem;
-  });
-
-  aplicarOrdenacao();
-
-  renderSkills(filteredSkills);
-}
-
-function aplicarOrdenacao() {
-  filteredSkills.sort((a, b) => {
-    return a.nome.localeCompare(b.nome);
-  });
-}
-
+/**
+ * EVENTOS
+ */
 function configurarEventos() {
   searchInput.addEventListener("input", aplicarFiltros);
 
@@ -173,29 +208,9 @@ function configurarEventos() {
   sortSelect.addEventListener("change", aplicarFiltros);
 }
 
-const DATABASE_PATH = "./data/skills-database.json";
-
-let botaoSkillAtual = null;
-
 /**
- * Carrega banco de habilidades.
+ * MODAL CONFIG
  */
-async function carregarSkills() {
-  const skillsData = await carregarJSON(DATABASE_PATH);
-  window.skillDatabase = skillsData.habilidades;
-}
-
-/**
- * Busca habilidade pelo ID.
- */
-function buscarSkillPorId(skillId) {
-  if (!skillId) {
-    return null;
-  }
-
-  return window.skillDatabase[skillId] || null;
-}
-
 function configurarModalSkill() {
   const skillModal = document.getElementById("skill-modal");
 
@@ -209,7 +224,6 @@ function configurarModalSkill() {
     fecharModalSkill();
   });
 
-  // Fecha clicando fora
   skillModal.addEventListener("click", (event) => {
     if (event.target === skillModal) {
       fecharModalSkill();
@@ -246,7 +260,7 @@ if (btnRemoverSkill) {
 }
 
 /**
- * Abre popup/modal da habilidade.
+ * MODAL OPEN/CLOSE
  */
 function abrirModalSkill(skill, botaoOrigem = 0) {
   botaoSkillAtual = botaoOrigem;
@@ -287,6 +301,9 @@ function fecharModalSkill() {
   skillModal.classList.add("hidden");
 }
 
+/**
+ * MODAL RENDER HELPERS
+ */
 function renderCabecalho(skill) {
   const tipoLabel = "tipoLabel";
 
@@ -578,6 +595,9 @@ function renderId(skill) {
   `;
 }
 
+/**
+ * FORMATADORES
+ */
 function formatarArea(area) {
   switch (area.tipo) {
     case "ALVO_UNICO":
