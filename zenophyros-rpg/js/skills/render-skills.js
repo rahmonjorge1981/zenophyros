@@ -1,3 +1,4 @@
+/*
 function renderCabecalho(skill) {
   const tipoLabel = "tipoLabel"
 
@@ -337,7 +338,6 @@ function formatarPreRequisitos(preReq) {
     linhas.push(...preReq.habilidades);
   }
 
-  // NOVO: espécie
   if (preReq.especie && preReq.especie.length > 0) {
     const especiesFormatadas = preReq.especie
       .filter(Boolean)
@@ -352,3 +352,5 @@ function formatarPreRequisitos(preReq) {
 
   return linhas.join(", ");
 }
+
+*/

@@ -451,7 +451,7 @@
         "oculta": false
       }
     },
-    "hr_crit": {
+    "god_crit": {
       "id": "god_crit",
       "nome": "Crítico Divino",
       "nivel": 0,

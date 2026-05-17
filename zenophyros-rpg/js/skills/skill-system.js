@@ -1,6 +1,4 @@
-/**
- * Sistema reutilizável de habilidades.
- */
+/*
 
 const DATABASE_PATH = "./data/skills-database.json"
 
@@ -8,17 +6,13 @@ window.skillDatabase = {};
 
 let botaoSkillAtual = null;
 
-/**
- * Carrega banco de habilidades.
- */
+
 async function carregarSkills() {
   const skillsData = await carregarJSON(DATABASE_PATH);
   window.skillDatabase = skillsData.habilidades;
 }
 
-/**
- * Busca habilidade pelo ID.
- */
+
 function buscarSkillPorId(skillId) {
   if (!skillId) {
     return null;
@@ -80,9 +74,7 @@ btnRemoverSkill.addEventListener("click", () => {
 
 });
 
-/**
- * Abre popup/modal da habilidade.
- */
+
 function abrirModalSkill(skill, botaoOrigem = 0) {
 
   botaoSkillAtual = botaoOrigem;
@@ -128,3 +120,5 @@ function fecharModalSkill() {
 
   skillModal.classList.add("hidden");
 }
+
+*/
