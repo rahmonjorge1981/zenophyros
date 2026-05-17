@@ -1,5 +1,5 @@
 function renderCabecalho(skill) {
-  const tipoLabel = window.enumsDatabase.tiposHabilidade[skill.tipo].label;
+  const tipoLabel = "tipoLabel"
 
   const origemLabel = "origemLabel"
 

@@ -50,6 +50,7 @@ function configurarModalSkill() {
   });
 }
 
+// Este botão só existe em character-sheet-page.html. Dá problema em skills-page.html.
 const btnRemoverSkill = document.getElementById("btn-remover-skill");
 
 btnRemoverSkill.addEventListener("click", () => {
