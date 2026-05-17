@@ -1,6 +1,6 @@
 window.APP_CONFIG = {
-  version: "unreleased-9",
-  name: "Zenophyros"
+  version: "unreleased-10",
+  name: "Zenophyros",
 };
 
 const REMOTE_BASE_URL = "https://zenophyros.netlify.app";
@@ -9,6 +9,8 @@ const REMOTE_BASE_URL = "https://zenophyros.netlify.app";
  * Utils.js
  */
 const TEXTO_SLOT_VAZIO = "(vazio)";
+
+const DEBUG_LOGS = false;
 
 // Carrega um arquivo .json para o código.
 async function carregarJSON(caminho) {
@@ -21,27 +23,31 @@ async function carregarJSON(caminho) {
   const url = isLocalFile ? `${REMOTE_BASE_URL}${caminhoNormalizado}` : caminho;
 
   // ---------- DEBUG INFO ---------- //
-  console.group(`📦 carregarJSON()`);
+  if (DEBUG_LOGS) {
+    console.group(`📦 carregarJSON()`);
 
-  console.log("Modo local (file://):", isLocalFile);
+    console.log("Modo local (file://):", isLocalFile);
 
-  if (isLocalFile) {
-    console.log("Origem detectada:", "filesystem local");
+    if (isLocalFile) {
+      console.log("Origem detectada:", "filesystem local");
 
-    console.log("Usando fallback remoto:");
-  } else {
-    console.log("Origem detectada:", "servidor web");
+      console.log("Usando fallback remoto:");
+    } else {
+      console.log("Origem detectada:", "servidor web");
 
-    console.log("Usando caminho relativo/local:");
+      console.log("Usando caminho relativo/local:");
+    }
+
+    console.log("Caminho solicitado:", caminho);
+
+    console.log("URL final:", url);
   }
-
-  console.log("Caminho solicitado:", caminho);
-
-  console.log("URL final:", url);
 
   // TRIES TO LOAD JSON
   try {
-    console.log(`Carregando JSON: ${url}`);
+    if (DEBUG_LOGS) {
+      console.log(`Carregando JSON: ${url}`);
+    }
 
     const response = await fetch(url);
 
