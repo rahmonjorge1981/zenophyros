@@ -36,7 +36,6 @@ body {
   align-items: center; /* centraliza horizontalmente */
   flex: 1; /* cresce de tamanho e ocupa todo o espaço disponível */
   gap: 15px;
-  padding: 24px 0; /* REMOVE IF CRASHES */
 
 }
 
