@@ -15,7 +15,6 @@ const SKILL_ENUMS = {
     monk: { label: "Monge" },
     cleric: { label: "Clérigo" },
     ninja: { label: "Ninja" },
-    universal: { label: "Universal" },
   },
   species: {
     human: { label: "Humano" },
@@ -63,9 +62,6 @@ function searchSkillById(skillId) {
   return window.skillDatabase[skillId] || null;
 }
 
-/**
- * INIT
- */
 async function init() {
   console.log("INIT RODANDO");
   await loadSkills();
@@ -130,20 +126,6 @@ function applyFilters() {
 function applySort() {
   filteredSkills.sort((a, b) => {
     return a.name.localeCompare(b.name);
-  });
-}
-
-/**
- * RENDERIZAR LISTA DE SKILLS
- */
-function renderSkills(skillsArray) {
-  skillsList.innerHTML = "";
-
-  document.getElementById("skills-count").textContent =
-    `Habilidades: ${skillsArray.length}`;
-
-  skillsArray.forEach((skill) => {
-    skillsList.appendChild(renderSkillCard(skill));
   });
 }
 
@@ -247,6 +229,18 @@ function fecharModalSkill() {
 
 /** -------------------------------------------------- RENDERS --------------------------------------------------*/
 
+/** RENDERIZAR LISTA DE SKILLS */
+function renderSkills(skillsArray) {
+  skillsList.innerHTML = "";
+
+  document.getElementById("skills-count").textContent =
+    `Habilidades: ${skillsArray.length}`;
+
+  skillsArray.forEach((skill) => {
+    skillsList.appendChild(renderSkillCard(skill));
+  });
+}
+
 /** Preenche as <option> de cada <select> dinamicamente com base no SKILL_ENUMS */
 function renderFilterOptions() {
   appendOptions(filterActivation, SKILL_ENUMS.activation);
@@ -273,21 +267,17 @@ function renderSkillCard(skill) {
       </div>
 
       <div class="skill-meta">
-        <span class="skill-badge"> ${speciesLabel} </span>
-        <span class="skill-badge"> ${classLabel} </span>
+        ${skill.species ? `<span class="skill-badge"> ${speciesLabel} </span>` : ""}
+        ${skill.class ? `<span class="skill-badge"> ${classLabel} </span>` : ""}
       </div>
 
-      <p class="skill-description">
-        ${skill.desc}
-      </p>
+      <p class="skill-description"> ${skill.desc} </p>
 
       <div class="skill-tags">
         ${skill.tags
           .map(
             (tag) => `
-          <span class="skill-tag">
-            ${tag}
-          </span>
+          <span class="skill-tag"> ${tag} </span>
         `,
           )
           .join("")}
