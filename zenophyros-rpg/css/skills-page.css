@@ -1,7 +1,6 @@
 .skills-page {
   display: flex;
   flex-direction: column;
-  min-height: fit-content;
 
   gap: 16px;
 }
@@ -34,10 +33,9 @@
 
 .skills-list {
   display: grid;
-
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-
   gap: 12px;
+  min-height: 60vh;
 }
 
 .skill-card {
