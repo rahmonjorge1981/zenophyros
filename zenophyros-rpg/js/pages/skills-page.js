@@ -89,14 +89,13 @@ async function init() {
 
   skills = Object.values(window.skillDatabase);
 
-  filteredSkills = [...skills];
-
-  if (filters.class) {
-    renderFilterOptions();
-  }
-  else {
+  if (!filters.class) {
     console.log("No filter objects found");
+    return;
   }
+  
+  filteredSkills = [...skills];
+  renderFilterOptions();
 
   applySort();
   renderSkills(filteredSkills);
