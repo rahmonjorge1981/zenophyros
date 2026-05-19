@@ -117,12 +117,12 @@ function applyFilters() {
 
   filteredSkills = skills.filter((skill) => {
     // CHECKS QUERY
-    const matchName = skill.name.toLowerCase().includes(query);
-    const matchDescription = skill.desc.toLowerCase().includes(query);
+    const matchName = (skill.name || "").toLowerCase().includes(query);
+    const matchDescription = (skill.desc || "").toLowerCase().includes(query);
 
-    const matchTags = skill.tags.some((tag) =>
+    const matchTags = skill.tags?.some((tag) =>
       tag.toLowerCase().includes(query),
-    );
+    ) ?? false;
 
     const matchQuery = !query || matchName || matchDescription || matchTags; // !query -> true if query is empty
 
@@ -145,7 +145,7 @@ function applySort() {
 }
 
 /**
- * RENDERIZAR LISTA
+ * RENDERIZAR LISTA DE SKILLS
  */
 function renderSkills(skillsArray) {
   skillsList.innerHTML = "";
@@ -154,62 +154,15 @@ function renderSkills(skillsArray) {
     `Habilidades: ${skillsArray.length}`;
 
   skillsArray.forEach((skill) => {
-    skillsList.appendChild(createSkillCard(skill));
+    skillsList.appendChild(renderSkillCard(skill));
   });
-}
-
-function createSkillCard(skill) {
-  const classLabel = SKILL_ENUMS.class[skill.class]?.label ?? skill.class;
-  const activationLabel = SKILL_ENUMS.activation[skill.activation]?.label ?? skill.activation;
-  const originLabel = SKILL_ENUMS.origin[skill.origin]?.label ?? skill.origin;
-
-  const card = document.createElement("article");
-
-  card.className = "skill-card";
-
-  card.innerHTML = `
-      <div class="skill-top">
-
-        <h2 class="skill-name">
-          ${skill.name}
-        </h2>
-
-      </div>
-
-      <div class="skill-meta">
-
-        <span class="skill-badge">
-          ${classLabel}
-        </span>
-
-      </div>
-
-      <p class="skill-description">
-        ${skill.desc}
-      </p>
-
-      <div class="skill-tags">
-        ${skill.tags
-          .map(
-            (tag) => `
-          <span class="skill-tag">
-            ${tag}
-          </span>
-        `,
-          )
-          .join("")}
-      </div>
-    `;
-
-  card.addEventListener("click", () => abrirModalSkill(skill));
-
-  return card;
 }
 
 function eventListeners() {
   searchInput.addEventListener("input", applyFilters);
   filterActivation.addEventListener("change", applyFilters);
   filterOrigin.addEventListener("change", applyFilters);
+  filterClass.addEventListener("change", applyFilters);
 }
 
 /**
@@ -217,7 +170,6 @@ function eventListeners() {
  */
 function configurarModalSkill() {
   const skillModal = document.getElementById("skill-modal");
-
   const closeButton = document.getElementById("close-modal");
 
   if (!skillModal || !closeButton) {
@@ -305,6 +257,54 @@ function fecharModalSkill() {
   skillModal.classList.add("hidden");
 }
 
+/** -------------------------------------------------- RENDERS --------------------------------------------------*/
+
+function renderSkillCard(skill) {
+  const classLabel = SKILL_ENUMS.class[skill.class]?.label ?? skill.class;
+  const activationLabel = SKILL_ENUMS.activation[skill.activation]?.label ?? skill.activation;
+  const originLabel = SKILL_ENUMS.origin[skill.origin]?.label ?? skill.origin;
+
+  const card = document.createElement("article");
+
+  card.className = "skill-card";
+
+  card.innerHTML = `
+      <div class="skill-top">
+
+        <h2 class="skill-name">
+          ${skill.name}
+        </h2>
+
+      </div>
+
+      <div class="skill-meta">
+
+        <span class="skill-badge"> ${classLabel} </span>
+
+      </div>
+
+      <p class="skill-description">
+        ${skill.desc}
+      </p>
+
+      <div class="skill-tags">
+        ${skill.tags
+          .map(
+            (tag) => `
+          <span class="skill-tag">
+            ${tag}
+          </span>
+        `,
+          )
+          .join("")}
+      </div>
+    `;
+
+  card.addEventListener("click", () => abrirModalSkill(skill));
+
+  return card;
+}
+
 /**
  * RENDERIZA O CABEÇALHO DO MODAL
  */
@@ -343,7 +343,7 @@ function renderDescricao(skill) {
       <h3>Descrição</h3>
 
       <p>
-        ${skill.descricao}
+        ${skill.desc}
       </p>
 
     </div>
@@ -599,9 +599,6 @@ function renderId(skill) {
   `;
 }
 
-/**
- * FORMATADORES
- */
 function formatarArea(area) {
   switch (area.tipo) {
     case "ALVO_UNICO":
