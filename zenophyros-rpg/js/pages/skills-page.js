@@ -605,23 +605,23 @@ function formatArea(area) {
   }
 }
 
-function formatRequirements(preReq) {
+function formatRequirements(reqs) {
   const linhas = [];
 
-  if (preReq.atributos) {
-    Object.entries(preReq.atributos).forEach(([atributo, valor]) => {
+  if (reqs.attributes) {
+    Object.entries(reqs.attributes).forEach(([atributo, valor]) => {
       if (valor > 0) {
         linhas.push(`${atributo.toUpperCase()} ${valor}`);
       }
     });
   }
 
-  if (preReq.niveis && preReq.niveis.personagem) {
-    linhas.push(`Nível ${preReq.niveis.personagem}`);
+  if (reqs.niveis && reqs.niveis.personagem) {
+    linhas.push(`Nível ${reqs.niveis.personagem}`);
   }
 
-  if (preReq.habilidades && preReq.habilidades.length > 0) {
-    linhas.push(...preReq.habilidades);
+  if (reqs.habilidades && reqs.habilidades.length > 0) {
+    linhas.push(...reqs.habilidades);
   }
 
   if (linhas.length === 0) {
