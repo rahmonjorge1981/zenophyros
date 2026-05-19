@@ -80,17 +80,6 @@ async function init() {
   eventListeners();
 }
 
-function appendOptions(selectElement, enumObject) {
-  Object.entries(enumObject).forEach(([id, item]) => {
-    const option = document.createElement("option");
-
-    option.value = id;
-    option.textContent = item.label;
-
-    selectElement.appendChild(option);
-  });
-}
-
 function applyFilters() {
   const query = searchInput.value.toLowerCase().trim();
   const skillClass = filterClass.value;
@@ -229,6 +218,25 @@ function fecharModalSkill() {
 
 /** -------------------------------------------------- RENDERS --------------------------------------------------*/
 
+/** Preenche as <option> de cada <select> dinamicamente com base no SKILL_ENUMS */
+function renderFilterOptions() {
+  appendOptions(filterActivation, SKILL_ENUMS.activation);
+  appendOptions(filterOrigin, SKILL_ENUMS.origin);
+  appendOptions(filterClass, SKILL_ENUMS.class);
+  appendOptions(filterSpecies, SKILL_ENUMS.species);
+}
+
+function appendOptions(selectElement, enumObject) {
+  Object.entries(enumObject).forEach(([id, item]) => {
+    const option = document.createElement("option");
+
+    option.value = id;
+    option.textContent = item.label;
+
+    selectElement.appendChild(option);
+  });
+}
+
 /** RENDERIZAR LISTA DE SKILLS */
 function renderSkills(skillsArray) {
   skillsList.innerHTML = "";
@@ -239,14 +247,6 @@ function renderSkills(skillsArray) {
   skillsArray.forEach((skill) => {
     skillsList.appendChild(renderSkillCard(skill));
   });
-}
-
-/** Preenche as <option> de cada <select> dinamicamente com base no SKILL_ENUMS */
-function renderFilterOptions() {
-  appendOptions(filterActivation, SKILL_ENUMS.activation);
-  appendOptions(filterOrigin, SKILL_ENUMS.origin);
-  appendOptions(filterClass, SKILL_ENUMS.class);
-  appendOptions(filterSpecies, SKILL_ENUMS.species);
 }
 
 function renderSkillCard(skill) {
@@ -301,20 +301,13 @@ function renderCabecalho(skill) {
     <h2> ${skill.name} </h2>
 
     <div class="modal-badges">
-      <span class="skill-badge">
-        ${skill.species ? `<span class="skill-badge"> ${speciesLabel} </span>` : ""}
-        ${skill.class ? `<span class="skill-badge"> ${classLabel} </span>` : ""}
-        ${skill.activation ? `<span class="skill-badge"> ${activationLabel} </span>` : ""}
-      </span>
+      ${skill.species ? `<span class="skill-badge">${speciesLabel}</span>` : ""}
+      ${skill.class ? `<span class="skill-badge">${classLabel}</span>` : ""}
+      ${skill.activation ? `<span class="skill-badge">${activationLabel}</span>` : ""}
 
-      <span class="skill-badge">
-        ${skill.origin ? `<span class="skill-tag"> ${originLabel} </span>` : ""}
-      </span>
+      ${skill.origin ? `<span class="skill-tag">${originLabel}</span>` : ""}
 
-      <span class="skill-badge">
-         ${skill.school ? `<span class="skill-tag"> ${schoolLabel} </span>` : ""}
-      </span>
-
+      ${skill.school ? `<span class="skill-tag">${schoolLabel}</span>` : ""}
     </div>
   `;
 }
