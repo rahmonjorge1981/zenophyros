@@ -137,13 +137,12 @@ function applySort() {
 /**
  * RENDERIZAR LISTA
  */
-function renderSkills(skillsList) {
+function renderSkills(skillsArray) {
   skillsList.innerHTML = "";
 
-  document.getElementById("skills-count").textContent =
-    `Habilidades: ${skillsList.length}`;
+  document.getElementById("skills-count").textContent = `Habilidades: ${skills.length}`;
 
-  skillsList.forEach((skill) => {
+  skillsArray.forEach((skill) => {
     const tipoLabel = SKILL_ENUMS.activation[skill.tipo]?.label ?? skill.tipo;
     const origemLabel =
       SKILL_ENUMS.origin[skill.origem]?.label ?? skill.origem;
@@ -190,7 +189,7 @@ function renderSkills(skillsList) {
       </div>
     `;
 
-    skillsList.appendChild(card);
+    skillsArray.appendChild(card);
 
     card.addEventListener("click", () => abrirModalSkill(skill));
   });
