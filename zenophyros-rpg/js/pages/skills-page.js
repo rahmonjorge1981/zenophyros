@@ -2,6 +2,7 @@ const skillsList = document.getElementById("skills-list");
 const searchInput = document.getElementById("search-input");
 const filterClass = document.getElementById("filter-class");
 const filterSpecies = document.getElementById("filter-species");
+const filterEffects = document.getElementById("filter-effects");
 const filterActivation = document.getElementById("filter-activation");
 const filterOrigin = document.getElementById("filter-origin");
 //const sortSelect = document.getElementById("sort-select");
@@ -32,7 +33,13 @@ const SKILL_ENUMS = {
     magic: { label: "Magia" },
     technique: { label: "Técnica" },
     prayer: { label: "Prece" },
-    innate: { label: "Inata"}
+    innate: { label: "Inata" },
+  },
+  effects: {
+    damage: { label: "Dano" },
+    control: { label: "Controle" },
+    buff: { label: "Aprimoramento" },
+    mobility: { label: "Mobilidade" },
   },
 };
 
@@ -216,7 +223,7 @@ function fecharModalSkill() {
   skillModal.classList.add("hidden");
 }
 
-/** -------------------------------------------------- RENDERS --------------------------------------------------*/
+/** -------------------------------------------------- MAIN RENDERS --------------------------------------------------*/
 
 /** Preenche as <option> de cada <select> dinamicamente com base no SKILL_ENUMS */
 function renderFilterOptions() {
@@ -224,17 +231,6 @@ function renderFilterOptions() {
   appendOptions(filterOrigin, SKILL_ENUMS.origin);
   appendOptions(filterClass, SKILL_ENUMS.class);
   appendOptions(filterSpecies, SKILL_ENUMS.species);
-}
-
-function appendOptions(selectElement, enumObject) {
-  Object.entries(enumObject).forEach(([id, item]) => {
-    const option = document.createElement("option");
-
-    option.value = id;
-    option.textContent = item.label;
-
-    selectElement.appendChild(option);
-  });
 }
 
 /** RENDERIZAR LISTA DE SKILLS */
@@ -257,7 +253,6 @@ function renderSkillCard(skill) {
     SKILL_ENUMS.activation,
     skill.activation,
   );
-  
 
   const card = document.createElement("article");
 
@@ -305,11 +300,26 @@ function renderCabecalho(skill) {
       ${skill.class ? `<span class="skill-badge">${classLabel}</span>` : ""}
       ${skill.activation ? `<span class="skill-badge">${activationLabel}</span>` : ""}
 
+      ${renderTagList(skill.effects, SKILL_ENUMS.effects)}
       ${skill.origin ? `<span class="skill-tag">${originLabel}</span>` : ""}
-
       ${skill.school ? `<span class="skill-tag">${schoolLabel}</span>` : ""}
     </div>
   `;
+}
+
+/** Helper para o renderCabecalho. Cria vários <span "skill-tag"> com base em uma lista 'items' e um 'enumMap'. 
+ *  -> Usa a a lista de strings 'items' para buscar as labels em 'enumMap'.
+*/
+function renderTagList(items, enumMap) {
+  if (!items?.length) return "";
+
+  return items
+    .map((item) => {
+      const label = getLabelFromEnum(enumMap, item);
+
+      return `<span class="skill-tag"> ${label} </span>`;
+    })
+    .join("");
 }
 
 function renderDescricao(skill) {
@@ -591,17 +601,25 @@ function formatarPreRequisitos(preReq) {
     linhas.push(...preReq.habilidades);
   }
 
-  if (preReq.especie && preReq.especie.length > 0) {
-    const especiesFormatadas = preReq.especie.filter(Boolean).join(", ");
-
-    linhas.push(`Espécie: ${especiesFormatadas}`);
-  }
-
   if (linhas.length === 0) {
     return "Nenhum";
   }
 
   return linhas.join(", ");
+}
+
+/** ---------------------------------------- HELPERS FOR THE RENDERS ----------------------------------------*/
+
+/** Populates the <option>s of a <select> based on a enumObject. */
+function appendOptions(selectElement, enumObject) {
+  Object.entries(enumObject).forEach(([id, item]) => {
+    const option = document.createElement("option");
+
+    option.value = id;
+    option.textContent = item.label;
+
+    selectElement.appendChild(option);
+  });
 }
 
 init();

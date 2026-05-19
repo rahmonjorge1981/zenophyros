@@ -8,6 +8,7 @@
       "activation": "active",
       "class": "warrior",
       "origin": "magic",
+      "effects": ["buff"],
       "desc": "Cresce de tamanho, aumentando seus atributos base.",
       "preRequisitos": {
         "atributos": {
@@ -25,7 +26,7 @@
           "personagem": ""
         }
       },
-      "efeito": {
+      "mechanics": {
         "texto": "Aumenta sua FOR e VIT em +5, mas reduz sua DES e AGI em -5.",
         "rolagens": [
           {
@@ -61,6 +62,7 @@
       "activation": "active",
       "class": "monk",
       "origin": "technique",
+      "effects": ["control"],
       "desc": "Acerta o alvo em um ponto fraco, causando atordoamento.",
       "preRequisitos": {
         "atributos": {
@@ -78,7 +80,7 @@
           "personagem": ""
         }
       },
-      "efeito": {
+      "mechanics": {
         "texto": "Role um teste de Controle de Grupo. Se acertar, o alvo fica atordoado no próximo turno. Este ataque causa o mesmo dano do seu Ataque Físico.",
         "rolagens": [
           {
@@ -112,7 +114,7 @@
       "name": "Sem Heróis",
       "nivel": 0,
       "activation": "passive",
-
+      "effects": ["damage"],
       "origin": "technique",
       "desc": "Causa dano adicional contra aqueles que tentam realizar atos de heroísmo.",
       "preRequisitos": {
@@ -131,7 +133,7 @@
           "personagem": ""
         }
       },
-      "efeito": {
+      "mechanics": {
         "texto": "Suas habilidades sempre causam acerto crítico em alvos que usaram habilidades para curar ou proteger seus aliados.",
         "rolagens": [
           {
@@ -167,6 +169,7 @@
       "activation": "active",
       "class": "archer",
       "origin": "magic",
+      "effects": ["damage"],
       "desc": "Dispara uma flecha imbuída com o elemento fogo.",
       "preRequisitos": {
         "atributos": {
@@ -184,7 +187,7 @@
           "personagem": 0
         }
       },
-      "efeito": {
+      "mechanics": {
         "texto": "A próxima flecha causa 1d4 de dano de Fogo adicional.",
         "rolagens": [
           {
@@ -220,6 +223,7 @@
       "activation": "passive",
       "class": "assassin",
       "origin": "technique",
+      "effects": ["damage"],
       "desc": "Aumenta a chance de crítico durante a Furtividade.",
       "preRequisitos": {
         "atributos": {
@@ -237,7 +241,7 @@
           "personagem": 0
         }
       },
-      "efeito": {
+      "mechanics": {
         "texto": "Reduz a CD de acertos críticos em -Mod(AGI). Ex: Com AGI +3, você crita ao tirar 17 ou mais.",
         "rolagens": [
           {
@@ -273,6 +277,7 @@
       "activation": "active",
       "class": "ninja",
       "origin": "magic",
+      "effects": ["mobility"],
       "desc": "Desenhe um círculo mágico em um aliado. Uma vez, até o final do combate, você pode trocar de lugar com ele instantaneamente.",
       "preRequisitos": {
         "atributos": {
@@ -290,7 +295,7 @@
           "personagem": 0
         }
       },
-      "efeito": {
+      "mechanics": {
         "texto": "Marque um aliado vivo. Ao ativar, troca de lugar com este aliado. Se estiver morto, a habilidade falha.",
         "rolagens": [
           {
@@ -326,6 +331,7 @@
       "activation": "passive",
       "origin": "innate",
       "species": "human",
+      "effects": ["utility"],
       "desc": "Humanos recebem +1 Ponto de Atributo ao passar de Nível.",
       "preRequisitos": {
         "atributos": {
@@ -344,7 +350,7 @@
         },
         "especie": ["HUMANO"]
       },
-      "efeito": {
+      "mechanics": {
         "texto": "Recebe +1 Ponto de Atributo ao passar de Nível.",
         "rolagens": [
           {
@@ -380,6 +386,7 @@
       "activation": "passive",
       "origin": "innate",
       "species": "human",
+      "effects": ["utility"],
       "desc": "Humanos podem escolher rolar um teste novamente uma vez ao dia.",
       "preRequisitos": {
         "atributos": {
@@ -398,7 +405,7 @@
         },
         "especie": ["HUMANO"]
       },
-      "efeito": {
+      "mechanics": {
         "texto": "Uma vez por dia, pode rolar qualquer teste novamente.",
         "rolagens": [
           {
@@ -434,6 +441,7 @@
       "activation": "active",
       "class": "cleric",
       "origin": "prayer",
+      "effects": ["buff"],
       "desc": "Abençoa a arma de um aliado com uma luz divina dourada. ",
       "preRequisitos": {
         "atributos": {
@@ -452,7 +460,7 @@
         },
         "especie": []
       },
-      "efeito": {
+      "mechanics": {
         "texto": "Role um d100. O dano do próximo Ataque Físico é multiplicado de acordo com o resultado: \n51-100 (50%): Dano Final x1.5 \n21-50 (30%): Dano Final x2 \n6-20 (15%): Dano Final x3 \n1-5 (5%): Dano Final x5",
         "rolagens": [
           {
@@ -488,6 +496,7 @@
       "activation": "reactive",
       "class": "cleric",
       "origin": "prayer",
+      "effects": ["utility"],
       "desc": "Você pode escolher sacrificar um aliado saudável para salvar um outro aliado à beira da morte, ou vice versa.",
       "preRequisitos": {
         "atributos": {
@@ -506,7 +515,7 @@
         },
         "especie": []
       },
-      "efeito": {
+      "mechanics": {
         "texto": "Só pode ser ativada se você tiver um aliado À Beira da Morte e um aliado Vivo. Esta magic não pode ser usada em si mesmo. O aliado que você executar, qualquer que seja, doa 100% dos seus pontos de Vida e Mana restantes para o aliado vivo (isto pode superar os limites máximos do aliado-alvo). Além disso, o aliado vivo recebe um bônus em todos os seus atributos igual ao modificador dos atributos do aliado executado.",
         "rolagens": [
           {
@@ -541,6 +550,7 @@
       "nivel": 0,
       "activation": "passive",
       "origin": "technique",
+      "effects": ["utility"],
       "desc": "Aumenta a sua AGI e a de um aliado ao jogar em dupla.",
       "preRequisitos": {
         "atributos": {
@@ -559,7 +569,7 @@
         },
         "especie": []
       },
-      "efeito": {
+      "mechanics": {
         "texto": "Se a sua party só tiver duas pessoas, concede +3 de AGI a você e seu aliado. Se o seu aliado também tiver essa habilidade, o bônus aumenta para +5.",
         "rolagens": [
           {
@@ -613,7 +623,7 @@
         },
         "especie": []
       },
-      "efeito": {
+      "mechanics": {
         "texto": "O próximo ataque causa Dano Final igual à metade da soma de todos os seus atributos. O custo de ativação é igual à 100% da sua Mana OU Energia Atual. Crítico: 2x de dano",
         "rolagens": [
           {
@@ -667,7 +677,7 @@
         },
         "especie": []
       },
-      "efeito": {
+      "mechanics": {
         "texto": "Ao equipar qualquer arma ou equipamento lendário, concede um bônus de +3 de AUR. Esse efeito não é cumulativo.",
         "rolagens": [
           {
@@ -721,7 +731,7 @@
         },
         "especie": []
       },
-      "efeito": {
+      "mechanics": {
         "texto": "Sempre que um aliado falhar um Teste de Morte pela primeira vez, ele pode tentar novamente.",
         "rolagens": [
           {
@@ -775,7 +785,7 @@
         },
         "especie": []
       },
-      "efeito": {
+      "mechanics": {
         "texto": "Suas magias que causam dano de Fogo tem o custo de Mana reduzido em 50%.",
         "rolagens": [
           {
@@ -829,7 +839,7 @@
         },
         "especie": []
       },
-      "efeito": {
+      "mechanics": {
         "texto": "Pode levitar de alguns centímetros até um metro do chão, com base na sua AUR.",
         "rolagens": [
           {
@@ -851,7 +861,6 @@
         "vida": null,
         "energia": null
       },
-      "tags": ["efeito"],
       "metadata": {
         "versao": 1,
         "beta": true,
@@ -883,7 +892,7 @@
         },
         "especie": []
       },
-      "efeito": {
+      "mechanics": {
         "texto": "Permite vôo passivo, com altura indeterminada. Este efeito é desativado se você for atingido, ficar sem Mana ou sem Energia.",
         "rolagens": [
           {
@@ -905,7 +914,7 @@
         "vida": null,
         "energia": null
       },
-      "tags": ["efeito", "voo"],
+      "tags": ["voo"],
       "metadata": {
         "versao": 1,
         "beta": true,
@@ -937,7 +946,7 @@
         },
         "especie": []
       },
-      "efeito": {
+      "mechanics": {
         "texto": "Seu próximo ataque desarmado causa 1d6 de dano de Fogo adicional.",
         "rolagens": [
           {
@@ -991,7 +1000,7 @@
         },
         "especie": []
       },
-      "efeito": {
+      "mechanics": {
         "texto": "Seu próximo ataque desarmado causa 1d6 de dano de Trovão adicional. Crítico: Alvo fica paralisado por 1d4 turnos.",
         "rolagens": [
           {
@@ -1045,7 +1054,7 @@
         },
         "especie": []
       },
-      "efeito": {
+      "mechanics": {
         "texto": "Teste de Força (CD5): O primeiro golpe causa 1d20 de dano contundente. Teste de Destreza (CD10): O segundo golpe acerta um ponto fraco do alvo, causando 1d12 de dano verdadeiro. Teste de Agilidade (CD15): O terceiro golpe derruba o alvo, incapacitando-o por um turno. Teste de Vitalidade (CD20): O quarto golpe atira todo o peso do próprio corpo no inimigo, causando 2d20 de dano no alvo e 1d20 de dano em si mesmo. O custo de Energia desta Habilidade aumenta em +10 a cada acerto.",
         "rolagens": [
           {
