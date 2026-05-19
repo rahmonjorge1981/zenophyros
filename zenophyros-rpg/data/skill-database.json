@@ -9,6 +9,7 @@
           "for": 12,
           "rac": 12
         }
+      }
     },
     "thunder_punch": {
       "id": "thunder_punch",
@@ -65,9 +66,7 @@
       },
       "mechanics": {
         "text": "Causa 1d100 de dano em uma área 10x10.",
-        "formulas": [
-
-        ],
+        "formulas": [],
         "target": "area"
       },
       "cost": {
