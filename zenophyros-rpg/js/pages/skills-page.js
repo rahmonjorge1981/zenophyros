@@ -259,7 +259,7 @@ function renderSkills(skillsArray) {
     `Habilidades: ${skillsArray.length}`;
 
   skillsArray.forEach((skill) => {
-    if (skill.hidden) {
+    if (skill.metadata.hidden) {
       return;
     }
     skillsList.appendChild(renderSkillCard(skill));
