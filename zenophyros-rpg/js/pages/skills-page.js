@@ -253,7 +253,7 @@ function renderSkillCard(skill) {
   const classLabel = getLabelFromEnum(SKILL_ENUMS.class, skill.class);
   const speciesLabel = getLabelFromEnum(SKILL_ENUMS.species, skill.species);
   const originLabel = getLabelFromEnum(SKILL_ENUMS.origin, skill.origin);
-  const schoolLabel = getLabelFromEnum(SKILL_ENUMS.school, skill.school);
+  //const schoolLabel = getLabelFromEnum(SKILL_ENUMS.school, skill.school);
   const activationLabel = getLabelFromEnum(
     SKILL_ENUMS.activation,
     skill.activation,
