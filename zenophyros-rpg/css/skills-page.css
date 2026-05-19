@@ -117,7 +117,7 @@
 
   padding: 2px 4px;
 
-  border: 1px solid #000;
+  border: 1px dashed #000;
 }
 
 /* ---------------- MODAL ---------------- */

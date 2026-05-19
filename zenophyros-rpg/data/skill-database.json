@@ -326,7 +326,7 @@
       "activation": "passive",
       "origin": "innate",
       "species": "human",
-      "desc": "Humanos têm a capacidade de se adaptar à diversas situações.",
+      "desc": "Humanos recebem +1 Ponto de Atributo ao passar de Nível.",
       "preRequisitos": {
         "atributos": {
           "for": 0,
@@ -380,7 +380,7 @@
       "activation": "passive",
       "origin": "innate",
       "species": "human",
-      "desc": "Humanos precisam ser muito sortudos pra sobreviver em um ambiente hostil...",
+      "desc": "Humanos podem escolher rolar um teste novamente uma vez ao dia.",
       "preRequisitos": {
         "atributos": {
           "for": 0,
@@ -757,7 +757,7 @@
       "activation": "passive",
       "class": "wizard",
       "origin": "innate",
-      "desc": "Suas magics que causam dano de Fogo tem o custo de Mana reduzido em 50%.",
+      "desc": "Suas magias que causam dano de Fogo tem o custo de Mana reduzido em 50%.",
       "preRequisitos": {
         "atributos": {
           "for": 0,
@@ -776,7 +776,7 @@
         "especie": []
       },
       "efeito": {
-        "texto": "Suas magics que causam dano de Fogo tem o custo de Mana reduzido em 50%.",
+        "texto": "Suas magias que causam dano de Fogo tem o custo de Mana reduzido em 50%.",
         "rolagens": [
           {
             "tipo": "",
@@ -971,7 +971,7 @@
       "name": "Soco Elétrico",
       "nivel": 0,
       "activation": "active",
-      "clas": "monk",
+      "class": "monk",
       "origin": "magic",
       "desc": "Imbui seu punho em chamas, causando dano elétrico adicional no próximo ataque.",
       "preRequisitos": {

@@ -272,7 +272,7 @@ function renderSkillCard(skill) {
       <div class="skill-meta">
         ${skill.species ? `<span class="skill-badge"> ${speciesLabel} </span>` : ""}
         ${skill.class ? `<span class="skill-badge"> ${classLabel} </span>` : ""}
-        ${skill.activation ? `<span class="skill-tag"> ${activationLabel} </span>` : ""}
+        ${skill.activation ? `<span class="skill-badge"> ${activationLabel} </span>` : ""}
       </div>
 
       <p class="skill-description"> ${skill.desc} </p>
