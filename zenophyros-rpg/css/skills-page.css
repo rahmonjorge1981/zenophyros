@@ -15,7 +15,6 @@
 .skills-toolbar {
   display: flex;
   flex-wrap: wrap;
-
   gap: 8px;
 }
 
@@ -29,6 +28,10 @@
   border: 2px solid #000;
 
   background: #d6d6d6;
+}
+
+#search-input {
+  flex: 1 0 100%;
 }
 
 .skills-list {
