@@ -4,10 +4,19 @@
     "aaaa": {
       "id": "test",
       "name": "AAA Teste",
+      "mechanics": {
+        "text": "This is a test skill for testing purposes."
+      },
       "requirements": {
         "attributes": {
-          "for": 12,
-          "rac": 12
+          "for": 10,
+          "des": 10,
+          "agi": 10,
+          "vit": 10,
+          "rac": 10,
+          "ins": 10,
+          "san": 10,
+          "aur": 10
         }
       }
     },

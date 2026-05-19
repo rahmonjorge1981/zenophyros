@@ -412,7 +412,7 @@ async function inicializarFicha() {
   await carregarSpeciesData();
   await carregarClassData();
   await loadSkills();
-  configurarModalSkill();
+  addModalEvents();
   configurarBotoesHabilidade();
   inicializarModificadores();
   carregarLocal();
