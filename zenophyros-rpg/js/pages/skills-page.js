@@ -1,6 +1,7 @@
 const skillsList = document.getElementById("skills-list");
 const searchInput = document.getElementById("search-input");
 const filterClass = document.getElementById("filter-class");
+const filterSpecies = document.getElementById("filter-species");
 const filterActivation = document.getElementById("filter-activation");
 const filterOrigin = document.getElementById("filter-origin");
 //const sortSelect = document.getElementById("sort-select");
@@ -15,6 +16,13 @@ const SKILL_ENUMS = {
     cleric: { label: "Clérigo" },
     ninja: { label: "Ninja" },
     universal: { label: "Universal" },
+  },
+  species: {
+    human: { label: "Humano" },
+    elf: { label: "Elfo" },
+    celenite: { label: "Celenita" },
+    ullum: { label: "Ullum" },
+    abazon: { label: "Abazon" },
   },
   activation: {
     passive: { label: "Passiva" },
@@ -68,47 +76,21 @@ async function init() {
 
   filteredSkills = [...skills];
 
-  fillFilters();
+  renderFilterOptions();
+
   applySort();
   renderSkills(filteredSkills);
   eventListeners();
-
-  console.log("skillsData:", window.skillDatabase);
-  console.log("skills array:", skills);
 }
 
-/**
- * Preenche os selects com os SKILL_ENUMS.
- */
-function fillFilters() {
-  Object.entries(SKILL_ENUMS.activation).forEach(([id, activationType]) => {
+function appendOptions(selectElement, enumObject) {
+  Object.entries(enumObject).forEach(([id, item]) => {
     const option = document.createElement("option");
 
     option.value = id;
+    option.textContent = item.label;
 
-    option.textContent = activationType.label;
-
-    filterActivation.appendChild(option);
-  });
-
-  Object.entries(SKILL_ENUMS.origin).forEach(([id, origin]) => {
-    const option = document.createElement("option");
-
-    option.value = id;
-
-    option.textContent = origin.label;
-
-    filterOrigin.appendChild(option);
-  });
-
-  Object.entries(SKILL_ENUMS.class).forEach(([id, skillClass]) => {
-    const option = document.createElement("option");
-
-    option.value = id;
-
-    option.textContent = skillClass.label;
-
-    filterClass.appendChild(option);
+    selectElement.appendChild(option);
   });
 }
 
@@ -229,7 +211,6 @@ function abrirModalSkill(skill, botaoOrigem = 0) {
   botaoSkillAtual = botaoOrigem;
 
   const skillModal = document.getElementById("skill-modal");
-
   const modalBody = document.getElementById("modal-body");
 
   if (!skillModal || !modalBody) {
@@ -266,8 +247,18 @@ function fecharModalSkill() {
 
 /** -------------------------------------------------- RENDERS --------------------------------------------------*/
 
+/** Preenche as <option> de cada <select> dinamicamente com base no SKILL_ENUMS */
+function renderFilterOptions() {
+  appendOptions(filterActivation, SKILL_ENUMS.activation);
+  appendOptions(filterOrigin, SKILL_ENUMS.origin);
+  appendOptions(filterClass, SKILL_ENUMS.class);
+  appendOptions(filterSpecies, SKILL_ENUMS.species);
+}
+
 function renderSkillCard(skill) {
   const classLabel = SKILL_ENUMS.class[skill.class]?.label ?? skill.class;
+  const speciesLabel =
+    SKILL_ENUMS.species[skill.species]?.label ?? skill.species;
   const activationLabel =
     SKILL_ENUMS.activation[skill.activation]?.label ?? skill.activation;
   const originLabel = SKILL_ENUMS.origin[skill.origin]?.label ?? skill.origin;
@@ -278,17 +269,12 @@ function renderSkillCard(skill) {
 
   card.innerHTML = `
       <div class="skill-top">
-
-        <h2 class="skill-name">
-          ${skill.name}
-        </h2>
-
+        <h2 class="skill-name"> ${skill.name} </h2>
       </div>
 
       <div class="skill-meta">
-
+        <span class="skill-badge"> ${speciesLabel} </span>
         <span class="skill-badge"> ${classLabel} </span>
-
       </div>
 
       <p class="skill-description">

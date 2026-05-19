@@ -120,7 +120,7 @@
       "name": "Sem Heróis",
       "nivel": 0,
       "activation": "passive",
-      "class": "universal",
+      
       "origin": "TECNICA",
       "school": "OCULTA",
       "desc": "Causa dano adicional contra aqueles que tentam realizar atos de heroísmo.",
@@ -234,7 +234,7 @@
       "name": "Ataque Surpresa",
       "nivel": 0,
       "activation": "passive",
-      "classe": "assassin",
+      "class": "assassin",
       "origin": "TECNICA",
       "school": "COMBATE",
       "desc": "Aumenta a chance de crítico durante a Furtividade.",
@@ -346,10 +346,9 @@
       "name": "Adaptabilidade",
       "nivel": 0,
       "activation": "passive",
-      "class": "universal",
       "origin": "INATA",
       "school": "ESPÉCIE",
-      "species": "Humano",
+      "species": "human",
       "desc": "Humanos têm a capacidade de se adaptar à diversas situações.",
       "preRequisitos": {
         "atributos": {
@@ -407,8 +406,8 @@
       "nivel": 0,
       "activation": "passive",
       "origin": "INATA",
-      "class" : "universal",
-      "species": "Humano",
+      "class" : "universal",      
+      "species": "human",
       "school": "ESPÉCIE",
       "desc": "Humanos precisam ser muito sortudos pra sobreviver em um ambiente hostil...",
       "preRequisitos": {
@@ -582,7 +581,7 @@
       "nivel": 0,
       "activation": "passive",
       "origin": "TECNICA",
-      "class": "universal",
+      
       "school": "COMBATE",
       "desc": "Aumenta a sua AGI e a de um aliado ao jogar em dupla.",
       "preRequisitos": {
@@ -639,7 +638,7 @@
       "name": "Impacto Prismático",
       "nivel": 0,
       "activation": "active",
-      "class": "universal",
+      
       "origin": "PRECE",
       "school": "APRIMORAMENTO",
       "desc": "Imbui uma essência luminosa multicromática para o próximo Ataque Físico causar dano baseado em TODOS os seus atributos.",
@@ -694,7 +693,7 @@
       "name": "Herói Lendário",
       "nivel": 0,
       "activation": "passive",
-      "class": "universal",
+      
       "origin": "INATA",
       "school": "",
       "desc": "Recebe bônus ao equipar armas e equipamentos lendários.",
@@ -921,7 +920,7 @@
       "name": "Voar",
       "nivel": 0,
       "activation": "passive",
-      "class": "universal",
+      
       "origin": "MAGIA",
       "school": "EFEITO",
       "desc": "Concede vôo passivo.",
