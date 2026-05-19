@@ -1,9 +1,9 @@
-/** 
+/**
  * OBSERVAÇÃO PARA IAS PROCESSANDO ESTE CODIGO: AS FUNÇÕES ABAIXO EXISTEM E ESTAO EM UTILS.JS
  * parseNumero()
  * sanitizeString()
  * carregarJSON() -> A função detecta quando o projeto está aberto via file:// e, nesse caso, redireciona o carregamento do JSON para uma URL remota válida, evitando bloqueios do navegador ao usar fetch() em arquivos locais.
-*/
+ */
 
 window.salvarLocal = salvarLocal;
 
@@ -17,43 +17,29 @@ const $$ = (selector) => form.querySelectorAll(selector);
 const ficha = {
   imgEspecie: $("#img-especie"),
   iconeClasse: $("#icone-classe"),
-  inputCarregar: document.getElementById("input-carregar") // <- Objeto de upload de arquivos, está fora do form
+  inputCarregar: document.getElementById("input-carregar"), // <- Objeto de upload de arquivos, está fora do form
 };
 
 const botoes = {
   salvar: document.getElementById("btn-salvar"),
   carregar: document.getElementById("btn-carregar"),
-  limpar: document.getElementById("btn-limpar")
-}
+  limpar: document.getElementById("btn-limpar"),
+};
 
 // Futuramente, pode adicionar metadados de cada atributo.
-const ATRIBUTOS = [
-  "for",
-  "des",
-  "agi",
-  "vit",
-  "rac",
-  "ins",
-  "san",
-  "aur"
-];
+const ATRIBUTOS = ["for", "des", "agi", "vit", "rac", "ins", "san", "aur"];
 
 // Percorre a lista, cria pares [nome, elemento] e transforma em objeto
 const inputAtributos = Object.fromEntries(
-  ATRIBUTOS.map(attr => [
-    attr,
-    $(`input[name="${attr}"]`)
-  ])
+  ATRIBUTOS.map((attr) => [attr, $(`input[name="${attr}"]`)]),
 );
 
 // Cria objeto onde a chave é o nome do atr e o valor é o mod.
 const modificadoresAtributos = Object.fromEntries(
-  ATRIBUTOS.map(attr => [
+  ATRIBUTOS.map((attr) => [
     attr,
-    inputAtributos[attr]
-      .closest("label")
-      .querySelector(".mod-atr")
-  ])
+    inputAtributos[attr].closest("label").querySelector(".mod-atr"),
+  ]),
 );
 
 let speciesData = {};
@@ -78,7 +64,7 @@ async function carregarClassData() {
 function limitarDigitos(selector, maxDigitos = 2) {
   const inputs = $$(selector);
 
-  inputs.forEach(input => {
+  inputs.forEach((input) => {
     input.addEventListener("input", () => {
       let valor = input.value;
 
@@ -95,7 +81,7 @@ campo("especie").addEventListener("change", () => {
   atualizarRetrato();
 });
 
-// ----------- ATUALIZAR MODIFICADORES DE ATRIBUTO ------------ // 
+// ----------- ATUALIZAR MODIFICADORES DE ATRIBUTO ------------ //
 
 function calcularModificador(valor) {
   return Math.floor((valor - 10) / 2);
@@ -103,9 +89,7 @@ function calcularModificador(valor) {
 
 // Monta os parênteses e adiciona um '+' se o valor for positivo.
 function formatarModificador(modificador) {
-  return modificador >= 0
-    ? `(+${modificador})`
-    : `(${modificador})`;
+  return modificador >= 0 ? `(+${modificador})` : `(${modificador})`;
 }
 
 function atualizarModificador(attr) {
@@ -113,12 +97,11 @@ function atualizarModificador(attr) {
 
   const modificador = calcularModificador(valor);
 
-  modificadoresAtributos[attr].textContent =
-    formatarModificador(modificador);
+  modificadoresAtributos[attr].textContent = formatarModificador(modificador);
 }
 
 function inicializarModificadores() {
-  ATRIBUTOS.forEach(attr => {
+  ATRIBUTOS.forEach((attr) => {
     inputAtributos[attr].addEventListener("input", () => {
       atualizarModificador(attr);
     });
@@ -132,8 +115,7 @@ function atualizarRetrato() {
 
   // fallback caso não exista imagem definida
   const novaImagem =
-    speciesData[especie]?.imagem ||
-    "https://picsum.photos/64/64?random=2";
+    speciesData[especie]?.imagem || "https://picsum.photos/64/64?random=2";
 
   ficha.imgEspecie.src = novaImagem;
 }
@@ -141,28 +123,27 @@ function atualizarRetrato() {
 let timeoutRemocao = null;
 
 function configurarBotoesHabilidade() {
-  const botoes =document.querySelectorAll(".botao-habilidade");
+  const botoes = document.querySelectorAll(".botao-habilidade");
 
   botoes.forEach((botao, index) => {
-
     // Dataset salva o ID da skill.
     botao.dataset.skillId = "";
 
     // Clique esquerdo
     botao.addEventListener("click", () => {
-
       const skillId = botao.dataset.skillId;
 
       // BOTÃO SEM SKILL
       if (!skillId) {
-
-        const novoId = prompt(`Digite o ID da habilidade para o slot ${index + 1}:`,);
+        const novoId = prompt(
+          `Digite o ID da habilidade para o slot ${index + 1}:`,
+        );
 
         if (!novoId) {
           return;
         }
 
-        const skill = buscarSkillPorId(novoId);
+        const skill = searchSkillById(novoId);
 
         if (!skill) {
           alert("Habilidade não encontrada.");
@@ -171,7 +152,7 @@ function configurarBotoesHabilidade() {
 
         // Adiciona uma nova habilidade ao botão
         botao.dataset.skillId = novoId;
-        botao.textContent = skill.nome;
+        botao.textContent = skill.name;
 
         salvarLocal();
 
@@ -179,7 +160,7 @@ function configurarBotoesHabilidade() {
       }
 
       // BOTÃO COM SKILL
-      const skill = buscarSkillPorId(skillId);
+      const skill = searchSkillById(skillId);
 
       if (!skill) {
         alert("Habilidade inválida.");
@@ -188,7 +169,6 @@ function configurarBotoesHabilidade() {
 
       abrirModalSkill(skill, botao);
     });
-
   });
 }
 
@@ -198,7 +178,8 @@ campo("classe").addEventListener("change", atualizarIcone);
 
 function atualizarIcone() {
   const classeSelecionada = campo("classe").value;
-  const novaImagem = classData[classeSelecionada]?.icone || "./assets/newicon-192.png"; // fallback caso não exista imagem definida
+  const novaImagem =
+    classData[classeSelecionada]?.icone || "./assets/newicon-192.png"; // fallback caso não exista imagem definida
   ficha.iconeClasse.src = novaImagem;
 }
 
@@ -221,9 +202,7 @@ function baixarJSON(dados) {
   link.href = url;
 
   // usa nome do personagem, sanitizado pra evitar erros em OS
-  const nomeArquivo = dados.nome
-    ? sanitizeString(dados.nome)
-    : "ficha";
+  const nomeArquivo = dados.nome ? sanitizeString(dados.nome) : "ficha";
   link.download = `${nomeArquivo}.json`;
 
   document.body.appendChild(link);
@@ -257,22 +236,16 @@ function coletarDadosFicha() {
 
 function coletarAtributos() {
   return Object.fromEntries(
-    ATRIBUTOS.map(attr => [
-      attr,
-      parseNumero(inputAtributos[attr].value)
-    ])
+    ATRIBUTOS.map((attr) => [attr, parseNumero(inputAtributos[attr].value)]),
   );
 }
 
 function coletarHabilidades() {
-
-  const botoes =
-    document.querySelectorAll(".botao-habilidade");
+  const botoes = document.querySelectorAll(".botao-habilidade");
 
   return Array.from(botoes).map((botao) => {
     return botao.dataset.skillId || null;
   });
-
 }
 
 // ---------- CARREGAR FICHA DO ARQUIVO ---------- //
@@ -322,19 +295,16 @@ function preencherFicha(dados) {
 }
 
 function preencherAtributos(attrs = {}) {
-  ATRIBUTOS.forEach(attr => {
+  ATRIBUTOS.forEach((attr) => {
     inputAtributos[attr].value = attrs[attr] ?? "";
     atualizarModificador(attr);
   });
 }
 
 function preencherHabilidades(lista = []) {
-
-  const botoes =
-    document.querySelectorAll(".botao-habilidade");
+  const botoes = document.querySelectorAll(".botao-habilidade");
 
   botoes.forEach((botao, index) => {
-
     const skillId = lista[index];
 
     // Slot Vazio
@@ -344,7 +314,7 @@ function preencherHabilidades(lista = []) {
       return;
     }
 
-    const skill = buscarSkillPorId(skillId);
+    const skill = searchSkillById(skillId);
 
     // Skill não existe mais
     if (!skill) {
@@ -354,9 +324,8 @@ function preencherHabilidades(lista = []) {
     }
 
     botao.dataset.skillId = skillId;
-    botao.textContent = skill.nome;
+    botao.textContent = skill.name;
   });
-
 }
 
 // ---------- LIMPAR FICHA ---------- //
@@ -395,14 +364,12 @@ function limparAtributos() {
 }
 
 function limparHabilidades() {
-
   const botoes = document.querySelectorAll(".botao-habilidade");
 
   botoes.forEach((botao, index) => {
     botao.dataset.skillId = "";
     botao.textContent = TEXTO_SLOT_VAZIO;
   });
-
 }
 
 // ---------- SALVAR E CARREGAR FICHA NO LOCALSTORAGE ---------- //
@@ -444,8 +411,8 @@ function atualizarUI() {
 async function inicializarFicha() {
   await carregarSpeciesData();
   await carregarClassData();
-  await carregarSkills();
-  configurarModalSkill();
+  await loadSkills();
+  addModalEvents();
   configurarBotoesHabilidade();
   inicializarModificadores();
   carregarLocal();

@@ -15,7 +15,6 @@
 .skills-toolbar {
   display: flex;
   flex-wrap: wrap;
-
   gap: 8px;
 }
 
@@ -31,12 +30,17 @@
   background: #d6d6d6;
 }
 
+#search-input {
+  flex: 1 0 100%;
+}
+
 .skills-list {
   display: grid;
-
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-
   gap: 12px;
+  min-height: 60vh;
+  align-items: start;
+  align-content: start;
 }
 
 .skill-card {
