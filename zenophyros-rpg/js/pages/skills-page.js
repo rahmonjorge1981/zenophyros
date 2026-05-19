@@ -176,7 +176,6 @@ if (removeSkillBtn) {
     ).indexOf(botaoSkillAtual);
 
     botaoSkillAtual.dataset.skillId = "";
-
     botaoSkillAtual.textContent = "(vazio)";
 
     salvarLocal();
