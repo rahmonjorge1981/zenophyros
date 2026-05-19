@@ -610,7 +610,7 @@ function formatArea(area) {
 }
 
 function formatRequirements(reqs) {
-  if (!reqs.attributes) {
+  if (!reqs) {
     return;
   }
 
