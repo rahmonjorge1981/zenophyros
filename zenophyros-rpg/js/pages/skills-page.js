@@ -358,7 +358,7 @@ function renderRequirements(skill) {
   return `
     <div class="modal-section">
       <h3>Pré-Requisitos</h3>
-      <div class="modal-box"> ${formatRequirements(skill.Requirements)} </div>
+      <div class="modal-box"> ${formatRequirements(skill.requirements)} </div>
     </div>
   `;
 }
