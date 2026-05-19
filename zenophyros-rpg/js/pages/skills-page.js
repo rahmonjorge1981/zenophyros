@@ -103,7 +103,7 @@ function fillFilters() {
 
     option.value = id;
 
-    option.textContent = origin.skillClass;
+    option.textContent = skillClass.label;
 
     filterClass.appendChild(option);
   });
