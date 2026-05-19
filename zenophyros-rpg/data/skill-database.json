@@ -18,6 +18,11 @@
           "san": 10,
           "aur": 10
         }
+      },
+      "metadata": {
+        "version": 1,
+        "beta": true,
+        "hidden": true
       }
     },
     "thunder_punch": {
@@ -56,9 +61,9 @@
       },
       "tags": ["thunder"],
       "metadata": {
-        "versao": 1,
+        "version": 1,
         "beta": true,
-        "oculta": false
+        "hidden": false
       }
     },
     "thunderstorm": {
@@ -83,9 +88,9 @@
       },
       "tags": ["thunder"],
       "metadata": {
-        "versao": 1,
+        "version": 1,
         "beta": true,
-        "oculta": false
+        "hidden": false
       }
     },
     "gigantify": {
@@ -118,9 +123,9 @@
         "energy": 10
       },
       "metadata": {
-        "versao": 1,
+        "version": 1,
         "beta": true,
-        "oculta": false
+        "hidden": false
       }
     },
     "golpe_atordoante": {
@@ -160,9 +165,9 @@
       },
       "tags": ["cc", "alvo único"],
       "metadata": {
-        "versao": 1,
+        "version": 1,
         "beta": true,
-        "oculta": false
+        "hidden": false
       }
     },
     "no_heroes": {
@@ -213,9 +218,9 @@
       },
       "tags": ["dano", "aprimoramento"],
       "metadata": {
-        "versao": 1,
+        "version": 1,
         "beta": true,
-        "oculta": false
+        "hidden": false
       }
     },
     "fire_arrow": {
@@ -267,9 +272,9 @@
       },
       "tags": ["atirador", "fogo"],
       "metadata": {
-        "versao": 1,
+        "version": 1,
         "beta": true,
-        "oculta": false
+        "hidden": false
       }
     },
     "ataque_surpresa": {
@@ -321,9 +326,9 @@
       },
       "tags": ["furtividade"],
       "metadata": {
-        "versao": 1,
+        "version": 1,
         "beta": true,
-        "oculta": false
+        "hidden": false
       }
     },
     "shunpo": {
@@ -375,9 +380,9 @@
       },
       "tags": ["teletransporte"],
       "metadata": {
-        "versao": 1,
+        "version": 1,
         "beta": true,
-        "oculta": false
+        "hidden": false
       }
     },
     "adaptability": {
@@ -430,9 +435,9 @@
       },
       "tags": ["crescimento"],
       "metadata": {
-        "versao": 1,
+        "version": 1,
         "beta": true,
-        "oculta": false
+        "hidden": false
       }
     },
     "luck": {
@@ -485,9 +490,9 @@
       },
       "tags": [],
       "metadata": {
-        "versao": 1,
+        "version": 1,
         "beta": true,
-        "oculta": false
+        "hidden": false
       }
     },
     "god_crit": {
@@ -540,9 +545,9 @@
       },
       "tags": ["aprimoramento"],
       "metadata": {
-        "versao": 1,
+        "version": 1,
         "beta": true,
-        "oculta": false
+        "hidden": false
       }
     },
     "black_orchid": {
@@ -595,9 +600,9 @@
       },
       "tags": ["ressuscitar", "aprimoramento"],
       "metadata": {
-        "versao": 1,
+        "version": 1,
         "beta": true,
-        "oculta": false
+        "hidden": false
       }
     },
     "dynamic_duo": {
@@ -649,9 +654,9 @@
       },
       "tags": ["agilidade", "equipe"],
       "metadata": {
-        "versao": 1,
+        "version": 1,
         "beta": true,
-        "oculta": false
+        "hidden": false
       }
     },
     "rainbow_strike": {
@@ -703,9 +708,9 @@
       },
       "tags": [],
       "metadata": {
-        "versao": 1,
+        "version": 1,
         "beta": true,
-        "oculta": false
+        "hidden": false
       }
     },
     "legendary_hero": {
@@ -757,9 +762,9 @@
       },
       "tags": [],
       "metadata": {
-        "versao": 1,
+        "version": 1,
         "beta": true,
-        "oculta": false
+        "hidden": false
       }
     },
     "spark_of_hope": {
@@ -811,9 +816,9 @@
       },
       "tags": ["ressuscitar"],
       "metadata": {
-        "versao": 1,
+        "version": 1,
         "beta": true,
-        "oculta": false
+        "hidden": false
       }
     },
     "pyromania": {
@@ -865,9 +870,9 @@
       },
       "tags": ["fogo", "mana"],
       "metadata": {
-        "versao": 1,
+        "version": 1,
         "beta": true,
-        "oculta": false
+        "hidden": false
       }
     },
     "levitate": {
@@ -918,9 +923,9 @@
         "energy": null
       },
       "metadata": {
-        "versao": 1,
+        "version": 1,
         "beta": true,
-        "oculta": false
+        "hidden": false
       }
     },
     "fly": {
@@ -972,9 +977,9 @@
       },
       "tags": ["voo"],
       "metadata": {
-        "versao": 1,
+        "version": 1,
         "beta": true,
-        "oculta": false
+        "hidden": false
       }
     },
     "fire_punch": {
@@ -1026,9 +1031,9 @@
       },
       "tags": ["fogo", "dano", "monge"],
       "metadata": {
-        "versao": 1,
+        "version": 1,
         "beta": true,
-        "oculta": false
+        "hidden": false
       }
     },
     "golden_dragon_fist": {
@@ -1080,9 +1085,9 @@
       },
       "tags": ["monge"],
       "metadata": {
-        "versao": 1,
+        "version": 1,
         "beta": true,
-        "oculta": false
+        "hidden": false
       }
     }
   }

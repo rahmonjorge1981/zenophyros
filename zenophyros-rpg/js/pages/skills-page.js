@@ -93,7 +93,7 @@ async function init() {
     console.log("No filter objects found");
     return;
   }
-  
+
   filteredSkills = [...skills];
   renderFilterOptions();
 
@@ -257,6 +257,9 @@ function renderSkills(skillsArray) {
     `Habilidades: ${skillsArray.length}`;
 
   skillsArray.forEach((skill) => {
+    if (skill.hidden) {
+      return;
+    }
     skillsList.appendChild(renderSkillCard(skill));
   });
 }
