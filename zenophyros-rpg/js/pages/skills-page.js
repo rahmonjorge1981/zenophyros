@@ -8,11 +8,13 @@ const filterOrigin = document.getElementById("filter-origin");
 const SKILL_ENUMS = {
   class: {
     warrior: { label: "Guerreiro" },
+    archer: { label: "Arqueiro" },
     wizard: { label: "Mago" },
+    assassin: { label: "Assassino" },
     monk: { label: "Monge" },
     cleric: { label: "Clérigo" },
-    archer: { label: "Arqueiro" },
-    ninja: { label: "Ninja" }
+    ninja: { label: "Ninja" },
+    universal: { label: "Universal" },
   },
   activation: {
     passive: { label: "Passiva" },
