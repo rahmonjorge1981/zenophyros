@@ -25,14 +25,12 @@ const SKILL_ENUMS = {
   },
 };
 
+const DATABASE_PATH = "./data/skill-database.json";
+
 window.skillDatabase = {};
 
 let skills = [];
-
 let filteredSkills = [];
-
-const DATABASE_PATH = "./data/skill-database.json";
-
 let botaoSkillAtual = null;
 
 /**
@@ -157,9 +155,8 @@ function renderSkills(skillsArray) {
   document.getElementById("skills-count").textContent = `Habilidades: ${skills.length}`;
 
   skillsArray.forEach((skill) => {
-    const tipoLabel = SKILL_ENUMS.activation[skill.tipo]?.label ?? skill.tipo;
-    const origemLabel =
-      SKILL_ENUMS.origin[skill.origem]?.label ?? skill.origem;
+    const activationLabel = SKILL_ENUMS.activation[skill.activation]?.label ?? skill.activation;
+    const originLabel = SKILL_ENUMS.origin[skill.origin]?.label ?? skill.origin;
 
     const card = document.createElement("article");
 
@@ -177,17 +174,17 @@ function renderSkills(skillsArray) {
       <div class="skill-meta">
 
         <span class="skill-badge">
-          ${tipoLabel}
+          ${activationLabel}
         </span>
 
         <span class="skill-badge">
-          ${origemLabel}
+          ${originLabel}
         </span>
 
       </div>
 
       <p class="skill-description">
-        ${skill.descricao}
+        ${skill.desc}
       </p>
 
       <div class="skill-tags">
@@ -208,6 +205,8 @@ function renderSkills(skillsArray) {
     card.addEventListener("click", () => abrirModalSkill(skill));
   });
 }
+
+
 
 function eventListeners() {
   searchInput.addEventListener("input", applyFilters);
@@ -309,7 +308,7 @@ function fecharModalSkill() {
 }
 
 /**
- * MODAL RENDER HELPERS
+ * RENDERIZA O CABEÇALHO DO MODAL
  */
 function renderCabecalho(skill) {
   const tipoLabel = "tipoLabel";
