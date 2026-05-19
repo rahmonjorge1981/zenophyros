@@ -7,7 +7,7 @@ const filters = {
   species: document.getElementById("filter-species"),
   effects: document.getElementById("filter-effects"),
   activation: document.getElementById("filter-activation"),
-  origin: document.getElementById("filter-origin")
+  origin: document.getElementById("filter-origin"),
 };
 
 //const sortSelect = document.getElementById("sort-select");
@@ -48,10 +48,10 @@ const SKILL_ENUMS = {
     utility: { label: "Utilidade" },
   },
   target: {
-    single: { label: "Alvo Único "},
+    single: { label: "Alvo Único " },
     area: { label: "Em Área" },
-    self: { label: "Em Si Mesmo"}
-  }
+    self: { label: "Em Si Mesmo" },
+  },
 };
 
 const DATABASE_PATH = "./data/skill-database.json";
@@ -178,7 +178,7 @@ function applySort() {
 function addAllEventListeners() {
   searchInput.addEventListener("input", applyFilters);
 
-  Object.values(filters).forEach(filter => {
+  Object.values(filters).forEach((filter) => {
     filter.addEventListener("change", applyFilters);
   });
 }
@@ -258,12 +258,11 @@ function renderSkills(skillsArray) {
   document.getElementById("skills-count").textContent =
     `Habilidades: ${skillsArray.length}`;
 
-  skillsArray.forEach((skill) => {
-    if (skill.metadata.hidden) {
-      return;
-    }
-    skillsList.appendChild(renderSkillCard(skill));
-  });
+  skillsArray
+    .filter((skill) => !skill.hidden)
+    .forEach((skill) => {
+      skillsList.appendChild(renderSkillCard(skill));
+    });
 }
 
 function renderSkillCard(skill) {
