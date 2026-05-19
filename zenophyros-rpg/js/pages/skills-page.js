@@ -578,6 +578,10 @@ function renderId(skill) {
 }
 
 function formatArea(area) {
+  if (!area) {
+    return;
+  }
+
   switch (area.tipo) {
     case "ALVO_UNICO":
       return "Alvo Único";
@@ -606,6 +610,10 @@ function formatArea(area) {
 }
 
 function formatRequirements(reqs) {
+  if (!reqs.attributes) {
+    return;
+  }
+
   const linhas = [];
 
   if (reqs.attributes) {
