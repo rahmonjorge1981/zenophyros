@@ -253,7 +253,6 @@ function renderSkillCard(skill) {
   const classLabel = getLabelFromEnum(SKILL_ENUMS.class, skill.class);
   const speciesLabel = getLabelFromEnum(SKILL_ENUMS.species, skill.species);
   const originLabel = getLabelFromEnum(SKILL_ENUMS.origin, skill.origin);
-  //const schoolLabel = getLabelFromEnum(SKILL_ENUMS.school, skill.school);
   const activationLabel = getLabelFromEnum(
     SKILL_ENUMS.activation,
     skill.activation,
@@ -290,27 +289,30 @@ function renderSkillCard(skill) {
 
 /** RENDERIZA O CABEÇALHO DO MODAL */
 function renderCabecalho(skill) {
-  const tipoLabel = "tipoLabel";
-
-  const origemLabel = "origemLabel";
+  const classLabel = getLabelFromEnum(SKILL_ENUMS.class, skill.class);
+  const speciesLabel = getLabelFromEnum(SKILL_ENUMS.species, skill.species);
+  const originLabel = getLabelFromEnum(SKILL_ENUMS.origin, skill.origin);
+  const activationLabel = getLabelFromEnum(
+    SKILL_ENUMS.activation,
+    skill.activation,
+  );
 
   return `
-    <h2>
-      ${skill.name}
-    </h2>
+    <h2> ${skill.name} </h2>
 
     <div class="modal-badges">
-
       <span class="skill-badge">
-        ${tipoLabel}
+        ${skill.species ? `<span class="skill-badge"> ${speciesLabel} </span>` : ""}
+        ${skill.class ? `<span class="skill-badge"> ${classLabel} </span>` : ""}
+        ${skill.activation ? `<span class="skill-badge"> ${activationLabel} </span>` : ""}
       </span>
 
       <span class="skill-badge">
-        ${origemLabel}
+        ${skill.origin ? `<span class="skill-tag"> ${originLabel} </span>` : ""}
       </span>
 
       <span class="skill-badge">
-        ${skill.escola}
+         ${skill.school ? `<span class="skill-tag"> ${schoolLabel} </span>` : ""}
       </span>
 
     </div>
@@ -320,13 +322,8 @@ function renderCabecalho(skill) {
 function renderDescricao(skill) {
   return `
     <div class="modal-section">
-
       <h3>Descrição</h3>
-
-      <p>
-        ${skill.desc}
-      </p>
-
+      <p> ${skill.desc} </p>
     </div>
   `;
 }
@@ -334,13 +331,8 @@ function renderDescricao(skill) {
 function renderPreRequisitos(skill) {
   return `
     <div class="modal-section">
-
       <h3>Pré-Requisitos</h3>
-
-      <div class="modal-box">
-        ${formatarPreRequisitos(skill.preRequisitos)}
-      </div>
-
+      <div class="modal-box"> ${formatarPreRequisitos(skill.preRequisitos)} </div>
     </div>
   `;
 }
@@ -348,13 +340,8 @@ function renderPreRequisitos(skill) {
 function renderEfeito(skill) {
   return `
     <div class="modal-section">
-
       <h3>Efeito</h3>
-
-      <p>
-        ${skill.efeito.texto}
-      </p>
-
+      <p>${skill.efeito.texto}</p>
     </div>
   `;
 }
@@ -474,13 +461,10 @@ function renderArea(skill) {
 
   return `
     <div class="modal-section">
-
       <h3>Área</h3>
-
       <div class="modal-box">
         ${formatarArea(area)}
       </div>
-
     </div>
   `;
 }
@@ -524,13 +508,10 @@ function renderCusto(skill) {
 
   return `
     <div class="modal-section">
-
       <h3>Custo</h3>
-
       <div class="modal-grid">
         ${campos.join("")}
       </div>
-
     </div>
   `;
 }
@@ -542,11 +523,8 @@ function renderTags(skill) {
 
   return `
     <div class="modal-section">
-
       <h3>Tags</h3>
-
       <div class="modal-badges">
-
         ${skill.tags
           .map(
             (tag) => `
@@ -556,9 +534,7 @@ function renderTags(skill) {
         `,
           )
           .join("")}
-
       </div>
-
     </div>
   `;
 }
@@ -570,12 +546,7 @@ function renderId(skill) {
 
   return `
     <div class="modal-id">
-
-      ID:
-      <code>
-        ${skill.id}
-      </code>
-
+      ID: <code>${skill.id}</code>
     </div>
   `;
 }
