@@ -91,7 +91,7 @@ async function init() {
 
   filteredSkills = [...skills];
 
-  if (filters) {
+  if (filters.class) {
     renderFilterOptions();
   }
   else {
