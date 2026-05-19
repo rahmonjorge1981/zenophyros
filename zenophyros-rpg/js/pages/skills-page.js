@@ -1,5 +1,3 @@
-window.skillDatabase = {};
-
 const skillsList = document.getElementById("skills-list");
 const searchInput = document.getElementById("search-input");
 const filterClass = document.getElementById("filter-class");
@@ -27,11 +25,13 @@ const SKILL_ENUMS = {
   },
 };
 
+window.skillDatabase = {};
+
 let skills = [];
 
 let filteredSkills = [];
 
-const DATABASE_PATH = "./data/skills-database.json";
+const DATABASE_PATH = "./data/skill-database.json";
 
 let botaoSkillAtual = null;
 
@@ -77,7 +77,7 @@ async function init() {
 }
 
 /**
- * Preenche os filtros de acordo com os SKILL_ENUMS.
+ * Preenche os selects com os SKILL_ENUMS.
  */
 function fillFilters() {
 
@@ -100,10 +100,21 @@ function fillFilters() {
 
     filterOrigin.appendChild(option);
   });
+
+  Object.entries(SKILL_ENUMS.class).array.forEach(([id, class]) => {
+    const option = document.createElement("option");
+
+    option.value = id;
+
+    option.textContent = origin.class;
+
+    filterOrigin.appendChild(option);
+  });
 }
 
 function applyFilters() {
   const query = searchInput.value.toLowerCase().trim();
+  const class = filterClass.value;
   const activation = filterActivation.value;
   const origin = filterOrigin.value;
 
