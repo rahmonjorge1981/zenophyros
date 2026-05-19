@@ -101,7 +101,7 @@ function fillFilters() {
     filterOrigin.appendChild(option);
   });
 
-  Object.entries(SKILL_ENUMS.class).array.forEach(([id, class]) => {
+  Object.entries(SKILL_ENUMS.class).forEach(([id, class]) => {
     const option = document.createElement("option");
 
     option.value = id;
