@@ -288,7 +288,7 @@ function renderSkillCard(skill) {
 
 /** RENDERIZA O CABEÇALHO DO MODAL */
 
-function renderModal() {
+function renderModal(skill) {
   return `
     ${renderHeader(skill)}
     ${renderDescription(skill)}
