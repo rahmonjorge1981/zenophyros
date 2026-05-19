@@ -126,6 +126,10 @@ function applyFilters() {
     const matchQuery = !query || matchName || matchDescription || matchTags; // !query -> true if query is empty
 
     // CHECKS FILTERS
+    console.log({
+      selectClass: skillClass,
+      skillClass: skill.class,
+    });
 
     const matchClass = !skillClass || skill.class === skillClass;
     const matchActivation = !activation || skill.activation === activation;
