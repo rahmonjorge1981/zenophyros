@@ -114,34 +114,37 @@ function fillFilters() {
 
 function applyFilters() {
   const query = searchInput.value.toLowerCase().trim();
-  const class = filterClass.value;
+  const skillClass = filterClass.value;
   const activation = filterActivation.value;
   const origin = filterOrigin.value;
 
   filteredSkills = skills.filter((skill) => {
-    const matchNome = skill.nome.toLowerCase().includes(query);
 
-    const matchDescricao = skill.descricao.toLowerCase().includes(query);
+    // CHECKS QUERY
+    const matchName = skill.name.toLowerCase().includes(query);
+    const matchDescription = skill.desc.toLowerCase().includes(query);
 
     const matchTags = skill.tags.some((tag) =>
       tag.toLowerCase().includes(query),
     );
 
-    const matchBusca = !query || matchNome || matchDescricao || matchTags;
-    const matchTipo = !activation || skill.tipo === activation;
-    const matchOrigem = !origin || skill.origem === origin;
+    const matchQuery = !query || matchName || matchDescription || matchTags; // !query -> true if query is empty
 
-    return matchBusca && matchTipo && matchOrigem;
+    // CHECKS FILTERS
+    const matchClass = !skillClass || skill.class === skillClass;
+    const matchActivation = !activation || skill.activation === activation;
+    const matchOrigin = !origin || skill.origin === origin;
+
+    return matchQuery && matchClass && matchActivation && matchOrigin;
   });
 
   applySort();
-
   renderSkills(filteredSkills);
 }
 
 function applySort() {
   filteredSkills.sort((a, b) => {
-    return a.nome.localeCompare(b.nome);
+    return a.name.localeCompare(b.name);
   });
 }
 
@@ -166,7 +169,7 @@ function renderSkills(skillsArray) {
       <div class="skill-top">
 
         <h2 class="skill-name">
-          ${skill.nome}
+          ${skill.name}
         </h2>
 
       </div>
@@ -315,7 +318,7 @@ function renderCabecalho(skill) {
 
   return `
     <h2>
-      ${skill.nome}
+      ${skill.name}
     </h2>
 
     <div class="modal-badges">

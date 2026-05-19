@@ -3,12 +3,12 @@
   "habilidades": {
     "gigantify": {
       "id": "gigantify",
-      "nome": "Gigantificar",
+      "name": "Gigantificar",
       "nivel": 0,
-      "tipo": "ATIVA",
-      "origem": "MAGIA",
-      "escola": "APRIMORAMENTO",
-      "descricao": "Cresce de tamanho, aumentando seus atributos base.",
+      "activation": "ATIVA",
+      "origin": "MAGIA",
+      "school": "APRIMORAMENTO",
+      "desc": "Cresce de tamanho, aumentando seus atributos base.",
       "preRequisitos": {
         "atributos": {
           "for": 10,
@@ -59,12 +59,12 @@
     },
     "golpe_atordoante": {
       "id": "golpe_atordoante",
-      "nome": "Golpe Atordoante",
+      "name": "Golpe Atordoante",
       "nivel": 0,
-      "tipo": "ATIVA",
-      "origem": "TECNICA",
-      "escola": "COMBATE",
-      "descricao": "Acerta o alvo em um ponto fraco, causando atordoamento.",
+      "activation": "ATIVA",
+      "origin": "TECNICA",
+      "school": "COMBATE",
+      "desc": "Acerta o alvo em um ponto fraco, causando atordoamento.",
       "preRequisitos": {
         "atributos": {
           "for": 10,
@@ -115,12 +115,12 @@
     },
     "no_heroes": {
       "id": "no_heroes",
-      "nome": "Sem Heróis",
+      "name": "Sem Heróis",
       "nivel": 0,
-      "tipo": "PASSIVA",
-      "origem": "TECNICA",
-      "escola": "OCULTA",
-      "descricao": "Causa dano adicional contra aqueles que tentam realizar atos de heroísmo.",
+      "activation": "PASSIVA",
+      "origin": "TECNICA",
+      "school": "OCULTA",
+      "desc": "Causa dano adicional contra aqueles que tentam realizar atos de heroísmo.",
       "preRequisitos": {
         "atributos": {
           "for": 0,
@@ -171,12 +171,12 @@
     },
     "fire_arrow": {
       "id": "fire_arrow",
-      "nome": "Flecha de Fogo",
+      "name": "Flecha de Fogo",
       "nivel": 0,
-      "tipo": "ATIVA",
-      "origem": "MAGIA",
-      "escola": "APRIMORAMENTO",
-      "descricao": "Dispara uma flecha imbuída com o elemento fogo.",
+      "activation": "ATIVA",
+      "origin": "MAGIA",
+      "school": "APRIMORAMENTO",
+      "desc": "Dispara uma flecha imbuída com o elemento fogo.",
       "preRequisitos": {
         "atributos": {
           "for": 0,
@@ -227,12 +227,12 @@
     },
     "ataque_surpresa": {
       "id": "ataque_surpresa",
-      "nome": "Ataque Surpresa",
+      "name": "Ataque Surpresa",
       "nivel": 0,
-      "tipo": "PASSIVA",
-      "origem": "TECNICA",
-      "escola": "COMBATE",
-      "descricao": "Aumenta a chance de crítico durante a Furtividade.",
+      "activation": "PASSIVA",
+      "origin": "TECNICA",
+      "school": "COMBATE",
+      "desc": "Aumenta a chance de crítico durante a Furtividade.",
       "preRequisitos": {
         "atributos": {
           "for": 0,
@@ -282,12 +282,12 @@
     },
     "shunpo": {
       "id": "shunpo",
-      "nome": "Troca Instantânea",
+      "name": "Troca Instantânea",
       "nivel": 0,
-      "tipo": "ATIVA",
-      "origem": "MAGIA",
-      "escola": "ESPACIAL",
-      "descricao": "Desenhe um círculo mágico em um aliado. Uma vez, até o final do combate, você pode trocar de lugar com ele instantaneamente.",
+      "activation": "ATIVA",
+      "origin": "MAGIA",
+      "school": "ESPACIAL",
+      "desc": "Desenhe um círculo mágico em um aliado. Uma vez, até o final do combate, você pode trocar de lugar com ele instantaneamente.",
       "preRequisitos": {
         "atributos": {
           "for": 0,
@@ -337,12 +337,12 @@
     },
     "adaptability": {
       "id": "adaptability",
-      "nome": "Adaptabilidade",
+      "name": "Adaptabilidade",
       "nivel": 0,
-      "tipo": "PASSIVA",
-      "origem": "INATA",
-      "escola": "ESPÉCIE",
-      "descricao": "Humanos têm a capacidade de se adaptar à diversas situações.",
+      "activation": "PASSIVA",
+      "origin": "INATA",
+      "school": "ESPÉCIE",
+      "desc": "Humanos têm a capacidade de se adaptar à diversas situações.",
       "preRequisitos": {
         "atributos": {
           "for": 0,
@@ -395,12 +395,12 @@
     },
     "luck": {
       "id": "luck",
-      "nome": "Sorte",
+      "name": "Sorte",
       "nivel": 0,
-      "tipo": "PASSIVA",
-      "origem": "INATA",
-      "escola": "ESPÉCIE",
-      "descricao": "Humanos precisam ser muito sortudos pra sobreviver em um ambiente hostil...",
+      "activation": "PASSIVA",
+      "origin": "INATA",
+      "school": "ESPÉCIE",
+      "desc": "Humanos precisam ser muito sortudos pra sobreviver em um ambiente hostil...",
       "preRequisitos": {
         "atributos": {
           "for": 0,
@@ -453,12 +453,12 @@
     },
     "god_crit": {
       "id": "god_crit",
-      "nome": "Crítico Divino",
+      "name": "Crítico Divino",
       "nivel": 0,
-      "tipo": "ATIVA",
-      "origem": "PRECE",
-      "escola": "Milagre",
-      "descricao": "Abençoa a arma de um aliado com uma luz divina dourada. ",
+      "activation": "ATIVA",
+      "origin": "PRECE",
+      "school": "Milagre",
+      "desc": "Abençoa a arma de um aliado com uma luz divina dourada. ",
       "preRequisitos": {
         "atributos": {
           "for": 0,
@@ -509,12 +509,12 @@
     },
     "black_orchid": {
       "id": "black_orchid",
-      "nome": "Orquídea Negra",
+      "name": "Orquídea Negra",
       "nivel": 0,
-      "tipo": "REATIVA",
-      "origem": "PRECE",
-      "escola": "RITUAL",
-      "descricao": "Você pode escolher sacrificar um aliado saudável para salvar um outro aliado à beira da morte, ou vice versa.",
+      "activation": "REATIVA",
+      "origin": "PRECE",
+      "school": "RITUAL",
+      "desc": "Você pode escolher sacrificar um aliado saudável para salvar um outro aliado à beira da morte, ou vice versa.",
       "preRequisitos": {
         "atributos": {
           "for": 0,
@@ -566,12 +566,12 @@
     },
     "dynamic_duo": {
       "id": "dynamic_duo",
-      "nome": "Dupla Dinâmica",
+      "name": "Dupla Dinâmica",
       "nivel": 0,
-      "tipo": "PASSIVA",
-      "origem": "TECNICA",
-      "escola": "COMBATE",
-      "descricao": "Aumenta a sua AGI e a de um aliado ao jogar em dupla.",
+      "activation": "PASSIVA",
+      "origin": "TECNICA",
+      "school": "COMBATE",
+      "desc": "Aumenta a sua AGI e a de um aliado ao jogar em dupla.",
       "preRequisitos": {
         "atributos": {
           "for": 0,
@@ -623,12 +623,12 @@
     },
     "rainbow_strike": {
       "id": "rainbow_strike",
-      "nome": "Impacto Prismático",
+      "name": "Impacto Prismático",
       "nivel": 0,
-      "tipo": "ATIVA",
-      "origem": "PRECE",
-      "escola": "APRIMORAMENTO",
-      "descricao": "Imbui uma essência luminosa multicromática para o próximo ataque causar dano baseado em TODOS os seus atributos.",
+      "activation": "ATIVA",
+      "origin": "PRECE",
+      "school": "APRIMORAMENTO",
+      "desc": "Imbui uma essência luminosa multicromática para o próximo ataque causar dano baseado em TODOS os seus atributos.",
       "preRequisitos": {
         "atributos": {
           "for": 0,
@@ -677,12 +677,12 @@
     },
     "legendary_hero": {
       "id": "legendary_hero",
-      "nome": "Herói Lendário",
+      "name": "Herói Lendário",
       "nivel": 0,
-      "tipo": "PASSIVA",
-      "origem": "INATA",
-      "escola": "",
-      "descricao": "Recebe bônus ao equipar armas e equipamentos lendários.",
+      "activation": "PASSIVA",
+      "origin": "INATA",
+      "school": "",
+      "desc": "Recebe bônus ao equipar armas e equipamentos lendários.",
       "preRequisitos": {
         "atributos": {
           "for": 0,
@@ -731,12 +731,12 @@
     },
     "spark_of_hope": {
       "id": "spark_of_hope",
-      "nome": "Faísca de Esperança",
+      "name": "Faísca de Esperança",
       "nivel": 0,
-      "tipo": "REATIVA",
-      "origem": "PRECE",
-      "escola": "ORAÇÃO",
-      "descricao": "Sempre que um aliado falhar um Teste de Morte pela primeira vez, ele pode tentar novamente.",
+      "activation": "REATIVA",
+      "origin": "PRECE",
+      "school": "ORAÇÃO",
+      "desc": "Sempre que um aliado falhar um Teste de Morte pela primeira vez, ele pode tentar novamente.",
       "preRequisitos": {
         "atributos": {
           "for": 0,
@@ -787,12 +787,12 @@
     },
     "pyromania": {
       "id": "pyromania",
-      "nome": "Piromania",
+      "name": "Piromania",
       "nivel": 0,
-      "tipo": "PASSIVA",
-      "origem": "INATA",
-      "escola": "",
-      "descricao": "Suas magias que causam dano de Fogo tem o custo de Mana reduzido em 50%.",
+      "activation": "PASSIVA",
+      "origin": "INATA",
+      "school": "",
+      "desc": "Suas magias que causam dano de Fogo tem o custo de Mana reduzido em 50%.",
       "preRequisitos": {
         "atributos": {
           "for": 0,
@@ -844,12 +844,12 @@
     },
     "levitate": {
       "id": "levitate",
-      "nome": "Levitar",
+      "name": "Levitar",
       "nivel": 0,
-      "tipo": "PASSIVA",
-      "origem": "MAGIA",
-      "escola": "EFEITO",
-      "descricao": "Concede efeito de levitação.",
+      "activation": "PASSIVA",
+      "origin": "MAGIA",
+      "school": "EFEITO",
+      "desc": "Concede efeito de levitação.",
       "preRequisitos": {
         "atributos": {
           "for": 0,
@@ -900,12 +900,12 @@
     },
     "fly": {
       "id": "fly",
-      "nome": "Voar",
+      "name": "Voar",
       "nivel": 0,
-      "tipo": "PASSIVA",
-      "origem": "MAGIA",
-      "escola": "EFEITO",
-      "descricao": "Concede vôo passivo.",
+      "activation": "PASSIVA",
+      "origin": "MAGIA",
+      "school": "EFEITO",
+      "desc": "Concede vôo passivo.",
       "preRequisitos": {
         "atributos": {
           "for": 0,
@@ -957,12 +957,12 @@
     },
     "fire_punch": {
       "id": "fire_punch",
-      "nome": "Soco Flamejante",
+      "name": "Soco Flamejante",
       "nivel": 0,
-      "tipo": "ATIVA",
-      "origem": "MAGIA",
-      "escola": "APRIMORAMENTO",
-      "descricao": "Imbui seu punho em chamas, causando dano de fogo adicional no próximo ataque.",
+      "activation": "ATIVA",
+      "origin": "MAGIA",
+      "school": "APRIMORAMENTO",
+      "desc": "Imbui seu punho em chamas, causando dano de fogo adicional no próximo ataque.",
       "preRequisitos": {
         "atributos": {
           "for": 12,
@@ -1015,12 +1015,12 @@
     },
     "thunder_punch": {
       "id": "thunder_punch",
-      "nome": "Soco Elétrico",
+      "name": "Soco Elétrico",
       "nivel": 0,
-      "tipo": "ATIVA",
-      "origem": "MAGIA",
-      "escola": "APRIMORAMENTO",
-      "descricao": "Imbui seu punho em chamas, causando dano elétrico adicional no próximo ataque.",
+      "activation": "ATIVA",
+      "origin": "MAGIA",
+      "school": "APRIMORAMENTO",
+      "desc": "Imbui seu punho em chamas, causando dano elétrico adicional no próximo ataque.",
       "preRequisitos": {
         "atributos": {
           "for": 12,
@@ -1073,12 +1073,12 @@
     },
     "golden_dragon_fist": {
       "id": "golden_dragon_fist",
-      "nome": "Punho do Dragão Dourado",
+      "name": "Punho do Dragão Dourado",
       "nivel": 0,
-      "tipo": "ATIVA",
-      "origem": "TECNICA",
-      "escola": "COMBATE",
-      "descricao": "Assume a postura do Dragão Dourado para realizar uma sequência de ataques.",
+      "activation": "ATIVA",
+      "origin": "TECNICA",
+      "school": "COMBATE",
+      "desc": "Assume a postura do Dragão Dourado para realizar uma sequência de ataques.",
       "preRequisitos": {
         "atributos": {
           "for": 20,
