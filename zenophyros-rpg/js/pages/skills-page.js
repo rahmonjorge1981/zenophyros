@@ -105,7 +105,7 @@ function fillFilters() {
 
     option.textContent = origin.skillClass;
 
-    filterOrigin.appendChild(option);
+    filterClass.appendChild(option);
   });
 }
 
@@ -151,7 +151,7 @@ function renderSkills(skillsArray) {
   skillsList.innerHTML = "";
 
   document.getElementById("skills-count").textContent =
-    `Habilidades: ${skills.length}`;
+    `Habilidades: ${skillsArray.length}`;
 
   skillsArray.forEach((skill) => {
     skillsList.appendChild(createSkillCard(skill));
