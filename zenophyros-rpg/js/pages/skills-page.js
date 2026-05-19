@@ -40,6 +40,7 @@ const SKILL_ENUMS = {
     control: { label: "Controle" },
     buff: { label: "Aprimoramento" },
     mobility: { label: "Mobilidade" },
+    utility: { label: "Utilidade"}
   },
 };
 
@@ -267,12 +268,12 @@ function renderSkillCard(skill) {
         ${skill.species ? `<span class="skill-badge"> ${speciesLabel} </span>` : ""}
         ${skill.class ? `<span class="skill-badge"> ${classLabel} </span>` : ""}
         ${skill.activation ? `<span class="skill-badge"> ${activationLabel} </span>` : ""}
+        ${renderBadgeList(skill.effects, SKILL_ENUMS.effects)}
       </div>
 
       <p class="skill-description"> ${skill.desc} </p>
 
       <div class="skill-tags">
-        ${renderTagList(skill.effects, SKILL_ENUMS.effects)}
         ${skill.origin ? `<span class="skill-tag"> ${originLabel} </span>` : ""}
         ${skill.school ? `<span class="skill-tag"> ${schoolLabel} </span>` : ""}
       </div>
@@ -301,7 +302,7 @@ function renderCabecalho(skill) {
       ${skill.class ? `<span class="skill-badge">${classLabel}</span>` : ""}
       ${skill.activation ? `<span class="skill-badge">${activationLabel}</span>` : ""}
 
-      ${renderTagList(skill.effects, SKILL_ENUMS.effects)}
+      ${renderBadgeList(skill.effects, SKILL_ENUMS.effects)}
       ${skill.origin ? `<span class="skill-tag">${originLabel}</span>` : ""}
       ${skill.school ? `<span class="skill-tag">${schoolLabel}</span>` : ""}
     </div>
@@ -311,14 +312,14 @@ function renderCabecalho(skill) {
 /** Helper para o renderCabecalho. Cria vários <span "skill-tag"> com base em uma lista 'items' e um 'enumMap'. 
  *  -> Usa a a lista de strings 'items' para buscar as labels em 'enumMap'.
 */
-function renderTagList(items, enumMap) {
+function renderBadgeList(items, enumMap) {
   if (!items?.length) return "";
 
   return items
     .map((item) => {
       const label = getLabelFromEnum(enumMap, item);
 
-      return `<span class="skill-tag"> ${label} </span>`;
+      return `<span class="skill-badge"> ${label} </span>`;
     })
     .join("");
 }
