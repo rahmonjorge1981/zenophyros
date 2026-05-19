@@ -32,6 +32,7 @@ const SKILL_ENUMS = {
     magic: { label: "Magia" },
     technique: { label: "Técnica" },
     prayer: { label: "Prece" },
+    innate: { label: "Inata"}
   },
 };
 
@@ -251,11 +252,13 @@ function renderFilterOptions() {
 function renderSkillCard(skill) {
   const classLabel = getLabelFromEnum(SKILL_ENUMS.class, skill.class);
   const speciesLabel = getLabelFromEnum(SKILL_ENUMS.species, skill.species);
+  const originLabel = getLabelFromEnum(SKILL_ENUMS.origin, skill.origin);
+  const schoolLabel = getLabelFromEnum(SKILL_ENUMS.school, skill.school);
   const activationLabel = getLabelFromEnum(
     SKILL_ENUMS.activation,
     skill.activation,
   );
-  const originLabel = getLabelFromEnum(SKILL_ENUMS.origin, skill.origin);
+  
 
   const card = document.createElement("article");
 
@@ -269,13 +272,14 @@ function renderSkillCard(skill) {
       <div class="skill-meta">
         ${skill.species ? `<span class="skill-badge"> ${speciesLabel} </span>` : ""}
         ${skill.class ? `<span class="skill-badge"> ${classLabel} </span>` : ""}
+        ${skill.activation ? `<span class="skill-tag"> ${activationLabel} </span>` : ""}
       </div>
 
       <p class="skill-description"> ${skill.desc} </p>
 
       <div class="skill-tags">
-        ${skill.activation ? `<span class="skill-tag"> ${activationLabel} </span>` : ""}
         ${skill.origin ? `<span class="skill-tag"> ${originLabel} </span>` : ""}
+        ${skill.school ? `<span class="skill-tag"> ${schoolLabel} </span>` : ""}
       </div>
     `;
 

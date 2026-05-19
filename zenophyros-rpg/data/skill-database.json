@@ -7,8 +7,7 @@
       "nivel": 0,
       "activation": "active",
       "class": "warrior",
-      "origin": "MAGIA",
-      "school": "APRIMORAMENTO",
+      "origin": "magic",
       "desc": "Cresce de tamanho, aumentando seus atributos base.",
       "preRequisitos": {
         "atributos": {
@@ -48,10 +47,7 @@
         "vida": "",
         "energia": 10
       },
-      "tags": [
-        "aprimoramento",
-        "combate físico"
-      ],
+      "tags": ["aprimoramento", "combate físico"],
       "metadata": {
         "versao": 1,
         "beta": true,
@@ -64,8 +60,7 @@
       "nivel": 0,
       "activation": "active",
       "class": "monk",
-      "origin": "TECNICA",
-      "school": "COMBATE",
+      "origin": "technique",
       "desc": "Acerta o alvo em um ponto fraco, causando atordoamento.",
       "preRequisitos": {
         "atributos": {
@@ -105,10 +100,7 @@
         "vida": "",
         "energia": 10
       },
-      "tags": [
-        "cc",
-        "alvo único"
-      ],
+      "tags": ["cc", "alvo único"],
       "metadata": {
         "versao": 1,
         "beta": true,
@@ -120,9 +112,8 @@
       "name": "Sem Heróis",
       "nivel": 0,
       "activation": "passive",
-      
-      "origin": "TECNICA",
-      "school": "OCULTA",
+
+      "origin": "technique",
       "desc": "Causa dano adicional contra aqueles que tentam realizar atos de heroísmo.",
       "preRequisitos": {
         "atributos": {
@@ -162,10 +153,7 @@
         "vida": "",
         "energia": ""
       },
-      "tags": [
-        "dano",
-        "aprimoramento"
-      ],
+      "tags": ["dano", "aprimoramento"],
       "metadata": {
         "versao": 1,
         "beta": true,
@@ -178,8 +166,7 @@
       "nivel": 0,
       "activation": "active",
       "class": "archer",
-      "origin": "MAGIA",
-      "school": "APRIMORAMENTO",
+      "origin": "magic",
       "desc": "Dispara uma flecha imbuída com o elemento fogo.",
       "preRequisitos": {
         "atributos": {
@@ -219,10 +206,7 @@
         "vida": null,
         "energia": null
       },
-      "tags": [
-        "atirador",
-        "fogo"
-      ],
+      "tags": ["atirador", "fogo"],
       "metadata": {
         "versao": 1,
         "beta": true,
@@ -235,8 +219,7 @@
       "nivel": 0,
       "activation": "passive",
       "class": "assassin",
-      "origin": "TECNICA",
-      "school": "COMBATE",
+      "origin": "technique",
       "desc": "Aumenta a chance de crítico durante a Furtividade.",
       "preRequisitos": {
         "atributos": {
@@ -276,9 +259,7 @@
         "vida": null,
         "energia": null
       },
-      "tags": [
-        "furtividade"
-      ],
+      "tags": ["furtividade"],
       "metadata": {
         "versao": 1,
         "beta": true,
@@ -291,8 +272,7 @@
       "nivel": 0,
       "activation": "active",
       "class": "ninja",
-      "origin": "MAGIA",
-      "school": "ESPACIAL",
+      "origin": "magic",
       "desc": "Desenhe um círculo mágico em um aliado. Uma vez, até o final do combate, você pode trocar de lugar com ele instantaneamente.",
       "preRequisitos": {
         "atributos": {
@@ -332,9 +312,7 @@
         "vida": null,
         "energia": null
       },
-      "tags": [
-        "teletransporte"
-      ],
+      "tags": ["teletransporte"],
       "metadata": {
         "versao": 1,
         "beta": true,
@@ -346,8 +324,7 @@
       "name": "Adaptabilidade",
       "nivel": 0,
       "activation": "passive",
-      "origin": "INATA",
-      "school": "ESPÉCIE",
+      "origin": "innate",
       "species": "human",
       "desc": "Humanos têm a capacidade de se adaptar à diversas situações.",
       "preRequisitos": {
@@ -365,9 +342,7 @@
         "niveis": {
           "personagem": 0
         },
-        "especie": [
-          "HUMANO"
-        ]
+        "especie": ["HUMANO"]
       },
       "efeito": {
         "texto": "Recebe +1 Ponto de Atributo ao passar de Nível.",
@@ -391,9 +366,7 @@
         "vida": null,
         "energia": null
       },
-      "tags": [
-        "crescimento"
-      ],
+      "tags": ["crescimento"],
       "metadata": {
         "versao": 1,
         "beta": true,
@@ -405,9 +378,8 @@
       "name": "Sorte",
       "nivel": 0,
       "activation": "passive",
-      "origin": "INATA",      
+      "origin": "innate",
       "species": "human",
-      "school": "ESPÉCIE",
       "desc": "Humanos precisam ser muito sortudos pra sobreviver em um ambiente hostil...",
       "preRequisitos": {
         "atributos": {
@@ -424,9 +396,7 @@
         "niveis": {
           "personagem": 5
         },
-        "especie": [
-          "HUMANO"
-        ]
+        "especie": ["HUMANO"]
       },
       "efeito": {
         "texto": "Uma vez por dia, pode rolar qualquer teste novamente.",
@@ -450,9 +420,7 @@
         "vida": null,
         "energia": null
       },
-      "tags": [
-        "rolagens"
-      ],
+      "tags": ["rolagens"],
       "metadata": {
         "versao": 1,
         "beta": true,
@@ -465,8 +433,7 @@
       "nivel": 0,
       "activation": "active",
       "class": "cleric",
-      "origin": "PRECE",
-      "school": "Milagre",
+      "origin": "prayer",
       "desc": "Abençoa a arma de um aliado com uma luz divina dourada. ",
       "preRequisitos": {
         "atributos": {
@@ -507,9 +474,7 @@
         "vida": null,
         "energia": null
       },
-      "tags": [
-        "aprimoramento"
-      ],
+      "tags": ["aprimoramento"],
       "metadata": {
         "versao": 1,
         "beta": true,
@@ -522,8 +487,7 @@
       "nivel": 0,
       "activation": "reactive",
       "class": "cleric",
-      "origin": "PRECE",
-      "school": "RITUAL",
+      "origin": "prayer",
       "desc": "Você pode escolher sacrificar um aliado saudável para salvar um outro aliado à beira da morte, ou vice versa.",
       "preRequisitos": {
         "atributos": {
@@ -543,7 +507,7 @@
         "especie": []
       },
       "efeito": {
-        "texto": "Só pode ser ativada se você tiver um aliado À Beira da Morte e um aliado Vivo. Esta magia não pode ser usada em si mesmo. O aliado que você executar, qualquer que seja, doa 100% dos seus pontos de Vida e Mana restantes para o aliado vivo (isto pode superar os limites máximos do aliado-alvo). Além disso, o aliado vivo recebe um bônus em todos os seus atributos igual ao modificador dos atributos do aliado executado.",
+        "texto": "Só pode ser ativada se você tiver um aliado À Beira da Morte e um aliado Vivo. Esta magic não pode ser usada em si mesmo. O aliado que você executar, qualquer que seja, doa 100% dos seus pontos de Vida e Mana restantes para o aliado vivo (isto pode superar os limites máximos do aliado-alvo). Além disso, o aliado vivo recebe um bônus em todos os seus atributos igual ao modificador dos atributos do aliado executado.",
         "rolagens": [
           {
             "tipo": "",
@@ -564,10 +528,7 @@
         "vida": null,
         "energia": null
       },
-      "tags": [
-        "ressuscitar",
-        "aprimoramento"
-      ],
+      "tags": ["ressuscitar", "aprimoramento"],
       "metadata": {
         "versao": 1,
         "beta": true,
@@ -579,9 +540,7 @@
       "name": "Dupla Dinâmica",
       "nivel": 0,
       "activation": "passive",
-      "origin": "TECNICA",
-      
-      "school": "COMBATE",
+      "origin": "technique",
       "desc": "Aumenta a sua AGI e a de um aliado ao jogar em dupla.",
       "preRequisitos": {
         "atributos": {
@@ -622,10 +581,7 @@
         "vida": null,
         "energia": null
       },
-      "tags": [
-        "agilidade",
-        "equipe"
-      ],
+      "tags": ["agilidade", "equipe"],
       "metadata": {
         "versao": 1,
         "beta": true,
@@ -637,9 +593,8 @@
       "name": "Impacto Prismático",
       "nivel": 0,
       "activation": "active",
-      
-      "origin": "PRECE",
-      "school": "APRIMORAMENTO",
+
+      "origin": "prayer",
       "desc": "Imbui uma essência luminosa multicromática para o próximo Ataque Físico causar dano baseado em TODOS os seus atributos.",
       "preRequisitos": {
         "atributos": {
@@ -692,9 +647,8 @@
       "name": "Herói Lendário",
       "nivel": 0,
       "activation": "passive",
-      
-      "origin": "INATA",
-      "school": "",
+
+      "origin": "innate",
       "desc": "Recebe bônus ao equipar armas e equipamentos lendários.",
       "preRequisitos": {
         "atributos": {
@@ -748,8 +702,7 @@
       "nivel": 0,
       "activation": "reactive",
       "class": "cleric",
-      "origin": "PRECE",
-      "school": "ORAÇÃO",
+      "origin": "prayer",
       "desc": "Sempre que um aliado falhar um Teste de Morte pela primeira vez, ele pode tentar novamente.",
       "preRequisitos": {
         "atributos": {
@@ -790,9 +743,7 @@
         "vida": null,
         "energia": null
       },
-      "tags": [
-        "ressuscitar"
-      ],
+      "tags": ["ressuscitar"],
       "metadata": {
         "versao": 1,
         "beta": true,
@@ -805,9 +756,8 @@
       "nivel": 0,
       "activation": "passive",
       "class": "wizard",
-      "origin": "INATA",
-      "school": "",
-      "desc": "Suas magias que causam dano de Fogo tem o custo de Mana reduzido em 50%.",
+      "origin": "innate",
+      "desc": "Suas magics que causam dano de Fogo tem o custo de Mana reduzido em 50%.",
       "preRequisitos": {
         "atributos": {
           "for": 0,
@@ -826,7 +776,7 @@
         "especie": []
       },
       "efeito": {
-        "texto": "Suas magias que causam dano de Fogo tem o custo de Mana reduzido em 50%.",
+        "texto": "Suas magics que causam dano de Fogo tem o custo de Mana reduzido em 50%.",
         "rolagens": [
           {
             "tipo": "",
@@ -847,10 +797,7 @@
         "vida": null,
         "energia": null
       },
-      "tags": [
-        "fogo",
-        "mana"
-      ],
+      "tags": ["fogo", "mana"],
       "metadata": {
         "versao": 1,
         "beta": true,
@@ -863,8 +810,7 @@
       "nivel": 0,
       "activation": "passive",
       "class": "wizard",
-      "origin": "MAGIA",
-      "school": "EFEITO",
+      "origin": "magic",
       "desc": "Concede efeito de levitação.",
       "preRequisitos": {
         "atributos": {
@@ -905,9 +851,7 @@
         "vida": null,
         "energia": null
       },
-      "tags": [
-        "efeito"
-      ],
+      "tags": ["efeito"],
       "metadata": {
         "versao": 1,
         "beta": true,
@@ -919,9 +863,8 @@
       "name": "Voar",
       "nivel": 0,
       "activation": "passive",
-      
-      "origin": "MAGIA",
-      "school": "EFEITO",
+
+      "origin": "magic",
       "desc": "Concede vôo passivo.",
       "preRequisitos": {
         "atributos": {
@@ -962,10 +905,7 @@
         "vida": null,
         "energia": null
       },
-      "tags": [
-        "efeito",
-        "voo"
-      ],
+      "tags": ["efeito", "voo"],
       "metadata": {
         "versao": 1,
         "beta": true,
@@ -978,8 +918,7 @@
       "nivel": 0,
       "activation": "active",
       "class": "monk",
-      "origin": "MAGIA",
-      "school": "APRIMORAMENTO",
+      "origin": "magic",
       "desc": "Imbui seu punho em chamas, causando dano de fogo adicional no próximo ataque.",
       "preRequisitos": {
         "atributos": {
@@ -1020,11 +959,7 @@
         "vida": null,
         "energia": null
       },
-      "tags": [
-        "fogo",
-        "dano",
-        "monge"
-      ],
+      "tags": ["fogo", "dano", "monge"],
       "metadata": {
         "versao": 1,
         "beta": true,
@@ -1037,8 +972,7 @@
       "nivel": 0,
       "activation": "active",
       "clas": "monk",
-      "origin": "MAGIA",
-      "school": "APRIMORAMENTO",
+      "origin": "magic",
       "desc": "Imbui seu punho em chamas, causando dano elétrico adicional no próximo ataque.",
       "preRequisitos": {
         "atributos": {
@@ -1079,11 +1013,7 @@
         "vida": null,
         "energia": null
       },
-      "tags": [
-        "trovão",
-        "dano",
-        "monge"
-      ],
+      "tags": ["trovão", "dano", "monge"],
       "metadata": {
         "versao": 1,
         "beta": true,
@@ -1096,8 +1026,7 @@
       "nivel": 0,
       "activation": "active",
       "class": "monk",
-      "origin": "TECNICA",
-      "school": "COMBATE",
+      "origin": "technique",
       "desc": "Assume a postura do Dragão Dourado para realizar uma sequência de ataques.",
       "preRequisitos": {
         "atributos": {
@@ -1138,9 +1067,7 @@
         "vida": null,
         "energia": 10
       },
-      "tags": [
-        "monge"
-      ],
+      "tags": ["monge"],
       "metadata": {
         "versao": 1,
         "beta": true,
