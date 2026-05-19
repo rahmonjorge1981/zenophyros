@@ -255,10 +255,12 @@ function renderFilterOptions() {
 function renderSkills(skillsArray) {
   skillsList.innerHTML = "";
 
-  document.getElementById("skills-count").textContent =
-    `Habilidades: ${skillsArray.length}`;
+  const visibleSkills = skillsArray.filter(skill => !skill.metadata?.hidden);
 
-  skillsArray
+  document.getElementById("skills-count").textContent =
+    `Habilidades: ${visibleSkills.length}`;
+
+  visibleSkills
     .filter((skill) => !skill.metadata.hidden)
     .forEach((skill) => {
       skillsList.appendChild(renderSkillCard(skill));
