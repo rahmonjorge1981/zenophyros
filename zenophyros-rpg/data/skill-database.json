@@ -1,6 +1,15 @@
 {
   "schema": "zenophyros.habilidades.v2",
   "habilidades": {
+    "aaaa": {
+      "id": "test",
+      "name": "AAA Teste",
+      "requirements": {
+        "attributes": {
+          "for": 12,
+          "rac": 12
+        }
+    },
     "thunder_punch": {
       "id": "thunder_punch",
       "name": "Soco Elétrico",
@@ -9,7 +18,7 @@
       "origin": "magic",
       "desc": "Imbui seu punho em chamas, causando dano elétrico adicional no próximo ataque.",
       "requirements": {
-        "atributos": {
+        "attributes": {
           "for": 12,
           "rac": 12
         }
@@ -49,7 +58,7 @@
       "class": "wizard",
       "desc": "Conjura uma tempestade de raios devastadora.",
       "requirements": {
-        "atributos": {
+        "attributes": {
           "rac": 20,
           "aur": 20
         }
@@ -80,7 +89,7 @@
       "effects": ["buff"],
       "desc": "Cresce de tamanho, aumentando seus atributos base.",
       "requirements": {
-        "atributos": {
+        "attributes": {
           "for": 12,
           "vit": 14
         }
@@ -115,7 +124,7 @@
       "effects": ["control"],
       "desc": "Acerta o alvo em um ponto fraco, causando atordoamento.",
       "requirements": {
-        "atributos": {
+        "attributes": {
           "for": 10
         }
       },
@@ -157,7 +166,7 @@
       "origin": "technique",
       "desc": "Causa dano adicional contra aqueles que tentam realizar atos de heroísmo.",
       "requirements": {
-        "atributos": {
+        "attributes": {
           "for": 0,
           "des": 0,
           "agi": 0,
@@ -211,7 +220,7 @@
       "effects": ["damage"],
       "desc": "Dispara uma flecha imbuída com o elemento fogo.",
       "requirements": {
-        "atributos": {
+        "attributes": {
           "for": 0,
           "des": 0,
           "agi": 0,
@@ -265,7 +274,7 @@
       "effects": ["damage"],
       "desc": "Aumenta a chance de crítico durante a Furtividade.",
       "requirements": {
-        "atributos": {
+        "attributes": {
           "for": 0,
           "des": 14,
           "agi": 0,
@@ -319,7 +328,7 @@
       "effects": ["mobility"],
       "desc": "Desenhe um círculo mágico em um aliado. Uma vez, até o final do combate, você pode trocar de lugar com ele instantaneamente.",
       "requirements": {
-        "atributos": {
+        "attributes": {
           "for": 0,
           "des": 0,
           "agi": 14,
@@ -373,7 +382,7 @@
       "effects": ["utility"],
       "desc": "Humanos recebem +1 Ponto de Atributo ao passar de Nível.",
       "requirements": {
-        "atributos": {
+        "attributes": {
           "for": 0,
           "des": 0,
           "agi": 0,
@@ -428,7 +437,7 @@
       "effects": ["utility"],
       "desc": "Humanos podem escolher rolar um teste novamente uma vez ao dia.",
       "requirements": {
-        "atributos": {
+        "attributes": {
           "for": 0,
           "des": 0,
           "agi": 0,
@@ -483,7 +492,7 @@
       "effects": ["buff"],
       "desc": "Abençoa a arma de um aliado com uma luz divina dourada. ",
       "requirements": {
-        "atributos": {
+        "attributes": {
           "for": 0,
           "des": 0,
           "agi": 0,
@@ -538,7 +547,7 @@
       "effects": ["utility"],
       "desc": "Você pode escolher sacrificar um aliado saudável para salvar um outro aliado à beira da morte, ou vice versa.",
       "requirements": {
-        "atributos": {
+        "attributes": {
           "for": 0,
           "des": 0,
           "agi": 0,
@@ -592,7 +601,7 @@
       "effects": ["utility"],
       "desc": "Aumenta a sua AGI e a de um aliado ao jogar em dupla.",
       "requirements": {
-        "atributos": {
+        "attributes": {
           "for": 0,
           "des": 0,
           "agi": 0,
@@ -646,7 +655,7 @@
       "origin": "prayer",
       "desc": "Imbui uma essência luminosa multicromática para o próximo Ataque Físico causar dano baseado em TODOS os seus atributos.",
       "requirements": {
-        "atributos": {
+        "attributes": {
           "for": 10,
           "des": 10,
           "agi": 10,
@@ -700,7 +709,7 @@
       "origin": "innate",
       "desc": "Recebe bônus ao equipar armas e equipamentos lendários.",
       "requirements": {
-        "atributos": {
+        "attributes": {
           "for": 0,
           "des": 0,
           "agi": 0,
@@ -754,7 +763,7 @@
       "origin": "prayer",
       "desc": "Sempre que um aliado falhar um Teste de Morte pela primeira vez, ele pode tentar novamente.",
       "requirements": {
-        "atributos": {
+        "attributes": {
           "for": 0,
           "des": 0,
           "agi": 0,
@@ -808,7 +817,7 @@
       "origin": "innate",
       "desc": "Suas magias que causam dano de Fogo tem o custo de Mana reduzido em 50%.",
       "requirements": {
-        "atributos": {
+        "attributes": {
           "for": 0,
           "des": 0,
           "agi": 0,
@@ -862,7 +871,7 @@
       "origin": "magic",
       "desc": "Concede efeito de levitação.",
       "requirements": {
-        "atributos": {
+        "attributes": {
           "for": 0,
           "des": 0,
           "agi": 0,
@@ -915,7 +924,7 @@
       "origin": "magic",
       "desc": "Concede vôo passivo.",
       "requirements": {
-        "atributos": {
+        "attributes": {
           "for": 0,
           "des": 0,
           "agi": 0,
@@ -969,7 +978,7 @@
       "origin": "magic",
       "desc": "Imbui seu punho em chamas, causando dano de fogo adicional no próximo ataque.",
       "requirements": {
-        "atributos": {
+        "attributes": {
           "for": 12,
           "des": 0,
           "agi": 0,
@@ -1023,7 +1032,7 @@
       "origin": "technique",
       "desc": "Assume a postura do Dragão Dourado para realizar uma sequência de ataques.",
       "requirements": {
-        "atributos": {
+        "attributes": {
           "for": 20,
           "des": 18,
           "agi": 16,
