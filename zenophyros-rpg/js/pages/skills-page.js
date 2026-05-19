@@ -350,7 +350,7 @@ function renderEfeito(skill) {
 }
 
 function renderRolagens(skill) {
-  const rolagensValidas = (skill.efeito.rolagens || []).filter(
+  const rolagensValidas = (skill.mechanics.rolagens || []).filter(
     (rolagem) => rolagem.tipo?.trim() || rolagem.formula?.trim(),
   );
 
@@ -388,7 +388,7 @@ function renderRolagens(skill) {
 }
 
 function renderAlcance(skill) {
-  const alcance = skill.efeito.alcance;
+  const alcance = skill.mechanics.alcance;
 
   if (!alcance) {
     return "";
@@ -448,7 +448,7 @@ function renderAlcance(skill) {
 }
 
 function renderArea(skill) {
-  const area = skill.efeito.area;
+  const area = skill.mechanics.area;
 
   if (!area) {
     return "";
