@@ -82,7 +82,7 @@ function searchSkillById(skillId) {
 }
 
 async function init() {
-  console.log("INIT RODANDO");
+  console.log("skills-page.js -> init() running");
   await loadSkills();
 
   addModalEvents();
@@ -91,7 +91,12 @@ async function init() {
 
   filteredSkills = [...skills];
 
-  renderFilterOptions();
+  if (filters) {
+    renderFilterOptions();
+  }
+  else {
+    console.log("No filter objects found");
+  }
 
   applySort();
   renderSkills(filteredSkills);
