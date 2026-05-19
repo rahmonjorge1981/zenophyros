@@ -1,10 +1,15 @@
 const skillsList = document.getElementById("skills-list");
+
 const searchInput = document.getElementById("search-input");
-const filterClass = document.getElementById("filter-class");
-const filterSpecies = document.getElementById("filter-species");
-const filterEffects = document.getElementById("filter-effects");
-const filterActivation = document.getElementById("filter-activation");
-const filterOrigin = document.getElementById("filter-origin");
+
+const filters = [
+  document.getElementById("filter-class"),
+  document.getElementById("filter-species"),
+  document.getElementById("filter-effects"),
+  document.getElementById("filter-activation"),
+  document.getElementById("filter-origin"),
+];
+
 //const sortSelect = document.getElementById("sort-select");
 
 const SKILL_ENUMS = {
@@ -40,7 +45,7 @@ const SKILL_ENUMS = {
     control: { label: "Controle" },
     buff: { label: "Aprimoramento" },
     mobility: { label: "Mobilidade" },
-    utility: { label: "Utilidade"}
+    utility: { label: "Utilidade" },
   },
 };
 
@@ -85,13 +90,14 @@ async function init() {
 
   applySort();
   renderSkills(filteredSkills);
-  eventListeners();
+  addAllEventListeners();
 }
 
 function applyFilters() {
   const query = searchInput.value.toLowerCase().trim();
   const skillClass = filterClass.value;
   const species = filterSpecies.value;
+  const effects = filterEffects.value;
   const activation = filterActivation.value;
   const origin = filterOrigin.value;
 
@@ -110,9 +116,16 @@ function applyFilters() {
     const matchSpecies = !species || skill.species === species;
     const matchActivation = !activation || skill.activation === activation;
     const matchOrigin = !origin || skill.origin === origin;
+    const matchEffects =
+      !effects || skill.effects?.some((effect) => effect === effects);
 
     return (
-      matchQuery && matchClass && matchSpecies && matchActivation && matchOrigin
+      matchQuery &&
+      matchClass &&
+      matchSpecies &&
+      matchActivation &&
+      matchOrigin &&
+      matchEffects
     );
   });
 
@@ -126,12 +139,12 @@ function applySort() {
   });
 }
 
-function eventListeners() {
+function addAllEventListeners() {
   searchInput.addEventListener("input", applyFilters);
-  filterActivation.addEventListener("change", applyFilters);
-  filterOrigin.addEventListener("change", applyFilters);
-  filterClass.addEventListener("change", applyFilters);
-  filterSpecies.addEventListener("change", applyFilters);
+
+  filters.forEach((filter) => {
+    filter.addEventListener("change", applyFilters);
+  });
 }
 
 /**
@@ -198,18 +211,7 @@ function abrirModalSkill(skill, botaoOrigem = 0) {
     return;
   }
 
-  modalBody.innerHTML = `
-    ${renderCabecalho(skill)}
-    ${renderDescricao(skill)}
-    ${renderPreRequisitos(skill)}
-    ${renderEfeito(skill)}
-    ${renderRolagens(skill)}
-    ${renderAlcance(skill)}
-    ${renderArea(skill)}
-    ${renderCusto(skill)}
-    ${renderTags(skill)}
-    ${renderId(skill)}
-  `;
+  modalBody.innerHTML = renderModal(skill);
 
   skillModal.classList.remove("hidden");
 }
@@ -285,7 +287,23 @@ function renderSkillCard(skill) {
 }
 
 /** RENDERIZA O CABEÇALHO DO MODAL */
-function renderCabecalho(skill) {
+
+function renderModal() {
+  return `
+    ${renderHeader(skill)}
+    ${renderDescription(skill)}
+    ${renderPreRequisitos(skill)}
+    ${renderMechanics(skill)}
+    ${renderRolagens(skill)}
+    ${renderAlcance(skill)}
+    ${renderArea(skill)}
+    ${renderCusto(skill)}
+    ${renderTags(skill)}
+    ${renderId(skill)}
+  `;
+}
+
+function renderHeader(skill) {
   const classLabel = getLabelFromEnum(SKILL_ENUMS.class, skill.class);
   const speciesLabel = getLabelFromEnum(SKILL_ENUMS.species, skill.species);
   const originLabel = getLabelFromEnum(SKILL_ENUMS.origin, skill.origin);
@@ -309,9 +327,9 @@ function renderCabecalho(skill) {
   `;
 }
 
-/** Helper para o renderCabecalho. Cria vários <span "skill-tag"> com base em uma lista 'items' e um 'enumMap'. 
+/** Helper para o renderHeader. Cria vários <span "skill-tag"> com base em uma lista 'items' e um 'enumMap'.
  *  -> Usa a a lista de strings 'items' para buscar as labels em 'enumMap'.
-*/
+ */
 function renderBadgeList(items, enumMap) {
   if (!items?.length) return "";
 
@@ -324,7 +342,7 @@ function renderBadgeList(items, enumMap) {
     .join("");
 }
 
-function renderDescricao(skill) {
+function renderDescription(skill) {
   return `
     <div class="modal-section">
       <h3>Descrição</h3>
@@ -342,7 +360,7 @@ function renderPreRequisitos(skill) {
   `;
 }
 
-function renderEfeito(skill) {
+function renderMechanics(skill) {
   return `
     <div class="modal-section">
       <h3>Efeito</h3>
