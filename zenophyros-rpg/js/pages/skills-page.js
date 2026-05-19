@@ -159,8 +159,8 @@ function renderSkills(skillsArray) {
 }
 
 function createSkillCard(skill) {
-  const activationLabel =
-    SKILL_ENUMS.activation[skill.activation]?.label ?? skill.activation;
+  const classLabel = SKILL_ENUMS.class[skill.class]?.label ?? skill.class;
+  const activationLabel = SKILL_ENUMS.activation[skill.activation]?.label ?? skill.activation;
   const originLabel = SKILL_ENUMS.origin[skill.origin]?.label ?? skill.origin;
 
   const card = document.createElement("article");
@@ -179,11 +179,7 @@ function createSkillCard(skill) {
       <div class="skill-meta">
 
         <span class="skill-badge">
-          ${activationLabel}
-        </span>
-
-        <span class="skill-badge">
-          ${originLabel}
+          ${classLabel}
         </span>
 
       </div>
