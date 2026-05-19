@@ -614,6 +614,8 @@ function formatRequirements(reqs) {
     return;
   }
 
+  console.log(reqs);
+
   const linhas = [];
 
   if (reqs.attributes) {
