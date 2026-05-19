@@ -1,25 +1,21 @@
 window.skillDatabase = {};
 
 const skillsList = document.getElementById("skills-list");
-
 const searchInput = document.getElementById("search-input");
-
-const filterTipo = document.getElementById("filter-tipo");
-
-const filterOrigem = document.getElementById("filter-origem");
-
+const filterType = document.getElementById("filter-type");
+const filterOrigin = document.getElementById("filter-origin");
 const sortSelect = document.getElementById("sort-select");
 
 const enums = {
-  tiposHabilidade: {
-    // exemplo
-    ataque: { label: "Ataque" },
-    defesa: { label: "Defesa" },
+  skillActivationType: {
+    passive: { label: "Passiva" },
+    active: { label: "Ativa" },
+    reactive: { label: "Reativa "}
   },
-  origensHabilidade: {
-    // exemplo
-    fisica: { label: "Física" },
-    magica: { label: "Mágica" },
+  skillOrigin: {
+    magic: { label: "Magia" },
+    technique: { label: "Técnica" },
+    prayer: {label: "Prece"}
   },
 };
 
@@ -34,7 +30,7 @@ let botaoSkillAtual = null;
 /**
  * Carrega banco de habilidades.
  */
-async function carregarSkills() {
+async function loadSkills() {
   const skillsData = await carregarJSON(DATABASE_PATH);
   window.skillDatabase = skillsData.habilidades;
 }
@@ -42,7 +38,7 @@ async function carregarSkills() {
 /**
  * Busca habilidade pelo ID.
  */
-function buscarSkillPorId(skillId) {
+function searchSkillById(skillId) {
   if (!skillId) {
     return null;
   }
@@ -55,7 +51,7 @@ function buscarSkillPorId(skillId) {
  */
 async function init() {
   console.log("INIT RODANDO");
-  await carregarSkills();
+  await loadSkills();
 
   configurarModalSkill();
 
@@ -63,8 +59,8 @@ async function init() {
 
   filteredSkills = [...skills];
 
-  preencherFiltros();
-  aplicarOrdenacao();
+  fillFilters();
+  applySort();
   renderSkills(filteredSkills);
   configurarEventos();
 
@@ -73,36 +69,37 @@ async function init() {
 }
 
 /**
- * FILTROS
+ * Preenche os filtros de acordo com os ENUMS.
  */
-function preencherFiltros() {
-  Object.entries(enums.tiposHabilidade).forEach(([id, tipo]) => {
+function fillFilters() {
+
+  Object.entries(enums.skillActivationType).forEach(([id, activationType]) => {
     const option = document.createElement("option");
 
     option.value = id;
 
-    option.textContent = tipo.label;
+    option.textContent = activationType.label;
 
-    filterTipo.appendChild(option);
+    filterType.appendChild(option);
   });
 
-  Object.entries(enums.origensHabilidade).forEach(([id, origem]) => {
+  Object.entries(enums.skillOrigin).forEach(([id, origin]) => {
     const option = document.createElement("option");
 
     option.value = id;
 
-    option.textContent = origem.label;
+    option.textContent = origin.label;
 
-    filterOrigem.appendChild(option);
+    filterOrigin.appendChild(option);
   });
 }
 
-function aplicarFiltros() {
+function applyFilters() {
   const termo = searchInput.value.toLowerCase().trim();
 
-  const tipo = filterTipo.value;
+  const tipo = filterType.value;
 
-  const origem = filterOrigem.value;
+  const origem = filterOrigin.value;
 
   filteredSkills = skills.filter((skill) => {
     const matchNome = skill.nome.toLowerCase().includes(termo);
@@ -122,12 +119,12 @@ function aplicarFiltros() {
     return matchBusca && matchTipo && matchOrigem;
   });
 
-  aplicarOrdenacao();
+  applySort();
 
   renderSkills(filteredSkills);
 }
 
-function aplicarOrdenacao() {
+function applySort() {
   filteredSkills.sort((a, b) => {
     return a.nome.localeCompare(b.nome);
   });
@@ -143,9 +140,9 @@ function renderSkills(lista) {
     `Habilidades: ${lista.length}`;
 
   lista.forEach((skill) => {
-    const tipoLabel = enums.tiposHabilidade[skill.tipo]?.label ?? skill.tipo;
+    const tipoLabel = enums.skillActivationType[skill.tipo]?.label ?? skill.tipo;
     const origemLabel =
-      enums.origensHabilidade[skill.origem]?.label ?? skill.origem;
+      enums.skillOrigin[skill.origem]?.label ?? skill.origem;
 
     const card = document.createElement("article");
 
@@ -199,13 +196,13 @@ function renderSkills(lista) {
  * EVENTOS
  */
 function configurarEventos() {
-  searchInput.addEventListener("input", aplicarFiltros);
+  searchInput.addEventListener("input", applyFilters);
 
-  filterTipo.addEventListener("change", aplicarFiltros);
+  filterType.addEventListener("change", applyFilters);
 
-  filterOrigem.addEventListener("change", aplicarFiltros);
+  filterOrigin.addEventListener("change", applyFilters);
 
-  sortSelect.addEventListener("change", aplicarFiltros);
+  sortSelect.addEventListener("change", applyFilters);
 }
 
 /**
