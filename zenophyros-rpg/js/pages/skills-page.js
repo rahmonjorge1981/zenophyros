@@ -80,7 +80,7 @@ async function init() {
   console.log("INIT RODANDO");
   await loadSkills();
 
-  configurarModalSkill();
+  addModalEvents();
 
   skills = Object.values(window.skillDatabase);
 
@@ -93,6 +93,31 @@ async function init() {
   addAllEventListeners();
 }
 
+/**
+ * Modal Events
+ */
+function addModalEvents() {
+  const skillModal = document.getElementById("skill-modal");
+  const closeButton = document.getElementById("close-modal");
+
+  if (!skillModal || !closeButton) {
+    return;
+  }
+
+  closeButton.addEventListener("click", () => {
+    fecharModalSkill();
+  });
+
+  skillModal.addEventListener("click", (event) => {
+    if (event.target === skillModal) {
+      fecharModalSkill();
+    }
+  });
+}
+
+/**
+ * Aplica os filtros na lista de habilidades.
+ */
 function applyFilters() {
   const query = searchInput.value.toLowerCase().trim();
   const skillClass = filters.class.value;
@@ -144,28 +169,6 @@ function addAllEventListeners() {
 
   Object.values(filters).forEach(filter => {
     filter.addEventListener("change", applyFilters);
-  });
-}
-
-/**
- * MODAL CONFIG
- */
-function configurarModalSkill() {
-  const skillModal = document.getElementById("skill-modal");
-  const closeButton = document.getElementById("close-modal");
-
-  if (!skillModal || !closeButton) {
-    return;
-  }
-
-  closeButton.addEventListener("click", () => {
-    fecharModalSkill();
-  });
-
-  skillModal.addEventListener("click", (event) => {
-    if (event.target === skillModal) {
-      fecharModalSkill();
-    }
   });
 }
 
@@ -234,6 +237,7 @@ function renderFilterOptions() {
   appendOptions(filters.origin, SKILL_ENUMS.origin);
   appendOptions(filters.class, SKILL_ENUMS.class);
   appendOptions(filters.species, SKILL_ENUMS.species);
+  appendOptions(filters.effects, SKILL_ENUMS.effects);
 }
 
 /** RENDERIZAR LISTA DE SKILLS */
