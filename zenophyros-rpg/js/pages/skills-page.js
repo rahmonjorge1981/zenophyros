@@ -88,6 +88,7 @@ async function init() {
   addModalEvents();
 
   skills = Object.values(window.skillDatabase);
+  console.log(skills);
 
   if (!filters.class) {
     console.log("No filter objects found");
@@ -95,6 +96,7 @@ async function init() {
   }
 
   filteredSkills = [...skills];
+
   renderFilterOptions();
 
   applySort();
