@@ -93,6 +93,7 @@ function appendOptions(selectElement, enumObject) {
 function applyFilters() {
   const query = searchInput.value.toLowerCase().trim();
   const skillClass = filterClass.value;
+  const species = filterSpecies.value;
   const activation = filterActivation.value;
   const origin = filterOrigin.value;
 
@@ -107,16 +108,12 @@ function applyFilters() {
     const matchQuery = !query || matchName || matchDescription || matchTags; // !query -> true if query is empty
 
     // CHECKS FILTERS
-    console.log({
-      selectClass: skillClass,
-      skillClass: skill.class,
-    });
-
     const matchClass = !skillClass || skill.class === skillClass;
+    const matchSpecies = !species || skill.species === species;
     const matchActivation = !activation || skill.activation === activation;
     const matchOrigin = !origin || skill.origin === origin;
 
-    return matchQuery && matchClass && matchActivation && matchOrigin;
+    return matchQuery && matchClass && matchSpecies && matchActivation && matchOrigin;
   });
 
   applySort();
@@ -134,6 +131,7 @@ function eventListeners() {
   filterActivation.addEventListener("change", applyFilters);
   filterOrigin.addEventListener("change", applyFilters);
   filterClass.addEventListener("change", applyFilters);
+  filterSpecies.addEventListener("change", applyFilters);
 }
 
 /**
@@ -289,9 +287,7 @@ function renderSkillCard(skill) {
   return card;
 }
 
-/**
- * RENDERIZA O CABEÇALHO DO MODAL
- */
+/** RENDERIZA O CABEÇALHO DO MODAL */
 function renderCabecalho(skill) {
   const tipoLabel = "tipoLabel";
 
