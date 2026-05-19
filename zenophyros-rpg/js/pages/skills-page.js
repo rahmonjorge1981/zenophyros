@@ -290,8 +290,18 @@ function renderSkillCard(skill) {
   return card;
 }
 
-/** RENDERIZA O CABEÇALHO DO MODAL */
-
+function renderModal(skill) {
+  return `
+    ${renderHeader(skill)}
+    ${renderDescription(skill)}
+    ${renderPreRequisitos(skill)}
+    ${renderMechanics(skill)}
+    ${renderRolagens(skill)}
+    ${renderCusto(skill)}
+    ${renderId(skill)}
+  `;
+}
+/*
 function renderModal(skill) {
   return `
     ${renderHeader(skill)}
@@ -306,6 +316,7 @@ function renderModal(skill) {
     ${renderId(skill)}
   `;
 }
+*/
 
 function renderHeader(skill) {
   const classLabel = getLabelFromEnum(SKILL_ENUMS.class, skill.class);

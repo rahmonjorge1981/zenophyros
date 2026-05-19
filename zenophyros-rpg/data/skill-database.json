@@ -4,7 +4,6 @@
     "gigantify": {
       "id": "gigantify",
       "name": "Gigantificar",
-      "nivel": 0,
       "activation": "active",
       "class": "warrior",
       "origin": "magic",
@@ -13,42 +12,25 @@
       "preRequisitos": {
         "atributos": {
           "for": 10,
-          "des": 0,
-          "agi": 0,
           "vit": 14,
-          "rac": 0,
-          "ins": 0,
-          "san": 0,
           "aur": 10
-        },
-        "habilidades": [],
-        "niveis": {
-          "personagem": ""
         }
       },
       "mechanics": {
-        "texto": "Aumenta sua FOR e VIT em +5, mas reduz sua DES e AGI em -5.",
-        "rolagens": [
+        "text": "Aumenta sua FOR e VIT em +5, mas reduz sua DES e AGI em -5.",
+        "formulas": [
           {
-            "tipo": "",
-            "formula": ""
+            "formulaType": "buff",
+            "formula": "FOR: +5, VIT: +5, DES: -5, AGI: -5"
           }
         ],
-        "alcance": {
-          "tipo": "SELF",
-          "distancia": 0
-        },
-        "area": {
-          "tipo": "NENHUMA"
-        },
-        "duracao": 0
+        "target": {
+          "targetType": "self"
+        }
       },
-      "custo": {
-        "mana": "",
-        "vida": "",
-        "energia": 10
+      "cost": {
+        "energy": 10
       },
-      "tags": ["aprimoramento", "combate físico"],
       "metadata": {
         "versao": 1,
         "beta": true,
@@ -56,7 +38,7 @@
       }
     },
     "golpe_atordoante": {
-      "id": "golpe_atordoante",
+      "id": "stun_strike",
       "name": "Golpe Atordoante",
       "nivel": 0,
       "activation": "active",
@@ -81,10 +63,10 @@
         }
       },
       "mechanics": {
-        "texto": "Role um teste de Controle de Grupo. Se acertar, o alvo fica atordoado no próximo turno. Este ataque causa o mesmo dano do seu Ataque Físico.",
-        "rolagens": [
+        "text": "Role um teste de Controle de Grupo. Se acertar, o alvo fica atordoado no próximo turno. Este ataque causa o mesmo dano do seu Ataque Físico.",
+        "formulas": [
           {
-            "tipo": "ACERTO",
+            "formulaType": "ACERTO",
             "formula": "d20 + Mod(DES) vs. 10 + Mod(VIT)"
           }
         ],
@@ -97,10 +79,10 @@
         },
         "duracao": 0
       },
-      "custo": {
+      "cost": {
         "mana": "",
         "vida": "",
-        "energia": 10
+        "energy": 10
       },
       "tags": ["cc", "alvo único"],
       "metadata": {
@@ -134,10 +116,10 @@
         }
       },
       "mechanics": {
-        "texto": "Suas habilidades sempre causam acerto crítico em alvos que usaram habilidades para curar ou proteger seus aliados.",
-        "rolagens": [
+        "text": "Suas habilidades sempre causam acerto crítico em alvos que usaram habilidades para curar ou proteger seus aliados.",
+        "formulas": [
           {
-            "tipo": "",
+            "formulaType": "",
             "formula": ""
           }
         ],
@@ -150,10 +132,10 @@
         },
         "duracao": 0
       },
-      "custo": {
+      "cost": {
         "mana": "",
         "vida": "",
-        "energia": ""
+        "energy": ""
       },
       "tags": ["dano", "aprimoramento"],
       "metadata": {
@@ -188,10 +170,10 @@
         }
       },
       "mechanics": {
-        "texto": "A próxima flecha causa 1d4 de dano de Fogo adicional.",
-        "rolagens": [
+        "text": "A próxima flecha causa 1d4 de dano de Fogo adicional.",
+        "formulas": [
           {
-            "tipo": "DANO",
+            "formulaType": "DANO",
             "formula": "1d4"
           }
         ],
@@ -204,10 +186,10 @@
         },
         "duracao": 0
       },
-      "custo": {
+      "cost": {
         "mana": 2,
         "vida": null,
-        "energia": null
+        "energy": null
       },
       "tags": ["atirador", "fogo"],
       "metadata": {
@@ -242,10 +224,10 @@
         }
       },
       "mechanics": {
-        "texto": "Reduz a CD de acertos críticos em -Mod(AGI). Ex: Com AGI +3, você crita ao tirar 17 ou mais.",
-        "rolagens": [
+        "text": "Reduz a CD de acertos críticos em -Mod(AGI). Ex: Com AGI +3, você crita ao tirar 17 ou mais.",
+        "formulas": [
           {
-            "tipo": "",
+            "formulaType": "",
             "formula": ""
           }
         ],
@@ -258,10 +240,10 @@
         },
         "duracao": 0
       },
-      "custo": {
+      "cost": {
         "mana": null,
         "vida": null,
-        "energia": null
+        "energy": null
       },
       "tags": ["furtividade"],
       "metadata": {
@@ -296,10 +278,10 @@
         }
       },
       "mechanics": {
-        "texto": "Marque um aliado vivo. Ao ativar, troca de lugar com este aliado. Se estiver morto, a habilidade falha.",
-        "rolagens": [
+        "text": "Marque um aliado vivo. Ao ativar, troca de lugar com este aliado. Se estiver morto, a habilidade falha.",
+        "formulas": [
           {
-            "tipo": "",
+            "formulaType": "",
             "formula": ""
           }
         ],
@@ -312,10 +294,10 @@
         },
         "duracao": 0
       },
-      "custo": {
+      "cost": {
         "mana": 20,
         "vida": null,
-        "energia": null
+        "energy": null
       },
       "tags": ["teletransporte"],
       "metadata": {
@@ -351,10 +333,10 @@
         "especie": ["HUMANO"]
       },
       "mechanics": {
-        "texto": "Recebe +1 Ponto de Atributo ao passar de Nível.",
-        "rolagens": [
+        "text": "Recebe +1 Ponto de Atributo ao passar de Nível.",
+        "formulas": [
           {
-            "tipo": "",
+            "formulaType": "",
             "formula": ""
           }
         ],
@@ -367,10 +349,10 @@
         },
         "duracao": 0
       },
-      "custo": {
+      "cost": {
         "mana": null,
         "vida": null,
-        "energia": null
+        "energy": null
       },
       "tags": ["crescimento"],
       "metadata": {
@@ -406,8 +388,8 @@
         "especie": ["HUMANO"]
       },
       "mechanics": {
-        "texto": "Uma vez por dia, pode rolar qualquer teste novamente.",
-        "rolagens": [
+        "text": "Uma vez por dia, pode rolar qualquer teste novamente.",
+        "formulas": [
           {
             "tipo": "",
             "formula": ""
@@ -422,12 +404,12 @@
         },
         "duracao": 0
       },
-      "custo": {
+      "cost": {
         "mana": null,
         "vida": null,
-        "energia": null
+        "energy": null
       },
-      "tags": ["rolagens"],
+      "tags": [],
       "metadata": {
         "versao": 1,
         "beta": true,
@@ -461,8 +443,8 @@
         "especie": []
       },
       "mechanics": {
-        "texto": "Role um d100. O dano do próximo Ataque Físico é multiplicado de acordo com o resultado: \n51-100 (50%): Dano Final x1.5 \n21-50 (30%): Dano Final x2 \n6-20 (15%): Dano Final x3 \n1-5 (5%): Dano Final x5",
-        "rolagens": [
+        "text": "Role um d100. O dano do próximo Ataque Físico é multiplicado de acordo com o resultado: \n51-100 (50%): Dano Final x1.5 \n21-50 (30%): Dano Final x2 \n6-20 (15%): Dano Final x3 \n1-5 (5%): Dano Final x5",
+        "formulas": [
           {
             "tipo": "",
             "formula": ""
@@ -477,10 +459,10 @@
         },
         "duracao": 0
       },
-      "custo": {
+      "cost": {
         "mana": 50,
         "vida": null,
-        "energia": null
+        "energy": null
       },
       "tags": ["aprimoramento"],
       "metadata": {
@@ -516,8 +498,8 @@
         "especie": []
       },
       "mechanics": {
-        "texto": "Só pode ser ativada se você tiver um aliado À Beira da Morte e um aliado Vivo. Esta magic não pode ser usada em si mesmo. O aliado que você executar, qualquer que seja, doa 100% dos seus pontos de Vida e Mana restantes para o aliado vivo (isto pode superar os limites máximos do aliado-alvo). Além disso, o aliado vivo recebe um bônus em todos os seus atributos igual ao modificador dos atributos do aliado executado.",
-        "rolagens": [
+        "text": "Só pode ser ativada se você tiver um aliado À Beira da Morte e um aliado Vivo. Esta magic não pode ser usada em si mesmo. O aliado que você executar, qualquer que seja, doa 100% dos seus pontos de Vida e Mana restantes para o aliado vivo (isto pode superar os limites máximos do aliado-alvo). Além disso, o aliado vivo recebe um bônus em todos os seus atributos igual ao modificador dos atributos do aliado executado.",
+        "formulas": [
           {
             "tipo": "",
             "formula": ""
@@ -532,10 +514,10 @@
         },
         "duracao": 0
       },
-      "custo": {
+      "cost": {
         "mana": null,
         "vida": null,
-        "energia": null
+        "energy": null
       },
       "tags": ["ressuscitar", "aprimoramento"],
       "metadata": {
@@ -570,8 +552,8 @@
         "especie": []
       },
       "mechanics": {
-        "texto": "Se a sua party só tiver duas pessoas, concede +3 de AGI a você e seu aliado. Se o seu aliado também tiver essa habilidade, o bônus aumenta para +5.",
-        "rolagens": [
+        "text": "Se a sua party só tiver duas pessoas, concede +3 de AGI a você e seu aliado. Se o seu aliado também tiver essa habilidade, o bônus aumenta para +5.",
+        "formulas": [
           {
             "tipo": "",
             "formula": ""
@@ -586,10 +568,10 @@
         },
         "duracao": 0
       },
-      "custo": {
+      "cost": {
         "mana": null,
         "vida": null,
-        "energia": null
+        "energy": null
       },
       "tags": ["agilidade", "equipe"],
       "metadata": {
@@ -624,8 +606,8 @@
         "especie": []
       },
       "mechanics": {
-        "texto": "O próximo ataque causa Dano Final igual à metade da soma de todos os seus atributos. O custo de ativação é igual à 100% da sua Mana OU Energia Atual. Crítico: 2x de dano",
-        "rolagens": [
+        "text": "O próximo ataque causa Dano Final igual à metade da soma de todos os seus atributos. O custo de ativação é igual à 100% da sua Mana OU Energia Atual. Crítico: 2x de dano",
+        "formulas": [
           {
             "tipo": "damage",
             "formula": "(FOR+DES+AGI+VIT+RAC+INS+SAN+AUR)/2"
@@ -640,10 +622,10 @@
         },
         "duracao": 0
       },
-      "custo": {
+      "cost": {
         "mana": null,
         "vida": null,
-        "energia": null
+        "energy": null
       },
       "tags": [],
       "metadata": {
@@ -678,8 +660,8 @@
         "especie": []
       },
       "mechanics": {
-        "texto": "Ao equipar qualquer arma ou equipamento lendário, concede um bônus de +3 de AUR. Esse efeito não é cumulativo.",
-        "rolagens": [
+        "text": "Ao equipar qualquer arma ou equipamento lendário, concede um bônus de +3 de AUR. Esse efeito não é cumulativo.",
+        "formulas": [
           {
             "tipo": "",
             "formula": ""
@@ -694,10 +676,10 @@
         },
         "duracao": 0
       },
-      "custo": {
+      "cost": {
         "mana": null,
         "vida": null,
-        "energia": null
+        "energy": null
       },
       "tags": [],
       "metadata": {
@@ -732,8 +714,8 @@
         "especie": []
       },
       "mechanics": {
-        "texto": "Sempre que um aliado falhar um Teste de Morte pela primeira vez, ele pode tentar novamente.",
-        "rolagens": [
+        "text": "Sempre que um aliado falhar um Teste de Morte pela primeira vez, ele pode tentar novamente.",
+        "formulas": [
           {
             "tipo": "",
             "formula": ""
@@ -748,10 +730,10 @@
         },
         "duracao": 0
       },
-      "custo": {
+      "cost": {
         "mana": null,
         "vida": null,
-        "energia": null
+        "energy": null
       },
       "tags": ["ressuscitar"],
       "metadata": {
@@ -786,8 +768,8 @@
         "especie": []
       },
       "mechanics": {
-        "texto": "Suas magias que causam dano de Fogo tem o custo de Mana reduzido em 50%.",
-        "rolagens": [
+        "text": "Suas magias que causam dano de Fogo tem o custo de Mana reduzido em 50%.",
+        "formulas": [
           {
             "tipo": "",
             "formula": ""
@@ -802,10 +784,10 @@
         },
         "duracao": 0
       },
-      "custo": {
+      "cost": {
         "mana": null,
         "vida": null,
-        "energia": null
+        "energy": null
       },
       "tags": ["fogo", "mana"],
       "metadata": {
@@ -840,8 +822,8 @@
         "especie": []
       },
       "mechanics": {
-        "texto": "Pode levitar de alguns centímetros até um metro do chão, com base na sua AUR.",
-        "rolagens": [
+        "text": "Pode levitar de alguns centímetros até um metro do chão, com base na sua AUR.",
+        "formulas": [
           {
             "tipo": "",
             "formula": "Altura (cm) = AUR*10"
@@ -856,10 +838,10 @@
         },
         "duracao": 0
       },
-      "custo": {
+      "cost": {
         "mana": null,
         "vida": null,
-        "energia": null
+        "energy": null
       },
       "metadata": {
         "versao": 1,
@@ -893,8 +875,8 @@
         "especie": []
       },
       "mechanics": {
-        "texto": "Permite vôo passivo, com altura indeterminada. Este efeito é desativado se você for atingido, ficar sem Mana ou sem Energia.",
-        "rolagens": [
+        "text": "Permite vôo passivo, com altura indeterminada. Este efeito é desativado se você for atingido, ficar sem Mana ou sem Energia.",
+        "formulas": [
           {
             "tipo": "",
             "formula": ""
@@ -909,10 +891,10 @@
         },
         "duracao": 0
       },
-      "custo": {
+      "cost": {
         "mana": null,
         "vida": null,
-        "energia": null
+        "energy": null
       },
       "tags": ["voo"],
       "metadata": {
@@ -947,8 +929,8 @@
         "especie": []
       },
       "mechanics": {
-        "texto": "Seu próximo ataque desarmado causa 1d6 de dano de Fogo adicional.",
-        "rolagens": [
+        "text": "Seu próximo ataque desarmado causa 1d6 de dano de Fogo adicional.",
+        "formulas": [
           {
             "tipo": "DANO",
             "formula": "1d6"
@@ -963,10 +945,10 @@
         },
         "duracao": 0
       },
-      "custo": {
+      "cost": {
         "mana": 5,
         "vida": null,
-        "energia": null
+        "energy": null
       },
       "tags": ["fogo", "dano", "monge"],
       "metadata": {
@@ -1001,8 +983,8 @@
         "especie": []
       },
       "mechanics": {
-        "texto": "Seu próximo ataque desarmado causa 1d6 de dano de Trovão adicional. Crítico: Alvo fica paralisado por 1d4 turnos.",
-        "rolagens": [
+        "text": "Seu próximo ataque desarmado causa 1d6 de dano de Trovão adicional. Crítico: Alvo fica paralisado por 1d4 turnos.",
+        "formulas": [
           {
             "tipo": "DANO",
             "formula": "1d6"
@@ -1017,10 +999,10 @@
         },
         "duracao": 0
       },
-      "custo": {
+      "cost": {
         "mana": 4,
         "vida": null,
-        "energia": null
+        "energy": null
       },
       "tags": ["trovão", "dano", "monge"],
       "metadata": {
@@ -1055,8 +1037,8 @@
         "especie": []
       },
       "mechanics": {
-        "texto": "Teste de Força (CD5): O primeiro golpe causa 1d20 de dano contundente. Teste de Destreza (CD10): O segundo golpe acerta um ponto fraco do alvo, causando 1d12 de dano verdadeiro. Teste de Agilidade (CD15): O terceiro golpe derruba o alvo, incapacitando-o por um turno. Teste de Vitalidade (CD20): O quarto golpe atira todo o peso do próprio corpo no inimigo, causando 2d20 de dano no alvo e 1d20 de dano em si mesmo. O custo de Energia desta Habilidade aumenta em +10 a cada acerto.",
-        "rolagens": [
+        "text": "Teste de Força (CD5): O primeiro golpe causa 1d20 de dano contundente. Teste de Destreza (CD10): O segundo golpe acerta um ponto fraco do alvo, causando 1d12 de dano verdadeiro. Teste de Agilidade (CD15): O terceiro golpe derruba o alvo, incapacitando-o por um turno. Teste de Vitalidade (CD20): O quarto golpe atira todo o peso do próprio corpo no inimigo, causando 2d20 de dano no alvo e 1d20 de dano em si mesmo. O custo de Energia desta Habilidade aumenta em +10 a cada acerto.",
+        "formulas": [
           {
             "tipo": "",
             "formula": ""
@@ -1071,10 +1053,10 @@
         },
         "duracao": 0
       },
-      "custo": {
+      "cost": {
         "mana": null,
         "vida": null,
-        "energia": 10
+        "energy": 10
       },
       "tags": ["monge"],
       "metadata": {
