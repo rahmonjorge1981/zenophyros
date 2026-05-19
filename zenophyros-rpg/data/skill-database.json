@@ -1,6 +1,76 @@
 {
   "schema": "zenophyros.habilidades.v2",
   "habilidades": {
+    "thunder_punch": {
+      "id": "thunder_punch",
+      "name": "Soco Elétrico",
+      "activation": "active",
+      "class": "monk",
+      "origin": "magic",
+      "desc": "Imbui seu punho em chamas, causando dano elétrico adicional no próximo ataque.",
+      "requirements": {
+        "atributos": {
+          "for": 12,
+          "rac": 12
+        }
+      },
+      "mechanics": {
+        "text": "Seu próximo ataque desarmado causa 1d6 de dano de Trovão adicional. Crítico: Alvo fica paralisado por 1d4 turnos.",
+        "formulas": [
+          {
+            "formulaType": "hit_check",
+            "formula": "d20 + Mod(DES) vs. 10 + Mod(AGI)"
+          },
+          {
+            "formulaType": "damage",
+            "formula": "1d6"
+          },
+          {
+            "formulaType": "effect",
+            "formula": "1d4"
+          }
+        ],
+        "target": "single"
+      },
+      "cost": {
+        "mana": 4
+      },
+      "tags": ["thunder"],
+      "metadata": {
+        "versao": 1,
+        "beta": true,
+        "oculta": false
+      }
+    },
+    "thunderstorm": {
+      "id": "thunderstorm",
+      "name": "Tempestade de Raios",
+      "activation": "active",
+      "class": "wizard",
+      "desc": "Conjura uma tempestade de raios devastadora.",
+      "requirements": {
+        "atributos": {
+          "rac": 20,
+          "aur": 20
+        }
+      },
+      "mechanics": {
+        "text": "Causa 1d100 de dano em uma área 10x10.",
+        "formulas": [
+
+        ],
+        "target": "area"
+      },
+      "cost": {
+        "mana": 25
+      },
+      "tags": ["thunder"],
+      "metadata": {
+        "versao": 1,
+        "beta": true,
+        "oculta": false
+      }
+    },
     "gigantify": {
       "id": "gigantify",
       "name": "Gigantificar",
@@ -9,11 +79,10 @@
       "origin": "magic",
       "effects": ["buff"],
       "desc": "Cresce de tamanho, aumentando seus atributos base.",
-      "preRequisitos": {
+      "requirements": {
         "atributos": {
-          "for": 10,
-          "vit": 14,
-          "aur": 10
+          "for": 12,
+          "vit": 14
         }
       },
       "mechanics": {
@@ -40,26 +109,14 @@
     "golpe_atordoante": {
       "id": "stun_strike",
       "name": "Golpe Atordoante",
-      "nivel": 0,
       "activation": "active",
       "class": "monk",
       "origin": "technique",
       "effects": ["control"],
       "desc": "Acerta o alvo em um ponto fraco, causando atordoamento.",
-      "preRequisitos": {
+      "requirements": {
         "atributos": {
-          "for": 10,
-          "des": 0,
-          "agi": 0,
-          "vit": 0,
-          "rac": 0,
-          "ins": 0,
-          "san": 0,
-          "aur": 0
-        },
-        "habilidades": [],
-        "niveis": {
-          "personagem": ""
+          "for": 10
         }
       },
       "mechanics": {
@@ -99,7 +156,7 @@
       "effects": ["damage"],
       "origin": "technique",
       "desc": "Causa dano adicional contra aqueles que tentam realizar atos de heroísmo.",
-      "preRequisitos": {
+      "requirements": {
         "atributos": {
           "for": 0,
           "des": 0,
@@ -153,7 +210,7 @@
       "origin": "magic",
       "effects": ["damage"],
       "desc": "Dispara uma flecha imbuída com o elemento fogo.",
-      "preRequisitos": {
+      "requirements": {
         "atributos": {
           "for": 0,
           "des": 0,
@@ -207,7 +264,7 @@
       "origin": "technique",
       "effects": ["damage"],
       "desc": "Aumenta a chance de crítico durante a Furtividade.",
-      "preRequisitos": {
+      "requirements": {
         "atributos": {
           "for": 0,
           "des": 14,
@@ -261,7 +318,7 @@
       "origin": "magic",
       "effects": ["mobility"],
       "desc": "Desenhe um círculo mágico em um aliado. Uma vez, até o final do combate, você pode trocar de lugar com ele instantaneamente.",
-      "preRequisitos": {
+      "requirements": {
         "atributos": {
           "for": 0,
           "des": 0,
@@ -315,7 +372,7 @@
       "species": "human",
       "effects": ["utility"],
       "desc": "Humanos recebem +1 Ponto de Atributo ao passar de Nível.",
-      "preRequisitos": {
+      "requirements": {
         "atributos": {
           "for": 0,
           "des": 0,
@@ -370,7 +427,7 @@
       "species": "human",
       "effects": ["utility"],
       "desc": "Humanos podem escolher rolar um teste novamente uma vez ao dia.",
-      "preRequisitos": {
+      "requirements": {
         "atributos": {
           "for": 0,
           "des": 0,
@@ -425,7 +482,7 @@
       "origin": "prayer",
       "effects": ["buff"],
       "desc": "Abençoa a arma de um aliado com uma luz divina dourada. ",
-      "preRequisitos": {
+      "requirements": {
         "atributos": {
           "for": 0,
           "des": 0,
@@ -480,7 +537,7 @@
       "origin": "prayer",
       "effects": ["utility"],
       "desc": "Você pode escolher sacrificar um aliado saudável para salvar um outro aliado à beira da morte, ou vice versa.",
-      "preRequisitos": {
+      "requirements": {
         "atributos": {
           "for": 0,
           "des": 0,
@@ -534,7 +591,7 @@
       "origin": "technique",
       "effects": ["utility"],
       "desc": "Aumenta a sua AGI e a de um aliado ao jogar em dupla.",
-      "preRequisitos": {
+      "requirements": {
         "atributos": {
           "for": 0,
           "des": 0,
@@ -588,7 +645,7 @@
 
       "origin": "prayer",
       "desc": "Imbui uma essência luminosa multicromática para o próximo Ataque Físico causar dano baseado em TODOS os seus atributos.",
-      "preRequisitos": {
+      "requirements": {
         "atributos": {
           "for": 10,
           "des": 10,
@@ -642,7 +699,7 @@
 
       "origin": "innate",
       "desc": "Recebe bônus ao equipar armas e equipamentos lendários.",
-      "preRequisitos": {
+      "requirements": {
         "atributos": {
           "for": 0,
           "des": 0,
@@ -696,7 +753,7 @@
       "class": "cleric",
       "origin": "prayer",
       "desc": "Sempre que um aliado falhar um Teste de Morte pela primeira vez, ele pode tentar novamente.",
-      "preRequisitos": {
+      "requirements": {
         "atributos": {
           "for": 0,
           "des": 0,
@@ -750,7 +807,7 @@
       "class": "wizard",
       "origin": "innate",
       "desc": "Suas magias que causam dano de Fogo tem o custo de Mana reduzido em 50%.",
-      "preRequisitos": {
+      "requirements": {
         "atributos": {
           "for": 0,
           "des": 0,
@@ -804,7 +861,7 @@
       "class": "wizard",
       "origin": "magic",
       "desc": "Concede efeito de levitação.",
-      "preRequisitos": {
+      "requirements": {
         "atributos": {
           "for": 0,
           "des": 0,
@@ -857,7 +914,7 @@
 
       "origin": "magic",
       "desc": "Concede vôo passivo.",
-      "preRequisitos": {
+      "requirements": {
         "atributos": {
           "for": 0,
           "des": 0,
@@ -911,7 +968,7 @@
       "class": "monk",
       "origin": "magic",
       "desc": "Imbui seu punho em chamas, causando dano de fogo adicional no próximo ataque.",
-      "preRequisitos": {
+      "requirements": {
         "atributos": {
           "for": 12,
           "des": 0,
@@ -957,60 +1014,6 @@
         "oculta": false
       }
     },
-    "thunder_punch": {
-      "id": "thunder_punch",
-      "name": "Soco Elétrico",
-      "nivel": 0,
-      "activation": "active",
-      "class": "monk",
-      "origin": "magic",
-      "desc": "Imbui seu punho em chamas, causando dano elétrico adicional no próximo ataque.",
-      "preRequisitos": {
-        "atributos": {
-          "for": 12,
-          "des": 0,
-          "agi": 0,
-          "vit": 0,
-          "rac": 12,
-          "ins": 0,
-          "san": 0,
-          "aur": 0
-        },
-        "habilidades": [],
-        "niveis": {
-          "personagem": 0
-        },
-        "especie": []
-      },
-      "mechanics": {
-        "text": "Seu próximo ataque desarmado causa 1d6 de dano de Trovão adicional. Crítico: Alvo fica paralisado por 1d4 turnos.",
-        "formulas": [
-          {
-            "tipo": "DANO",
-            "formula": "1d6"
-          }
-        ],
-        "alcance": {
-          "tipo": "CONTATO",
-          "distancia": 0
-        },
-        "area": {
-          "tipo": "NENHUMA"
-        },
-        "duracao": 0
-      },
-      "cost": {
-        "mana": 4,
-        "vida": null,
-        "energy": null
-      },
-      "tags": ["trovão", "dano", "monge"],
-      "metadata": {
-        "versao": 1,
-        "beta": true,
-        "oculta": false
-      }
-    },
     "golden_dragon_fist": {
       "id": "golden_dragon_fist",
       "name": "Punho do Dragão Dourado",
@@ -1019,7 +1022,7 @@
       "class": "monk",
       "origin": "technique",
       "desc": "Assume a postura do Dragão Dourado para realizar uma sequência de ataques.",
-      "preRequisitos": {
+      "requirements": {
         "atributos": {
           "for": 20,
           "des": 18,

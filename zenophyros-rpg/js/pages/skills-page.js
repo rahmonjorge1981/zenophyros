@@ -47,6 +47,11 @@ const SKILL_ENUMS = {
     mobility: { label: "Mobilidade" },
     utility: { label: "Utilidade" },
   },
+  target: {
+    single: { label: "Alvo Único "},
+    area: { label: "Em Área" },
+    self: { label: "Em Si Mesmo"}
+  }
 };
 
 const DATABASE_PATH = "./data/skill-database.json";
@@ -294,29 +299,12 @@ function renderModal(skill) {
   return `
     ${renderHeader(skill)}
     ${renderDescription(skill)}
-    ${renderPreRequisitos(skill)}
+    ${renderRequirements(skill)}
     ${renderMechanics(skill)}
-    ${renderRolagens(skill)}
     ${renderCusto(skill)}
     ${renderId(skill)}
   `;
 }
-/*
-function renderModal(skill) {
-  return `
-    ${renderHeader(skill)}
-    ${renderDescription(skill)}
-    ${renderPreRequisitos(skill)}
-    ${renderMechanics(skill)}
-    ${renderRolagens(skill)}
-    ${renderAlcance(skill)}
-    ${renderArea(skill)}
-    ${renderCusto(skill)}
-    ${renderTags(skill)}
-    ${renderId(skill)}
-  `;
-}
-*/
 
 function renderHeader(skill) {
   const classLabel = getLabelFromEnum(SKILL_ENUMS.class, skill.class);
@@ -366,11 +354,11 @@ function renderDescription(skill) {
   `;
 }
 
-function renderPreRequisitos(skill) {
+function renderRequirements(skill) {
   return `
     <div class="modal-section">
       <h3>Pré-Requisitos</h3>
-      <div class="modal-box"> ${formatarPreRequisitos(skill.preRequisitos)} </div>
+      <div class="modal-box"> ${formatRequirements(skill.Requirements)} </div>
     </div>
   `;
 }
@@ -379,7 +367,7 @@ function renderMechanics(skill) {
   return `
     <div class="modal-section">
       <h3>Efeito</h3>
-      <p>${skill.mechanics.texto}</p>
+      <p>${skill.mechanics.text}</p>
     </div>
   `;
 }
@@ -501,7 +489,7 @@ function renderArea(skill) {
     <div class="modal-section">
       <h3>Área</h3>
       <div class="modal-box">
-        ${formatarArea(area)}
+        ${formatArea(area)}
       </div>
     </div>
   `;
@@ -589,7 +577,7 @@ function renderId(skill) {
   `;
 }
 
-function formatarArea(area) {
+function formatArea(area) {
   switch (area.tipo) {
     case "ALVO_UNICO":
       return "Alvo Único";
@@ -617,7 +605,7 @@ function formatarArea(area) {
   }
 }
 
-function formatarPreRequisitos(preReq) {
+function formatRequirements(preReq) {
   const linhas = [];
 
   if (preReq.atributos) {
