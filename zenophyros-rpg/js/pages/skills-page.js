@@ -2,17 +2,25 @@ window.skillDatabase = {};
 
 const skillsList = document.getElementById("skills-list");
 const searchInput = document.getElementById("search-input");
-const filterType = document.getElementById("filter-type");
+const filterClass = document.getElementById("filter-class");
+const filterActivation = document.getElementById("filter-activation");
 const filterOrigin = document.getElementById("filter-origin");
 //const sortSelect = document.getElementById("sort-select");
 
-const enums = {
-  skillActivationType: {
+const SKILL_ENUMS = {
+  class: {
+    warrior: { label: "Guerreiro" },
+    wizard: { label: "Mago" },
+    monk: { label: "Monge" },
+    clérigo: { label: "Clérigo" },
+    archer: { label: "Arqueiro" }
+  },
+  activation: {
     passive: { label: "Passiva" },
     active: { label: "Ativa" },
     reactive: { label: "Reativa "}
   },
-  skillOrigin: {
+  origin: {
     magic: { label: "Magia" },
     technique: { label: "Técnica" },
     prayer: {label: "Prece"}
@@ -69,21 +77,21 @@ async function init() {
 }
 
 /**
- * Preenche os filtros de acordo com os ENUMS.
+ * Preenche os filtros de acordo com os SKILL_ENUMS.
  */
 function fillFilters() {
 
-  Object.entries(enums.skillActivationType).forEach(([id, activationType]) => {
+  Object.entries(SKILL_ENUMS.activation).forEach(([id, activationType]) => {
     const option = document.createElement("option");
 
     option.value = id;
 
     option.textContent = activationType.label;
 
-    filterType.appendChild(option);
+    filterActivation.appendChild(option);
   });
 
-  Object.entries(enums.skillOrigin).forEach(([id, origin]) => {
+  Object.entries(SKILL_ENUMS.origin).forEach(([id, origin]) => {
     const option = document.createElement("option");
 
     option.value = id;
@@ -95,26 +103,22 @@ function fillFilters() {
 }
 
 function applyFilters() {
-  const termo = searchInput.value.toLowerCase().trim();
-
-  const tipo = filterType.value;
-
-  const origem = filterOrigin.value;
+  const query = searchInput.value.toLowerCase().trim();
+  const activation = filterActivation.value;
+  const origin = filterOrigin.value;
 
   filteredSkills = skills.filter((skill) => {
-    const matchNome = skill.nome.toLowerCase().includes(termo);
+    const matchNome = skill.nome.toLowerCase().includes(query);
 
-    const matchDescricao = skill.descricao.toLowerCase().includes(termo);
+    const matchDescricao = skill.descricao.toLowerCase().includes(query);
 
     const matchTags = skill.tags.some((tag) =>
-      tag.toLowerCase().includes(termo),
+      tag.toLowerCase().includes(query),
     );
 
-    const matchBusca = !termo || matchNome || matchDescricao || matchTags;
-
-    const matchTipo = !tipo || skill.tipo === tipo;
-
-    const matchOrigem = !origem || skill.origem === origem;
+    const matchBusca = !query || matchNome || matchDescricao || matchTags;
+    const matchTipo = !activation || skill.tipo === activation;
+    const matchOrigem = !origin || skill.origem === origin;
 
     return matchBusca && matchTipo && matchOrigem;
   });
@@ -131,18 +135,18 @@ function applySort() {
 }
 
 /**
- * RENDER LISTA
+ * RENDERIZAR LISTA
  */
-function renderSkills(lista) {
+function renderSkills(skillsList) {
   skillsList.innerHTML = "";
 
   document.getElementById("skills-count").textContent =
-    `Habilidades: ${lista.length}`;
+    `Habilidades: ${skillsList.length}`;
 
-  lista.forEach((skill) => {
-    const tipoLabel = enums.skillActivationType[skill.tipo]?.label ?? skill.tipo;
+  skillsList.forEach((skill) => {
+    const tipoLabel = SKILL_ENUMS.activation[skill.tipo]?.label ?? skill.tipo;
     const origemLabel =
-      enums.skillOrigin[skill.origem]?.label ?? skill.origem;
+      SKILL_ENUMS.origin[skill.origem]?.label ?? skill.origem;
 
     const card = document.createElement("article");
 
@@ -194,7 +198,7 @@ function renderSkills(lista) {
 
 function eventListeners() {
   searchInput.addEventListener("input", applyFilters);
-  filterType.addEventListener("change", applyFilters);
+  filterActivation.addEventListener("change", applyFilters);
   filterOrigin.addEventListener("change", applyFilters);
 }
 
