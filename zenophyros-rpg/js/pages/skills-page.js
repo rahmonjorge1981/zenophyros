@@ -189,7 +189,7 @@ function renderSkills(skillsArray) {
       </div>
     `;
 
-    skillsArray.appendChild(card);
+    skillsList.appendChild(card);
 
     card.addEventListener("click", () => abrirModalSkill(skill));
   });
