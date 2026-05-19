@@ -272,6 +272,7 @@ function renderSkillCard(skill) {
       <p class="skill-description"> ${skill.desc} </p>
 
       <div class="skill-tags">
+        ${renderTagList(skill.effects, SKILL_ENUMS.effects)}
         ${skill.origin ? `<span class="skill-tag"> ${originLabel} </span>` : ""}
         ${skill.school ? `<span class="skill-tag"> ${schoolLabel} </span>` : ""}
       </div>
