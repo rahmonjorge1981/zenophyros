@@ -2,13 +2,13 @@ const skillsList = document.getElementById("skills-list");
 
 const searchInput = document.getElementById("search-input");
 
-const filters = [
-  document.getElementById("filter-class"),
-  document.getElementById("filter-species"),
-  document.getElementById("filter-effects"),
-  document.getElementById("filter-activation"),
-  document.getElementById("filter-origin"),
-];
+const filters = {
+  class: document.getElementById("filter-class"),
+  species: document.getElementById("filter-species"),
+  effects: document.getElementById("filter-effects"),
+  activation: document.getElementById("filter-activation"),
+  origin: document.getElementById("filter-origin")
+};
 
 //const sortSelect = document.getElementById("sort-select");
 
@@ -95,11 +95,11 @@ async function init() {
 
 function applyFilters() {
   const query = searchInput.value.toLowerCase().trim();
-  const skillClass = filterClass.value;
-  const species = filterSpecies.value;
-  const effects = filterEffects.value;
-  const activation = filterActivation.value;
-  const origin = filterOrigin.value;
+  const skillClass = filters.class.value;
+  const species = filters.species.value;
+  const effects = filters.effects.value;
+  const activation = filters.activation.value;
+  const origin = filters.origin.value;
 
   filteredSkills = skills.filter((skill) => {
     // CHECKS QUERY
@@ -142,7 +142,7 @@ function applySort() {
 function addAllEventListeners() {
   searchInput.addEventListener("input", applyFilters);
 
-  filters.forEach((filter) => {
+  Object.values(filters).forEach(filter => {
     filter.addEventListener("change", applyFilters);
   });
 }
@@ -230,10 +230,10 @@ function fecharModalSkill() {
 
 /** Preenche as <option> de cada <select> dinamicamente com base no SKILL_ENUMS */
 function renderFilterOptions() {
-  appendOptions(filterActivation, SKILL_ENUMS.activation);
-  appendOptions(filterOrigin, SKILL_ENUMS.origin);
-  appendOptions(filterClass, SKILL_ENUMS.class);
-  appendOptions(filterSpecies, SKILL_ENUMS.species);
+  appendOptions(filters.activation, SKILL_ENUMS.activation);
+  appendOptions(filters.origin, SKILL_ENUMS.origin);
+  appendOptions(filters.class, SKILL_ENUMS.class);
+  appendOptions(filters.species, SKILL_ENUMS.species);
 }
 
 /** RENDERIZAR LISTA DE SKILLS */
