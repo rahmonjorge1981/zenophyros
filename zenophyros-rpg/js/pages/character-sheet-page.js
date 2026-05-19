@@ -152,7 +152,7 @@ function configurarBotoesHabilidade() {
 
         // Adiciona uma nova habilidade ao botão
         botao.dataset.skillId = novoId;
-        botao.textContent = skill.nome;
+        botao.textContent = skill.name;
 
         salvarLocal();
 
@@ -324,7 +324,7 @@ function preencherHabilidades(lista = []) {
     }
 
     botao.dataset.skillId = skillId;
-    botao.textContent = skill.nome;
+    botao.textContent = skill.name;
   });
 }
 
