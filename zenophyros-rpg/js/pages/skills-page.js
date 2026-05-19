@@ -113,7 +113,9 @@ function applyFilters() {
     const matchActivation = !activation || skill.activation === activation;
     const matchOrigin = !origin || skill.origin === origin;
 
-    return matchQuery && matchClass && matchSpecies && matchActivation && matchOrigin;
+    return (
+      matchQuery && matchClass && matchSpecies && matchActivation && matchOrigin
+    );
   });
 
   applySort();
@@ -247,12 +249,13 @@ function renderFilterOptions() {
 }
 
 function renderSkillCard(skill) {
-  const classLabel = SKILL_ENUMS.class[skill.class]?.label ?? skill.class;
-  const speciesLabel =
-    SKILL_ENUMS.species[skill.species]?.label ?? skill.species;
-  const activationLabel =
-    SKILL_ENUMS.activation[skill.activation]?.label ?? skill.activation;
-  const originLabel = SKILL_ENUMS.origin[skill.origin]?.label ?? skill.origin;
+  const classLabel = getLabelFromEnum(SKILL_ENUMS.class, skill.class);
+  const speciesLabel = getLabelFromEnum(SKILL_ENUMS.species, skill.species);
+  const activationLabel = getLabelFromEnum(
+    SKILL_ENUMS.activation,
+    skill.activation,
+  );
+  const originLabel = getLabelFromEnum(SKILL_ENUMS.origin, skill.origin);
 
   const card = document.createElement("article");
 
@@ -271,13 +274,8 @@ function renderSkillCard(skill) {
       <p class="skill-description"> ${skill.desc} </p>
 
       <div class="skill-tags">
-        ${skill.tags
-          .map(
-            (tag) => `
-          <span class="skill-tag"> ${tag} </span>
-        `,
-          )
-          .join("")}
+        ${skill.activation ? `<span class="skill-tag"> ${activationLabel} </span>` : ""}
+        ${skill.origin ? `<span class="skill-tag"> ${originLabel} </span>` : ""}
       </div>
     `;
 

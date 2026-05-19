@@ -84,3 +84,7 @@ function sanitizeString(texto) {
 function capitalizar(texto) {
   return texto.charAt(0).toUpperCase() + texto.slice(1);
 }
+
+function getLabelFromEnum(enumGroup, value) {
+  return enumGroup[value]?.label ?? value;
+}
