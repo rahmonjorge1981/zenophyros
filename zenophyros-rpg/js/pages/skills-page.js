@@ -344,7 +344,7 @@ function renderEfeito(skill) {
   return `
     <div class="modal-section">
       <h3>Efeito</h3>
-      <p>${skill.efeito.texto}</p>
+      <p>${skill.mechanics.texto}</p>
     </div>
   `;
 }
