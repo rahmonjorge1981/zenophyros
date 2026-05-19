@@ -11,17 +11,17 @@ const SKILL_ENUMS = {
     wizard: { label: "Mago" },
     monk: { label: "Monge" },
     clérigo: { label: "Clérigo" },
-    archer: { label: "Arqueiro" }
+    archer: { label: "Arqueiro" },
   },
   activation: {
     passive: { label: "Passiva" },
     active: { label: "Ativa" },
-    reactive: { label: "Reativa "}
+    reactive: { label: "Reativa " },
   },
   origin: {
     magic: { label: "Magia" },
     technique: { label: "Técnica" },
-    prayer: {label: "Prece"}
+    prayer: { label: "Prece" },
   },
 };
 
@@ -78,7 +78,6 @@ async function init() {
  * Preenche os selects com os SKILL_ENUMS.
  */
 function fillFilters() {
-
   Object.entries(SKILL_ENUMS.activation).forEach(([id, activationType]) => {
     const option = document.createElement("option");
 
@@ -117,7 +116,6 @@ function applyFilters() {
   const origin = filterOrigin.value;
 
   filteredSkills = skills.filter((skill) => {
-
     // CHECKS QUERY
     const matchName = skill.name.toLowerCase().includes(query);
     const matchDescription = skill.desc.toLowerCase().includes(query);
@@ -152,17 +150,24 @@ function applySort() {
 function renderSkills(skillsArray) {
   skillsList.innerHTML = "";
 
-  document.getElementById("skills-count").textContent = `Habilidades: ${skills.length}`;
+  document.getElementById("skills-count").textContent =
+    `Habilidades: ${skills.length}`;
 
   skillsArray.forEach((skill) => {
-    const activationLabel = SKILL_ENUMS.activation[skill.activation]?.label ?? skill.activation;
-    const originLabel = SKILL_ENUMS.origin[skill.origin]?.label ?? skill.origin;
+    skillsList.appendChild(createSkillCard(skill));
+  });
+}
 
-    const card = document.createElement("article");
+function createSkillCard(skill) {
+  const activationLabel =
+    SKILL_ENUMS.activation[skill.activation]?.label ?? skill.activation;
+  const originLabel = SKILL_ENUMS.origin[skill.origin]?.label ?? skill.origin;
 
-    card.className = "skill-card";
+  const card = document.createElement("article");
 
-    card.innerHTML = `
+  card.className = "skill-card";
+
+  card.innerHTML = `
       <div class="skill-top">
 
         <h2 class="skill-name">
@@ -200,13 +205,10 @@ function renderSkills(skillsArray) {
       </div>
     `;
 
-    skillsList.appendChild(card);
+  card.addEventListener("click", () => abrirModalSkill(skill));
 
-    card.addEventListener("click", () => abrirModalSkill(skill));
-  });
+  return card;
 }
-
-
 
 function eventListeners() {
   searchInput.addEventListener("input", applyFilters);
