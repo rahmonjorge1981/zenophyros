@@ -12,6 +12,7 @@ const SKILL_ENUMS = {
     monk: { label: "Monge" },
     cleric: { label: "Clérigo" },
     archer: { label: "Arqueiro" },
+    ninja: { label: "Ninja" }
   },
   activation: {
     passive: { label: "Passiva" },
