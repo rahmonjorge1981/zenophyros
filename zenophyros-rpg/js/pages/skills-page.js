@@ -10,7 +10,7 @@ const SKILL_ENUMS = {
     warrior: { label: "Guerreiro" },
     wizard: { label: "Mago" },
     monk: { label: "Monge" },
-    clérigo: { label: "Clérigo" },
+    cleric: { label: "Clérigo" },
     archer: { label: "Arqueiro" },
   },
   activation: {
@@ -120,13 +120,13 @@ function applyFilters() {
     const matchName = (skill.name || "").toLowerCase().includes(query);
     const matchDescription = (skill.desc || "").toLowerCase().includes(query);
 
-    const matchTags = skill.tags?.some((tag) =>
-      tag.toLowerCase().includes(query),
-    ) ?? false;
+    const matchTags =
+      skill.tags?.some((tag) => tag.toLowerCase().includes(query)) ?? false;
 
     const matchQuery = !query || matchName || matchDescription || matchTags; // !query -> true if query is empty
 
     // CHECKS FILTERS
+
     const matchClass = !skillClass || skill.class === skillClass;
     const matchActivation = !activation || skill.activation === activation;
     const matchOrigin = !origin || skill.origin === origin;
@@ -261,7 +261,8 @@ function fecharModalSkill() {
 
 function renderSkillCard(skill) {
   const classLabel = SKILL_ENUMS.class[skill.class]?.label ?? skill.class;
-  const activationLabel = SKILL_ENUMS.activation[skill.activation]?.label ?? skill.activation;
+  const activationLabel =
+    SKILL_ENUMS.activation[skill.activation]?.label ?? skill.activation;
   const originLabel = SKILL_ENUMS.origin[skill.origin]?.label ?? skill.origin;
 
   const card = document.createElement("article");

@@ -6,7 +6,7 @@
       "name": "Gigantificar",
       "nivel": 0,
       "activation": "ATIVA",
-      "class": "Guerreiro",
+      "class": "warrior",
       "origin": "MAGIA",
       "school": "APRIMORAMENTO",
       "desc": "Cresce de tamanho, aumentando seus atributos base.",
