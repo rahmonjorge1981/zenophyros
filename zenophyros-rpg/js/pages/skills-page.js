@@ -101,12 +101,12 @@ function fillFilters() {
     filterOrigin.appendChild(option);
   });
 
-  Object.entries(SKILL_ENUMS.class).forEach(([id, class]) => {
+  Object.entries(SKILL_ENUMS.class).forEach(([id, skillClass]) => {
     const option = document.createElement("option");
 
     option.value = id;
 
-    option.textContent = origin.class;
+    option.textContent = origin.skillClass;
 
     filterOrigin.appendChild(option);
   });
