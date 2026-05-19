@@ -4,7 +4,7 @@ const skillsList = document.getElementById("skills-list");
 const searchInput = document.getElementById("search-input");
 const filterType = document.getElementById("filter-type");
 const filterOrigin = document.getElementById("filter-origin");
-const sortSelect = document.getElementById("sort-select");
+//const sortSelect = document.getElementById("sort-select");
 
 const enums = {
   skillActivationType: {
@@ -62,7 +62,7 @@ async function init() {
   fillFilters();
   applySort();
   renderSkills(filteredSkills);
-  configurarEventos();
+  eventListeners();
 
   console.log("skillsData:", window.skillDatabase);
   console.log("skills array:", skills);
@@ -192,17 +192,10 @@ function renderSkills(lista) {
   });
 }
 
-/**
- * EVENTOS
- */
-function configurarEventos() {
+function eventListeners() {
   searchInput.addEventListener("input", applyFilters);
-
   filterType.addEventListener("change", applyFilters);
-
   filterOrigin.addEventListener("change", applyFilters);
-
-  sortSelect.addEventListener("change", applyFilters);
 }
 
 /**
@@ -229,10 +222,10 @@ function configurarModalSkill() {
 }
 
 // Este botão só existe em character-sheet-page.html. Dá problema em skills-page.html.
-const btnRemoverSkill = document.getElementById("btn-remover-skill");
+const removeSkillBtn = document.getElementById("btn-remover-skill");
 
-if (btnRemoverSkill) {
-  btnRemoverSkill.addEventListener("click", () => {
+if (removeSkillBtn) {
+  removeSkillBtn.addEventListener("click", () => {
     if (!botaoSkillAtual) {
       return;
     }
