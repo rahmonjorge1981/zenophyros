@@ -16,12 +16,10 @@
         "attributes": {
           "for": 12,
           "rac": 12
-        },
-        "skills": []
+        }
       },
       "cost": {
-        "mana": 4,
-        "items": []
+        "mana": 4
       },
       "tags": ["thunder", "paralysis"],
       "metadata": {
@@ -36,6 +34,8 @@
       "name": "Tempestade de Raios",
       "summary": "Conjura uma tempestade de raios devastadora.",
       "activation": "active",
+      "context": "in_combat",
+      "types": ["damage"],
       "class": "wizard",
       "requirements": {
         "attributes": {
@@ -95,8 +95,6 @@
       },
       "desc": "Role um teste de Controle de Grupo. Se acertar, o alvo fica atordoado no próximo turno. Este ataque causa o mesmo dano do seu Ataque Físico.",
       "cost": {
-        "mana": "",
-        "vida": "",
         "energy": 10
       },
       "tags": ["cc", "alvo único"],
@@ -117,18 +115,9 @@
       "requirements": {
         "attributes": {
           "aur": 20
-        },
-        "habilidades": [],
-        "niveis": {
-          "personagem": ""
         }
       },
       "desc": "Suas habilidades sempre causam acerto crítico em alvos que usaram habilidades para curar ou proteger seus aliados.",
-      "cost": {
-        "mana": "",
-        "vida": "",
-        "energy": ""
-      },
       "tags": ["dano", "aprimoramento"],
       "metadata": {
         "version": 1,
@@ -174,10 +163,6 @@
       "requirements": {
         "attributes": {
           "des": 14
-        },
-        "habilidades": [],
-        "niveis": {
-          "personagem": 0
         }
       },
       "desc": "Reduz a CD de acertos críticos em -Mod(AGI). Ex: Com AGI +3, você crita ao tirar 17 ou mais.",
@@ -201,10 +186,6 @@
         "attributes": {
           "agi": 14,
           "ins": 14
-        },
-        "habilidades": [],
-        "niveis": {
-          "personagem": 0
         }
       },
       "desc": "Marque um aliado vivo. Ao ativar, troca de lugar com este aliado. Se estiver morto, a habilidade falha.",
@@ -243,19 +224,18 @@
       "id": "luck",
       "name": "Sorte",
       "activation": "reactive",
-      "context": "",
+      "context": "both",
       "origin": "innate",
       "types": ["fate"],
       "summary": "Humanos podem escolher rolar um teste novamente uma vez ao dia.",
       "requirements": {
-        "habilidades": [],
         "niveis": {
           "personagem": 5
         },
         "species": ["human"]
       },
       "desc": "Uma vez por dia, pode rolar qualquer teste novamente.",
-      "tags": [],
+      
       "metadata": {
         "version": 1,
         "beta": true,
@@ -297,16 +277,12 @@
       "activation": "reactive",
       "class": "cleric",
       "origin": "prayer",
-      "types": ["utility"],
+      "types": ["effect"],
       "summary": "Você pode escolher sacrificar um aliado saudável para salvar um outro aliado à beira da morte, ou vice versa.",
       "requirements": {
         "attributes": {
           "san": 18,
           "aur": 20
-        },
-        "habilidades": [],
-        "niveis": {
-          "personagem": 0
         }
       },
       "desc": "Só pode ser ativada se você tiver um aliado À Beira da Morte e um aliado Vivo. Esta magic não pode ser usada em si mesmo. O aliado que você executar, qualquer que seja, doa 100% dos seus pontos de Vida e Mana restantes para o aliado vivo (isto pode superar os limites máximos do aliado-alvo). Além disso, o aliado vivo recebe um bônus em todos os seus atributos igual ao modificador dos atributos do aliado executado.",
@@ -338,8 +314,9 @@
       "id": "rainbow_strike",
       "name": "Impacto Prismático",
       "activation": "active",
+      "types": ["damage"],
       "origin": "prayer",
-      "summary": "Imbui uma essência luminosa multicromática para o próximo Ataque Físico causar dano baseado em TODOS os seus atributos.",
+      "summary": "Imbui uma essência luminosa multicromática para golpear um alvo, causando dano baseado em TODOS os seus atributos.",
       "requirements": {
         "attributes": {
           "for": 10,
@@ -351,13 +328,12 @@
           "san": 10,
           "aur": 10
         },
-        "habilidades": [],
         "niveis": {
           "personagem": 7
         }
       },
-      "desc": "O próximo ataque causa Dano Final igual à metade da soma de todos os seus atributos. O custo de ativação é igual à 100% da sua Mana OU Energia Atual. Crítico: 2x de dano",
-      "tags": [],
+      "desc": "Causa Dano Final igual à metade da soma de todos os seus atributos. O custo de ativação é igual à 100% da sua Mana OU Energia Atual. Crítico: 2x de dano",
+      
       "metadata": {
         "version": 1,
         "beta": true,
@@ -369,10 +345,11 @@
       "id": "legendary_hero",
       "name": "Herói Lendário",
       "activation": "passive",
+      "type": "buff",
       "origin": "innate",
       "summary": "Recebe bônus ao equipar armas e equipamentos lendários.",
       "desc": "Ao equipar qualquer arma ou equipamento lendário, concede um bônus de +3 de AUR. Esse efeito não é cumulativo.",
-      "tags": [],
+      
       "metadata": {
         "version": 1,
         "beta": true,
@@ -391,7 +368,6 @@
         "attributes": {
           "san": 16
         },
-        "habilidades": [],
         "niveis": {
           "personagem": 0
         }
@@ -433,7 +409,6 @@
           "rac": 14,
           "aur": 16
         },
-        "habilidades": [],
         "niveis": {
           "personagem": 0
         }
@@ -457,7 +432,6 @@
           "rac": 18,
           "aur": 20
         },
-        "habilidades": [],
         "niveis": {
           "personagem": 0
         }
@@ -484,7 +458,6 @@
           "for": 12,
           "aur": 12
         },
-        "habilidades": [],
         "niveis": {
           "personagem": 0
         }
