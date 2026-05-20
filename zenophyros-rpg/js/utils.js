@@ -86,5 +86,11 @@ function capitalizar(texto) {
 }
 
 function getLabelFromEnum(enumGroup, value) {
+  if (!enumGroup || typeof enumGroup !== "object") {
+    throw new TypeError(
+      `getLabelFromEnum: enumGroup inválido recebido (${enumGroup})`
+    );
+  }
+
   return enumGroup[value]?.label ?? value;
 }

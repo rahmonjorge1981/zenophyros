@@ -37,6 +37,9 @@ const SKILL_ENUMS = {
     prayer: { label: "Prece" },
     innate: { label: "Inata" },
   },
+  school: {
+
+  },
   types: {
     damage: { label: "Dano" },
     control: { label: "Controle" },
