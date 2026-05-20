@@ -1,5 +1,4 @@
 const skillsList = document.getElementById("skills-list");
-
 const searchInput = document.getElementById("search-input");
 
 const filters = {
@@ -9,8 +8,6 @@ const filters = {
   activation: document.getElementById("filter-activation"),
   origin: document.getElementById("filter-origin"),
 };
-
-//const sortSelect = document.getElementById("sort-select");
 
 const SKILL_ENUMS = {
   class: {
@@ -140,12 +137,12 @@ function applyFilters() {
   filteredSkills = skills.filter((skill) => {
     // CHECKS QUERY
     const matchName = (skill.name || "").toLowerCase().includes(query);
-    const matchDescription = (skill.desc || "").toLowerCase().includes(query);
+    const matchSummary = (skill.summary || "").toLowerCase().includes(query);
 
     const matchTags =
       skill.tags?.some((tag) => tag.toLowerCase().includes(query)) ?? false;
 
-    const matchQuery = !query || matchName || matchDescription || matchTags; // !query -> true if query is empty
+    const matchQuery = !query || matchName || matchSummary || matchTags; // !query -> true if query is empty
 
     // CHECKS FILTERS
     const matchClass = !skillClass || skill.class === skillClass;
@@ -255,7 +252,7 @@ function renderFilterOptions() {
 function renderSkills(skillsArray) {
   skillsList.innerHTML = "";
 
-  const visibleSkills = skillsArray.filter(skill => !skill.metadata?.hidden);
+  const visibleSkills = skillsArray.filter((skill) => !skill.metadata?.hidden);
 
   document.getElementById("skills-count").textContent =
     `Habilidades: ${visibleSkills.length}`;
@@ -292,7 +289,7 @@ function renderSkillCard(skill) {
         ${renderBadgeList(skill.effects, SKILL_ENUMS.effects)}
       </div>
 
-      <p class="skill-description"> ${skill.desc} </p>
+      <p class="skill-summary"> ${skill.summary} </p>
 
       <div class="skill-tags">
         ${skill.origin ? `<span class="skill-tag"> ${originLabel} </span>` : ""}
@@ -308,7 +305,7 @@ function renderSkillCard(skill) {
 function renderModal(skill) {
   return `
     ${renderHeader(skill)}
-    ${renderDescription(skill)}
+    ${renderSummary(skill)}
     ${renderRequirements(skill)}
     ${renderMechanics(skill)}
     ${renderCusto(skill)}
@@ -355,11 +352,11 @@ function renderBadgeList(items, enumMap) {
     .join("");
 }
 
-function renderDescription(skill) {
+function renderSummary(skill) {
   return `
     <div class="modal-section">
       <h3>Descrição</h3>
-      <p> ${skill.desc} </p>
+      <p> ${skill.summary} </p>
     </div>
   `;
 }

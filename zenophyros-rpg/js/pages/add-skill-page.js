@@ -4,6 +4,11 @@ const copyButton = document.getElementById("copy-button");
 
 let enums = {};
 
+
+function validateSkill() {
+  
+}
+
 /* =========================
    INIT / BOOTSTRAP
 ========================= */
