@@ -4,7 +4,7 @@ const searchInput = document.getElementById("search-input");
 const filters = {
   class: document.getElementById("filter-class"),
   species: document.getElementById("filter-species"),
-  effects: document.getElementById("filter-effects"),
+  types: document.getElementById("filter-types"),
   activation: document.getElementById("filter-activation"),
   origin: document.getElementById("filter-origin"),
 };
@@ -37,7 +37,7 @@ const SKILL_ENUMS = {
     prayer: { label: "Prece" },
     innate: { label: "Inata" },
   },
-  effects: {
+  types: {
     damage: { label: "Dano" },
     control: { label: "Controle" },
     buff: { label: "Aprimoramento" },
@@ -130,7 +130,7 @@ function applyFilters() {
   const query = searchInput.value.toLowerCase().trim();
   const skillClass = filters.class.value;
   const species = filters.species.value;
-  const effects = filters.effects.value;
+  const types = filters.types.value;
   const activation = filters.activation.value;
   const origin = filters.origin.value;
 
@@ -149,8 +149,8 @@ function applyFilters() {
     const matchSpecies = !species || skill.species === species;
     const matchActivation = !activation || skill.activation === activation;
     const matchOrigin = !origin || skill.origin === origin;
-    const matchEffects =
-      !effects || skill.effects?.some((effect) => effect === effects);
+    const matchTypes =
+      !types || skill.types?.some((type) => type === types);
 
     return (
       matchQuery &&
@@ -158,7 +158,7 @@ function applyFilters() {
       matchSpecies &&
       matchActivation &&
       matchOrigin &&
-      matchEffects
+      matchTypes
     );
   });
 
@@ -245,7 +245,7 @@ function renderFilterOptions() {
   appendOptions(filters.origin, SKILL_ENUMS.origin);
   appendOptions(filters.class, SKILL_ENUMS.class);
   appendOptions(filters.species, SKILL_ENUMS.species);
-  appendOptions(filters.effects, SKILL_ENUMS.effects);
+  appendOptions(filters.types, SKILL_ENUMS.types);
 }
 
 /** RENDERIZAR LISTA DE SKILLS */
@@ -286,7 +286,7 @@ function renderSkillCard(skill) {
         ${skill.species ? `<span class="skill-badge"> ${speciesLabel} </span>` : ""}
         ${skill.class ? `<span class="skill-badge"> ${classLabel} </span>` : ""}
         ${skill.activation ? `<span class="skill-badge"> ${activationLabel} </span>` : ""}
-        ${renderBadgeList(skill.effects, SKILL_ENUMS.effects)}
+        ${renderBadgeList(skill.types, SKILL_ENUMS.types)}
       </div>
 
       <p class="skill-summary"> ${skill.summary} </p>
@@ -330,7 +330,7 @@ function renderHeader(skill) {
       ${skill.class ? `<span class="skill-badge">${classLabel}</span>` : ""}
       ${skill.activation ? `<span class="skill-badge">${activationLabel}</span>` : ""}
 
-      ${renderBadgeList(skill.effects, SKILL_ENUMS.effects)}
+      ${renderBadgeList(skill.types, SKILL_ENUMS.types)}
       ${skill.origin ? `<span class="skill-tag">${originLabel}</span>` : ""}
       ${skill.school ? `<span class="skill-tag">${schoolLabel}</span>` : ""}
     </div>
@@ -355,7 +355,7 @@ function renderBadgeList(items, enumMap) {
 function renderSummary(skill) {
   return `
     <div class="modal-section">
-      <h3>Descrição</h3>
+      <h3>Resumo</h3>
       <p> ${skill.summary} </p>
     </div>
   `;

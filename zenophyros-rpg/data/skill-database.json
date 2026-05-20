@@ -4,44 +4,46 @@
     "thunder_punch": {
       "id": "thunder_punch",
       "name": "Soco Elétrico",
+
+      "summary": "Imbui seu punho em raios, causando dano elétrico adicional no próximo ataque.",
+
       "activation": "active",
+      "types": ["damage"],
+
+      "desc":  "Realiza um soco que causa 1d6 de dano de Trovão adicional.",
+      "critical": "Alvo fica paralisado por 1d4 turnos.",
+
       "class": "monk",
       "origin": "magic",
-      "summary": "Imbui seu punho em chamas, causando dano elétrico adicional no próximo ataque.",
+      "school": null,
+
       "requirements": {
+        "species": null,
+        "level": null,
         "attributes": {
           "for": 12,
           "rac": 12
-        }
+        },
+        "skills": []
       },
-      "mechanics": {
-        "text": "Seu próximo ataque desarmado causa 1d6 de dano de Trovão adicional. Crítico: Alvo fica paralisado por 1d4 turnos.",
-        "formulas": [
-          {
-            "formulaType": "hit_check",
-            "formula": "d20 + Mod(DES) vs. 10 + Mod(AGI)"
-          },
-          {
-            "formulaType": "damage",
-            "formula": "1d6"
-          },
-          {
-            "formulaType": "effect",
-            "formula": "1d4"
-          }
-        ],
-        "target": "single"
-      },
+
       "cost": {
-        "mana": 4
+        "mana": 4,
+        "energy": 0,
+        "hp": 0,
+        "items": []
       },
+
       "tags": ["thunder"],
+
       "metadata": {
         "version": 1,
         "beta": true,
         "hidden": false
       }
     },
+
+
     "thunderstorm": {
       "id": "thunderstorm",
       "name": "Tempestade de Raios",

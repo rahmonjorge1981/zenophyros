@@ -1,5 +1,5 @@
 window.APP_CONFIG = {
-  version: "unreleased-0",
+  version: "unreleased-1",
   name: "Zenophyros",
 };
 
