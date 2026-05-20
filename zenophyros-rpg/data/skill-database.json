@@ -12,10 +12,7 @@
       "critical": "Alvo fica paralisado por 1d4 turnos.",
       "class": "monk",
       "origin": "magic",
-      "school": null,
       "requirements": {
-        "species": null,
-        "level": null,
         "attributes": {
           "for": 12,
           "rac": 12
@@ -33,6 +30,7 @@
         "hidden": false
       }
     },
+
     "thunderstorm": {
       "id": "thunderstorm",
       "name": "Tempestade de Raios",
@@ -56,6 +54,7 @@
         "hidden": false
       }
     },
+
     "gigantify": {
       "id": "gigantify",
       "name": "Gigantificar",
@@ -80,6 +79,7 @@
         "hidden": false
       }
     },
+
     "golpe_atordoante": {
       "id": "stun_strike",
       "name": "Golpe Atordoante",
@@ -106,23 +106,16 @@
         "hidden": false
       }
     },
+
     "no_heroes": {
       "id": "no_heroes",
       "name": "Sem Heróis",
-      "nivel": 0,
       "activation": "passive",
       "types": ["damage"],
       "origin": "technique",
       "summary": "Causa dano adicional contra aqueles que tentam realizar atos de heroísmo.",
       "requirements": {
         "attributes": {
-          "for": 0,
-          "des": 0,
-          "agi": 0,
-          "vit": 0,
-          "rac": 0,
-          "ins": 0,
-          "san": 0,
           "aur": 20
         },
         "habilidades": [],
@@ -143,10 +136,10 @@
         "hidden": false
       }
     },
+
     "fire_arrow": {
       "id": "fire_arrow",
       "name": "Flecha de Fogo",
-      "nivel": 0,
       "activation": "active",
       "class": "archer",
       "origin": "magic",
@@ -154,25 +147,13 @@
       "summary": "Dispara uma flecha imbuída com o elemento fogo.",
       "requirements": {
         "attributes": {
-          "for": 0,
-          "des": 0,
-          "agi": 0,
-          "vit": 0,
-          "rac": 0,
-          "ins": 0,
-          "san": 0,
-          "aur": 0
-        },
-        "habilidades": [],
-        "niveis": {
-          "personagem": 0
+          "des": 12,
+          "rac": 12
         }
       },
       "desc": "A próxima flecha causa 1d4 de dano de Fogo adicional.",
       "cost": {
-        "mana": 2,
-        "vida": null,
-        "energy": null
+        "mana": 2
       },
       "tags": ["atirador", "fogo"],
       "metadata": {
@@ -181,10 +162,10 @@
         "hidden": false
       }
     },
+
     "ataque_surpresa": {
       "id": "ataque_surpresa",
       "name": "Ataque Surpresa",
-      "nivel": 0,
       "activation": "passive",
       "class": "assassin",
       "origin": "technique",
@@ -192,14 +173,7 @@
       "summary": "Aumenta a chance de crítico durante a Furtividade.",
       "requirements": {
         "attributes": {
-          "for": 0,
-          "des": 14,
-          "agi": 0,
-          "vit": 0,
-          "rac": 0,
-          "ins": 0,
-          "san": 0,
-          "aur": 0
+          "des": 14
         },
         "habilidades": [],
         "niveis": {
@@ -207,11 +181,6 @@
         }
       },
       "desc": "Reduz a CD de acertos críticos em -Mod(AGI). Ex: Com AGI +3, você crita ao tirar 17 ou mais.",
-      "cost": {
-        "mana": null,
-        "vida": null,
-        "energy": null
-      },
       "tags": ["furtividade"],
       "metadata": {
         "version": 1,
@@ -219,10 +188,10 @@
         "hidden": false
       }
     },
+
     "shunpo": {
       "id": "shunpo",
       "name": "Troca Instantânea",
-      "nivel": 0,
       "activation": "active",
       "class": "ninja",
       "origin": "magic",
@@ -230,14 +199,8 @@
       "summary": "Desenhe um círculo mágico em um aliado. Uma vez, até o final do combate, você pode trocar de lugar com ele instantaneamente.",
       "requirements": {
         "attributes": {
-          "for": 0,
-          "des": 0,
           "agi": 14,
-          "vit": 0,
-          "rac": 0,
-          "ins": 14,
-          "san": 0,
-          "aur": 0
+          "ins": 14
         },
         "habilidades": [],
         "niveis": {
@@ -246,9 +209,7 @@
       },
       "desc": "Marque um aliado vivo. Ao ativar, troca de lugar com este aliado. Se estiver morto, a habilidade falha.",
       "cost": {
-        "mana": 20,
-        "vida": null,
-        "energy": null
+        "mana": 20
       },
       "tags": ["teletransporte"],
       "metadata": {
@@ -257,38 +218,19 @@
         "hidden": false
       }
     },
+
     "adaptability": {
       "id": "adaptability",
       "name": "Adaptabilidade",
-      "nivel": 0,
       "activation": "passive",
       "context": "out_of_combat",
       "origin": "innate",
       "types": ["progression"],
       "summary": "Humanos recebem +1 Ponto de Atributo ao passar de Nível.",
       "requirements": {
-        "attributes": {
-          "for": 0,
-          "des": 0,
-          "agi": 0,
-          "vit": 0,
-          "rac": 0,
-          "ins": 0,
-          "san": 0,
-          "aur": 0
-        },
-        "habilidades": [],
-        "niveis": {
-          "personagem": 0
-        },
         "species": ["human"]
       },
       "desc": "Recebe +1 Ponto de Atributo ao passar de Nível.",
-      "cost": {
-        "mana": null,
-        "vida": null,
-        "energy": null
-      },
       "tags": ["crescimento"],
       "metadata": {
         "version": 1,
@@ -296,10 +238,10 @@
         "hidden": false
       }
     },
+
     "luck": {
       "id": "luck",
       "name": "Sorte",
-      "nivel": 0,
       "activation": "reactive",
       "context": "",
       "origin": "innate",
@@ -313,11 +255,6 @@
         "species": ["human"]
       },
       "desc": "Uma vez por dia, pode rolar qualquer teste novamente.",
-      "cost": {
-        "mana": null,
-        "vida": null,
-        "energy": null
-      },
       "tags": [],
       "metadata": {
         "version": 1,
@@ -329,7 +266,6 @@
     "god_crit": {
       "id": "god_crit",
       "name": "Crítico Divino",
-      "nivel": 0,
       "activation": "active",
       "class": "cleric",
       "origin": "prayer",
@@ -339,17 +275,13 @@
         "attributes": {
           "san": 20
         },
-        "habilidades": [],
         "niveis": {
           "personagem": 5
-        },
-        "species": []
+        }
       },
       "desc": "Role um d100. O dano do próximo Ataque Físico é multiplicado de acordo com o resultado: \n51-100 (50%): Dano Final x1.5 \n21-50 (30%): Dano Final x2 \n6-20 (15%): Dano Final x3 \n1-5 (5%): Dano Final x5",
       "cost": {
-        "mana": 50,
-        "vida": null,
-        "energy": null
+        "mana": 50
       },
       "tags": ["aprimoramento"],
       "metadata": {
@@ -358,10 +290,10 @@
         "hidden": false
       }
     },
+
     "black_orchid": {
       "id": "black_orchid",
       "name": "Orquídea Negra",
-      "nivel": 0,
       "activation": "reactive",
       "class": "cleric",
       "origin": "prayer",
@@ -375,15 +307,9 @@
         "habilidades": [],
         "niveis": {
           "personagem": 0
-        },
-        "species": []
+        }
       },
       "desc": "Só pode ser ativada se você tiver um aliado À Beira da Morte e um aliado Vivo. Esta magic não pode ser usada em si mesmo. O aliado que você executar, qualquer que seja, doa 100% dos seus pontos de Vida e Mana restantes para o aliado vivo (isto pode superar os limites máximos do aliado-alvo). Além disso, o aliado vivo recebe um bônus em todos os seus atributos igual ao modificador dos atributos do aliado executado.",
-      "cost": {
-        "mana": null,
-        "vida": null,
-        "energy": null
-      },
       "tags": ["ressuscitar", "aprimoramento"],
       "metadata": {
         "version": 1,
@@ -391,20 +317,15 @@
         "hidden": false
       }
     },
+
     "dynamic_duo": {
       "id": "dynamic_duo",
       "name": "Dupla Dinâmica",
-      "nivel": 0,
       "activation": "passive",
       "origin": "technique",
       "types": ["buff"],
       "summary": "Aumenta a sua AGI e a de um aliado ao jogar em dupla.",
       "desc": "Se a sua party só tiver duas pessoas, concede +3 de AGI a você e seu aliado. Se o seu aliado também tiver essa habilidade, o bônus aumenta para +5.",
-      "cost": {
-        "mana": null,
-        "vida": null,
-        "energy": null
-      },
       "tags": ["agilidade", "equipe"],
       "metadata": {
         "version": 1,
@@ -412,10 +333,10 @@
         "hidden": false
       }
     },
+
     "rainbow_strike": {
       "id": "rainbow_strike",
       "name": "Impacto Prismático",
-      "nivel": 0,
       "activation": "active",
       "origin": "prayer",
       "summary": "Imbui uma essência luminosa multicromática para o próximo Ataque Físico causar dano baseado em TODOS os seus atributos.",
@@ -433,15 +354,9 @@
         "habilidades": [],
         "niveis": {
           "personagem": 7
-        },
-        "species": []
+        }
       },
       "desc": "O próximo ataque causa Dano Final igual à metade da soma de todos os seus atributos. O custo de ativação é igual à 100% da sua Mana OU Energia Atual. Crítico: 2x de dano",
-      "cost": {
-        "mana": null,
-        "vida": null,
-        "energy": null
-      },
       "tags": [],
       "metadata": {
         "version": 1,
@@ -449,19 +364,14 @@
         "hidden": false
       }
     },
+
     "legendary_hero": {
       "id": "legendary_hero",
       "name": "Herói Lendário",
-      "nivel": 0,
       "activation": "passive",
       "origin": "innate",
       "summary": "Recebe bônus ao equipar armas e equipamentos lendários.",
       "desc": "Ao equipar qualquer arma ou equipamento lendário, concede um bônus de +3 de AUR. Esse efeito não é cumulativo.",
-      "cost": {
-        "mana": null,
-        "vida": null,
-        "energy": null
-      },
       "tags": [],
       "metadata": {
         "version": 1,
@@ -469,10 +379,10 @@
         "hidden": false
       }
     },
+
     "spark_of_hope": {
       "id": "spark_of_hope",
       "name": "Faísca de Esperança",
-      "nivel": 0,
       "activation": "reactive",
       "class": "cleric",
       "origin": "prayer",
@@ -484,15 +394,9 @@
         "habilidades": [],
         "niveis": {
           "personagem": 0
-        },
-        "species": []
+        }
       },
       "desc": "Sempre que um aliado falhar um Teste de Morte pela primeira vez, ele pode tentar novamente.",
-      "cost": {
-        "mana": null,
-        "vida": null,
-        "energy": null
-      },
       "tags": ["ressuscitar"],
       "metadata": {
         "version": 1,
@@ -500,37 +404,15 @@
         "hidden": false
       }
     },
+
     "pyromania": {
       "id": "pyromania",
       "name": "Piromania",
-      "nivel": 0,
       "activation": "passive",
       "class": "wizard",
       "origin": "innate",
       "summary": "Suas magias que causam dano de Fogo tem o custo de Mana reduzido em 50%.",
-      "requirements": {
-        "attributes": {
-          "for": 0,
-          "des": 0,
-          "agi": 0,
-          "vit": 0,
-          "rac": 0,
-          "ins": 0,
-          "san": 0,
-          "aur": 0
-        },
-        "habilidades": [],
-        "niveis": {
-          "personagem": 0
-        },
-        "species": []
-      },
       "desc": "Suas magias que causam dano de Fogo tem o custo de Mana reduzido em 50%.",
-      "cost": {
-        "mana": null,
-        "vida": null,
-        "energy": null
-      },
       "tags": ["fogo", "mana"],
       "metadata": {
         "version": 1,
@@ -541,70 +423,46 @@
     "levitate": {
       "id": "levitate",
       "name": "Levitar",
-      "nivel": 0,
+
       "activation": "passive",
       "class": "wizard",
       "origin": "magic",
       "summary": "Concede efeito de levitação.",
       "requirements": {
         "attributes": {
-          "for": 0,
-          "des": 0,
-          "agi": 0,
-          "vit": 0,
           "rac": 14,
-          "ins": 0,
-          "san": 0,
           "aur": 16
         },
         "habilidades": [],
         "niveis": {
           "personagem": 0
-        },
-        "species": []
+        }
       },
       "desc": "Pode levitar de alguns centímetros até um metro do chão, com base na sua AUR.",
-      "cost": {
-        "mana": null,
-        "vida": null,
-        "energy": null
-      },
       "metadata": {
         "version": 1,
         "beta": true,
         "hidden": false
       }
     },
+
     "fly": {
       "id": "fly",
       "name": "Voar",
-      "nivel": 0,
       "activation": "passive",
       "origin": "magic",
       "summary": "Concede vôo passivo.",
       "requirements": {
         "attributes": {
-          "for": 0,
-          "des": 0,
-          "agi": 0,
-          "vit": 0,
           "rac": 18,
-          "ins": 0,
-          "san": 0,
           "aur": 20
         },
         "habilidades": [],
         "niveis": {
           "personagem": 0
-        },
-        "species": []
+        }
       },
       "desc": "Permite vôo passivo, com altura indeterminada. Este efeito é desativado se você for atingido, ficar sem Mana ou sem Energia.",
-      "cost": {
-        "mana": null,
-        "vida": null,
-        "energy": null
-      },
       "tags": ["voo"],
       "metadata": {
         "version": 1,
@@ -612,10 +470,11 @@
         "hidden": false
       }
     },
+
     "fire_punch": {
       "id": "fire_punch",
       "name": "Soco Flamejante",
-      "nivel": 0,
+
       "activation": "active",
       "class": "monk",
       "origin": "magic",
@@ -623,25 +482,16 @@
       "requirements": {
         "attributes": {
           "for": 12,
-          "des": 0,
-          "agi": 0,
-          "vit": 0,
-          "rac": 0,
-          "ins": 0,
-          "san": 0,
           "aur": 12
         },
         "habilidades": [],
         "niveis": {
           "personagem": 0
-        },
-        "species": []
+        }
       },
       "desc": "Seu próximo ataque desarmado causa 1d6 de dano de Fogo adicional.",
       "cost": {
-        "mana": 5,
-        "vida": null,
-        "energy": null
+        "mana": 5
       },
       "tags": ["fogo", "dano", "monge"],
       "metadata": {
@@ -650,10 +500,11 @@
         "hidden": false
       }
     },
+
     "golden_dragon_fist": {
       "id": "golden_dragon_fist",
       "name": "Punho do Dragão Dourado",
-      "nivel": 0,
+
       "activation": "active",
       "class": "monk",
       "origin": "technique",
@@ -663,22 +514,14 @@
           "for": 20,
           "des": 18,
           "agi": 16,
-          "vit": 14,
-          "rac": 0,
-          "ins": 0,
-          "san": 0,
-          "aur": 0
+          "vit": 14
         },
-        "habilidades": [],
         "niveis": {
           "personagem": 5
-        },
-        "species": []
+        }
       },
       "desc": "Teste de Força (CD5): O primeiro golpe causa 1d20 de dano contundente. Teste de Destreza (CD10): O segundo golpe acerta um ponto fraco do alvo, causando 1d12 de dano verdadeiro. Teste de Agilidade (CD15): O terceiro golpe derruba o alvo, incapacitando-o por um turno. Teste de Vitalidade (CD20): O quarto golpe atira todo o peso do próprio corpo no inimigo, causando 2d20 de dano no alvo e 1d20 de dano em si mesmo. O custo de Energia desta Habilidade aumenta em +10 a cada acerto.",
       "cost": {
-        "mana": null,
-        "vida": null,
         "energy": 10
       },
       "tags": ["monge"],
