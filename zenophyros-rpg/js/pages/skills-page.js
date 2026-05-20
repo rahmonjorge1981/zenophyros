@@ -149,8 +149,7 @@ function applyFilters() {
     const matchSpecies = !species || skill.species === species;
     const matchActivation = !activation || skill.activation === activation;
     const matchOrigin = !origin || skill.origin === origin;
-    const matchTypes =
-      !types || skill.types?.some((type) => type === types);
+    const matchTypes = !types || skill.types?.some((type) => type === types);
 
     return (
       matchQuery &&
@@ -305,6 +304,7 @@ function renderSkillCard(skill) {
 function renderModal(skill) {
   return `
     ${renderHeader(skill)}
+    ${renderTypes(skill)}
     ${renderSummary(skill)}
     ${renderRequirements(skill)}
     ${renderDescription(skill)}
@@ -329,10 +329,19 @@ function renderHeader(skill) {
       ${skill.species ? `<span class="skill-badge">${speciesLabel}</span>` : ""}
       ${skill.class ? `<span class="skill-badge">${classLabel}</span>` : ""}
       ${skill.activation ? `<span class="skill-badge">${activationLabel}</span>` : ""}
+      
 
-      ${renderBadgeList(skill.types, SKILL_ENUMS.types)}
       ${skill.origin ? `<span class="skill-tag">${originLabel}</span>` : ""}
       ${skill.school ? `<span class="skill-tag">${schoolLabel}</span>` : ""}
+    </div>
+  `;
+}
+
+function renderTypes(skill) {
+  return `
+    <div class="modal-section">
+      <h3>Tipos</h3>
+      ${renderBadgeList(skill.types, SKILL_ENUMS.types)}
     </div>
   `;
 }
