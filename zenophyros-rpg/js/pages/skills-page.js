@@ -307,7 +307,7 @@ function renderModal(skill) {
     ${renderTypes(skill)}
     ${renderSummary(skill)}
     ${renderRequirements(skill)}
-    ${renderDescription(skill)}
+    ${renderEffectDesc(skill)}
     ${renderCusto(skill)}
     ${renderId(skill)}
   `;
@@ -379,12 +379,23 @@ function renderRequirements(skill) {
   `;
 }
 
-function renderDescription(skill) {
+function renderEffectDesc(skill) {
   return `
     <div class="modal-section">
       <h3>Efeito</h3>
       <p>${skill.desc}</p>
     </div>
+
+    ${
+      skill.critical
+        ? `
+      <div class="modal-section">
+        <h3>Crítico</h3>
+        <p>${skill.critical}</p>
+      </div>
+    `
+        : ""
+    }
   `;
 }
 

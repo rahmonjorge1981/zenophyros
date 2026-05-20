@@ -8,7 +8,7 @@
       "summary": "Imbui seu punho em raios, causando dano elétrico adicional no próximo ataque.",
 
       "activation": "active",
-      "types": ["damage"],
+      "types": ["damage","control"],
 
       "desc":  "Realiza um soco que causa 1d6 de dano de Trovão adicional.",
       "critical": "Alvo fica paralisado por 1d4 turnos.",
@@ -34,7 +34,7 @@
         "items": []
       },
 
-      "tags": ["thunder"],
+      "tags": ["thunder","paralysis"],
 
       "metadata": {
         "version": 1,
