@@ -151,7 +151,7 @@ function applyFilters() {
 
     // CHECKS FILTERS
     const matchClass = !skillClass || skill.class === skillClass;
-    const matchSpecies = !species || skill.requirements.species?.includes(species);
+    const matchSpecies = !species || skill.requirements?.species.includes(species);
     const matchActivation = !activation || skill.activation === activation;
     const matchOrigin = !origin || skill.origin === origin;
     const matchTypes = !types || skill.types?.includes(types);
@@ -270,7 +270,7 @@ function renderSkills(skillsArray) {
 
 function renderSkillCard(skill) {
   const classLabel = getLabelFromEnum(SKILL_ENUMS.class, skill.class);
-  const speciesLabel = getLabelFromEnum(SKILL_ENUMS.species, skill.requirements.species);
+  const speciesLabel = getLabelFromEnum(SKILL_ENUMS.species, skill.requirements?.species);
   const originLabel = getLabelFromEnum(SKILL_ENUMS.origin, skill.origin);
   const activationLabel = getLabelFromEnum(
     SKILL_ENUMS.activation,
@@ -287,7 +287,7 @@ function renderSkillCard(skill) {
       </div>
 
       <div class="skill-meta">
-        ${skill.requirements.species ? `<span class="skill-badge"> ${speciesLabel} </span>` : ""}
+        ${skill.requirements?.species ? `<span class="skill-badge"> ${speciesLabel} </span>` : ""}
         ${skill.class ? `<span class="skill-badge"> ${classLabel} </span>` : ""}
         ${skill.activation ? `<span class="skill-badge"> ${activationLabel} </span>` : ""}
         ${renderBadgeList(skill.types, SKILL_ENUMS.types)}
@@ -322,9 +322,9 @@ function renderModal(skill) {
 
 function renderHeader(skill) {
   const classLabel = getLabelFromEnum(SKILL_ENUMS.class, skill.class);
-  const speciesLabel = getLabelFromEnum(SKILL_ENUMS.species, skill.requirements.species);
+  const speciesLabel = getLabelFromEnum(SKILL_ENUMS.species, skill.requirements?.species);
   const originLabel = getLabelFromEnum(SKILL_ENUMS.origin, skill.origin);
-  const schoolLabel = getLabelFromEnum(SKILL_ENUMS.school, skill.school);
+  const schoolLabel = getLabelFromEnum(SKILL_ENUMS.school, skill.school?);
   const activationLabel = getLabelFromEnum(
     SKILL_ENUMS.activation,
     skill.activation,
@@ -334,7 +334,7 @@ function renderHeader(skill) {
     <h2> ${skill.name} </h2>
 
     <div class="modal-badges">
-      ${skill.requirements.species ? `<span class="skill-badge">${speciesLabel}</span>` : ""}
+      ${skill.requirements?.species ? `<span class="skill-badge">${speciesLabel}</span>` : ""}
       ${skill.class ? `<span class="skill-badge">${classLabel}</span>` : ""}
       ${skill.activation ? `<span class="skill-badge">${activationLabel}</span>` : ""}
       
@@ -382,10 +382,13 @@ function renderSummary(skill) {
 }
 
 function renderRequirements(skill) {
+  if (!skill.requirements) {
+    return "";
+  }
   return `
     <div class="modal-section">
       <h3>Pré-Requisitos</h3>
-      <div class="modal-box"> ${formatRequirements(skill.requirements)} </div>
+      <div class="modal-box"> ${formatRequirements(skill.requirements?)} </div>
     </div>
   `;
 }
