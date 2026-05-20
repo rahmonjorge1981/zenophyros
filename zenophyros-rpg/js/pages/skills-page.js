@@ -304,11 +304,13 @@ function renderSkillCard(skill) {
 function renderModal(skill) {
   return `
     ${renderHeader(skill)}
-    ${renderTypes(skill)}
+
     ${renderSummary(skill)}
     ${renderRequirements(skill)}
     ${renderEffectDesc(skill)}
     ${renderCusto(skill)}
+    ${renderTypes(skill)}
+
     ${renderId(skill)}
   `;
 }
