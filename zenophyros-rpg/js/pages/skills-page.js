@@ -324,7 +324,7 @@ function renderHeader(skill) {
   const classLabel = getLabelFromEnum(SKILL_ENUMS.class, skill.class);
   const speciesLabel = getLabelFromEnum(SKILL_ENUMS.species, skill.requirements?.species);
   const originLabel = getLabelFromEnum(SKILL_ENUMS.origin, skill.origin);
-  const schoolLabel = getLabelFromEnum(SKILL_ENUMS.school, skill.school?);
+  const schoolLabel = getLabelFromEnum(SKILL_ENUMS.school, skill.school);
   const activationLabel = getLabelFromEnum(
     SKILL_ENUMS.activation,
     skill.activation,
@@ -388,7 +388,7 @@ function renderRequirements(skill) {
   return `
     <div class="modal-section">
       <h3>Pré-Requisitos</h3>
-      <div class="modal-box"> ${formatRequirements(skill.requirements?)} </div>
+      <div class="modal-box"> ${formatRequirements(skill.requirements)} </div>
     </div>
   `;
 }
