@@ -227,7 +227,7 @@
       "activation": "active",
       "class": "ninja",
       "origin": "magic",
-      "types": ["mobility"],
+      "types": ["effect"],
       "summary": "Desenhe um círculo mágico em um aliado. Uma vez, até o final do combate, você pode trocar de lugar com ele instantaneamente.",
       "requirements": {
         "attributes": {
@@ -264,7 +264,6 @@
       "nivel": 0,
       "activation": "passive",
       "origin": "innate",
-      "species": "human",
       "types": ["utility"],
       "summary": "Humanos recebem +1 Ponto de Atributo ao passar de Nível.",
       "requirements": {
@@ -282,7 +281,7 @@
         "niveis": {
           "personagem": 0
         },
-        "especie": ["HUMANO"]
+        "species": ["human"]
       },
       "desc": "Recebe +1 Ponto de Atributo ao passar de Nível.",
       "cost": {
@@ -303,7 +302,6 @@
       "nivel": 0,
       "activation": "passive",
       "origin": "innate",
-      "species": "human",
       "types": ["utility"],
       "summary": "Humanos podem escolher rolar um teste novamente uma vez ao dia.",
       "requirements": {
@@ -321,7 +319,7 @@
         "niveis": {
           "personagem": 5
         },
-        "especie": ["HUMANO"]
+        "species": ["human"]
       },
       "desc": "Uma vez por dia, pode rolar qualquer teste novamente.",
       "cost": {
@@ -360,7 +358,7 @@
         "niveis": {
           "personagem": 5
         },
-        "especie": []
+        "species": []
       },
       "desc": "Role um d100. O dano do próximo Ataque Físico é multiplicado de acordo com o resultado: \n51-100 (50%): Dano Final x1.5 \n21-50 (30%): Dano Final x2 \n6-20 (15%): Dano Final x3 \n1-5 (5%): Dano Final x5",
       "cost": {
@@ -399,7 +397,7 @@
         "niveis": {
           "personagem": 0
         },
-        "especie": []
+        "species": []
       },
       "desc": "Só pode ser ativada se você tiver um aliado À Beira da Morte e um aliado Vivo. Esta magic não pode ser usada em si mesmo. O aliado que você executar, qualquer que seja, doa 100% dos seus pontos de Vida e Mana restantes para o aliado vivo (isto pode superar os limites máximos do aliado-alvo). Além disso, o aliado vivo recebe um bônus em todos os seus atributos igual ao modificador dos atributos do aliado executado.",
       "cost": {
@@ -437,7 +435,7 @@
         "niveis": {
           "personagem": 0
         },
-        "especie": []
+        "species": []
       },
       "desc": "Se a sua party só tiver duas pessoas, concede +3 de AGI a você e seu aliado. Se o seu aliado também tiver essa habilidade, o bônus aumenta para +5.",
       "cost": {
@@ -474,7 +472,7 @@
         "niveis": {
           "personagem": 7
         },
-        "especie": []
+        "species": []
       },
       "desc": "O próximo ataque causa Dano Final igual à metade da soma de todos os seus atributos. O custo de ativação é igual à 100% da sua Mana OU Energia Atual. Crítico: 2x de dano",
       "cost": {
@@ -511,7 +509,7 @@
         "niveis": {
           "personagem": 0
         },
-        "especie": []
+        "species": []
       },
       "desc": "Ao equipar qualquer arma ou equipamento lendário, concede um bônus de +3 de AUR. Esse efeito não é cumulativo.",
       "cost": {
@@ -549,7 +547,7 @@
         "niveis": {
           "personagem": 0
         },
-        "especie": []
+        "species": []
       },
       "desc": "Sempre que um aliado falhar um Teste de Morte pela primeira vez, ele pode tentar novamente.",
       "cost": {
@@ -587,7 +585,7 @@
         "niveis": {
           "personagem": 0
         },
-        "especie": []
+        "species": []
       },
       "desc": "Suas magias que causam dano de Fogo tem o custo de Mana reduzido em 50%.",
       "cost": {
@@ -625,7 +623,7 @@
         "niveis": {
           "personagem": 0
         },
-        "especie": []
+        "species": []
       },
       "desc": "Pode levitar de alguns centímetros até um metro do chão, com base na sua AUR.",
       "cost": {
@@ -661,7 +659,7 @@
         "niveis": {
           "personagem": 0
         },
-        "especie": []
+        "species": []
       },
       "desc": "Permite vôo passivo, com altura indeterminada. Este efeito é desativado se você for atingido, ficar sem Mana ou sem Energia.",
       "cost": {
@@ -699,7 +697,7 @@
         "niveis": {
           "personagem": 0
         },
-        "especie": []
+        "species": []
       },
       "desc": "Seu próximo ataque desarmado causa 1d6 de dano de Fogo adicional.",
       "cost": {
@@ -737,7 +735,7 @@
         "niveis": {
           "personagem": 5
         },
-        "especie": []
+        "species": []
       },
       "desc": "Teste de Força (CD5): O primeiro golpe causa 1d20 de dano contundente. Teste de Destreza (CD10): O segundo golpe acerta um ponto fraco do alvo, causando 1d12 de dano verdadeiro. Teste de Agilidade (CD15): O terceiro golpe derruba o alvo, incapacitando-o por um turno. Teste de Vitalidade (CD20): O quarto golpe atira todo o peso do próprio corpo no inimigo, causando 2d20 de dano no alvo e 1d20 de dano em si mesmo. O custo de Energia desta Habilidade aumenta em +10 a cada acerto.",
       "cost": {
