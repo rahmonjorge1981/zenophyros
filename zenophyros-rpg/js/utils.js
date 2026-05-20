@@ -3,6 +3,8 @@ window.APP_CONFIG = {
   name: "Zenophyros",
 };
 
+window.DEBUG_MODE = false;
+
 const REMOTE_BASE_URL = "https://zenophyros.netlify.app";
 
 /**
@@ -86,9 +88,12 @@ function capitalizar(texto) {
 }
 
 function getLabelFromEnum(enumGroup, value) {
-  if (!enumGroup || typeof enumGroup !== "object") {
+  if (window.DEBUG_MODE && !enumGroup || typeof enumGroup !== "object") {
+    console.error("enumGroup recebido:", enumGroup);
+    console.error("value recebido:", value);
+
     throw new TypeError(
-      `getLabelFromEnum: enumGroup inválido recebido (${enumGroup})`
+      "getLabelFromEnum: enumGroup deve ser um objeto válido"
     );
   }
 
