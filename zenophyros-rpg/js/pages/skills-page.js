@@ -341,8 +341,8 @@ function renderHeader(skill) {
 
 function renderTypes(skill) {
   return `
-    <div class="modal-section">
-      <h3>Tipos</h3>
+    <h3> Tipos </h3>
+    <div class="modal-badges">
       ${renderBadgeList(skill.types, SKILL_ENUMS.types)}
     </div>
   `;
