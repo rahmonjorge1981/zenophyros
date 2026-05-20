@@ -31,6 +31,19 @@ const SKILL_ENUMS = {
     active: { label: "Ativa" },
     reactive: { label: "Reativa " },
   },
+  context: {
+    in_combat: { label: "Em Combate" },
+    out_of_combat: { label: "Fora de Combate" },
+    both: { label: "Ambos" }
+  },
+  types: {
+    damage: { label: "Dano" },
+    buff: { label: "Aprimoramento" },
+    control: { label: "Controle" },
+    summon: { label: "Invocação" },
+    effect: { label: "Efeito" },
+    progression: { label: "Progressão" }
+  },
   origin: {
     magic: { label: "Magia" },
     technique: { label: "Técnica" },
@@ -39,18 +52,6 @@ const SKILL_ENUMS = {
   },
   school: {
 
-  },
-  types: {
-    damage: { label: "Dano" },
-    buff: { label: "Aprimoramento" },
-    control: { label: "Controle" },
-    mobility: { label: "Mobilidade" },
-    utility: { label: "Utilidade" },
-  },
-  target: {
-    single: { label: "Alvo Único " },
-    area: { label: "Em Área" },
-    self: { label: "Em Si Mesmo" },
   },
 };
 

@@ -6,6 +6,7 @@
       "name": "Soco Elétrico",
       "summary": "Imbui seu punho em raios, causando dano elétrico adicional no próximo ataque.",
       "activation": "active",
+      "context": "in_combat",
       "types": ["damage", "control"],
       "desc": "Realiza um soco que causa 1d6 de dano de Trovão adicional.",
       "critical": "Alvo fica paralisado por 1d4 turnos.",
@@ -23,8 +24,6 @@
       },
       "cost": {
         "mana": 4,
-        "energy": 0,
-        "hp": 0,
         "items": []
       },
       "tags": ["thunder", "paralysis"],
@@ -263,6 +262,7 @@
       "name": "Adaptabilidade",
       "nivel": 0,
       "activation": "passive",
+      "context": "out_of_combat",
       "origin": "innate",
       "types": ["utility"],
       "summary": "Humanos recebem +1 Ponto de Atributo ao passar de Nível.",
@@ -305,16 +305,6 @@
       "types": ["utility"],
       "summary": "Humanos podem escolher rolar um teste novamente uma vez ao dia.",
       "requirements": {
-        "attributes": {
-          "for": 0,
-          "des": 0,
-          "agi": 0,
-          "vit": 0,
-          "rac": 0,
-          "ins": 0,
-          "san": 0,
-          "aur": 0
-        },
         "habilidades": [],
         "niveis": {
           "personagem": 5
