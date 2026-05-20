@@ -41,8 +41,9 @@ const SKILL_ENUMS = {
     buff: { label: "Aprimoramento" },
     control: { label: "Controle" },
     summon: { label: "Invocação" },
+    fate: { label: "Destino" },
+    progression: { label: "Progressão" },
     effect: { label: "Efeito" },
-    progression: { label: "Progressão" }
   },
   origin: {
     magic: { label: "Magia" },

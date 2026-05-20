@@ -264,7 +264,7 @@
       "activation": "passive",
       "context": "out_of_combat",
       "origin": "innate",
-      "types": ["utility"],
+      "types": ["progression"],
       "summary": "Humanos recebem +1 Ponto de Atributo ao passar de Nível.",
       "requirements": {
         "attributes": {
@@ -300,9 +300,10 @@
       "id": "luck",
       "name": "Sorte",
       "nivel": 0,
-      "activation": "passive",
+      "activation": "reactive",
+      "context": "",
       "origin": "innate",
-      "types": ["utility"],
+      "types": ["fate"],
       "summary": "Humanos podem escolher rolar um teste novamente uma vez ao dia.",
       "requirements": {
         "habilidades": [],
@@ -324,6 +325,7 @@
         "hidden": false
       }
     },
+
     "god_crit": {
       "id": "god_crit",
       "name": "Crítico Divino",
@@ -335,14 +337,7 @@
       "summary": "Abençoa a arma de um aliado com uma luz divina dourada. ",
       "requirements": {
         "attributes": {
-          "for": 0,
-          "des": 0,
-          "agi": 0,
-          "vit": 0,
-          "rac": 0,
-          "ins": 0,
-          "san": 20,
-          "aur": 0
+          "san": 20
         },
         "habilidades": [],
         "niveis": {
@@ -374,12 +369,6 @@
       "summary": "Você pode escolher sacrificar um aliado saudável para salvar um outro aliado à beira da morte, ou vice versa.",
       "requirements": {
         "attributes": {
-          "for": 0,
-          "des": 0,
-          "agi": 0,
-          "vit": 0,
-          "rac": 0,
-          "ins": 0,
           "san": 18,
           "aur": 20
         },
@@ -408,25 +397,8 @@
       "nivel": 0,
       "activation": "passive",
       "origin": "technique",
-      "types": ["utility"],
+      "types": ["buff"],
       "summary": "Aumenta a sua AGI e a de um aliado ao jogar em dupla.",
-      "requirements": {
-        "attributes": {
-          "for": 0,
-          "des": 0,
-          "agi": 0,
-          "vit": 0,
-          "rac": 0,
-          "ins": 0,
-          "san": 0,
-          "aur": 0
-        },
-        "habilidades": [],
-        "niveis": {
-          "personagem": 0
-        },
-        "species": []
-      },
       "desc": "Se a sua party só tiver duas pessoas, concede +3 de AGI a você e seu aliado. Se o seu aliado também tiver essa habilidade, o bônus aumenta para +5.",
       "cost": {
         "mana": null,
@@ -484,23 +456,6 @@
       "activation": "passive",
       "origin": "innate",
       "summary": "Recebe bônus ao equipar armas e equipamentos lendários.",
-      "requirements": {
-        "attributes": {
-          "for": 0,
-          "des": 0,
-          "agi": 0,
-          "vit": 0,
-          "rac": 0,
-          "ins": 0,
-          "san": 0,
-          "aur": 0
-        },
-        "habilidades": [],
-        "niveis": {
-          "personagem": 0
-        },
-        "species": []
-      },
       "desc": "Ao equipar qualquer arma ou equipamento lendário, concede um bônus de +3 de AUR. Esse efeito não é cumulativo.",
       "cost": {
         "mana": null,
@@ -524,14 +479,7 @@
       "summary": "Sempre que um aliado falhar um Teste de Morte pela primeira vez, ele pode tentar novamente.",
       "requirements": {
         "attributes": {
-          "for": 0,
-          "des": 0,
-          "agi": 0,
-          "vit": 0,
-          "rac": 0,
-          "ins": 0,
-          "san": 16,
-          "aur": 0
+          "san": 16
         },
         "habilidades": [],
         "niveis": {
