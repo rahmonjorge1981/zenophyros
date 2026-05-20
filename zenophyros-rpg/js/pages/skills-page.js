@@ -319,6 +319,7 @@ function renderHeader(skill) {
   const classLabel = getLabelFromEnum(SKILL_ENUMS.class, skill.class);
   const speciesLabel = getLabelFromEnum(SKILL_ENUMS.species, skill.species);
   const originLabel = getLabelFromEnum(SKILL_ENUMS.origin, skill.origin);
+  const schoolLabel = getLabelFromEnum(SKILL_ENUMS.school, skill.school);
   const activationLabel = getLabelFromEnum(
     SKILL_ENUMS.activation,
     skill.activation,
@@ -341,11 +342,12 @@ function renderHeader(skill) {
 
 function renderTypes(skill) {
   return `
-    <div class="modal-section>
-      <h3> Tipos </h3>
-    </div>
-    <div class="modal-badges">
-      ${renderBadgeList(skill.types, SKILL_ENUMS.types)}
+    <div class="modal-section">
+      <h3>Tipos</h3>
+
+      <div class="modal-badges">
+        ${renderBadgeList(skill.types, SKILL_ENUMS.types)}
+      </div>
     </div>
   `;
 }
