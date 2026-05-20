@@ -307,7 +307,7 @@ function renderModal(skill) {
     ${renderHeader(skill)}
     ${renderSummary(skill)}
     ${renderRequirements(skill)}
-    ${renderMechanics(skill)}
+    ${renderDescription(skill)}
     ${renderCusto(skill)}
     ${renderId(skill)}
   `;
@@ -370,11 +370,11 @@ function renderRequirements(skill) {
   `;
 }
 
-function renderMechanics(skill) {
+function renderDescription(skill) {
   return `
     <div class="modal-section">
       <h3>Efeito</h3>
-      <p>${skill.mechanics.text}</p>
+      <p>${skill.desc}</p>
     </div>
   `;
 }

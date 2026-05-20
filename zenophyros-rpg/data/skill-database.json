@@ -47,9 +47,9 @@
     "thunderstorm": {
       "id": "thunderstorm",
       "name": "Tempestade de Raios",
+      "summary": "Conjura uma tempestade de raios devastadora.",
       "activation": "active",
       "class": "wizard",
-      "summary": "Conjura uma tempestade de raios devastadora.",
       "requirements": {
         "attributes": {
           "rac": 20,
