@@ -227,7 +227,7 @@ function abrirModalSkill(skill, botaoOrigem = 0) {
     return;
   }
 
-  modalBody += renderModal(skill);
+  modalBody.innerHTML += renderModal(skill);
 
   skillModal.classList.remove("hidden");
 }
