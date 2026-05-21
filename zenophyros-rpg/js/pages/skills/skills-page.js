@@ -212,9 +212,6 @@ if (removeSkillBtn) {
   });
 }
 
-/**
- * MODAL OPEN/CLOSE
- */
 function abrirModalSkill(skill, botaoOrigem = 0) {
   botaoSkillAtual = botaoOrigem;
 
@@ -226,9 +223,21 @@ function abrirModalSkill(skill, botaoOrigem = 0) {
   }
 
   const modalBody = document.getElementById("modal-body");
-  const modalTitle = document.getElementById("skill-name");
 
-  modalTitle.textContent = skill.name;
+  document.getElementById("skill-name").textContent = skill.name;
+
+  const speciesBadge = document.getElementById("species-badge")
+  const species = skill.requirements.species;
+
+  if (species) {
+    speciesBadge.textContent = species;
+  }
+  else {
+    speciesBadge.hidden = true;
+  }
+
+  
+
 
   //modalBody.innerHTML = renderModal(skill);
 
