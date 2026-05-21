@@ -1,6 +1,7 @@
 {
   "schema": "zenophyros.habilidades.v2",
   "habilidades": {
+
     "thunder_punch": {
       "id": "thunder_punch",
       "name": "Soco Elétrico",
@@ -12,14 +13,19 @@
       "critical": "Alvo fica paralisado por 1d4 turnos.",
       "class": "monk",
       "origin": "magic",
+      "school": "martial_magic",
       "requirements": {
         "attributes": {
           "for": 12,
           "rac": 12
-        }
+        },
+        "species": null
       },
       "cost": {
-        "mana": 4
+        "life": null,
+        "mana": 4,
+        "energy": null,
+        "items": null
       },
       "tags": ["thunder", "paralysis"],
       "metadata": {
