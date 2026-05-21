@@ -219,18 +219,25 @@ function abrirModalSkill(skill, botaoOrigem = 0) {
   botaoSkillAtual = botaoOrigem;
 
   const skillModal = document.getElementById("skill-modal");
-  const modalBody = document.getElementById("modal-body");
 
   if (!skillModal || !modalBody) {
     console.error("Modal de skill não encontrado no HTML.");
-
     return;
   }
 
-  modalBody.innerHTML += renderModal(skill);
+  const modalBody = document.getElementById("modal-body");
+  const modalTitle = document.getElementById("skill-name");
+
+  modalTitle.textContent = skill.name;
+
+  //modalBody.innerHTML = renderModal(skill);
+
+
 
   skillModal.classList.remove("hidden");
 }
+
+
 
 function fecharModalSkill() {
   const skillModal = document.getElementById("skill-modal");
