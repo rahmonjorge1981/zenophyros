@@ -232,7 +232,7 @@ function abrirModalSkill(skill, botaoOrigem = 0) {
   speciesBadge.textContent = getLabelFromEnum(
     SKILL_ENUMS.species,
     skill.requirements?.species,
-  ); || "";
+  ) || "";
 
   const classBadge = document.getElementById("class-badge");
   const skillClass = skill.class;
@@ -240,7 +240,7 @@ function abrirModalSkill(skill, botaoOrigem = 0) {
   classBadge.textContent = getLabelFromEnum(
     SKILL_ENUMS.class,
     skill.class,
-  ); || "";
+  ) || "";
 
   //modalBody.innerHTML = renderModal(skill);
 
