@@ -226,25 +226,22 @@ function abrirModalSkill(skill, botaoOrigem = 0) {
 
   document.getElementById("skill-name").textContent = skill.name;
 
-  const speciesBadge = document.getElementById("species-badge")
+  const speciesBadge = document.getElementById("species-badge");
   const species = skill.requirements.species;
 
   if (species) {
-    speciesBadge.textContent = species;
-  }
-  else {
+    speciesBadge.textContent = getLabelFromEnum(
+      SKILL_ENUMS.species,
+      skill.requirements.species,
+    );
+  } else {
     speciesBadge.hidden = true;
   }
 
-
   //modalBody.innerHTML = renderModal(skill);
-
-
 
   skillModal.classList.remove("hidden");
 }
-
-
 
 function fecharModalSkill() {
   const skillModal = document.getElementById("skill-modal");
