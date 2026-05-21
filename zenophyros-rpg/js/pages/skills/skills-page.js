@@ -272,16 +272,20 @@ function fillModalBody(skill) {
   const requirements = skill.requirements;
   const hasRequirements =
     requirements &&
-    (requirements.species?.length > 0 ||
-      Object.keys(requirements.attributes || {}).length > 0 ||
-      requirements.niveis?.personagem ||
-      requirements.habilidades?.length > 0);
-
+    (requirements.species ||
+      requirements.attributes ||
+      requirements.niveis ||
+      requirements.habilidades);
   const section = document.getElementById("requirements-section");
   const box = document.getElementById("skill-requirements");
 
-  section.hidden = !hasRequirements;
-  box.textContent = hasRequirements ? formatRequirements(requirements) : "";
+  if (hasRequirements) {
+    section.hidden = false;
+    box.textContent = formatRequirements(requirements);
+  } else {
+    section.hidden = true;
+    box.textContent = "";
+  }
 
   // Skill Description
   document.getElementById("skill-desc").textContent = skill.desc;
