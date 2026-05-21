@@ -343,16 +343,16 @@ function formatCost(custo) {
     linhas.push(`Mana ${custo.mana}`);
   }
 
-  if (custo.vida !== "" && custo.vida !== undefined && custo.vida !== null) {
-    linhas.push(`Vida ${custo.vida}`);
+  if (custo.life !== "" && custo.life !== undefined && custo.life !== null) {
+    linhas.push(`Vida ${custo.life}`);
   }
 
   if (
-    custo.energia !== "" &&
-    custo.energia !== undefined &&
-    custo.energia !== null
+    custo.energy !== "" &&
+    custo.energy !== undefined &&
+    custo.energy !== null
   ) {
-    linhas.push(`Energia ${custo.energia}`);
+    linhas.push(`Energia ${custo.energy}`);
   }
 
   if (linhas.length === 0) {
