@@ -355,7 +355,6 @@
       "origin": "innate",
       "summary": "Recebe bônus ao equipar armas e equipamentos lendários.",
       "desc": "Ao equipar qualquer arma ou equipamento lendário, concede um bônus de +3 de AUR. Esse efeito não é cumulativo.",
-      
       "metadata": {
         "version": 1,
         "beta": true,

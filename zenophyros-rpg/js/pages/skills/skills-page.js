@@ -270,10 +270,15 @@ function fillModalBody(skill) {
   document.getElementById("skill-summary").textContent = skill.summary;
 
   // Skill Requirements (optional)
-  const requirementsField = document.getElementById("skill-requirements");
   const requirements = skill.requirements;
-  requirementsField.hidden = !requirements;
-  requirementsField.textContent = formatRequirements(requirements);
+  document.getElementById("requirements-section").hidden = !requirements;
+  if (requirements) {
+    document.getElementById("skill-requirements").textContent =
+      formatRequirements(requirements);
+  }
+
+  // Skill ID
+  document.getElementById("skill-id").textContent = skill.id;
 }
 
 // Transforma o objeto 'requirements' em uma string csv.
@@ -305,7 +310,6 @@ function formatRequirements(reqs) {
 
   return linhas.join(", ");
 }
-
 
 function fecharModalSkill() {
   const skillModal = document.getElementById("skill-modal");
