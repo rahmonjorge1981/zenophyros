@@ -301,7 +301,7 @@ function fillModalBody(skill) {
   typesContainer.innerHTML = types
     .map(
       (type) => `
-      <span class="modal-badge">
+      <span class="skill-badge">
         ${getLabelFromEnum(SKILL_ENUMS.type, types) || types}
       </span>
     `,
