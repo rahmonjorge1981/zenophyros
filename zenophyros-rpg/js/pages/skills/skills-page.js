@@ -222,14 +222,14 @@ function abrirModalSkill(skill, botaoOrigem = 0) {
     return;
   }
 
-  fillModalBody();
+  fillModalBody(skill);
 
   //modalBody.innerHTML = renderModal(skill);
 
   skillModal.classList.remove("hidden");
 }
 
-function fillModalBody() {
+function fillModalBody(skill) {
   // Skill Name
   document.getElementById("skill-name").textContent = skill.name;
 
