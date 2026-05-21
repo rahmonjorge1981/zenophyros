@@ -227,7 +227,7 @@ function abrirModalSkill(skill, botaoOrigem = 0) {
     return;
   }
 
-  modalBody.insertAdjacentHTML("beforeend", renderModal(skill));
+  modalBody += renderModal(skill);
 
   skillModal.classList.remove("hidden");
 }
