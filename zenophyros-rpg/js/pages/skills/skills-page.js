@@ -34,7 +34,7 @@ const SKILL_ENUMS = {
   context: {
     in_combat: { label: "Em Combate" },
     out_of_combat: { label: "Fora de Combate" },
-    both: { label: "Ambos" }
+    both: { label: "Ambos" },
   },
   types: {
     damage: { label: "Dano" },
@@ -52,7 +52,7 @@ const SKILL_ENUMS = {
     innate: { label: "Inata" },
   },
   school: {
-    martial_magic: { label: "Magia Marcial" }
+    martial_magic: { label: "Magia Marcial" },
   },
 };
 
@@ -151,7 +151,8 @@ function applyFilters() {
 
     // CHECKS FILTERS
     const matchClass = !skillClass || skill.class === skillClass;
-    const matchSpecies = !species || skill.requirements?.species.includes(species);
+    const matchSpecies =
+      !species || skill.requirements?.species.includes(species);
     const matchActivation = !activation || skill.activation === activation;
     const matchOrigin = !origin || skill.origin === origin;
     const matchTypes = !types || skill.types?.includes(types);
@@ -226,7 +227,7 @@ function abrirModalSkill(skill, botaoOrigem = 0) {
     return;
   }
 
-  modalBody.innerHTML = renderModal(skill);
+  modalBody.insertAdjacentHTML("beforeend", renderSummary(skill));
 
   skillModal.classList.remove("hidden");
 }
@@ -270,7 +271,10 @@ function renderSkills(skillsArray) {
 
 function renderSkillCard(skill) {
   const classLabel = getLabelFromEnum(SKILL_ENUMS.class, skill.class);
-  const speciesLabel = getLabelFromEnum(SKILL_ENUMS.species, skill.requirements?.species);
+  const speciesLabel = getLabelFromEnum(
+    SKILL_ENUMS.species,
+    skill.requirements?.species,
+  );
   const originLabel = getLabelFromEnum(SKILL_ENUMS.origin, skill.origin);
   const schoolLabel = getLabelFromEnum(SKILL_ENUMS.school, skill.school);
   const activationLabel = getLabelFromEnum(
