@@ -237,34 +237,37 @@ function fillModalBody(skill) {
   const speciesBadge = document.getElementById("species-badge");
   const species = skill.requirements?.species;
   speciesBadge.hidden = !species;
-  speciesBadge.textContent = getLabelFromEnum(
-    SKILL_ENUMS.species,
-    skill.requirements?.species,
-  ) || "";
+  speciesBadge.textContent =
+    getLabelFromEnum(SKILL_ENUMS.species, skill.requirements?.species) || "";
 
   // Skill Class (optional)
   const classBadge = document.getElementById("class-badge");
   const skillClass = skill.class;
   classBadge.hidden = !skillClass;
-  classBadge.textContent = getLabelFromEnum(
-    SKILL_ENUMS.class,
-    skill.class,
-  ) || "";
+  classBadge.textContent =
+    getLabelFromEnum(SKILL_ENUMS.class, skill.class) || "";
 
   // Skill Activation
-  document.getElementById("activation-badge").textContent = skill.activation;
+  document.getElementById("activation-badge").textContent = getLabelFromEnum(
+    SKILL_ENUMS.activation,
+    skill.activation,
+  );
 
   // Skill Origin
-  document.getElementById("origin-tag").textContent = skill.origin;
+  document.getElementById("origin-tag").textContent = getLabelFromEnum(
+    SKILL_ENUMS.origin,
+    skill.origin,
+  );
 
   // Skill School (optional)
   const schoolBadge = document.getElementById("school-tag");
   const school = skill.school;
   schoolBadge.hidden = !school;
-  schoolBadge.textContent = getLabelFromEnum(
-    SKILL_ENUMS.school,
-    skill.school,
-  ) || "";
+  schoolBadge.textContent =
+    getLabelFromEnum(SKILL_ENUMS.school, skill.school) || "";
+
+  // Skill Summary
+  document.getElementById("skill-summary").textContent = skill.summary;
 }
 
 function fecharModalSkill() {
