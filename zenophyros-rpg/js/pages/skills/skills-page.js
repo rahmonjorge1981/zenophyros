@@ -274,9 +274,8 @@ function fillModalBody(skill) {
     Array.isArray(requirements) && requirements.some((r) => r != null);
   console.log(skill.requirements);
   console.log(Object.keys(skill.requirements || {}));
-
-  document.getElementById("requirements-section").hidden = !requirements;
-  document.getElementById("skill-requirements").textContent = requirements
+  document.getElementById("requirements-section").hidden = !hasRequirements;
+  document.getElementById("skill-requirements").textContent = hasRequirements
     ? formatRequirements(requirements)
     : "";
 
