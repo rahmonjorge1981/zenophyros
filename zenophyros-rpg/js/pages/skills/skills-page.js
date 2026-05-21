@@ -395,7 +395,7 @@ function renderFilterOptions() {
   appendOptions(filters.origin, SKILL_ENUMS.origin);
   appendOptions(filters.class, SKILL_ENUMS.class);
   appendOptions(filters.species, SKILL_ENUMS.species);
-  appendOptions(filters.types, SKILL_ENUMS.types);
+  appendOptions(filters.types, SKILL_ENUMS.type);
 }
 
 /** RENDERIZAR LISTA DE SKILLS */
@@ -440,7 +440,7 @@ function renderSkillCard(skill) {
         ${skill.requirements?.species ? `<span class="skill-badge"> ${speciesLabel} </span>` : ""}
         ${skill.class ? `<span class="skill-badge"> ${classLabel} </span>` : ""}
         ${skill.activation ? `<span class="skill-badge"> ${activationLabel} </span>` : ""}
-        ${renderBadgeList(skill.types, SKILL_ENUMS.types)}
+        ${renderBadgeList(skill.types, SKILL_ENUMS.type)}
       </div>
 
       <p class="skill-summary"> ${skill.summary} </p>
