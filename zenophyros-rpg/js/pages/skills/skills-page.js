@@ -272,8 +272,7 @@ function fillModalBody(skill) {
   const r = skill.requirements;
   const hasRequirements =
     r && (r.species || r.attributes || r.niveis || r.habilidades);
-  const reqSection = document.getElementById("requirements-section");
-  reqSection.hidden = !hasRequirements;
+  document.getElementById("requirements-section").hidden = !hasRequirements;
   document.getElementById("skill-requirements").textContent = hasRequirements
     ? formatRequirements(r)
     : "";
@@ -287,6 +286,12 @@ function fillModalBody(skill) {
   document.getElementById("skill-critical").textContent = critical || "";
 
   // Skill Cost (optional)
+  const cost = skill.cost;
+  const hasCost = cost && (c.life || c.mana || c.energy || c.itens);
+  document.getElementById("cost-section").hidden = !hasCost;
+  document.getElementById("skill-cost").textContent = hasCost
+    ? formatCost(cost)
+    : "";
 
   // Skill ID
   document.getElementById("skill-id").textContent = skill.id;
@@ -300,7 +305,6 @@ function formatRequirements(reqs) {
   }
 
   const linhas = [];
-  const attributesArray = [];
 
   if (reqs.species && reqs.species.length > 0) {
     linhas.push(getLabelFromEnum(SKILL_ENUMS.species, reqs.species));
@@ -318,6 +322,37 @@ function formatRequirements(reqs) {
 
   if (reqs.habilidades && reqs.habilidades.length > 0) {
     linhas.push(...reqs.habilidades);
+  }
+
+  if (linhas.length === 0) {
+    return "Nenhum";
+  }
+
+  return linhas.join(", ");
+}
+
+function formatCost(custo) {
+  if (!custo) {
+    console.log("No cost object to format.");
+    return null;
+  }
+
+  const linhas = [];
+
+  if (custo.mana !== "" && custo.mana !== undefined && custo.mana !== null) {
+    linhas.push(`Mana ${custo.mana}`);
+  }
+
+  if (custo.vida !== "" && custo.vida !== undefined && custo.vida !== null) {
+    linhas.push(`Vida ${custo.vida}`);
+  }
+
+  if (
+    custo.energia !== "" &&
+    custo.energia !== undefined &&
+    custo.energia !== null
+  ) {
+    linhas.push(`Energia ${custo.energia}`);
   }
 
   if (linhas.length === 0) {
