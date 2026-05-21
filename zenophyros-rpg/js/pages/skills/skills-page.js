@@ -287,7 +287,7 @@ function fillModalBody(skill) {
 
   // Skill Cost (optional)
   const cost = skill.cost;
-  const hasCost = cost && (c.life || c.mana || c.energy || c.itens);
+  const hasCost = cost && (cost.life || cost.mana || cost.energy || cost.itens);
   document.getElementById("cost-section").hidden = !hasCost;
   document.getElementById("skill-cost").textContent = hasCost
     ? formatCost(cost)
