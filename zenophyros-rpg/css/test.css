@@ -2,12 +2,11 @@ body {
   margin: 0;
   padding: 40px;
 
-  background:
-    radial-gradient(circle at top, #2b2b2b, #111);
+  background: #008080;
 
-  font-family: Arial, sans-serif;
+  font-family: "Tahoma", sans-serif;
 
-  color: #f2f2f2;
+  color: #000;
 }
 
 .skill-modal-preview {
@@ -20,22 +19,17 @@ body {
   width: 100%;
   max-width: 760px;
 
-  padding: 24px;
+  padding: 3px;
 
-  border: 2px solid #000;
-  border-radius: 18px;
+  background: #c0c0c0;
 
-  background:
-    linear-gradient(
-      180deg,
-      #3a3a3a 0%,
-      #242424 100%
-    );
+  border:
+    2px solid #fff;
 
-  box-shadow:
-    0 0 0 2px #5e5e5e inset,
-    0 0 0 4px #111 inset,
-    0 20px 50px rgba(0,0,0,.5);
+  border-right-color: #404040;
+  border-bottom-color: #404040;
+
+  box-shadow: 2px 2px 0 #000;
 }
 
 .skill-banner {
@@ -46,57 +40,64 @@ body {
 
   gap: 20px;
 
-  padding-bottom: 20px;
-  margin-bottom: 20px;
+  padding: 10px;
 
-  border-bottom: 1px solid #555;
+  margin-bottom: 12px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #000080 0%,
+      #1084d0 100%
+    );
+
+  color: #fff;
 }
 
 .skill-category {
   margin: 0 0 6px;
 
-  color: #b9b9b9;
-
-  font-size: .85rem;
+  font-size: .75rem;
 
   text-transform: uppercase;
-  letter-spacing: 2px;
+
+  opacity: .8;
 }
 
 .skill-banner h1 {
   margin: 0;
 
-  font-size: 2.2rem;
+  font-size: 1.8rem;
+
+  font-weight: bold;
 }
 
 .skill-summary {
-  margin-top: 10px;
+  margin-top: 8px;
 
-  max-width: 540px;
+  max-width: 520px;
 
-  color: #d0d0d0;
+  line-height: 1.4;
 
-  line-height: 1.5;
+  color: #e7e7e7;
 }
 
 .skill-class-box {
-  min-width: 100px;
+  padding: 8px 12px;
 
-  padding: 10px;
+  background: #c0c0c0;
 
-  border: 1px solid #777;
-  border-radius: 10px;
+  color: #000;
 
-  background:
-    linear-gradient(
-      180deg,
-      #4e4e4e,
-      #303030
-    );
+  border:
+    2px solid #fff;
 
-  text-align: center;
+  border-right-color: #404040;
+  border-bottom-color: #404040;
 
   font-weight: bold;
+
+  text-align: center;
 }
 
 .skill-badges {
@@ -105,67 +106,59 @@ body {
 
   gap: 8px;
 
-  margin-bottom: 24px;
+  padding: 0 10px;
+
+  margin-bottom: 16px;
 }
 
 .badge {
-  padding: 6px 10px;
+  padding: 4px 8px;
 
-  border: 1px solid #666;
-  border-radius: 999px;
+  background: #c0c0c0;
 
-  background: #2e2e2e;
+  border:
+    2px solid #fff;
 
-  font-size: .85rem;
+  border-right-color: #404040;
+  border-bottom-color: #404040;
+
+  font-size: .8rem;
 }
 
 .badge.thunder {
-  border-color: #f0c94a;
-
-  background: #4d3d09;
-
-  color: #ffd95e;
+  background: #ffff99;
 }
 
 .skill-section {
-  margin-bottom: 20px;
+  padding: 0 10px;
+
+  margin-bottom: 16px;
 }
 
 .skill-section h2 {
-  margin-bottom: 10px;
+  margin-bottom: 6px;
 
-  font-size: 1rem;
+  font-size: .95rem;
 
-  color: #cfcfcf;
-
-  letter-spacing: 1px;
+  font-weight: bold;
 }
 
 .section-box {
-  padding: 16px;
+  padding: 12px;
 
-  border: 1px solid #555;
-  border-radius: 12px;
+  background: #c0c0c0;
 
-  background:
-    linear-gradient(
-      180deg,
-      #2d2d2d,
-      #202020
-    );
+  border:
+    2px solid #808080;
 
-  line-height: 1.5;
+  border-right-color: #fff;
+  border-bottom-color: #fff;
+
+  line-height: 1.4;
 }
 
 .critical-box .section-box {
-  border-color: #8a7a2e;
-
-  background:
-    linear-gradient(
-      180deg,
-      #403710,
-      #2b250d
-    );
+  background: #fff4b5;
 }
 
 .skill-grid {
@@ -174,25 +167,20 @@ body {
   grid-template-columns:
     repeat(auto-fit, minmax(220px, 1fr));
 
-  gap: 16px;
+  gap: 12px;
 }
 
 .info-list {
   display: flex;
   flex-direction: column;
 
-  gap: 12px;
+  gap: 10px;
 }
 
 .info-list div {
   display: flex;
 
   justify-content: space-between;
-  align-items: center;
-}
-
-.info-list span {
-  color: #bdbdbd;
 }
 
 .tags {
@@ -203,16 +191,17 @@ body {
 }
 
 .tags span {
-  padding: 6px 10px;
+  padding: 4px 8px;
 
-  border: 1px dashed #777;
-  border-radius: 999px;
+  background: #c0c0c0;
 
-  background: rgba(255,255,255,.03);
+  border:
+    2px solid #fff;
 
-  color: #cfcfcf;
+  border-right-color: #404040;
+  border-bottom-color: #404040;
 
-  font-size: .85rem;
+  font-size: .8rem;
 }
 
 .skill-footer {
@@ -220,12 +209,12 @@ body {
 
   justify-content: space-between;
 
-  margin-top: 28px;
-  padding-top: 16px;
+  margin-top: 20px;
+  padding: 10px;
 
-  border-top: 1px solid #444;
+  background: #b4b4b4;
 
-  color: #999;
+  border-top: 1px solid #808080;
 
-  font-size: .8rem;
+  font-size: .75rem;
 }
