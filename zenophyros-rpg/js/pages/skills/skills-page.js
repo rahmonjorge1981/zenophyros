@@ -302,7 +302,7 @@ function fillModalBody(skill) {
     .map(
       (type) => `
       <span class="modal-badge">
-        ${getLabelFromEnum(SKILL_ENUMS.type, type) || type}
+        ${getLabelFromEnum(SKILL_ENUMS.type, types) || types}
       </span>
     `,
     )
@@ -475,6 +475,13 @@ function renderBadgeList(items, enumMap) {
 
 /** Populates the <option>s of a <select> based on a enumObject. */
 function appendOptions(selectElement, enumObject) {
+  if (enumObject == null) {
+    console.error(
+      "appendOptions: erro porque 'enumObject' veio null ou undefined.",
+      { selectElement, enumObject },
+    );
+    return;
+  }
   Object.entries(enumObject).forEach(([id, item]) => {
     const option = document.createElement("option");
 
