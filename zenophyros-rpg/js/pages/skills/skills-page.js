@@ -255,10 +255,10 @@ function fillModalBody(skill) {
   document.getElementById("activation-badge").textContent = skill.activation;
 
   // Skill Origin
-  document.getElementById("origin-badge").textContent = skill.origin;
+  document.getElementById("origin-tag").textContent = skill.origin;
 
   // Skill School (optional)
-  const schoolBadge = document.getElementById("school-badge");
+  const schoolBadge = document.getElementById("school-tag");
   const school = skill.school;
   schoolBadge.hidden = !school;
   schoolBadge.textContent = getLabelFromEnum(
