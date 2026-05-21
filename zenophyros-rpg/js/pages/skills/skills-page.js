@@ -36,7 +36,7 @@ const SKILL_ENUMS = {
     out_of_combat: { label: "Fora de Combate" },
     both: { label: "Ambos" },
   },
-  types: {
+  type: {
     damage: { label: "Dano" },
     buff: { label: "Aprimoramento" },
     control: { label: "Controle" },
