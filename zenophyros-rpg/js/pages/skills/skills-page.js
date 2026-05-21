@@ -265,7 +265,7 @@ function fillModalBody(skill) {
   const school = skill.school;
   schoolBadge.hidden = !school;
   schoolBadge.textContent =
-    getLabelFromEnum(SKILL_ENUMS.school, skill.school) || "";
+    getLabelFromEnum(SKILL_ENUMS.school, school) || "";
 
   // Skill Summary
   document.getElementById("skill-summary").textContent = skill.summary;
@@ -277,6 +277,17 @@ function fillModalBody(skill) {
   ? formatRequirements(requirements)
   : "";
 
+  // Skill Description
+  document.getElementById("skill-desc").textContent = skill.desc;
+
+  // Skill Critical (optional)
+  const critical = skill.critical;
+  document.getElementById("critical-section").hidden = !critical;
+  document.getElementById("skill-critical").textContent = critical || "";
+
+  // Skill Cost (optional)
+
+
   // Skill ID
   document.getElementById("skill-id").textContent = skill.id;
 }
@@ -284,7 +295,8 @@ function fillModalBody(skill) {
 // Transforma o objeto 'requirements' em uma string csv.
 function formatRequirements(reqs) {
   if (!reqs) {
-    return;
+    console.log("No requirements object to format.");
+    return null;
   }
 
   const linhas = [];
