@@ -276,14 +276,18 @@ function fillModalBody(skill) {
       requirements.attributes ||
       requirements.niveis ||
       requirements.habilidades);
+
+  const section = document.getElementById("requirements-section");
   const reqTitle = document.querySelector("#requirements-section h3");
   const reqBox = document.getElementById("skill-requirements");
 
   if (hasRequirements) {
+    section.hidden = false;
     reqTitle.hidden = false;
     reqBox.hidden = false;
     reqBox.textContent = formatRequirements(requirements);
   } else {
+    section.hidden = true;
     reqTitle.hidden = true;
     reqBox.hidden = true;
     reqBox.textContent = "";
