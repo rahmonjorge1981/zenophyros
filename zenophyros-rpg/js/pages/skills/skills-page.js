@@ -302,7 +302,7 @@ function fillModalBody(skill) {
     .map(
       (type) => `
       <span class="skill-badge">
-        ${getLabelFromEnum(SKILL_ENUMS.type, types) || types}
+        ${getLabelFromEnum(SKILL_ENUMS.type, type) || type}
       </span>
     `,
     )
