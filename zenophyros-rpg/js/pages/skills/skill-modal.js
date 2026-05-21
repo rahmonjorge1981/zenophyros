@@ -18,7 +18,6 @@ function renderModal(skill) {
       ${skill.requirements?.species ? `<span class="skill-badge">${speciesLabel}</span>` : ""}
       ${skill.class ? `<span class="skill-badge">${classLabel}</span>` : ""}
       ${skill.activation ? `<span class="skill-badge">${activationLabel}</span>` : ""}
-      
 
       ${skill.origin ? `<span class="skill-tag">${originLabel}</span>` : ""}
       ${skill.school ? `<span class="skill-tag">${schoolLabel}</span>` : ""}

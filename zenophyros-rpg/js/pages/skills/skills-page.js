@@ -293,6 +293,21 @@ function fillModalBody(skill) {
     ? formatCost(cost)
     : "";
 
+  // Skill Types
+  const typesContainer = document.getElementById("skill-types");
+  const types = skill.types || [];
+
+  typesContainer.hidden = types.length === 0;
+  typesContainer.innerHTML = types
+    .map(
+      (type) => `
+      <span class="modal-badge">
+        ${getLabelFromEnum(SKILL_ENUMS.type, type) || type}
+      </span>
+    `,
+    )
+    .join("");
+
   // Skill ID
   document.getElementById("skill-id").textContent = skill.id;
 }
