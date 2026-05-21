@@ -1,78 +1,20 @@
 function renderModal(skill) {
-  const custo = skill.custo || {};
-
   return `
-    <h2>${skill.name}</h2>
+    ${renderHeader(skill)}
 
-    <div class="modal-badges">
-      ${badge(skill.class)}
-      ${badge(skill.activation)}
-    </div>
+    ${renderSummary(skill)}
+    ${renderRequirements(skill)}
+    ${renderEffectDesc(skill)}
+    ${renderCusto(skill)}
+    ${renderTypes(skill)}
 
-    <div class="modal-section">
-      <h3>Resumo</h3>
-      <p>${skill.summary}</p>
-    </div>
-
-    ${
-      skill.requirements
-        ? `
-      <div class="modal-section">
-        <h3>Pré-Requisitos</h3>
-        <div class="modal-box">
-          ${formatRequirements(skill.requirements)}
-        </div>
-      </div>
-    `
-        : ""
-    }
-
-    <div class="modal-section">
-      <h3>Efeito</h3>
-      <p>${skill.desc}</p>
-    </div>
-
-    ${
-      skill.critical
-        ? `
-      <div class="modal-section">
-        <h3>Crítico</h3>
-        <p>${skill.critical}</p>
-      </div>
-    `
-        : ""
-    }
-
-    ${
-      custo.mana || custo.vida || custo.energia
-        ? `
-      <div class="modal-section">
-        <h3>Custo</h3>
-
-        <div class="modal-grid">
-          ${custo.mana ? `<div class="modal-box">Mana: ${custo.mana}</div>` : ""}
-          ${custo.vida ? `<div class="modal-box">Vida: ${custo.vida}</div>` : ""}
-          ${custo.energia ? `<div class="modal-box">Energia: ${custo.energia}</div>` : ""}
-        </div>
-      </div>
-    `
-        : ""
-    }
+    ${renderId(skill)}
   `;
-}
-
-function badge(text) {
-  if (!text) return "";
-
-  return `<span class="skill-badge">${text}</span>`;
 }
 
 function renderHeader(skill) {
   const classLabel = getLabelFromEnum(SKILL_ENUMS.class, skill.class);
-  const speciesLabel = getLabelFromEnum(
-    SKILL_ENUMS.species,
-    skill.requirements?.species,
-  );
+  const speciesLabel = getLabelFromEnum(SKILL_ENUMS.species, skill.requirements?.species);
   const originLabel = getLabelFromEnum(SKILL_ENUMS.origin, skill.origin);
   const schoolLabel = getLabelFromEnum(SKILL_ENUMS.school, skill.school);
   const activationLabel = getLabelFromEnum(
