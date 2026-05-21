@@ -52,7 +52,7 @@ const SKILL_ENUMS = {
     innate: { label: "Inata" },
   },
   school: {
-
+    martial_magic: { label: "Magia Marcial" }
   },
 };
 
