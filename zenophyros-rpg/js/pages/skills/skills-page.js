@@ -90,7 +90,7 @@ async function init() {
   addModalEvents();
 
   skills = Object.values(window.skillDatabase);
-  console.log(skills);
+  // console.log(skills);
 
   if (!filters.class) {
     console.log("No filter objects found");
@@ -230,7 +230,6 @@ function abrirModalSkill(skill, botaoOrigem = 0) {
 }
 
 function fillModalBody(skill) {
-
   // Skill Name
   document.getElementById("skill-name").textContent = skill.name;
 
@@ -264,22 +263,22 @@ function fillModalBody(skill) {
   const schoolBadge = document.getElementById("school-tag");
   const school = skill.school;
   schoolBadge.hidden = !school;
-  schoolBadge.textContent =
-    getLabelFromEnum(SKILL_ENUMS.school, school) || "";
+  schoolBadge.textContent = getLabelFromEnum(SKILL_ENUMS.school, school) || "";
 
   // Skill Summary
   document.getElementById("skill-summary").textContent = skill.summary;
 
   // Skill Requirements (optional)
   const requirements = skill.requirements;
-  const hasRequirements = Array.isArray(requirements) && requirements.length > 0;
+  const hasRequirements =
+    Array.isArray(requirements) && requirements.some((r) => r != null);
   console.log(skill.requirements);
   console.log(Object.keys(skill.requirements || {}));
 
   document.getElementById("requirements-section").hidden = !requirements;
   document.getElementById("skill-requirements").textContent = requirements
-  ? formatRequirements(requirements)
-  : "";
+    ? formatRequirements(requirements)
+    : "";
 
   // Skill Description
   document.getElementById("skill-desc").textContent = skill.desc;
@@ -290,7 +289,6 @@ function fillModalBody(skill) {
   document.getElementById("skill-critical").textContent = critical || "";
 
   // Skill Cost (optional)
-
 
   // Skill ID
   document.getElementById("skill-id").textContent = skill.id;
