@@ -1,25 +1,14 @@
 function renderModal(skill) {
-  return `
-    ${renderHeader(skill)}
-
-    ${renderSummary(skill)}
-    ${renderRequirements(skill)}
-    ${renderEffectDesc(skill)}
-    ${renderCusto(skill)}
-    ${renderTypes(skill)}
-
-    ${renderId(skill)}
-  `;
-}
-
-function renderHeader(skill) {
   const classLabel = getLabelFromEnum(SKILL_ENUMS.class, skill.class);
-  const speciesLabel = getLabelFromEnum(SKILL_ENUMS.species, skill.requirements?.species);
   const originLabel = getLabelFromEnum(SKILL_ENUMS.origin, skill.origin);
   const schoolLabel = getLabelFromEnum(SKILL_ENUMS.school, skill.school);
   const activationLabel = getLabelFromEnum(
     SKILL_ENUMS.activation,
     skill.activation,
+  );
+  const speciesLabel = getLabelFromEnum(
+    SKILL_ENUMS.species,
+    skill.requirements?.species,
   );
 
   return `
@@ -34,6 +23,14 @@ function renderHeader(skill) {
       ${skill.origin ? `<span class="skill-tag">${originLabel}</span>` : ""}
       ${skill.school ? `<span class="skill-tag">${schoolLabel}</span>` : ""}
     </div>
+
+    ${renderSummary(skill)}
+    ${renderRequirements(skill)}
+    ${renderEffectDesc(skill)}
+    ${renderCusto(skill)}
+    ${renderTypes(skill)}
+
+    ${renderId(skill)}
   `;
 }
 
