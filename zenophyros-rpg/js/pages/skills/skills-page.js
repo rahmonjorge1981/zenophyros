@@ -152,7 +152,7 @@ function applyFilters() {
     // CHECKS FILTERS
     const matchClass = !skillClass || skill.class === skillClass;
     const matchSpecies =
-      !species || skill.requirements?.species.includes(species);
+      !species || skill.requirements?.species?.includes(species);
     const matchActivation = !activation || skill.activation === activation;
     const matchOrigin = !origin || skill.origin === origin;
     const matchTypes = !types || skill.types?.includes(types);
@@ -235,8 +235,6 @@ function abrirModalSkill(skill, botaoOrigem = 0) {
   else {
     speciesBadge.hidden = true;
   }
-
-  
 
 
   //modalBody.innerHTML = renderModal(skill);
