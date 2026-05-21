@@ -24,24 +24,43 @@ function renderModal(skill) {
       ${skill.school ? `<span class="skill-tag">${schoolLabel}</span>` : ""}
     </div>
 
-    ${renderSummary(skill)}
-    ${renderRequirements(skill)}
-    ${renderEffectDesc(skill)}
+    <div class="modal-section">
+      <h3>Resumo</h3>
+      <p> ${skill.summary} </p>
+    </div>
+
+    <div class="modal-section">
+      <h3>Pré-Requisitos</h3>
+      <div class="modal-box"> ${formatRequirements(skill.requirements)} </div>
+    </div>
+
+    <div class="modal-section">
+      <h3>Efeito</h3>
+      <p>${skill.desc}</p>
+    </div>
+
+    ${
+      skill.critical
+        ? `
+      <div class="modal-section">
+        <h3>Crítico</h3>
+        <p>${skill.critical}</p>
+      </div>
+      `
+        : ""
+    }
     ${renderCusto(skill)}
-    ${renderTypes(skill)}
 
-    ${renderId(skill)}
-  `;
-}
-
-function renderTypes(skill) {
-  return `
     <div class="modal-section">
       <h3>Tipos</h3>
 
       <div class="modal-badges">
         ${renderBadgeList(skill.types, SKILL_ENUMS.types)}
       </div>
+    </div>
+
+    <div class="modal-id">
+      ID: <code>${skill.id}</code>
     </div>
   `;
 }
@@ -59,47 +78,6 @@ function renderBadgeList(items, enumMap) {
       return `<span class="skill-badge"> ${label} </span>`;
     })
     .join("");
-}
-
-function renderSummary(skill) {
-  return `
-    <div class="modal-section">
-      <h3>Resumo</h3>
-      <p> ${skill.summary} </p>
-    </div>
-  `;
-}
-
-function renderRequirements(skill) {
-  if (!skill.requirements) {
-    return "";
-  }
-  return `
-    <div class="modal-section">
-      <h3>Pré-Requisitos</h3>
-      <div class="modal-box"> ${formatRequirements(skill.requirements)} </div>
-    </div>
-  `;
-}
-
-function renderEffectDesc(skill) {
-  return `
-    <div class="modal-section">
-      <h3>Efeito</h3>
-      <p>${skill.desc}</p>
-    </div>
-
-    ${
-      skill.critical
-        ? `
-      <div class="modal-section">
-        <h3>Crítico</h3>
-        <p>${skill.critical}</p>
-      </div>
-    `
-        : ""
-    }
-  `;
 }
 
 function renderCusto(skill) {
@@ -168,18 +146,6 @@ function renderTags(skill) {
           )
           .join("")}
       </div>
-    </div>
-  `;
-}
-
-function renderId(skill) {
-  if (!skill.id) {
-    return "";
-  }
-
-  return `
-    <div class="modal-id">
-      ID: <code>${skill.id}</code>
     </div>
   `;
 }
