@@ -272,6 +272,10 @@ function fillModalBody(skill) {
 
   // Skill Requirements (optional)
   const requirements = skill.requirements;
+
+  console.log(skill.requirements);
+  console.log(Object.keys(skill.requirements || {}));
+
   document.getElementById("requirements-section").hidden = !requirements;
   document.getElementById("skill-requirements").textContent = requirements
   ? formatRequirements(requirements)
