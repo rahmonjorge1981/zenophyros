@@ -272,7 +272,7 @@ function fillModalBody(skill) {
 
   // Skill Requirements (optional)
   const requirements = skill.requirements;
-
+  const hasRequirements = Array.isArray(requirements) && requirements.length > 0;
   console.log(skill.requirements);
   console.log(Object.keys(skill.requirements || {}));
 
