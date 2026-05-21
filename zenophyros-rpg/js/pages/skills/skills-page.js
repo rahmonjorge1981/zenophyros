@@ -220,7 +220,7 @@ function abrirModalSkill(skill, botaoOrigem = 0) {
 
   const skillModal = document.getElementById("skill-modal");
 
-  if (!skillModal || !modalBody) {
+  if (!skillModal) {
     console.error("Modal de skill não encontrado no HTML.");
     return;
   }
