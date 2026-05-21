@@ -230,6 +230,7 @@ function abrirModalSkill(skill, botaoOrigem = 0) {
 }
 
 function fillModalBody(skill) {
+
   // Skill Name
   document.getElementById("skill-name").textContent = skill.name;
 
@@ -272,10 +273,9 @@ function fillModalBody(skill) {
   // Skill Requirements (optional)
   const requirements = skill.requirements;
   document.getElementById("requirements-section").hidden = !requirements;
-  if (requirements) {
-    document.getElementById("skill-requirements").textContent =
-      formatRequirements(requirements);
-  }
+  document.getElementById("skill-requirements").textContent = requirements
+  ? formatRequirements(requirements)
+  : "";
 
   // Skill ID
   document.getElementById("skill-id").textContent = skill.id;
@@ -291,7 +291,7 @@ function formatRequirements(reqs) {
   const attributesArray = [];
 
   if (reqs.species && reqs.species.length > 0) {
-    linhas.push(reqs.species);
+    linhas.push(getLabelFromEnum(SKILL_ENUMS.species, reqs.species));
   }
 
   if (reqs.attributes) {
