@@ -222,10 +222,18 @@ function abrirModalSkill(skill, botaoOrigem = 0) {
     return;
   }
 
-  const modalBody = document.getElementById("modal-body");
+  fillModalBody();
 
+  //modalBody.innerHTML = renderModal(skill);
+
+  skillModal.classList.remove("hidden");
+}
+
+function fillModalBody() {
+  // Skill Name
   document.getElementById("skill-name").textContent = skill.name;
 
+  // Skill Species (optional)
   const speciesBadge = document.getElementById("species-badge");
   const species = skill.requirements?.species;
   speciesBadge.hidden = !species;
@@ -234,6 +242,7 @@ function abrirModalSkill(skill, botaoOrigem = 0) {
     skill.requirements?.species,
   ) || "";
 
+  // Skill Class (optional)
   const classBadge = document.getElementById("class-badge");
   const skillClass = skill.class;
   classBadge.hidden = !skillClass;
@@ -242,9 +251,20 @@ function abrirModalSkill(skill, botaoOrigem = 0) {
     skill.class,
   ) || "";
 
-  //modalBody.innerHTML = renderModal(skill);
+  // Skill Activation
+  document.getElementById("activation-badge").textContent = skill.activation;
 
-  skillModal.classList.remove("hidden");
+  // Skill Origin
+  document.getElementById("origin-badge").textContent = skill.origin;
+
+  // Skill School (optional)
+  const schoolBadge = document.getElementById("school-badge");
+  const school = skill.school;
+  schoolBadge.hidden = !school;
+  schoolBadge.textContent = getLabelFromEnum(
+    SKILL_ENUMS.school,
+    skill.school,
+  ) || "";
 }
 
 function fecharModalSkill() {
