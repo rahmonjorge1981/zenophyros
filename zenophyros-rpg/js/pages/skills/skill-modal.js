@@ -155,15 +155,12 @@ function formatRequirements(reqs) {
     return;
   }
 
-  console.log(reqs);
-
   const linhas = [];
+  const attributesArray = [];
 
   if (reqs.attributes) {
     Object.entries(reqs.attributes).forEach(([atributo, valor]) => {
-      if (valor > 0) {
-        linhas.push(`${atributo.toUpperCase()} ${valor}`);
-      }
+      linhas.push(`${atributo.toUpperCase()} ${valor}`);
     });
   }
 
