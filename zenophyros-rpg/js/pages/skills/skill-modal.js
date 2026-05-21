@@ -149,32 +149,3 @@ function renderTags(skill) {
     </div>
   `;
 }
-
-function formatRequirements(reqs) {
-  if (!reqs) {
-    return;
-  }
-
-  const linhas = [];
-  const attributesArray = [];
-
-  if (reqs.attributes) {
-    Object.entries(reqs.attributes).forEach(([atributo, valor]) => {
-      linhas.push(`${atributo.toUpperCase()} ${valor}`);
-    });
-  }
-
-  if (reqs.niveis && reqs.niveis.personagem) {
-    linhas.push(`Nível ${reqs.niveis.personagem}`);
-  }
-
-  if (reqs.habilidades && reqs.habilidades.length > 0) {
-    linhas.push(...reqs.habilidades);
-  }
-
-  if (linhas.length === 0) {
-    return "Nenhum";
-  }
-
-  return linhas.join(", ");
-}

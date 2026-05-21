@@ -290,6 +290,10 @@ function formatRequirements(reqs) {
   const linhas = [];
   const attributesArray = [];
 
+  if (reqs.species && reqs.species.length > 0) {
+    linhas.push(reqs.species);
+  }
+
   if (reqs.attributes) {
     Object.entries(reqs.attributes).forEach(([atributo, valor]) => {
       linhas.push(`${atributo.toUpperCase()} ${valor}`);
