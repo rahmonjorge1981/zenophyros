@@ -9,8 +9,6 @@ const filters = {
   origin: document.getElementById("filter-origin"),
 };
 
-const DATABASE_PATH = "./data/skill-database.json";
-
 window.skillDatabase = {};
 
 let skills = [];
