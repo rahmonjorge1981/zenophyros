@@ -1,3 +1,23 @@
+function addModalEvents() {
+  const skillModal = document.getElementById("skill-modal");
+  const closeButton = document.getElementById("close-modal");
+
+  if (!skillModal || !closeButton) {
+    console.log("Skill Modal or Close Button not found")
+    return;
+  }
+
+  closeButton.addEventListener("click", () => {
+    fecharModalSkill();
+  });
+
+  skillModal.addEventListener("click", (event) => {
+    if (event.target === skillModal) {
+      fecharModalSkill();
+    }
+  });
+}
+
 function fillModalBody(skill) {
   // Skill Name
   document.getElementById("skill-name").textContent = skill.name;

@@ -65,6 +65,7 @@ function addModalEvents() {
   const closeButton = document.getElementById("close-modal");
 
   if (!skillModal || !closeButton) {
+    console.log("Skill Modal or Close Button not found")
     return;
   }
 
