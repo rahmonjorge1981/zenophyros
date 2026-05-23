@@ -5,18 +5,16 @@ let filteredSkills = [];
 
 async function init() {
   await SkillDB.load();
-
   addModalEvents();
 
   filteredSkills = SkillDB.getAll();
 
   renderFilterOptions();
-
   updateSkills();
-
   addAllEventListeners();
 }
 
+/** Atualiza a lista de skills com base nos filtros. */
 function updateSkills() {
   const filtersData = {
     query: searchInput.value.toLowerCase().trim(),
@@ -28,12 +26,12 @@ function updateSkills() {
   };
 
   filteredSkills = SkillDB.filter(filtersData);
-
   filteredSkills = SkillDB.sortByName(filteredSkills);
 
   renderSkills(filteredSkills);
 }
 
+/** Adiciona os EL da busca e filtros. */
 function addAllEventListeners() {
   searchInput.addEventListener("input", updateSkills);
 

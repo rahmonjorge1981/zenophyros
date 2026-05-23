@@ -1,3 +1,13 @@
+/** Preenche as <option> de cada <select> dinamicamente com base no SKILL_ENUMS */
+function renderFilterOptions() {
+  appendOptions(filters.activation, SKILL_ENUMS.activation);
+  appendOptions(filters.origin, SKILL_ENUMS.origin);
+  appendOptions(filters.class, SKILL_ENUMS.class);
+  appendOptions(filters.species, SKILL_ENUMS.species);
+  appendOptions(filters.types, SKILL_ENUMS.type);
+}
+
+
 function addModalEvents() {
   const skillModal = document.getElementById("skill-modal");
   const closeButton = document.getElementById("close-modal");
