@@ -19,7 +19,7 @@ let botaoSkillAtual = null;
  * Carrega banco de habilidades.
  */
 async function loadSkills() {
-  const skillsData = await carregarJSON(DATABASE_PATH);
+  const skillsData = await carregarJSON(SkillsDB.DATABASE_PATH);
   window.skillDatabase = skillsData.habilidades;
 }
 
