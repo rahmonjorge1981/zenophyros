@@ -4,11 +4,11 @@ const searchInput = document.getElementById("search-input");
 let filteredSkills = [];
 
 async function init() {
-  await SkillsDB.load();
+  await SkillDB.load();
 
   addModalEvents();
 
-  filteredSkills = SkillsDB.getAll();
+  filteredSkills = SkillDB.getAll();
 
   renderFilterOptions();
 
@@ -27,9 +27,9 @@ function updateSkills() {
     origin: filters.origin.value,
   };
 
-  filteredSkills = SkillsDB.filter(filtersData);
+  filteredSkills = SkillDB.filter(filtersData);
 
-  filteredSkills = SkillsDB.sortByName(filteredSkills);
+  filteredSkills = SkillDB.sortByName(filteredSkills);
 
   renderSkills(filteredSkills);
 }
