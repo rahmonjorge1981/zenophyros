@@ -407,7 +407,7 @@
     "levitate": {
       "id": "levitate",
       "name": "Levitar",
-
+      "types": ["effect"],
       "activation": "passive",
       "class": "wizard",
       "origin": "magic",
@@ -432,6 +432,7 @@
     "fly": {
       "id": "fly",
       "name": "Voar",
+      "types": ["effect"],
       "activation": "passive",
       "origin": "magic",
       "summary": "Concede vôo passivo.",
@@ -456,6 +457,7 @@
     "fire_punch": {
       "id": "fire_punch",
       "name": "Soco Flamejante",
+      "types": ["buff","damage"],
       "activation": "active",
       "class": "monk",
       "origin": "magic",
@@ -484,7 +486,7 @@
     "golden_dragon_fist": {
       "id": "golden_dragon_fist",
       "name": "Punho do Dragão Dourado",
-
+      "types": ["damage"],
       "activation": "active",
       "class": "monk",
       "origin": "technique",

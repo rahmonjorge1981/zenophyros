@@ -29,7 +29,7 @@ window.SkillDB = (() => {
     const validTypes = Array.isArray(skill.types) && skill.types.length > 0;
 
     if (!validTypes) {
-      errors.push(`Skill "${skillId}" possui campo "types" inválido.`);
+      errors.push(`Skill "${skillId}" has an invalid "types" field.`);
     }
   }
 
