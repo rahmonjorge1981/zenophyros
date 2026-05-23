@@ -471,8 +471,6 @@ function renderBadgeList(items, enumMap) {
     .join("");
 }
 
-/** ---------------------------------------- HELPERS FOR THE RENDERS ----------------------------------------*/
-
 /** Populates the <option>s of a <select> based on a enumObject. */
 function appendOptions(selectElement, enumObject) {
   if (enumObject == null) {
