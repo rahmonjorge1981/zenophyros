@@ -283,7 +283,7 @@
       "activation": "reactive",
       "class": "cleric",
       "origin": "prayer",
-      "types": ["effect"],
+      "types": ["fate","effect, buff"],
       "summary": "Você pode escolher sacrificar um aliado saudável para salvar um outro aliado à beira da morte, ou vice versa.",
       "requirements": {
         "attributes": {
@@ -291,7 +291,7 @@
           "aur": 20
         }
       },
-      "desc": "Só pode ser ativada se você tiver um aliado À Beira da Morte e um aliado Vivo. Esta magic não pode ser usada em si mesmo. O aliado que você executar, qualquer que seja, doa 100% dos seus pontos de Vida e Mana restantes para o aliado vivo (isto pode superar os limites máximos do aliado-alvo). Além disso, o aliado vivo recebe um bônus em todos os seus atributos igual ao modificador dos atributos do aliado executado.",
+      "desc": "Só pode ser ativada se você tiver um aliado À Beira da Morte e um aliado Vivo. Esta magia não pode ser usada em si mesmo. O aliado que você executar, qualquer que seja, doa 100% dos seus pontos de Vida e Mana restantes para o aliado vivo (isto pode superar os limites máximos do aliado-alvo). Além disso, o aliado vivo recebe um bônus em todos os seus atributos igual ao modificador dos atributos do aliado executado.",
       "tags": ["ressuscitar", "aprimoramento"],
       "metadata": {
         "version": 1,
