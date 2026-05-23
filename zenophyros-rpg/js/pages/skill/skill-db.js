@@ -14,18 +14,22 @@ window.SkillDB = (() => {
   }
 
   function validateDatabase(database) {
+    const errors = [];
+
     for (const [skillId, skill] of Object.entries(database)) {
-      validateSkillTypes(skillId, skill);
+      validateSkillTypes(skillId, skill, errors);
+    }
+
+    if (errors.length > 0) {
+      throw new Error(`Database validation failed:\n\n${errors.join("\n")}`);
     }
   }
 
-  function validateSkillTypes(skillId, skill) {
+  function validateSkillTypes(skillId, skill, errors) {
     const validTypes = Array.isArray(skill.types) && skill.types.length > 0;
 
     if (!validTypes) {
-      throw new Error(
-        `Skill "${skillId}" possui campo "types" inválido. Esperado: array com pelo menos 1 item.`,
-      );
+      errors.push(`Skill "${skillId}" possui campo "types" inválido.`);
     }
   }
 

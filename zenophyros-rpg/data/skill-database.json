@@ -390,6 +390,7 @@
     "pyromania": {
       "id": "pyromania",
       "name": "Piromania",
+      "types": ["effect"],
       "activation": "passive",
       "class": "wizard",
       "origin": "innate",
@@ -402,6 +403,7 @@
         "hidden": false
       }
     },
+
     "levitate": {
       "id": "levitate",
       "name": "Levitar",
