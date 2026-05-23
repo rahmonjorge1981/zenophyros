@@ -187,6 +187,33 @@ function renderSkillCard(skill) {
   return card;
 }
 
+function abrirModalSkill(skill, botaoOrigem = 0) {
+  botaoSkillAtual = botaoOrigem;
+
+  const skillModal = document.getElementById("skill-modal");
+
+  if (!skillModal) {
+    console.error("Modal de skill não encontrado no HTML.");
+    return;
+  }
+
+  fillModalBody(skill);
+
+  //modalBody.innerHTML = renderModal(skill);
+
+  skillModal.classList.remove("hidden");
+}
+
+function fecharModalSkill() {
+  const skillModal = document.getElementById("skill-modal");
+
+  if (!skillModal) {
+    return;
+  }
+
+  skillModal.classList.add("hidden");
+}
+
 function formatCost(custo) {
   if (!custo) {
     console.log("No cost object to format.");
