@@ -7,6 +7,24 @@ function renderFilterOptions() {
   appendOptions(filters.types, SKILL_ENUMS.type);
 }
 
+/** Populates the <option>s of a <select> based on a enumObject. */
+function appendOptions(selectElement, enumObject) {
+  if (enumObject == null) {
+    console.error(
+      "appendOptions: erro porque 'enumObject' veio null ou undefined.",
+      { selectElement, enumObject },
+    );
+    return;
+  }
+  Object.entries(enumObject).forEach(([id, item]) => {
+    const option = document.createElement("option");
+
+    option.value = id;
+    option.textContent = item.label;
+
+    selectElement.appendChild(option);
+  });
+}
 
 function addModalEvents() {
   const skillModal = document.getElementById("skill-modal");
