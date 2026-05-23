@@ -351,7 +351,7 @@
       "id": "legendary_hero",
       "name": "Herói Lendário",
       "activation": "passive",
-      "types": "buff",
+      "types": ["buff"],
       "origin": "innate",
       "summary": "Recebe bônus ao equipar armas e equipamentos lendários.",
       "desc": "Ao equipar qualquer arma ou equipamento lendário, concede um bônus de +3 de AUR. Esse efeito não é cumulativo.",
@@ -365,7 +365,7 @@
     "spark_of_hope": {
       "id": "spark_of_hope",
       "name": "Faísca de Esperança",
-      "types": "fate",
+      "types": ["fate"],
       "activation": "reactive",
       "class": "cleric",
       "origin": "prayer",

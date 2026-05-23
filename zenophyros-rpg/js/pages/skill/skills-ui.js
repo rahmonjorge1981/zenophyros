@@ -95,8 +95,7 @@ function renderSkillCard(skill) {
 function renderBadgeList(items, enumMap) {
   if (!items?.length) return "";
 
-  return items
-    .map((item) => {
+  return items.map((item) => {
       const label = getLabelFromEnum(enumMap, item);
 
       return `<span class="skill-badge"> ${label} </span>`;
