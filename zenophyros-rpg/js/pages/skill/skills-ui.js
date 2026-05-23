@@ -89,6 +89,21 @@ function renderSkillCard(skill) {
   return card;
 }
 
+/** Helper para o renderSkillCard. Cria vários <span "skill-tag"> com base em uma lista 'items' e um 'enumMap'.
+ *  -> Usa a a lista de strings 'items' para buscar as labels em 'enumMap'.
+ */
+function renderBadgeList(items, enumMap) {
+  if (!items?.length) return "";
+
+  return items
+    .map((item) => {
+      const label = getLabelFromEnum(enumMap, item);
+
+      return `<span class="skill-badge"> ${label} </span>`;
+    })
+    .join("");
+}
+
 /** ------------------------------ HANDLES OPEN/CLOSE OF THE MODAL ------------------------------ */
 
 /** Opens the modal of an item on the list. */
@@ -291,89 +306,4 @@ function formatRequirements(reqs) {
   }
 
   return linhas.join(", ");
-}
-
-/** Helper para o renderHeader. Cria vários <span "skill-tag"> com base em uma lista 'items' e um 'enumMap'.
- *  -> Usa a a lista de strings 'items' para buscar as labels em 'enumMap'.
- */
-function renderBadgeList(items, enumMap) {
-  if (!items?.length) return "";
-
-  return items
-    .map((item) => {
-      const label = getLabelFromEnum(enumMap, item);
-
-      return `<span class="skill-badge"> ${label} </span>`;
-    })
-    .join("");
-}
-
-function renderCusto(skill) {
-  const custo = skill.custo || {};
-
-  const campos = [];
-
-  if (custo.mana !== "" && custo.mana !== undefined && custo.mana !== null) {
-    campos.push(`
-      <div class="modal-box">
-        Mana: ${custo.mana}
-      </div>
-    `);
-  }
-
-  if (custo.vida !== "" && custo.vida !== undefined && custo.vida !== null) {
-    campos.push(`
-      <div class="modal-box">
-        Vida: ${custo.vida}
-      </div>
-    `);
-  }
-
-  if (
-    custo.energia !== "" &&
-    custo.energia !== undefined &&
-    custo.energia !== null
-  ) {
-    campos.push(`
-      <div class="modal-box">
-        Energia: ${custo.energia}
-      </div>
-    `);
-  }
-
-  if (campos.length === 0) {
-    return "";
-  }
-
-  return `
-    <div class="modal-section">
-      <h3>Custo</h3>
-      <div class="modal-grid">
-        ${campos.join("")}
-      </div>
-    </div>
-  `;
-}
-
-function renderTags(skill) {
-  if (!skill.tags?.length) {
-    return "";
-  }
-
-  return `
-    <div class="modal-section">
-      <h3>Tags</h3>
-      <div class="modal-badges">
-        ${skill.tags
-          .map(
-            (tag) => `
-          <span class="skill-tag">
-            ${tag}
-          </span>
-        `,
-          )
-          .join("")}
-      </div>
-    </div>
-  `;
 }
