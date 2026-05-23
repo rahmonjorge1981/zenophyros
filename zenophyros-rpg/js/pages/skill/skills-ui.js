@@ -1,5 +1,5 @@
 /** Preenche as <option> de cada <select> dinamicamente com base no SKILL_ENUMS */
-function renderFilterOptions() {
+function renderFilterOptions(filters) {
   appendOptions(filters.activation, SKILL_ENUMS.activation);
   appendOptions(filters.origin, SKILL_ENUMS.origin);
   appendOptions(filters.class, SKILL_ENUMS.class);

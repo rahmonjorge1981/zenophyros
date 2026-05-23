@@ -1,6 +1,14 @@
 const skillsList = document.getElementById("skills-list");
 const searchInput = document.getElementById("search-input");
 
+const filters = {
+  class: document.getElementById("filter-class"),
+  species: document.getElementById("filter-species"),
+  types: document.getElementById("filter-types"),
+  activation: document.getElementById("filter-activation"),
+  origin: document.getElementById("filter-origin"),
+};
+
 let filteredSkills = [];
 
 async function init() {
@@ -9,7 +17,7 @@ async function init() {
 
   filteredSkills = SkillDB.getAll();
 
-  renderFilterOptions();
+  renderFilterOptions(filters);
   updateSkills();
   addAllEventListeners();
 }
