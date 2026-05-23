@@ -30,9 +30,9 @@ window.SKILL_ENUMS = {
     buff: { label: "Aprimoramento" },
     control: { label: "Controle" },
     summon: { label: "Invocação" },
+    effect: { label: "Efeito" },
     fate: { label: "Destino" },
     progression: { label: "Progressão" },
-    effect: { label: "Efeito" },
   },
   origin: {
     magic: { label: "Magia" },

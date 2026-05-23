@@ -1,3 +1,5 @@
+/** ------------------------------ RENDERS THE FILTERS ------------------------------ */
+
 /** Preenche as <option> de cada <select> dinamicamente com base no SKILL_ENUMS */
 function renderFilterOptions(filters) {
   appendOptions(filters.activation, SKILL_ENUMS.activation);
@@ -26,6 +28,86 @@ function appendOptions(selectElement, enumObject) {
   });
 }
 
+/** ------------------------------ RENDERS THE LIST OF CARDS ------------------------------ */
+
+/** Render the skill List */
+function renderSkills(skillsArray) {
+  skillsList.innerHTML = "";
+
+  const visibleSkills = skillsArray.filter((skill) => !skill.metadata?.hidden);
+
+  document.getElementById("skills-count").textContent =
+    `Habilidades: ${visibleSkills.length}`;
+
+  visibleSkills
+    .filter((skill) => !skill.metadata.hidden)
+    .forEach((skill) => {
+      skillsList.appendChild(renderSkillCard(skill));
+    });
+}
+
+/** Render a skill card. */
+function renderSkillCard(skill) {
+  const classLabel = getLabelFromEnum(SKILL_ENUMS.class, skill.class);
+  const speciesLabel = getLabelFromEnum(
+    SKILL_ENUMS.species,
+    skill.requirements?.species,
+  );
+  const originLabel = getLabelFromEnum(SKILL_ENUMS.origin, skill.origin);
+  const schoolLabel = getLabelFromEnum(SKILL_ENUMS.school, skill.school);
+  const activationLabel = getLabelFromEnum(
+    SKILL_ENUMS.activation,
+    skill.activation,
+  );
+
+  const card = document.createElement("article");
+
+  card.className = "skill-card";
+
+  card.innerHTML = `
+      <div class="skill-top">
+        <h2 class="skill-name"> ${skill.name} </h2>
+      </div>
+
+      <div class="skill-meta">
+        ${skill.requirements?.species ? `<span class="skill-badge"> ${speciesLabel} </span>` : ""}
+        ${skill.class ? `<span class="skill-badge"> ${classLabel} </span>` : ""}
+        ${skill.activation ? `<span class="skill-badge"> ${activationLabel} </span>` : ""}
+        ${renderBadgeList(skill.types, SKILL_ENUMS.type)}
+      </div>
+
+      <p class="skill-summary"> ${skill.summary} </p>
+
+      <div class="skill-tags">
+        ${skill.origin ? `<span class="skill-tag"> ${originLabel} </span>` : ""}
+        ${skill.school ? `<span class="skill-tag"> ${schoolLabel} </span>` : ""}
+      </div>
+    `;
+
+  card.addEventListener("click", () => openModal(skill));
+
+  return card;
+}
+
+/** ------------------------------ HANDLES OPEN/CLOSE OF THE MODAL ------------------------------ */
+
+/** Opens the modal of an item on the list. */
+function openModal(skill, botaoOrigem = 0) {
+  botaoSkillAtual = botaoOrigem;
+
+  const skillModal = document.getElementById("skill-modal");
+
+  if (!skillModal) {
+    console.error("Modal de skill não encontrado no HTML.");
+    return;
+  }
+
+  fillModalBody(skill);
+
+  skillModal.classList.remove("hidden");
+}
+
+/** Adds the close event of the modal */
 function addModalEvents() {
   const skillModal = document.getElementById("skill-modal");
   const closeButton = document.getElementById("close-modal");
@@ -36,17 +118,33 @@ function addModalEvents() {
   }
 
   closeButton.addEventListener("click", () => {
-    fecharModalSkill();
+    closeModal();
   });
 
   skillModal.addEventListener("click", (event) => {
     if (event.target === skillModal) {
-      fecharModalSkill();
+      closeModal();
     }
   });
 }
 
+/** Closes the modal. */
+function closeModal() {
+  const skillModal = document.getElementById("skill-modal");
+
+  if (!skillModal) {
+    console.log("No skill modal found.");
+    return;
+  }
+
+  skillModal.classList.add("hidden");
+}
+
+/** ------------------------------ RENDERS THE MODAL OF AN ITEM ------------------------------ */
+
+/** Function that builds the modal of an item based on its content */
 function fillModalBody(skill) {
+
   // Skill Name
   document.getElementById("skill-name").textContent = skill.name;
 
@@ -129,91 +227,7 @@ function fillModalBody(skill) {
   document.getElementById("skill-id").textContent = skill.id;
 }
 
-/** RENDERIZAR LISTA DE SKILLS */
-function renderSkills(skillsArray) {
-  skillsList.innerHTML = "";
-
-  const visibleSkills = skillsArray.filter((skill) => !skill.metadata?.hidden);
-
-  document.getElementById("skills-count").textContent =
-    `Habilidades: ${visibleSkills.length}`;
-
-  visibleSkills
-    .filter((skill) => !skill.metadata.hidden)
-    .forEach((skill) => {
-      skillsList.appendChild(renderSkillCard(skill));
-    });
-}
-
-function renderSkillCard(skill) {
-  const classLabel = getLabelFromEnum(SKILL_ENUMS.class, skill.class);
-  const speciesLabel = getLabelFromEnum(
-    SKILL_ENUMS.species,
-    skill.requirements?.species,
-  );
-  const originLabel = getLabelFromEnum(SKILL_ENUMS.origin, skill.origin);
-  const schoolLabel = getLabelFromEnum(SKILL_ENUMS.school, skill.school);
-  const activationLabel = getLabelFromEnum(
-    SKILL_ENUMS.activation,
-    skill.activation,
-  );
-
-  const card = document.createElement("article");
-
-  card.className = "skill-card";
-
-  card.innerHTML = `
-      <div class="skill-top">
-        <h2 class="skill-name"> ${skill.name} </h2>
-      </div>
-
-      <div class="skill-meta">
-        ${skill.requirements?.species ? `<span class="skill-badge"> ${speciesLabel} </span>` : ""}
-        ${skill.class ? `<span class="skill-badge"> ${classLabel} </span>` : ""}
-        ${skill.activation ? `<span class="skill-badge"> ${activationLabel} </span>` : ""}
-        ${renderBadgeList(skill.types, SKILL_ENUMS.type)}
-      </div>
-
-      <p class="skill-summary"> ${skill.summary} </p>
-
-      <div class="skill-tags">
-        ${skill.origin ? `<span class="skill-tag"> ${originLabel} </span>` : ""}
-        ${skill.school ? `<span class="skill-tag"> ${schoolLabel} </span>` : ""}
-      </div>
-    `;
-
-  card.addEventListener("click", () => abrirModalSkill(skill));
-
-  return card;
-}
-
-function abrirModalSkill(skill, botaoOrigem = 0) {
-  botaoSkillAtual = botaoOrigem;
-
-  const skillModal = document.getElementById("skill-modal");
-
-  if (!skillModal) {
-    console.error("Modal de skill não encontrado no HTML.");
-    return;
-  }
-
-  fillModalBody(skill);
-
-  //modalBody.innerHTML = renderModal(skill);
-
-  skillModal.classList.remove("hidden");
-}
-
-function fecharModalSkill() {
-  const skillModal = document.getElementById("skill-modal");
-
-  if (!skillModal) {
-    return;
-  }
-
-  skillModal.classList.add("hidden");
-}
-
+/** Helper function for the renderModal. */
 function formatCost(custo) {
   if (!custo) {
     console.log("No cost object to format.");
@@ -245,7 +259,7 @@ function formatCost(custo) {
   return linhas.join(", ");
 }
 
-// Transforma o objeto 'requirements' em uma string csv.
+/** Helper function for the renderModal. */
 function formatRequirements(reqs) {
   if (!reqs) {
     console.log("No requirements object to format.");
@@ -277,72 +291,6 @@ function formatRequirements(reqs) {
   }
 
   return linhas.join(", ");
-}
-
-function renderModal(skill) {
-  const classLabel = getLabelFromEnum(SKILL_ENUMS.class, skill.class);
-  const originLabel = getLabelFromEnum(SKILL_ENUMS.origin, skill.origin);
-  const schoolLabel = getLabelFromEnum(SKILL_ENUMS.school, skill.school);
-  const activationLabel = getLabelFromEnum(
-    SKILL_ENUMS.activation,
-    skill.activation,
-  );
-  const speciesLabel = getLabelFromEnum(
-    SKILL_ENUMS.species,
-    skill.requirements?.species,
-  );
-
-  return `
-    <h2> ${skill.name} </h2>
-
-    <div class="modal-badges">
-      ${skill.requirements?.species ? `<span class="skill-badge">${speciesLabel}</span>` : ""}
-      ${skill.class ? `<span class="skill-badge">${classLabel}</span>` : ""}
-      ${skill.activation ? `<span class="skill-badge">${activationLabel}</span>` : ""}
-
-      ${skill.origin ? `<span class="skill-tag">${originLabel}</span>` : ""}
-      ${skill.school ? `<span class="skill-tag">${schoolLabel}</span>` : ""}
-    </div>
-
-    <div class="modal-section">
-      <h3>Resumo</h3>
-      <p> ${skill.summary} </p>
-    </div>
-
-    <div class="modal-section">
-      <h3>Pré-Requisitos</h3>
-      <div class="modal-box"> ${formatRequirements(skill.requirements)} </div>
-    </div>
-
-    <div class="modal-section">
-      <h3>Efeito</h3>
-      <p>${skill.desc}</p>
-    </div>
-
-    ${
-      skill.critical
-        ? `
-      <div class="modal-section">
-        <h3>Crítico</h3>
-        <p>${skill.critical}</p>
-      </div>
-      `
-        : ""
-    }
-    ${renderCusto(skill)}
-
-    <div class="modal-section">
-      <h3>Tipos</h3>
-
-      <div class="modal-badges">
-        ${renderBadgeList(skill.types, SKILL_ENUMS.types)}
-      </div>
-    </div>
-
-    <div class="modal-id">
-      ID: <code>${skill.id}</code>
-    </div>
-  `;
 }
 
 /** Helper para o renderHeader. Cria vários <span "skill-tag"> com base em uma lista 'items' e um 'enumMap'.
