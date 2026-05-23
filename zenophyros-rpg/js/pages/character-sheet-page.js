@@ -411,7 +411,7 @@ function atualizarUI() {
 async function inicializarFicha() {
   await carregarSpeciesData();
   await carregarClassData();
-  await loadSkills();
+  await SkillDB.load();
   addModalEvents();
   configurarBotoesHabilidade();
   inicializarModificadores();
