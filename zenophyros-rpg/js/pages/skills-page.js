@@ -1,5 +1,3 @@
-const SkillDB = window.SkillDB;
-
 const skillsList = document.getElementById("skills-list");
 const searchInput = document.getElementById("search-input");
 
