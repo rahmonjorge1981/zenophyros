@@ -314,7 +314,7 @@ function preencherHabilidades(lista = []) {
       return;
     }
 
-    const skill = searchSkillById(skillId);
+    const skill = SkillDB.searchById(skillId);
 
     // Skill não existe mais
     if (!skill) {
