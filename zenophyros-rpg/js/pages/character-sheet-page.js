@@ -143,7 +143,7 @@ function configurarBotoesHabilidade() {
           return;
         }
 
-        const skill = searchSkillById(novoId);
+        const skill = SkillDB.searchById(novoId);
 
         if (!skill) {
           alert("Habilidade não encontrada.");
@@ -160,14 +160,14 @@ function configurarBotoesHabilidade() {
       }
 
       // BOTÃO COM SKILL
-      const skill = searchSkillById(skillId);
+      const skill = SkillDB.searchById(skillId);
 
       if (!skill) {
         alert("Habilidade inválida.");
         return;
       }
 
-      abrirModalSkill(skill, botao);
+      openModal(skill, botao); // <- this is from skills-ui.js.
     });
   });
 }
@@ -314,7 +314,7 @@ function preencherHabilidades(lista = []) {
       return;
     }
 
-    const skill = searchSkillById(skillId);
+    const skill = SkillDB.searchById(skillId);
 
     // Skill não existe mais
     if (!skill) {
@@ -411,7 +411,7 @@ function atualizarUI() {
 async function inicializarFicha() {
   await carregarSpeciesData();
   await carregarClassData();
-  await loadSkills();
+  await SkillDB.load();
   addModalEvents();
   configurarBotoesHabilidade();
   inicializarModificadores();

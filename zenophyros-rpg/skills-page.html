@@ -45,8 +45,8 @@
               <option value="">Todas as Ativações</option>
             </select>
 
-            <select id="filter-effects">
-              <option value="">Todos os Efeitos</option>
+            <select id="filter-types">
+              <option value="">Todos os Tipos</option>
             </select>
 
             <select id="filter-origin">
@@ -56,15 +56,65 @@
         </header>
 
         <section id="skills-list" class="skills-list">
-          <!-- LISTA CONTROLADA POR JAVASCRIPT -->
+          <!-- LIST OF SKILLS CONTROLLED BY JS -->
         </section>
 
+        <!-- MODAL DE HABILIDADE -->
         <div id="skill-modal" class="skill-modal hidden">
           <div class="skill-modal-content">
             <button id="close-modal" class="modal-close">X</button>
 
             <div id="modal-body">
-              <!-- JS -->
+              <h2 id="skill-name">skill-name</h2>
+
+              <div class="modal-badges">
+                <span id="species-badge" class="skill-badge">species-label</span>
+                <span id="class-badge" class="skill-badge">class-label</span>
+                <span id="activation-badge" class="skill-badge">activation-label</span>
+                <span id="origin-tag" class="skill-tag">origin-label</span>
+                <span id="school-tag" class="skill-tag">school-label</span>
+              </div>
+
+              <div class="modal-section">
+                <h3>Resumo</h3>
+                <p id="skill-summary">skill-summary</p>
+              </div>
+
+              <div id="requirements-section" class="modal-section">
+                <h3>Pré-Requisitos</h3>
+
+                <div id="skill-requirements" class="modal-box">
+                  skill-requirements
+                </div>
+              </div>
+
+              <div class="modal-section">
+                <h3>Efeito</h3>
+                <p id="skill-desc">skill-desc</p>
+              </div>
+
+              <div id="critical-section" class="modal-section">
+                <h3>Crítico</h3>
+                <p id="skill-critical">skill-critical</p>
+              </div>
+
+              <div id="cost-section" class="modal-section">
+                <h3>Custo</h3>
+
+                <div id="skill-cost" class="modal-box">skill-cost</div>
+              </div>
+
+              <div class="modal-section">
+                <h3>Tipos</h3>
+
+                <div id="skill-types" class="modal-badges">
+                  <!-- badges -->
+                </div>
+              </div>
+
+              <div class="modal-id">
+                ID: <code id="skill-id">skill-id</code>
+              </div>
             </div>
           </div>
         </div>
@@ -78,6 +128,9 @@
 
     <script src="./js/utils.js"></script>
     <script src="./js/footer.js"></script>
+    <script src="./js/pages/skill/skill-enums.js"></script>
+    <script src="./js/pages/skill/skill-db.js"></script>
+    <script src="./js/pages/skill/skills-ui.js"></script>
     <script src="./js/pages/skills-page.js"></script>
   </body>
 </html>

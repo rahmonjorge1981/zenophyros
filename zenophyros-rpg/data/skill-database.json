@@ -1,88 +1,55 @@
 {
   "schema": "zenophyros.habilidades.v2",
   "habilidades": {
-    "aaaa": {
-      "id": "test",
-      "name": "AAA Teste",
-      "mechanics": {
-        "text": "This is a test skill for testing purposes."
-      },
-      "requirements": {
-        "attributes": {
-          "for": 10,
-          "des": 10,
-          "agi": 10,
-          "vit": 10,
-          "rac": 10,
-          "ins": 10,
-          "san": 10,
-          "aur": 10
-        }
-      },
-      "metadata": {
-        "version": 1,
-        "beta": true,
-        "hidden": true
-      }
-    },
+
     "thunder_punch": {
       "id": "thunder_punch",
       "name": "Soco Elétrico",
+      "summary": "Imbui seu punho em raios, causando dano elétrico adicional no próximo ataque.",
       "activation": "active",
+      "context": "in_combat",
+      "types": ["damage", "control"],
+      "desc": "Realiza um soco que causa 1d6 de dano de Trovão adicional.",
+      "critical": "Alvo fica paralisado por 1d4 turnos.",
       "class": "monk",
       "origin": "magic",
-      "desc": "Imbui seu punho em chamas, causando dano elétrico adicional no próximo ataque.",
+      "school": "martial_magic",
       "requirements": {
         "attributes": {
           "for": 12,
           "rac": 12
-        }
-      },
-      "mechanics": {
-        "text": "Seu próximo ataque desarmado causa 1d6 de dano de Trovão adicional. Crítico: Alvo fica paralisado por 1d4 turnos.",
-        "formulas": [
-          {
-            "formulaType": "hit_check",
-            "formula": "d20 + Mod(DES) vs. 10 + Mod(AGI)"
-          },
-          {
-            "formulaType": "damage",
-            "formula": "1d6"
-          },
-          {
-            "formulaType": "effect",
-            "formula": "1d4"
-          }
-        ],
-        "target": "single"
+        },
+        "species": null
       },
       "cost": {
-        "mana": 4
+        "life": null,
+        "mana": 4,
+        "energy": null,
+        "items": null
       },
-      "tags": ["thunder"],
+      "tags": ["thunder", "paralysis"],
       "metadata": {
         "version": 1,
         "beta": true,
         "hidden": false
       }
     },
+
     "thunderstorm": {
       "id": "thunderstorm",
       "name": "Tempestade de Raios",
+      "summary": "Conjura uma tempestade de raios devastadora.",
       "activation": "active",
+      "context": "in_combat",
+      "types": ["damage"],
       "class": "wizard",
-      "desc": "Conjura uma tempestade de raios devastadora.",
       "requirements": {
         "attributes": {
           "rac": 20,
           "aur": 20
         }
       },
-      "mechanics": {
-        "text": "Causa 1d100 de dano em uma área 10x10.",
-        "formulas": [],
-        "target": "area"
-      },
+      "desc": "Causa 1d100 de dano em uma área 10x10.",
       "cost": {
         "mana": 25
       },
@@ -93,32 +60,22 @@
         "hidden": false
       }
     },
+
     "gigantify": {
       "id": "gigantify",
       "name": "Gigantificar",
       "activation": "active",
       "class": "warrior",
       "origin": "magic",
-      "effects": ["buff"],
-      "desc": "Cresce de tamanho, aumentando seus atributos base.",
+      "types": ["buff"],
+      "summary": "Cresce de tamanho, aumentando seus atributos base.",
       "requirements": {
         "attributes": {
           "for": 12,
           "vit": 14
         }
       },
-      "mechanics": {
-        "text": "Aumenta sua FOR e VIT em +5, mas reduz sua DES e AGI em -5.",
-        "formulas": [
-          {
-            "formulaType": "buff",
-            "formula": "FOR: +5, VIT: +5, DES: -5, AGI: -5"
-          }
-        ],
-        "target": {
-          "targetType": "self"
-        }
-      },
+      "desc": "Aumenta sua FOR e VIT em +5, mas reduz sua DES e AGI em -5.",
       "cost": {
         "energy": 10
       },
@@ -128,39 +85,22 @@
         "hidden": false
       }
     },
+
     "golpe_atordoante": {
       "id": "stun_strike",
       "name": "Golpe Atordoante",
       "activation": "active",
       "class": "monk",
       "origin": "technique",
-      "effects": ["control"],
-      "desc": "Acerta o alvo em um ponto fraco, causando atordoamento.",
+      "types": ["control"],
+      "summary": "Acerta o alvo em um ponto fraco, causando atordoamento.",
       "requirements": {
         "attributes": {
           "for": 10
         }
       },
-      "mechanics": {
-        "text": "Role um teste de Controle de Grupo. Se acertar, o alvo fica atordoado no próximo turno. Este ataque causa o mesmo dano do seu Ataque Físico.",
-        "formulas": [
-          {
-            "formulaType": "ACERTO",
-            "formula": "d20 + Mod(DES) vs. 10 + Mod(VIT)"
-          }
-        ],
-        "alcance": {
-          "tipo": "CONTATO",
-          "distancia": 0
-        },
-        "area": {
-          "tipo": "ALVO_UNICO"
-        },
-        "duracao": 0
-      },
+      "desc": "Role um teste de Controle de Grupo. Se acertar, o alvo fica atordoado no próximo turno. Este ataque causa o mesmo dano do seu Ataque Físico.",
       "cost": {
-        "mana": "",
-        "vida": "",
         "energy": 10
       },
       "tags": ["cc", "alvo único"],
@@ -170,52 +110,20 @@
         "hidden": false
       }
     },
+
     "no_heroes": {
       "id": "no_heroes",
       "name": "Sem Heróis",
-      "nivel": 0,
       "activation": "passive",
-      "effects": ["damage"],
+      "types": ["damage"],
       "origin": "technique",
-      "desc": "Causa dano adicional contra aqueles que tentam realizar atos de heroísmo.",
+      "summary": "Causa dano adicional contra aqueles que tentam realizar atos de heroísmo.",
       "requirements": {
         "attributes": {
-          "for": 0,
-          "des": 0,
-          "agi": 0,
-          "vit": 0,
-          "rac": 0,
-          "ins": 0,
-          "san": 0,
           "aur": 20
-        },
-        "habilidades": [],
-        "niveis": {
-          "personagem": ""
         }
       },
-      "mechanics": {
-        "text": "Suas habilidades sempre causam acerto crítico em alvos que usaram habilidades para curar ou proteger seus aliados.",
-        "formulas": [
-          {
-            "formulaType": "",
-            "formula": ""
-          }
-        ],
-        "alcance": {
-          "tipo": "SELF",
-          "distancia": 0
-        },
-        "area": {
-          "tipo": "NENHUMA"
-        },
-        "duracao": 0
-      },
-      "cost": {
-        "mana": "",
-        "vida": "",
-        "energy": ""
-      },
+      "desc": "Suas habilidades sempre causam acerto crítico em alvos que usaram habilidades para curar ou proteger seus aliados.",
       "tags": ["dano", "aprimoramento"],
       "metadata": {
         "version": 1,
@@ -223,52 +131,24 @@
         "hidden": false
       }
     },
+
     "fire_arrow": {
       "id": "fire_arrow",
       "name": "Flecha de Fogo",
-      "nivel": 0,
       "activation": "active",
       "class": "archer",
       "origin": "magic",
-      "effects": ["damage"],
-      "desc": "Dispara uma flecha imbuída com o elemento fogo.",
+      "types": ["damage"],
+      "summary": "Dispara uma flecha imbuída com o elemento fogo.",
       "requirements": {
         "attributes": {
-          "for": 0,
-          "des": 0,
-          "agi": 0,
-          "vit": 0,
-          "rac": 0,
-          "ins": 0,
-          "san": 0,
-          "aur": 0
-        },
-        "habilidades": [],
-        "niveis": {
-          "personagem": 0
+          "des": 12,
+          "rac": 12
         }
       },
-      "mechanics": {
-        "text": "A próxima flecha causa 1d4 de dano de Fogo adicional.",
-        "formulas": [
-          {
-            "formulaType": "DANO",
-            "formula": "1d4"
-          }
-        ],
-        "alcance": {
-          "tipo": "CONTATO",
-          "distancia": 0
-        },
-        "area": {
-          "tipo": "ALVO_UNICO"
-        },
-        "duracao": 0
-      },
+      "desc": "A próxima flecha causa 1d4 de dano de Fogo adicional.",
       "cost": {
-        "mana": 2,
-        "vida": null,
-        "energy": null
+        "mana": 2
       },
       "tags": ["atirador", "fogo"],
       "metadata": {
@@ -277,53 +157,21 @@
         "hidden": false
       }
     },
+
     "ataque_surpresa": {
       "id": "ataque_surpresa",
       "name": "Ataque Surpresa",
-      "nivel": 0,
       "activation": "passive",
       "class": "assassin",
       "origin": "technique",
-      "effects": ["damage"],
-      "desc": "Aumenta a chance de crítico durante a Furtividade.",
+      "types": ["damage"],
+      "summary": "Aumenta a chance de crítico durante a Furtividade.",
       "requirements": {
         "attributes": {
-          "for": 0,
-          "des": 14,
-          "agi": 0,
-          "vit": 0,
-          "rac": 0,
-          "ins": 0,
-          "san": 0,
-          "aur": 0
-        },
-        "habilidades": [],
-        "niveis": {
-          "personagem": 0
+          "des": 14
         }
       },
-      "mechanics": {
-        "text": "Reduz a CD de acertos críticos em -Mod(AGI). Ex: Com AGI +3, você crita ao tirar 17 ou mais.",
-        "formulas": [
-          {
-            "formulaType": "",
-            "formula": ""
-          }
-        ],
-        "alcance": {
-          "tipo": "SELF",
-          "distancia": 0
-        },
-        "area": {
-          "tipo": "NENHUMA"
-        },
-        "duracao": 0
-      },
-      "cost": {
-        "mana": null,
-        "vida": null,
-        "energy": null
-      },
+      "desc": "Reduz a CD de acertos críticos em -Mod(AGI). Ex: Com AGI +3, você crita ao tirar 17 ou mais.",
       "tags": ["furtividade"],
       "metadata": {
         "version": 1,
@@ -331,52 +179,24 @@
         "hidden": false
       }
     },
+
     "shunpo": {
       "id": "shunpo",
       "name": "Troca Instantânea",
-      "nivel": 0,
       "activation": "active",
       "class": "ninja",
       "origin": "magic",
-      "effects": ["mobility"],
-      "desc": "Desenhe um círculo mágico em um aliado. Uma vez, até o final do combate, você pode trocar de lugar com ele instantaneamente.",
+      "types": ["effect"],
+      "summary": "Desenhe um círculo mágico em um aliado. Uma vez, até o final do combate, você pode trocar de lugar com ele instantaneamente.",
       "requirements": {
         "attributes": {
-          "for": 0,
-          "des": 0,
           "agi": 14,
-          "vit": 0,
-          "rac": 0,
-          "ins": 14,
-          "san": 0,
-          "aur": 0
-        },
-        "habilidades": [],
-        "niveis": {
-          "personagem": 0
+          "ins": 14
         }
       },
-      "mechanics": {
-        "text": "Marque um aliado vivo. Ao ativar, troca de lugar com este aliado. Se estiver morto, a habilidade falha.",
-        "formulas": [
-          {
-            "formulaType": "",
-            "formula": ""
-          }
-        ],
-        "alcance": {
-          "tipo": "GLOBAL",
-          "distancia": 0
-        },
-        "area": {
-          "tipo": "NENHUMA"
-        },
-        "duracao": 0
-      },
+      "desc": "Marque um aliado vivo. Ao ativar, troca de lugar com este aliado. Se estiver morto, a habilidade falha.",
       "cost": {
-        "mana": 20,
-        "vida": null,
-        "energy": null
+        "mana": 20
       },
       "tags": ["teletransporte"],
       "metadata": {
@@ -385,54 +205,19 @@
         "hidden": false
       }
     },
+
     "adaptability": {
       "id": "adaptability",
       "name": "Adaptabilidade",
-      "nivel": 0,
       "activation": "passive",
+      "context": "out_of_combat",
       "origin": "innate",
-      "species": "human",
-      "effects": ["utility"],
-      "desc": "Humanos recebem +1 Ponto de Atributo ao passar de Nível.",
+      "types": ["progression"],
+      "summary": "Humanos recebem +1 Ponto de Atributo ao passar de Nível.",
       "requirements": {
-        "attributes": {
-          "for": 0,
-          "des": 0,
-          "agi": 0,
-          "vit": 0,
-          "rac": 0,
-          "ins": 0,
-          "san": 0,
-          "aur": 0
-        },
-        "habilidades": [],
-        "niveis": {
-          "personagem": 0
-        },
-        "especie": ["HUMANO"]
+        "species": ["human"]
       },
-      "mechanics": {
-        "text": "Recebe +1 Ponto de Atributo ao passar de Nível.",
-        "formulas": [
-          {
-            "formulaType": "",
-            "formula": ""
-          }
-        ],
-        "alcance": {
-          "tipo": "NENHUM",
-          "distancia": 0
-        },
-        "area": {
-          "tipo": "NENHUMA"
-        },
-        "duracao": 0
-      },
-      "cost": {
-        "mana": null,
-        "vida": null,
-        "energy": null
-      },
+      "desc": "Recebe +1 Ponto de Atributo ao passar de Nível.",
       "tags": ["crescimento"],
       "metadata": {
         "version": 1,
@@ -440,108 +225,49 @@
         "hidden": false
       }
     },
+
     "luck": {
       "id": "luck",
       "name": "Sorte",
-      "nivel": 0,
-      "activation": "passive",
+      "activation": "reactive",
+      "context": "both",
       "origin": "innate",
-      "species": "human",
-      "effects": ["utility"],
-      "desc": "Humanos podem escolher rolar um teste novamente uma vez ao dia.",
+      "types": ["fate"],
+      "summary": "Humanos podem escolher rolar um teste novamente uma vez ao dia.",
       "requirements": {
-        "attributes": {
-          "for": 0,
-          "des": 0,
-          "agi": 0,
-          "vit": 0,
-          "rac": 0,
-          "ins": 0,
-          "san": 0,
-          "aur": 0
-        },
-        "habilidades": [],
         "niveis": {
           "personagem": 5
         },
-        "especie": ["HUMANO"]
+        "species": ["human"]
       },
-      "mechanics": {
-        "text": "Uma vez por dia, pode rolar qualquer teste novamente.",
-        "formulas": [
-          {
-            "tipo": "",
-            "formula": ""
-          }
-        ],
-        "alcance": {
-          "tipo": "NENHUM",
-          "distancia": 0
-        },
-        "area": {
-          "tipo": "NENHUMA"
-        },
-        "duracao": 0
-      },
-      "cost": {
-        "mana": null,
-        "vida": null,
-        "energy": null
-      },
-      "tags": [],
+      "desc": "Uma vez por dia, pode rolar qualquer teste novamente.",
+      
       "metadata": {
         "version": 1,
         "beta": true,
         "hidden": false
       }
     },
+
     "god_crit": {
       "id": "god_crit",
       "name": "Crítico Divino",
-      "nivel": 0,
       "activation": "active",
       "class": "cleric",
       "origin": "prayer",
-      "effects": ["buff"],
-      "desc": "Abençoa a arma de um aliado com uma luz divina dourada. ",
+      "types": ["buff"],
+      "summary": "Abençoa a arma de um aliado com uma luz divina dourada. ",
       "requirements": {
         "attributes": {
-          "for": 0,
-          "des": 0,
-          "agi": 0,
-          "vit": 0,
-          "rac": 0,
-          "ins": 0,
-          "san": 20,
-          "aur": 0
+          "san": 20
         },
-        "habilidades": [],
         "niveis": {
           "personagem": 5
-        },
-        "especie": []
+        }
       },
-      "mechanics": {
-        "text": "Role um d100. O dano do próximo Ataque Físico é multiplicado de acordo com o resultado: \n51-100 (50%): Dano Final x1.5 \n21-50 (30%): Dano Final x2 \n6-20 (15%): Dano Final x3 \n1-5 (5%): Dano Final x5",
-        "formulas": [
-          {
-            "tipo": "",
-            "formula": ""
-          }
-        ],
-        "alcance": {
-          "tipo": "NENHUM",
-          "distancia": 0
-        },
-        "area": {
-          "tipo": "ALVO_UNICO"
-        },
-        "duracao": 0
-      },
+      "desc": "Role um d100. O dano do próximo Ataque Físico é multiplicado de acordo com o resultado: \n51-100 (50%): Dano Final x1.5 \n21-50 (30%): Dano Final x2 \n6-20 (15%): Dano Final x3 \n1-5 (5%): Dano Final x5",
       "cost": {
-        "mana": 50,
-        "vida": null,
-        "energy": null
+        "mana": 50
       },
       "tags": ["aprimoramento"],
       "metadata": {
@@ -550,54 +276,22 @@
         "hidden": false
       }
     },
+
     "black_orchid": {
       "id": "black_orchid",
       "name": "Orquídea Negra",
-      "nivel": 0,
       "activation": "reactive",
       "class": "cleric",
       "origin": "prayer",
-      "effects": ["utility"],
-      "desc": "Você pode escolher sacrificar um aliado saudável para salvar um outro aliado à beira da morte, ou vice versa.",
+      "types": ["fate", "effect", "buff"],
+      "summary": "Você pode escolher sacrificar um aliado saudável para salvar um outro aliado à beira da morte, ou vice versa.",
       "requirements": {
         "attributes": {
-          "for": 0,
-          "des": 0,
-          "agi": 0,
-          "vit": 0,
-          "rac": 0,
-          "ins": 0,
           "san": 18,
           "aur": 20
-        },
-        "habilidades": [],
-        "niveis": {
-          "personagem": 0
-        },
-        "especie": []
+        }
       },
-      "mechanics": {
-        "text": "Só pode ser ativada se você tiver um aliado À Beira da Morte e um aliado Vivo. Esta magic não pode ser usada em si mesmo. O aliado que você executar, qualquer que seja, doa 100% dos seus pontos de Vida e Mana restantes para o aliado vivo (isto pode superar os limites máximos do aliado-alvo). Além disso, o aliado vivo recebe um bônus em todos os seus atributos igual ao modificador dos atributos do aliado executado.",
-        "formulas": [
-          {
-            "tipo": "",
-            "formula": ""
-          }
-        ],
-        "alcance": {
-          "tipo": "GLOBAL",
-          "distancia": 0
-        },
-        "area": {
-          "tipo": "ALVO_UNICO"
-        },
-        "duracao": 0
-      },
-      "cost": {
-        "mana": null,
-        "vida": null,
-        "energy": null
-      },
+      "desc": "Só pode ser ativada se você tiver um aliado À Beira da Morte e um aliado Vivo. Esta magia não pode ser usada em si mesmo. O aliado que você executar, qualquer que seja, doa 100% dos seus pontos de Vida e Mana restantes para o aliado vivo (isto pode superar os limites máximos do aliado-alvo). Além disso, o aliado vivo recebe um bônus em todos os seus atributos igual ao modificador dos atributos do aliado executado.",
       "tags": ["ressuscitar", "aprimoramento"],
       "metadata": {
         "version": 1,
@@ -605,53 +299,15 @@
         "hidden": false
       }
     },
+
     "dynamic_duo": {
       "id": "dynamic_duo",
       "name": "Dupla Dinâmica",
-      "nivel": 0,
       "activation": "passive",
       "origin": "technique",
-      "effects": ["utility"],
-      "desc": "Aumenta a sua AGI e a de um aliado ao jogar em dupla.",
-      "requirements": {
-        "attributes": {
-          "for": 0,
-          "des": 0,
-          "agi": 0,
-          "vit": 0,
-          "rac": 0,
-          "ins": 0,
-          "san": 0,
-          "aur": 0
-        },
-        "habilidades": [],
-        "niveis": {
-          "personagem": 0
-        },
-        "especie": []
-      },
-      "mechanics": {
-        "text": "Se a sua party só tiver duas pessoas, concede +3 de AGI a você e seu aliado. Se o seu aliado também tiver essa habilidade, o bônus aumenta para +5.",
-        "formulas": [
-          {
-            "tipo": "",
-            "formula": ""
-          }
-        ],
-        "alcance": {
-          "tipo": "NENHUM",
-          "distancia": 0
-        },
-        "area": {
-          "tipo": "NENHUMA"
-        },
-        "duracao": 0
-      },
-      "cost": {
-        "mana": null,
-        "vida": null,
-        "energy": null
-      },
+      "types": ["buff"],
+      "summary": "Aumenta a sua AGI e a de um aliado ao jogar em dupla.",
+      "desc": "Se a sua party só tiver duas pessoas, concede +3 de AGI a você e seu aliado. Se o seu aliado também tiver essa habilidade, o bônus aumenta para +5.",
       "tags": ["agilidade", "equipe"],
       "metadata": {
         "version": 1,
@@ -659,14 +315,14 @@
         "hidden": false
       }
     },
+
     "rainbow_strike": {
       "id": "rainbow_strike",
       "name": "Impacto Prismático",
-      "nivel": 0,
       "activation": "active",
-
+      "types": ["damage"],
       "origin": "prayer",
-      "desc": "Imbui uma essência luminosa multicromática para o próximo Ataque Físico causar dano baseado em TODOS os seus atributos.",
+      "summary": "Imbui uma essência luminosa multicromática para golpear um alvo, causando dano baseado em TODOS os seus atributos.",
       "requirements": {
         "attributes": {
           "for": 10,
@@ -678,142 +334,51 @@
           "san": 10,
           "aur": 10
         },
-        "habilidades": [],
         "niveis": {
           "personagem": 7
-        },
-        "especie": []
+        }
       },
-      "mechanics": {
-        "text": "O próximo ataque causa Dano Final igual à metade da soma de todos os seus atributos. O custo de ativação é igual à 100% da sua Mana OU Energia Atual. Crítico: 2x de dano",
-        "formulas": [
-          {
-            "tipo": "damage",
-            "formula": "(FOR+DES+AGI+VIT+RAC+INS+SAN+AUR)/2"
-          }
-        ],
-        "alcance": {
-          "tipo": "SELF",
-          "distancia": 0
-        },
-        "area": {
-          "tipo": "NENHUMA"
-        },
-        "duracao": 0
-      },
-      "cost": {
-        "mana": null,
-        "vida": null,
-        "energy": null
-      },
-      "tags": [],
+      "desc": "Causa Dano Final igual à metade da soma de todos os seus atributos. O custo de ativação é igual à 100% da sua Mana OU Energia Atual. Crítico: 2x de dano",
+      
       "metadata": {
         "version": 1,
         "beta": true,
         "hidden": false
       }
     },
+
     "legendary_hero": {
       "id": "legendary_hero",
       "name": "Herói Lendário",
-      "nivel": 0,
       "activation": "passive",
-
+      "types": ["buff"],
       "origin": "innate",
-      "desc": "Recebe bônus ao equipar armas e equipamentos lendários.",
-      "requirements": {
-        "attributes": {
-          "for": 0,
-          "des": 0,
-          "agi": 0,
-          "vit": 0,
-          "rac": 0,
-          "ins": 0,
-          "san": 0,
-          "aur": 0
-        },
-        "habilidades": [],
-        "niveis": {
-          "personagem": 0
-        },
-        "especie": []
-      },
-      "mechanics": {
-        "text": "Ao equipar qualquer arma ou equipamento lendário, concede um bônus de +3 de AUR. Esse efeito não é cumulativo.",
-        "formulas": [
-          {
-            "tipo": "",
-            "formula": ""
-          }
-        ],
-        "alcance": {
-          "tipo": "NENHUM",
-          "distancia": 0
-        },
-        "area": {
-          "tipo": "NENHUMA"
-        },
-        "duracao": 0
-      },
-      "cost": {
-        "mana": null,
-        "vida": null,
-        "energy": null
-      },
-      "tags": [],
+      "summary": "Recebe bônus ao equipar armas e equipamentos lendários.",
+      "desc": "Ao equipar qualquer arma ou equipamento lendário, concede um bônus de +3 de AUR. Esse efeito não é cumulativo.",
       "metadata": {
         "version": 1,
         "beta": true,
         "hidden": false
       }
     },
+
     "spark_of_hope": {
       "id": "spark_of_hope",
       "name": "Faísca de Esperança",
-      "nivel": 0,
+      "types": ["fate"],
       "activation": "reactive",
       "class": "cleric",
       "origin": "prayer",
-      "desc": "Sempre que um aliado falhar um Teste de Morte pela primeira vez, ele pode tentar novamente.",
+      "summary": "Sempre que um aliado falhar um Teste de Morte pela primeira vez, ele pode tentar novamente.",
       "requirements": {
         "attributes": {
-          "for": 0,
-          "des": 0,
-          "agi": 0,
-          "vit": 0,
-          "rac": 0,
-          "ins": 0,
-          "san": 16,
-          "aur": 0
+          "san": 16
         },
-        "habilidades": [],
         "niveis": {
           "personagem": 0
-        },
-        "especie": []
+        }
       },
-      "mechanics": {
-        "text": "Sempre que um aliado falhar um Teste de Morte pela primeira vez, ele pode tentar novamente.",
-        "formulas": [
-          {
-            "tipo": "",
-            "formula": ""
-          }
-        ],
-        "alcance": {
-          "tipo": "NENHUM",
-          "distancia": 0
-        },
-        "area": {
-          "tipo": "NENHUMA"
-        },
-        "duracao": 0
-      },
-      "cost": {
-        "mana": null,
-        "vida": null,
-        "energy": null
-      },
+      "desc": "Sempre que um aliado falhar um Teste de Morte pela primeira vez, ele pode tentar novamente.",
       "tags": ["ressuscitar"],
       "metadata": {
         "version": 1,
@@ -821,53 +386,16 @@
         "hidden": false
       }
     },
+
     "pyromania": {
       "id": "pyromania",
       "name": "Piromania",
-      "nivel": 0,
+      "types": ["effect"],
       "activation": "passive",
       "class": "wizard",
       "origin": "innate",
+      "summary": "Suas magias que causam dano de Fogo tem o custo de Mana reduzido em 50%.",
       "desc": "Suas magias que causam dano de Fogo tem o custo de Mana reduzido em 50%.",
-      "requirements": {
-        "attributes": {
-          "for": 0,
-          "des": 0,
-          "agi": 0,
-          "vit": 0,
-          "rac": 0,
-          "ins": 0,
-          "san": 0,
-          "aur": 0
-        },
-        "habilidades": [],
-        "niveis": {
-          "personagem": 0
-        },
-        "especie": []
-      },
-      "mechanics": {
-        "text": "Suas magias que causam dano de Fogo tem o custo de Mana reduzido em 50%.",
-        "formulas": [
-          {
-            "tipo": "",
-            "formula": ""
-          }
-        ],
-        "alcance": {
-          "tipo": "NENHUM",
-          "distancia": 0
-        },
-        "area": {
-          "tipo": "NENHUMA"
-        },
-        "duracao": 0
-      },
-      "cost": {
-        "mana": null,
-        "vida": null,
-        "energy": null
-      },
       "tags": ["fogo", "mana"],
       "metadata": {
         "version": 1,
@@ -875,106 +403,49 @@
         "hidden": false
       }
     },
+
     "levitate": {
       "id": "levitate",
       "name": "Levitar",
-      "nivel": 0,
+      "types": ["effect"],
       "activation": "passive",
       "class": "wizard",
       "origin": "magic",
-      "desc": "Concede efeito de levitação.",
+      "summary": "Concede efeito de levitação.",
       "requirements": {
         "attributes": {
-          "for": 0,
-          "des": 0,
-          "agi": 0,
-          "vit": 0,
           "rac": 14,
-          "ins": 0,
-          "san": 0,
           "aur": 16
         },
-        "habilidades": [],
         "niveis": {
           "personagem": 0
-        },
-        "especie": []
+        }
       },
-      "mechanics": {
-        "text": "Pode levitar de alguns centímetros até um metro do chão, com base na sua AUR.",
-        "formulas": [
-          {
-            "tipo": "",
-            "formula": "Altura (cm) = AUR*10"
-          }
-        ],
-        "alcance": {
-          "tipo": "NENHUM",
-          "distancia": 0
-        },
-        "area": {
-          "tipo": "NENHUMA"
-        },
-        "duracao": 0
-      },
-      "cost": {
-        "mana": null,
-        "vida": null,
-        "energy": null
-      },
+      "desc": "Pode levitar de alguns centímetros até um metro do chão, com base na sua AUR.",
       "metadata": {
         "version": 1,
         "beta": true,
         "hidden": false
       }
     },
+
     "fly": {
       "id": "fly",
       "name": "Voar",
-      "nivel": 0,
+      "types": ["effect"],
       "activation": "passive",
-
       "origin": "magic",
-      "desc": "Concede vôo passivo.",
+      "summary": "Concede vôo passivo.",
       "requirements": {
         "attributes": {
-          "for": 0,
-          "des": 0,
-          "agi": 0,
-          "vit": 0,
           "rac": 18,
-          "ins": 0,
-          "san": 0,
           "aur": 20
         },
-        "habilidades": [],
         "niveis": {
           "personagem": 0
-        },
-        "especie": []
+        }
       },
-      "mechanics": {
-        "text": "Permite vôo passivo, com altura indeterminada. Este efeito é desativado se você for atingido, ficar sem Mana ou sem Energia.",
-        "formulas": [
-          {
-            "tipo": "",
-            "formula": ""
-          }
-        ],
-        "alcance": {
-          "tipo": "NENHUM",
-          "distancia": 0
-        },
-        "area": {
-          "tipo": "NENHUMA"
-        },
-        "duracao": 0
-      },
-      "cost": {
-        "mana": null,
-        "vida": null,
-        "energy": null
-      },
+      "desc": "Permite vôo passivo, com altura indeterminada. Este efeito é desativado se você for atingido, ficar sem Mana ou sem Energia.",
       "tags": ["voo"],
       "metadata": {
         "version": 1,
@@ -982,52 +453,27 @@
         "hidden": false
       }
     },
+
     "fire_punch": {
       "id": "fire_punch",
       "name": "Soco Flamejante",
-      "nivel": 0,
+      "types": ["buff","damage"],
       "activation": "active",
       "class": "monk",
       "origin": "magic",
-      "desc": "Imbui seu punho em chamas, causando dano de fogo adicional no próximo ataque.",
+      "summary": "Imbui seu punho em chamas, causando dano de fogo adicional no próximo ataque.",
       "requirements": {
         "attributes": {
           "for": 12,
-          "des": 0,
-          "agi": 0,
-          "vit": 0,
-          "rac": 0,
-          "ins": 0,
-          "san": 0,
           "aur": 12
         },
-        "habilidades": [],
         "niveis": {
           "personagem": 0
-        },
-        "especie": []
+        }
       },
-      "mechanics": {
-        "text": "Seu próximo ataque desarmado causa 1d6 de dano de Fogo adicional.",
-        "formulas": [
-          {
-            "tipo": "DANO",
-            "formula": "1d6"
-          }
-        ],
-        "alcance": {
-          "tipo": "CONTATO",
-          "distancia": 0
-        },
-        "area": {
-          "tipo": "NENHUMA"
-        },
-        "duracao": 0
-      },
+      "desc": "Seu próximo ataque desarmado causa 1d6 de dano de Fogo adicional.",
       "cost": {
-        "mana": 5,
-        "vida": null,
-        "energy": null
+        "mana": 5
       },
       "tags": ["fogo", "dano", "monge"],
       "metadata": {
@@ -1036,51 +482,28 @@
         "hidden": false
       }
     },
+
     "golden_dragon_fist": {
       "id": "golden_dragon_fist",
       "name": "Punho do Dragão Dourado",
-      "nivel": 0,
+      "types": ["damage"],
       "activation": "active",
       "class": "monk",
       "origin": "technique",
-      "desc": "Assume a postura do Dragão Dourado para realizar uma sequência de ataques.",
+      "summary": "Assume a postura do Dragão Dourado para realizar uma sequência de ataques.",
       "requirements": {
         "attributes": {
           "for": 20,
           "des": 18,
           "agi": 16,
-          "vit": 14,
-          "rac": 0,
-          "ins": 0,
-          "san": 0,
-          "aur": 0
+          "vit": 14
         },
-        "habilidades": [],
         "niveis": {
           "personagem": 5
-        },
-        "especie": []
+        }
       },
-      "mechanics": {
-        "text": "Teste de Força (CD5): O primeiro golpe causa 1d20 de dano contundente. Teste de Destreza (CD10): O segundo golpe acerta um ponto fraco do alvo, causando 1d12 de dano verdadeiro. Teste de Agilidade (CD15): O terceiro golpe derruba o alvo, incapacitando-o por um turno. Teste de Vitalidade (CD20): O quarto golpe atira todo o peso do próprio corpo no inimigo, causando 2d20 de dano no alvo e 1d20 de dano em si mesmo. O custo de Energia desta Habilidade aumenta em +10 a cada acerto.",
-        "formulas": [
-          {
-            "tipo": "",
-            "formula": ""
-          }
-        ],
-        "alcance": {
-          "tipo": "TOQUE",
-          "distancia": 0
-        },
-        "area": {
-          "tipo": "ALVO_UNICO"
-        },
-        "duracao": 0
-      },
+      "desc": "Teste de Força (CD5): O primeiro golpe causa 1d20 de dano contundente. Teste de Destreza (CD10): O segundo golpe acerta um ponto fraco do alvo, causando 1d12 de dano verdadeiro. Teste de Agilidade (CD15): O terceiro golpe derruba o alvo, incapacitando-o por um turno. Teste de Vitalidade (CD20): O quarto golpe atira todo o peso do próprio corpo no inimigo, causando 2d20 de dano no alvo e 1d20 de dano em si mesmo. O custo de Energia desta Habilidade aumenta em +10 a cada acerto.",
       "cost": {
-        "mana": null,
-        "vida": null,
         "energy": 10
       },
       "tags": ["monge"],
