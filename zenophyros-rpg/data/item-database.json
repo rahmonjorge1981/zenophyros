@@ -1,4 +1,46 @@
 {
-  "schema": "zenophyros.itens.v2",
-  "itens": {}
+  "schema": "zenophyros.items.v2",
+  "items": {
+    "iron_sword": {
+      "id": "iron_sword",
+      "name": "Espada de Ferro",
+      "types": ["equipment"],
+      "class": "physical_weapon",
+      "weight": "medium",
+      "rarity": "common",
+      "estimatedValue": "5G"
+    },
+
+    "iron_armor": {
+      "id": "iron_armor",
+      "name": "Armadura de Ferro",
+      "types": ["equipment"],
+      "class": "armor",
+      "weight": "heavy",
+      "requirements": {
+        "attributes": {
+          "for": 12
+        },
+        "rarity": "common",
+        "estimatedValue": "15G"
+      }
+    },
+
+    "mana_crystal": {
+      "id": "mana_crystal",
+      "name": "Cristal de Mana",
+      "types": ["consumable"],
+      "rarity": "uncommon",
+      "estimatedValue": "25G"
+    },
+
+    "grimoire_of_athovar": {
+      "id": "grimoire_of_athovar",
+      "name": "Grimório de Athovar",
+      "types": ["magical"],
+      "rarity": "unique",
+      "description": "[lore]",
+      "estimatedValue": "+100G"
+    }
+  }
 }
