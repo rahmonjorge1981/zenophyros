@@ -457,7 +457,7 @@
     "fire_punch": {
       "id": "fire_punch",
       "name": "Soco Flamejante",
-      "types": ["buff","damages"],
+      "types": ["buff","damage"],
       "activation": "active",
       "class": "monk",
       "origin": "magic",
