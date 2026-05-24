@@ -283,7 +283,7 @@
       "activation": "reactive",
       "class": "cleric",
       "origin": "prayer",
-      "types": ["fate","effect, buff"],
+      "types": ["fate", "effect", "buff"],
       "summary": "Você pode escolher sacrificar um aliado saudável para salvar um outro aliado à beira da morte, ou vice versa.",
       "requirements": {
         "attributes": {
@@ -457,7 +457,7 @@
     "fire_punch": {
       "id": "fire_punch",
       "name": "Soco Flamejante",
-      "types": ["buff","damage"],
+      "types": ["buff","damages"],
       "activation": "active",
       "class": "monk",
       "origin": "magic",

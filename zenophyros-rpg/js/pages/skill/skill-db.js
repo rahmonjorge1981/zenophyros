@@ -30,6 +30,15 @@ window.SkillDB = (() => {
 
     if (!validTypes) {
       errors.push(`Skill "${skillId}" has an invalid "types" field.`);
+      return;
+    }
+
+    for (const type of skill.types) {
+      const isValidType = type in window.SKILL_ENUMS.type;
+
+      if (!isValidType) {
+        errors.push(`Skill "${skillId}" has an invalid type: "${type}".`);
+      }
     }
   }
 

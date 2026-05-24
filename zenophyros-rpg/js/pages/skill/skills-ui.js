@@ -116,7 +116,7 @@ function openModal(skill, botaoOrigem = 0) {
     return;
   }
 
-  fillModalBody(skill);
+  renderModal(skill);
 
   skillModal.classList.remove("hidden");
 }
@@ -157,7 +157,7 @@ function closeModal() {
 /** ------------------------------ RENDERS THE MODAL OF AN ITEM ------------------------------ */
 
 /** Function that builds the modal of an item based on its content */
-function fillModalBody(skill) {
+function renderModal(skill) {
 
   // Skill Name
   document.getElementById("skill-name").textContent = skill.name;
