@@ -16,7 +16,7 @@ window.ItemDB = (() => {
   function validateDatabase(database) {
     const errors = [];
 
-    for (const [itemId, item] of Object.entries(database.items)) {
+    for (const [itemId, item] of Object.entries(database)) {
       validateItemTypes(itemId, item, errors);
     }
 
@@ -25,9 +25,9 @@ window.ItemDB = (() => {
     }
 
     console.log(
-      `Database validation successful. Items: ${Object.keys(database.items).length ?? 0}`,
+      `Database validation successful. Items: ${Object.keys(database).length}`,
     );
-    console.log(database.items);
+    console.log(database);
   }
 
   function validateItemTypes(itemId, item, errors) {
