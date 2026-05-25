@@ -60,8 +60,6 @@ function renderItemCard(item) {
         ${renderBadgeList(item.types, ITEM_ENUMS.type)}
         ${item.class ? `<span class="item-badge"> ${classLabel} </span>` : ""}
       </div>
-
-      <p class="item-summary"> ${item.summary} </p>
     `;
 
   card.addEventListener("click", () => openModal(item));
