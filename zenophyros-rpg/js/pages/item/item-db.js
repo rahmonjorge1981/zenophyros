@@ -63,9 +63,26 @@ window.ItemDB = (() => {
     return database[itemId] || null;
   }
 
-  function filter(filtersData) {}
+  function filter(filtersData) {
+    const { query, itemClass, types } = filtersData;
+
+    return items.filter((item) => {
+      const matchName = (item.name || "").toLowerCase().includes(query);
+
+      const matchQuery = !query || matchName;
+
+      const matchTypes = !types || item.types?.includes(types);
+
+      const matchClass = !itemClass || item.class === itemClass;
+
+      return matchQuery && matchClass && matchTypes;
+    });
+  }
 
   function sortByName(itemsArray) {
+    if (!Array.isArray(itemsArray)) {
+      throw new TypeError("sortByName expects an array");
+    }
     return [...itemsArray].sort((a, b) => {
       return a.name.localeCompare(b.name);
     });
