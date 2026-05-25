@@ -16,13 +16,18 @@ window.ItemDB = (() => {
   function validateDatabase(database) {
     const errors = [];
 
-    for (const [itemId, item] of Object.entries(database)) {
+    for (const [itemId, item] of Object.entries(database.items)) {
       validateItemTypes(itemId, item, errors);
     }
 
     if (errors.length > 0) {
       throw new Error(`Database validation failed:\n\n${errors.join("\n")}`);
     }
+
+    console.log(
+      `Database validation successful. Items: ${Object.keys(database.items).length ?? 0}`,
+    );
+    console.log(database.items);
   }
 
   function validateItemTypes(itemId, item, errors) {
@@ -58,9 +63,7 @@ window.ItemDB = (() => {
     return database[itemId] || null;
   }
 
-  function filter(filtersData) {
-    
-  }
+  function filter(filtersData) {}
 
   function sortByName(itemsArray) {
     return [...itemsArray].sort((a, b) => {
