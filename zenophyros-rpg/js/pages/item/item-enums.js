@@ -1,5 +1,5 @@
 window.ITEM_ENUMS = {
-  types: {
+  type: {
     equipment: { label: "Equipamento" },
     consumable: { label: "Consumível" },
     magical: { label: "Item Mágico" },
