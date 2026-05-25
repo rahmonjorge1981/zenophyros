@@ -34,7 +34,7 @@ window.ItemDB = (() => {
     }
 
     for (const type of item.types) {
-      const isValidType = type in window.ITEM_ENUMS.type;
+      const isValidType = type in ITEM_ENUMS.type;
 
       if (!isValidType) {
         errors.push(`Item "${itemId}" has an invalid type: "${type}".`);
