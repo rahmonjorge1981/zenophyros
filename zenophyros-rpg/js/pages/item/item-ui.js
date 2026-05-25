@@ -36,7 +36,7 @@ function renderItems(itemsArray) {
     `Itens: ${visibleItems.length}`;
 
   visibleItems
-    .filter((item) => !item.metadata.hidden)
+    .filter((item) => !item.metadata?.hidden)
     .forEach((item) => {
       itemsList.appendChild(renderItemCard(item));
     });
