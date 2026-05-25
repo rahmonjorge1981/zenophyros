@@ -7,9 +7,9 @@ window.ItemDB = (() => {
   async function load() {
     const itemsData = await carregarJSON(DATABASE_PATH);
 
-    validateDatabase(itemsData.habilidades);
+    validateDatabase(itemsData.items);
 
-    database = itemsData.habilidades;
+    database = itemsData.items;
     items = Object.values(database);
   }
 
