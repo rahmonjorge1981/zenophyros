@@ -5,7 +5,7 @@ function renderFilterOptions(filters) {
   appendOptions(filters.types, ITEM_ENUMS.type);
 }
 
-/** Populates the <option>s of a <select> based on a enumObject. <--------- EXTRACT THIS TO UTILS.JS LATER */ 
+/** Populates the <option>s of a <select> based on a enumObject. <--------- EXTRACT THIS TO UTILS.JS LATER */
 function appendOptions(selectElement, enumObject) {
   if (enumObject == null) {
     console.error(
@@ -45,6 +45,26 @@ function renderItems(itemsArray) {
 /** Render a item card. */
 function renderItemCard(item) {
   
+  const card = document.createElement("article");
+
+  card.className = "item-card";
+
+  card.innerHTML = `
+      <div class="item-top">
+        <h2 class="item-name"> ${item.name} </h2>
+      </div>
+
+      <div class="item-meta">
+        ${renderBadgeList(item.types, item_ENUMS.type)}
+        ${item.class ? `<span class="item-badge"> ${classLabel} </span>` : ""}
+      </div>
+
+      <p class="item-summary"> ${item.summary} </p>
+    `;
+
+  card.addEventListener("click", () => openModal(item));
+
+  return card;
 }
 
 /** Helper para o renderItemCard. Cria vários <span "item-tag"> com base em uma lista 'items' e um 'enumMap'.
@@ -53,7 +73,8 @@ function renderItemCard(item) {
 function renderBadgeList(items, enumMap) {
   if (!items?.length) return "";
 
-  return items.map((item) => {
+  return items
+    .map((item) => {
       const label = getLabelFromEnum(enumMap, item);
 
       return `<span class="item-badge"> ${label} </span>`;
@@ -85,7 +106,7 @@ function addModalEvents() {
   const closeButton = document.getElementById("close-modal");
 
   if (!itemModal || !closeButton) {
-    console.log("Item Modal or Close Button not found")
+    console.log("Item Modal or Close Button not found");
     return;
   }
 
@@ -116,13 +137,9 @@ function closeModal() {
 
 /** Function that builds the modal of an item based on its content */
 function renderModal(item) {
-
   // Item Name
   document.getElementById("item-name").textContent = item.name;
-  
 }
 
 /** Helper function for the renderModal. */
-function formatRequirements(reqs) {
-  
-}
+function formatRequirements(reqs) {}
