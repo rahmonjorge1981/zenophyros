@@ -45,6 +45,8 @@ function renderItems(itemsArray) {
 /** Render a item card. */
 function renderItemCard(item) {
 
+  const classLabel = getLabelFromEnum(ITEM_ENUMS.class, item.class);
+
   const card = document.createElement("article");
 
   card.className = "item-card";
