@@ -44,7 +44,7 @@ function renderItems(itemsArray) {
 
 /** Render a item card. */
 function renderItemCard(item) {
-  
+
   const card = document.createElement("article");
 
   card.className = "item-card";
@@ -55,7 +55,7 @@ function renderItemCard(item) {
       </div>
 
       <div class="item-meta">
-        ${renderBadgeList(item.types, item_ENUMS.type)}
+        ${renderBadgeList(item.types, ITEM_ENUMS.type)}
         ${item.class ? `<span class="item-badge"> ${classLabel} </span>` : ""}
       </div>
 
