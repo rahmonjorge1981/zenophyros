@@ -20,7 +20,12 @@
       "cost": {
         "energy": 25
       },
-      "tags": []
+      "tags": [],
+      "metadata": {
+        "version": 1,
+        "beta": true,
+        "hidden": false
+      }
     },
 
     "thunder_punch": {
