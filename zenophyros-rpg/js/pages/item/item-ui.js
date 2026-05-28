@@ -144,7 +144,7 @@ function renderModal(item) {
   // Type
   document.getElementById("type-badge").textContent = getLabelFromEnum(
     ITEM_ENUMS.type,
-    item.type[0],
+    item.types[0],
   );
 
   // Weight Class (optional)
