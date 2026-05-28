@@ -139,6 +139,9 @@ function closeModal() {
 function renderModal(item) {
   // Item Name
   document.getElementById("item-name").textContent = item.name;
+
+  // Estimated Value
+  document.getElementById("item-value").textContent = item.estimatedValue;
 }
 
 /** Helper function for the renderModal. */
