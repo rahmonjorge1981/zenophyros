@@ -141,8 +141,9 @@ function renderModal(item) {
   document.getElementById("item-name").textContent = item.name;
 
   // Weight Class (optional)
-  document.getElementById("weight-section").hidden = !item.weight;
-  document.getElementById("item-weight").textContent = getLabelFromEnum(ITEM_ENUMS.weight, item.weight) || "";
+  const weightBadge = document.getElementById("weight-badge");
+  weightBadge.hidden = !item.weight;
+  weightBadge.textContent = getLabelFromEnum(ITEM_ENUMS.weight, item.weight) || "";
 
   // Estimated Value
   document.getElementById("item-value").textContent = item.estimatedValue;
