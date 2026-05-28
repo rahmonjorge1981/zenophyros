@@ -18,6 +18,7 @@ window.SkillDB = (() => {
 
     for (const [skillId, skill] of Object.entries(database)) {
       validateSkillTypes(skillId, skill, errors);
+      validateSkillMetadata(skillId, skill, errors);
     }
 
     if (errors.length > 0) {
@@ -39,6 +40,22 @@ window.SkillDB = (() => {
       if (!isValidType) {
         errors.push(`Skill "${skillId}" has an invalid type: "${type}".`);
       }
+    }
+  }
+
+  function validateSkillMetadata(skillId, skill, errors) {
+    if (!skill.metadata || typeof skill.metadata !== "object") {
+      errors.push(`Skill "${skillId}" is missing "metadata".`);
+      return;
+    }
+
+    if (!("hidden" in skill.metadata)) {
+      errors.push(`Skill "${skillId}" is missing "metadata.hidden".`);
+      return;
+    }
+
+    if (typeof skill.metadata.hidden !== "boolean") {
+      errors.push(`Skill "${skillId}" has a non-boolean "metadata.hidden".`);
     }
   }
 

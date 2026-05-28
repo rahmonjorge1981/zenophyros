@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Itens</title>
+
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/items-page.css" />
+
+    <link rel="icon" type="image/png" href="./assets/newicon-192.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jersey+25&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <main class="container">
+      <section class="frame items-page">
+        <header class="items-header">
+          <h1>Itens</h1>
+
+          <span id="items-count" class="items-count"> Itens: 0 </span>
+
+          <div class="items-toolbar">
+            <input
+              type="text"
+              id="search-input"
+              placeholder="Pesquisar item..."
+            />
+
+            <select id="filter-types">
+              <option value="">Todos os Tipos</option>
+            </select>
+
+            <select id="filter-class">
+              <option value="">Todas as Classes</option>
+            </select>
+          </div>
+        </header>
+
+        <section id="items-list" class="items-list">
+          <!-- LIST OF ITEMS CONTROLLED BY JS -->
+        </section>
+
+        <!-- MODAL DE ITEM -->
+        <div id="item-modal" class="item-modal hidden">
+          <div class="item-modal-content">
+            <button id="close-modal" class="modal-close">X</button>
+
+            <div id="modal-body">
+              <h2 id="item-name">item-name</h2>
+
+              <div class="modal-badges">
+                <span id="type-badge" class="item-badge">type-label</span>
+                <span id="item-class-badge" class="item-badge">type-label</span>
+              </div>
+
+              <div if="description-section" class="modal-section">
+                <h3>Descrição</h3>
+                <p id="item-description">item-description</p>
+              </div>
+
+              <div id="requirements-section" class="modal-section">
+                <h3>Requisitos</h3>
+
+                <div id="item-requirements" class="modal-box">
+                  item-requirements
+                </div>
+              </div>
+
+              <div id="effect-section" class="modal-section">
+                <h3>Efeito</h3>
+                <p id="item-effect">item-effect</p>
+              </div>
+
+              <div id="weight-section" class="modal-section">
+                <h3>Classe de Peso</h3>
+                <div class="modal-badges">
+                  <span id="weight-badge" class="item-badge">weight-badge</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="modal-section">
+              <h3>Valor Estimado</h3>
+              <p id="item-value">item-value</p>
+            </div>
+
+            <div class="modal-id">ID: <code id="item-id">item-id</code></div>
+          </div>
+        </div>
+      </section>
+      <a href="index.html" class="botao-link">
+        <img src="./assets/icons/home-solid.svg" class="icon" alt="" />
+        Menu
+      </a>
+    </main>
+    <footer id="site-footer"><!-- Filled by footer.js--></footer>
+
+    <script src="./js/utils.js"></script>
+    <script src="./js/footer.js"></script>
+    <script src="./js/pages/item/item-enums.js"></script>
+    <script src="./js/pages/item/item-db.js"></script>
+    <script src="./js/pages/item/item-ui.js"></script>
+    <script src="./js/pages/items-page.js"></script>
+  </body>
+</html>

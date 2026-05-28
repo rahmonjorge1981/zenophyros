@@ -171,8 +171,7 @@ function renderModal(skill) {
 
   // Skill Class (optional)
   const classBadge = document.getElementById("class-badge");
-  const skillClass = skill.class;
-  classBadge.hidden = !skillClass;
+  classBadge.hidden = !skill.class;
   classBadge.textContent =
     getLabelFromEnum(SKILL_ENUMS.class, skill.class) || "";
 
@@ -210,9 +209,8 @@ function renderModal(skill) {
   document.getElementById("skill-desc").textContent = skill.desc;
 
   // Skill Critical (optional)
-  const critical = skill.critical;
-  document.getElementById("critical-section").hidden = !critical;
-  document.getElementById("skill-critical").textContent = critical || "";
+  document.getElementById("critical-section").hidden = !skill.critical;
+  document.getElementById("skill-critical").textContent = skill.critical || "";
 
   // Skill Cost (optional)
   const cost = skill.cost;
@@ -240,6 +238,8 @@ function renderModal(skill) {
   // Skill ID
   document.getElementById("skill-id").textContent = skill.id;
 }
+
+
 
 /** Helper function for the renderModal. */
 function formatCost(custo) {

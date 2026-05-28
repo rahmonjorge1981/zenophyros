@@ -2,6 +2,32 @@
   "schema": "zenophyros.habilidades.v2",
   "habilidades": {
 
+    "phantom_blade": {
+      "id": "phantom_blade",
+      "name": "Lâmina Espectral",
+      "summary": "Causa dano baseado na vida máxima.",
+      "activation": "active",
+      "context": "in_combat",
+      "types": ["damage"],
+      "desc": "Causa 1d10% da vida máxima em dano final.",
+      "class": "warrior",
+      "origin": "technique",
+      "requirements": {
+        "attributes": {
+          "aur": 18
+        }
+      },
+      "cost": {
+        "energy": 25
+      },
+      "tags": [],
+      "metadata": {
+        "version": 1,
+        "beta": true,
+        "hidden": false
+      }
+    },
+
     "thunder_punch": {
       "id": "thunder_punch",
       "name": "Soco Elétrico",

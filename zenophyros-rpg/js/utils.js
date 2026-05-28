@@ -1,5 +1,5 @@
 window.APP_CONFIG = {
-  version: "v0.9.3-alpha",
+  version: "0.10.0-alpha",
   name: "Zenophyros",
 };
 
@@ -95,6 +95,10 @@ function getLabelFromEnum(enumGroup, value) {
     throw new TypeError(
       "getLabelFromEnum: enumGroup deve ser um objeto válido"
     );
+  }
+
+  if (!value) {
+    console.log("This value is null.");
   }
 
   return enumGroup[value]?.label ?? value;
