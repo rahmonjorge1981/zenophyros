@@ -156,6 +156,14 @@ function renderModal(item) {
   // Description
   document.getElementById("item-description").textContent = item.description;
 
+  // Requirements (optional)
+  const req = item.requirements;
+  const hasRequirements = req && (req.attributes || req.level);
+  document.getElementById("requirements-section").hidden = !hasRequirements;
+  document.getElementById("item-requirements").textContent = hasRequirements
+    ? formatRequirements(req)
+    : "";
+
   // Effect
   document.getElementById("item-effect").textContent = item.effect;
 
@@ -170,4 +178,27 @@ function renderModal(item) {
 }
 
 /** Helper function for the renderModal. */
-function formatRequirements(reqs) {}
+function formatRequirements(reqs) {
+  if (!reqs) {
+    console.log("No requirements object to format.");
+    return null;
+  }
+
+  const rows = [];
+
+  if (reqs.attributes) {
+    Object.entries(reqs.attributes).forEach(([attribute, value]) => {
+      rows.push(`${attribute.toUpperCase()} ${value}`);
+    });
+  }
+  else {
+    console.error("No reqs.attributes found.");
+  }
+
+  if (rows.length === 0) {
+    return "Nenhum";
+  }
+
+  return rows.join(", ");
+}
+
