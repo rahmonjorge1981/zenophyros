@@ -17,12 +17,12 @@
       "types": ["equipment"],
       "class": "armor",
       "weight": "heavy",
+      "rarity": "common",
+      "estimatedValue": "15G",
       "requirements": {
         "attributes": {
           "for": 12
-        },
-        "rarity": "common",
-        "estimatedValue": "15G"
+        }
       }
     },
 
@@ -40,7 +40,7 @@
       "types": ["magical"],
       "rarity": "unique",
       "description": "[lore]",
-      "estimatedValue": "+100G"
+      "estimatedValue": "100G+"
     }
   }
 }
