@@ -4,6 +4,8 @@
     "iron_sword": {
       "id": "iron_sword",
       "name": "Espada de Ferro",
+      "description": "Uma espada simples e resistente, forjada em ferro comum.",
+      "effect": "Causa 1d6 de dano cortante.",
       "types": ["equipment"],
       "class": "physical_weapon",
       "weight": "medium",
@@ -14,6 +16,8 @@
     "iron_armor": {
       "id": "iron_armor",
       "name": "Armadura de Ferro",
+      "description": "Uma armadura pesada que oferece boa proteção contra ataques físicos.",
+      "effect": "Concede +10 de armadura contra ataques cortantes ou perfurantes.",
       "types": ["equipment"],
       "class": "armor",
       "weight": "heavy",
@@ -29,6 +33,8 @@
     "mana_crystal": {
       "id": "mana_crystal",
       "name": "Cristal de Mana",
+      "description": "Um pequeno cristal azulado e transparente.",
+      "effect": "Restaura 50 de mana ao ser quebrado.",
       "types": ["consumable"],
       "rarity": "uncommon",
       "estimatedValue": "25G"
@@ -37,9 +43,10 @@
     "grimoire_of_athovar": {
       "id": "grimoire_of_athovar",
       "name": "Grimório de Athovar",
+      "description": "Um grimório antigo repleto de conhecimentos esquecidos.",
+      "effect": "???",
       "types": ["magical"],
       "rarity": "unique",
-      "description": "[lore]",
       "estimatedValue": "100G+"
     }
   }

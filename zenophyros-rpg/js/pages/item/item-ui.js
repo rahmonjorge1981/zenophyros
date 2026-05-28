@@ -137,14 +137,24 @@ function closeModal() {
 
 /** Function that builds the modal of an item based on its content */
 function renderModal(item) {
+  
   // Item Name
   document.getElementById("item-name").textContent = item.name;
 
-  // Type
-  document.getElementById("type-badge").textContent = getLabelFromEnum(
-    ITEM_ENUMS.type,
-    item.type,
-  );
+  // Types
+  const typesContainer = document.getElementById("item-types");
+  const types = item.types || [];
+
+  typesContainer.hidden = types.length === 0;
+  typesContainer.innerHTML = types
+    .map(
+      (type) => `
+      <span class="item-badge">
+        ${getLabelFromEnum(ITEM_ENUMS.type, type) || type}
+      </span>
+    `,
+    )
+    .join("");
 
   // Weight Class (optional)
   const weightBadge = document.getElementById("weight-badge");
