@@ -140,8 +140,9 @@ function renderModal(item) {
   // Item Name
   document.getElementById("item-name").textContent = item.name;
 
-  // Weight Class
-  document.getElementById("item-weight").textContent = item.weight;
+  // Weight Class (optional)
+  document.getElementById("weight-section").hidden = !skill.weight;
+  document.getElementById("item-weight").textContent = getLabelFromEnum(ITEM_ENUMS.weight, item.weight) || "";
 
   // Estimated Value
   document.getElementById("item-value").textContent = item.estimatedValue;
