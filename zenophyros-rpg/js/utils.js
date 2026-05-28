@@ -97,5 +97,9 @@ function getLabelFromEnum(enumGroup, value) {
     );
   }
 
+  if (!value) {
+    console.log("This value is null.");
+  }
+
   return enumGroup[value]?.label ?? value;
 }

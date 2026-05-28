@@ -150,7 +150,7 @@ function renderModal(item) {
     .map(
       (type) => `
       <span class="item-badge">
-        ${getLabelFromEnum(ITEM_ENUMS.type, type) || type}
+        ${getLabelFromEnum(ITEM_ENUMS.type, types) || types}
       </span>
     `,
     )
