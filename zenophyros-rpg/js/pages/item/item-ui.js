@@ -147,6 +147,12 @@ function renderModal(item) {
     item.types[0],
   );
 
+  // Class (optional)
+  const classBadge = document.getElementById("item-class-badge");
+  const itemClass = item.class;
+  classBadge.hidden = !itemClass;
+  classBadge.textContent = getLabelFromEnum(ITEM_ENUMS.class, itemClass) || "";
+
   // Description
   document.getElementById("item-description").textContent = item.description;
 

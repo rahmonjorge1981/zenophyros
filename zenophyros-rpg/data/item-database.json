@@ -10,7 +10,7 @@
       "class": "physical_weapon",
       "weight": "medium",
       "rarity": "common",
-      "estimatedValue": "5G"
+      "estimatedValue": "5 G"
     },
 
     "iron_armor": {
@@ -22,7 +22,7 @@
       "class": "armor",
       "weight": "heavy",
       "rarity": "common",
-      "estimatedValue": "15G",
+      "estimatedValue": "15 G",
       "requirements": {
         "attributes": {
           "for": 12
@@ -37,7 +37,7 @@
       "effect": "Restaura 50 de mana ao ser quebrado.",
       "types": ["consumable"],
       "rarity": "uncommon",
-      "estimatedValue": "25G"
+      "estimatedValue": "25 G"
     },
 
     "grimoire_of_athovar": {
@@ -47,7 +47,7 @@
       "effect": "???",
       "types": ["magical"],
       "rarity": "unique",
-      "estimatedValue": "100G+"
+      "estimatedValue": "100+ G"
     }
   }
 }
