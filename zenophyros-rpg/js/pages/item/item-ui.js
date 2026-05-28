@@ -140,6 +140,12 @@ function renderModal(item) {
   // Item Name
   document.getElementById("item-name").textContent = item.name;
 
+  // Type
+  document.getElementById("type-badge").textContent = getLabelFromEnum(
+    ITEM_ENUMS.type,
+    item.type,
+  );
+
   // Weight Class (optional)
   const weightBadge = document.getElementById("weight-badge");
   weightBadge.hidden = !item.weight;
