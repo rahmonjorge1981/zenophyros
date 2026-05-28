@@ -146,11 +146,12 @@ function renderModal(item) {
   const types = item.types || [];
 
   typesContainer.hidden = types.length === 0;
+  console.log(item.types);
   typesContainer.innerHTML = types
     .map(
-      (types) => `
+      (type) => `
       <span class="item-badge">
-        ${getLabelFromEnum(ITEM_ENUMS.type, types) || types}
+        ${getLabelFromEnum(ITEM_ENUMS.type, type) || type}
       </span>
     `,
     )
