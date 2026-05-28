@@ -147,6 +147,12 @@ function renderModal(item) {
     item.types[0],
   );
 
+  // Description
+  document.getElementById("item-description").textContent = item.description;
+
+  // Effect
+  document.getElementById("item-effect").textContent = item.effect;
+
   // Weight Class (optional)
   const weightBadge = document.getElementById("weight-badge");
   weightBadge.hidden = !item.weight;
