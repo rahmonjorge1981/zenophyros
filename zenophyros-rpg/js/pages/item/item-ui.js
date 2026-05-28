@@ -146,7 +146,7 @@ function renderModal(item) {
   const types = item.types || [];
 
   typesContainer.hidden = types.length === 0;
-  console.log(item.types);
+  console.log("item.types: ",item.types);
   typesContainer.innerHTML = types
     .map(
       (type) => `
