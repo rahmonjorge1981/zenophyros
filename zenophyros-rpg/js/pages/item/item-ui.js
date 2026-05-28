@@ -157,6 +157,7 @@ function renderModal(item) {
   const weightBadge = document.getElementById("weight-badge");
   weightBadge.hidden = !item.weight;
   weightBadge.textContent = getLabelFromEnum(ITEM_ENUMS.weight, item.weight) || "";
+  document.getElementById("weight-section").hidden = !item.weight;
 
   // Estimated Value
   document.getElementById("item-value").textContent = item.estimatedValue;
