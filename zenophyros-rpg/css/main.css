@@ -232,12 +232,12 @@ label {
   text-overflow: ellipsis;
 }
 
-.botao-item,
+.botao-item:hover,
 .botao-habilidade:hover {
   filter: brightness(1.1);
 }
 
-.botao-item,
+.botao-item:active,
 .botao-habilidade:active {
   transform: translate(2px, 2px);
 
