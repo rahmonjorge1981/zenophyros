@@ -36,7 +36,6 @@ body {
   align-items: center; /* centraliza horizontalmente */
   flex: 1; /* cresce de tamanho e ocupa todo o espaço disponível */
   gap: 15px;
-
 }
 
 /* Isto aqui é layout que controla aparência. Não misturar responsabilidade com componente */
@@ -203,6 +202,14 @@ label {
   margin-top: 4px;
 }
 
+.grade-inventario {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.botao-item,
 .botao-habilidade {
   height: 56px;
   padding: 6px;
@@ -225,10 +232,12 @@ label {
   text-overflow: ellipsis;
 }
 
+.botao-item,
 .botao-habilidade:hover {
   filter: brightness(1.1);
 }
 
+.botao-item,
 .botao-habilidade:active {
   transform: translate(2px, 2px);
 

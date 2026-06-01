@@ -1,5 +1,5 @@
 window.APP_CONFIG = {
-  version: "0.10.0-alpha",
+  version: "0.11.0-unreleased",
   name: "Zenophyros",
 };
 
@@ -16,7 +16,7 @@ const DEBUG_LOGS = false;
 
 // Carrega um arquivo .json para o código.
 async function carregarJSON(caminho) {
-  // CHECK IF RUNNING ON FILE OR SERVER
+  // CHECK IF RUNNING ONre FILE OR SERVER
 
   const isLocalFile = window.location.protocol === "file:";
 
